@@ -15,9 +15,9 @@ import (
 // ---------------- interfaz generica ----------------
 
 type Game interface {
-	Legal(s any) []any               // acciones legales desde s
-	Play(s any, a any) any           // transicion
-	Terminal(s any) (bool, float64)  // fin?, valor para quien busca
+	Legal(s any) []any              // acciones legales desde s
+	Play(s any, a any) any          // transicion
+	Terminal(s any) (bool, float64) // fin?, valor para quien busca
 }
 
 // ---------------- motor MCTS generico (PUCT) ----------------
@@ -162,6 +162,10 @@ func main() {
 		Curriculum(12, 150, 2000, "model_math.json", 1)
 		return
 	}
+	if len(os.Args) > 1 && os.Args[1] == "cycle" {
+		CycleMain(os.Args[2:])
+		return
+	}
 	// 1) TicTacToe: bench de velocidad del motor (sin red)
 	g := TicTacToe{}
 	games, sims := 100, 50
@@ -189,7 +193,7 @@ func main() {
 	for _, cfg := range []struct {
 		k   string
 		cap int
-	}{{ "4", 2000 }, { "6", 4000 }} {
+	}{{"4", 2000}, {"6", 4000}} {
 		probs := LoadProblems("problems.json", cfg.k)
 		ok, nodes := 0, 0
 		for _, p := range probs {
