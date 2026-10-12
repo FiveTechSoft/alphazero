@@ -1,0 +1,41 @@
+// Datos embebidos: el ejecutable funciona solo, sin ficheros al lado.
+// Si levels.json/blind.json existen en el directorio (o en el padre), se
+// usan esos (mismo comportamiento de siempre); si no, los embebidos.
+package main
+
+import (
+	_ "embed"
+	"os"
+)
+
+//go:embed blind.json
+var embeddedBlind []byte
+
+//go:embed levels.json
+var embeddedLevels []byte
+
+//go:embed model_math.json
+var embeddedModel []byte
+
+//go:embed lemas.json
+var embeddedLemas []byte
+
+func readDataFile(path string) []byte {
+	if data, err := os.ReadFile(path); err == nil {
+		return data
+	}
+	if data, err := os.ReadFile("../" + path); err == nil {
+		return data
+	}
+	switch path {
+	case "blind.json":
+		return embeddedBlind
+	case "levels.json":
+		return embeddedLevels
+	case "model_math.json":
+		return embeddedModel
+	case "lemas.json":
+		return embeddedLemas
+	}
+	return nil
+}
