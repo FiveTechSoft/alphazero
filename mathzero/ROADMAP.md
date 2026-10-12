@@ -54,6 +54,7 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
   branching); la red aporta +150/700 sobre busqueda uniforme. Ver RESULTADOS_MEJORAS.md.
 - Juez (12 oct ~17:15, maquina quieta, 230 vectores, Rust 0 discrepancias):
   canon: Go 284.572 juicios/s, Rust 1.182.826 (4,2x). BFS: Go 5.160 nodos/s, Rust 5.472 (1,06x).
+- Checkpoints (higiene, aprobado 00:04): ciclo.go guarda model_math.json.best cuando la metrica fija mejora y model_math.json.nivel<N> al superar nivel. No toca motor ni eval.
 - CI (GitHub Actions): go y rust-c verdes (runs 30-40). Causa del fallo 'vet fantasma':
   directorios espurios mathzero/go/mathzero/go y thzero (pushes con ruta en el nombre);
   borrados, con go/go raiz incluido.
@@ -82,6 +83,7 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | E10 | Datos sinteticos neg-neg/add0 (25% del stream) contra el punto ciego de limpieza | propio (evalfail) | bajo | EN CURSO (aprobado 22:26) |
 | E11 | Motor con direccion en MAction + dedup de sucesores (bug medido: 30% acciones duplicadas, 1.044 r enmascaradas) | revision externa + direction_diag_test.go | bajo | APROBADO (23:53), en cola tras E9/E10 (cambiar el motor invalida la comparabilidad en curso) |
 | E12 | Ablacion factorial 2x2 (red x biblioteca) multisemilla, eval-only | revision externa | bajo | PROPUESTO, sin aprobar |
+| E13 | Puerta de aceptacion por set fijo (levels.json): quedarse con la red nueva solo si no baja (arena alpha-zero-general traducida a matematicas) | suragnair/alpha-zero-general | bajo | APROBADO (00:04), en cola tras E11 |
 | E3 | Curriculo "al borde" 20-80% (tipo STP) vs niveles k fijos, midiendo olvido | arXiv 2502.00212 | medio | pendiente |
 | E5 | Datos sinteticos por reescritura hacia delante como preentrenamiento | AlphaGeometry (Nature) | medio | pendiente |
 | E6 | Biblioteca estilo DreamCoder (macros frecuentes) | DreamCoder | medio | pendiente |
