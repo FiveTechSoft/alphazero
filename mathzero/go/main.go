@@ -90,6 +90,9 @@ func main() {
 		cap int
 	}{{"4", 2000}, {"6", 4000}} {
 		probs := LoadProblems("problems.json", cfg.k)
+		if len(probs) == 0 {
+			continue
+		}
 		ok, nodes := 0, 0
 		for _, p := range probs {
 			solved, n := BFSSolve(mg, p, cfg.cap)
