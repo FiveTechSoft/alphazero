@@ -8,8 +8,10 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"math/rand"
+	"os"
 	"strconv"
 )
 
@@ -109,9 +111,45 @@ func abReport(tag string, e blindEval) {
 		e.perLevel[6]+e.perLevel[7]+e.perLevel[8], e.nodes)
 }
 
+type ABArmJSON struct {
+	PorNivel map[string]int `json:"por_nivel"`
+	Total    int            `json:"total"`
+	K68      int            `json:"k6_8"`
+	NodosMed int            `json:"nodos_med"`
+}
+
+type ABResultJSON struct {
+	Experimento string    `json:"experimento"`
+	Semilla     int64     `json:"semilla"`
+	Rondas      int       `json:"rondas"`
+	PorRonda    int       `json:"por_ronda"`
+	Cap         int       `json:"cap"`
+	Baseline    ABArmJSON `json:"baseline"`
+	Variante    ABArmJSON `json:"variante"`
+}
+
+func armJSON(e blindEval) ABArmJSON {
+	pl := map[string]int{}
+	for k := 2; k <= 8; k++ {
+		pl[fmt.Sprintf("k%d", k)] = e.perLevel[k]
+	}
+	return ABArmJSON{PorNivel: pl, Total: e.total,
+		K68: e.perLevel[6] + e.perLevel[7] + e.perLevel[8], NodosMed: e.nodes}
+}
+
 func ABMain(args []string) {
+	wantJSON := false
+	var pos []string
+	for _, a := range args {
+		if a == "-json" {
+			wantJSON = true
+		} else {
+			pos = append(pos, a)
+		}
+	}
+	args = pos
 	if len(args) < 2 {
-		fmt.Println("uso: ./mathzero ab <e2|e4|e8> <semilla> [rondas] [por_ronda] [cap]")
+		fmt.Println("uso: ./mathzero ab <e2|e4|e8> <semilla> [rondas] [por_ronda] [cap] [-json]")
 		return
 	}
 	exp := args[0]
@@ -146,7 +184,22 @@ func ABMain(args []string) {
 	}
 	fmt.Printf("[ab %s seed=%d] rondas=%d por_ronda=%d cap=%d (sin biblioteca, mismo ciego)\n", exp, seed, rounds, per, cap)
 	base := trainArm(ExpCfg{}, seed, rounds, per, cap, blind)
-	abReport(fmt.Sprintf("%s seed=%d baseline", exp, seed), evalBlind(base, lv, cap))
+	ebase := evalBlind(base, lv, cap)
+	abReport(fmt.Sprintf("%s seed=%d baseline", exp, seed), ebase)
 	vnet := trainArm(vari, seed, rounds, per, cap, blind)
-	abReport(fmt.Sprintf("%s seed=%d variante", exp, seed), evalBlind(vnet, lv, cap))
+	evari := evalBlind(vnet, lv, cap)
+	abReport(fmt.Sprintf("%s seed=%d variante", exp, seed), evari)
+	if wantJSON {
+		out := ABResultJSON{
+			Experimento: exp, Semilla: seed, Rondas: rounds, PorRonda: per, Cap: cap,
+			Baseline: armJSON(ebase), Variante: armJSON(evari),
+		}
+		name := fmt.Sprintf("resultados_ab_%s_seed%d.json", exp, seed)
+		data, _ := json.MarshalIndent(out, "", "  ")
+		if err := os.WriteFile(name, data, 0o644); err != nil {
+			fmt.Println("[ab] error escribiendo", name, ":", err)
+		} else {
+			fmt.Println("[ab] resultados escritos en", name)
+		}
+	}
 }
