@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AlphaZero genérico - motor Go en WebAssembly</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 1.5em auto; padding: 0 1em; color: #1a1a1a; }
+  h1 { font-size: 1.4em; } h2 { font-size: 1.1em; margin-bottom: .3em; }
+  .panel { border: 1px solid #ccc; border-radius: 8px; padding: 1em; margin: 1em 0; }
+  #board { display: grid; grid-template-columns: repeat(3, 70px); gap: 6px; margin: .6em 0; }
+  #board button { width: 70px; height: 70px; font-size: 2em; cursor: pointer; }
+  button.ctl { margin-right: .5em; padding: .4em .9em; }
+  .expr { font-family: ui-monospace, monospace; background: #f5f5f5; padding: .2em .5em; border-radius: 4px; }
+  .step { margin: .25em 0; font-family: ui-monospace, monospace; font-size: .95em; }
+  .rule { color: #0b5cad; } .ok { color: #087f23; font-weight: 600; } .bad { color: #b00020; }
+  #status { color: #666; font-size: .9em; }
+  .stats { color: #444; font-size: .9em; margin-top: .4em; }
+</style>
+</head>
+<body>
+<h1>Motor genérico de autojuego estilo AlphaZero</h1>
+<p>El código que juega aquí es el <b>mismo motor Go</b> del repositorio
+(interfaz <code>Game</code> + MCTS/PUCT + redes entrenadas por autojuego),
+compilado a WebAssembly. Nada está reescrito en JavaScript: la página solo
+dibuja lo que el binario decide.</p>
+<p id="status">cargando motor…</p>
+
+<div class="panel">
+  <h2>Tres en raya — red entrenada (0 derrotas en 100 vs minimax)</h2>
+  <div id="board"></div>
+  <div>
+    <button class="ctl" id="b-new">Nueva partida</button>
+    <button class="ctl" id="b-engine">Mueve el motor</button>
+    <button class="ctl" id="b-self">Autojuego (red contra sí misma)</button>
+  </div>
+  <div class="stats" id="ttt-stats"></div>
+</div>
+
+<div class="panel">
+  <h2>MathRing — demostración de identidades con juez exacto</h2>
+  <div>
+    <select id="m-prob"></select>
+    <button class="ctl" id="b-solve">Demostrar con la red</button>
+  </div>
+  <p>Problema: <span class="expr" id="m-a"></span> = <span class="expr" id="m-b"></span></p>
+  <div id="m-steps"></div>
+  <div class="stats" id="m-stats"></div>
+</div>
+
+<script src="wasm_exec.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const SYM = { "1": "X", "-1": "O", "0": "" };
+let busy = false;
+
+async function boot() {
+  const go = new Go();
+  const r = await WebAssembly.instantiateStreaming(fetch("engine.wasm"), go.importObject);
+  go.run(r.instance);
+  $("status").textContent = "motor Go listo (WebAssembly). Redes cargadas: tres en raya + MathRing.";
+  drawBoard(JSON.parse(mzNewTTT()));
+  fillProblems();
+  if (new URLSearchParams(location.search).has("demo")) runDemo();
+}
+
+function drawBoard(st) {
+  const b = $("board"); b.innerHTML = "";
+  st.board.forEach((v, i) => {
+    const c = document.createElement("button");
+    c.textContent = SYM[String(v)];
+    c.disabled = v !== 0 || st.winner !== -2 || busy;
+    c.onclick = () => { drawBoard(JSON.parse(mzPlayTTT(i))); };
+    b.appendChild(c);
+  });
+  const w = st.winner;
+  $("ttt-stats").textContent =
+    w === -2 ? "en juego" : w === 0 ? "tablas" : (w === 1 ? "gana X" : "gana O");
+}
+
+$("b-new").onclick = () => drawBoard(JSON.parse(mzNewTTT()));
+$("b-engine").onclick = () => {
+  const r = JSON.parse(mzEngineTTT(50));
+  drawBoard(r);
+};
+$("b-self").onclick = async () => {
+  busy = true; drawBoard(JSON.parse(mzNewTTT()));
+  const g = JSON.parse(mzSelfTTT(50));
+  let st = JSON.parse(mzNewTTT());
+  for (const mv of g.moves) {
+    st = JSON.parse(mzPlayTTT(mv));
+    drawBoard(st); await sleep(450);
+  }
+  $("ttt-stats").textContent +=
+    ` — partida de ${g.moves.length} jugadas en ${g.ms} ms (red contra sí misma)`;
+  busy = false; drawBoard(st);
+};
+
+function fillProblems() {
+  const ps = JSON.parse(mzMathList());
+  const sel = $("m-prob");
+  ps.forEach(p => {
+    const o = document.createElement("option");
+    o.value = p.level + ":" + p.idx;
+    o.textContent = `k${p.level} #${p.idx}: ${p.a} = ${p.b}`;
+    sel.appendChild(o);
+  });
+  sel.onchange = showProb; showProb();
+}
+function curProb() { const [l, i] = $("m-prob").value.split(":"); return [l, +i]; }
+function showProb() {
+  const ps = JSON.parse(mzMathList());
+  const [l, i] = curProb();
+  const p = ps.find(x => x.level === l && x.idx === i);
+  $("m-a").textContent = p.a; $("m-b").textContent = p.b;
+  $("m-steps").innerHTML = ""; $("m-stats").textContent = "";
+}
+$("b-solve").onclick = async () => {
+  const [l, i] = curProb();
+  const r = JSON.parse(mzMathSolve(l, i, 2000));
+  const box = $("m-steps"); box.innerHTML = "";
+  for (const s of r.steps) {
+    const d = document.createElement("div");
+    d.className = "step";
+    d.innerHTML = `${s.from}  <span class="rule">→[${s.rule}]→</span>  ${s.to}`;
+    box.appendChild(d); await sleep(350);
+  }
+  $("m-stats").innerHTML = r.ok
+    ? `<span class="ok">demostrado</span> en ${r.steps.length} pasos, ${r.nodes} nodos de búsqueda, ${r.ms} ms. Juez exacto: forma canónica verificada.`
+    : `<span class="bad">no resuelto</span> dentro del cap (${r.nodes} nodos).`;
+};
+
+async function runDemo() {
+  await sleep(400);
+  $("b-self").click();
+  while (busy) await sleep(300);
+  $("b-solve").click();
+}
+
+boot().catch(e => { $("status").textContent = "error cargando el motor: " + e; });
+</script>
+</body>
+</html>
