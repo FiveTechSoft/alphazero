@@ -16,3 +16,29 @@
 ## Limites honestos
 - No hay red neuronal dentro del MCTS Go todavia; la red actual puntua pares (estado, accion) para busqueda mejor-primero.
 - Resultados de MathRing se miden con 30 problemas fijos por nivel; muestra pequena.
+
+## 12 oct 2026 (tarde) - decisiones y direccion (Anto)
+
+- "Verificado" pasa a significar: medido SOLO sobre el conjunto ciego
+  (blind.json, 700 problemas, 100/nivel, semilla 12345, excluido del entrenamiento).
+- Benchmark lenguajes (mediana): Go 2,93M / C 5,51M (1,88x) / Rust 5,74M (1,96x) sims/s.
+  Juez portado a Rust: 0 discrepancias en 230 vectores. Decision de lenguaje: Go se
+  queda como nucleo por ahora; Rust/C quedan medidos como opcion de aceleracion.
+- 8 experimentos de la literatura aprobados ("toma todo lo que nos sirva"):
+  E1 PUCT+red (HyperTree 2205.11491), E2 online, E3 curriculo al borde (STP 2502.00212),
+  E4 replay priorizado (2006.00283), E5 sinteticos (AlphaGeometry), E6 DreamCoder,
+  E7 test-time RL (AlphaProof), E8 transferencia. A/B mismo ciego+cap, 3 semillas.
+- Panel de capacidades aprobado como hito (h18): 7 metricas, 3 semillas, un comando,
+  tabla versionada, visible en la web. Solo medido.
+- "Queremos un AlphaZero muy profesional, no un juguete": eje Q anadido (tests+CI
+  primero, reproducibilidad, arquitectura, benchmarks, Guia para bobos, CLI, API,
+  empaquetado, metricas, evaluacion rigurosa).
+- MoE anotado como futuro CONDICIONADO (h22): expertos+router simple primero.
+- Minilaboratorio multiagente (h23), largo plazo tras laberinto: con/sin canal de
+  comunicacion, 3 semillas. Vision "placa de Petri" de Silver. Sin afirmar nada.
+- Comparacion con LLM (h20): mismo conjunto ciego + mismo juez exacto.
+- Idea Symbols (h21, vision): la red propone parches, el motor simbolico verifica.
+- Web publica: https://fivetechsoft.github.io/alphazero/ (Pages desde main:/docs).
+- Analisis de mejora continuo pedido por Anto: donde falla la red (k6-k8), cuellos
+  de botella (juez, evaluacion, arquitectura, curriculo), experimentos medibles
+  ordenados por impacto/coste, resumen periodico de que mejoro y que no.
