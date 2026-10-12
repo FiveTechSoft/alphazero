@@ -42,6 +42,8 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
 
 - Benchmark bucle MCTS TicTacToe (200 partidas x 100 sims, mediana):
   Go 2,93M sims/s; C 5,51M (1,88x); Rust 5,74M (1,96x). Detalle: RESULTADOS_BENCH.md.
+  MCTS en Rust: PRIORIDAD APARCADA (decision de Anto 22:31) - va detras de lemas/negaciones;
+  se reabre solo si las medidas muestran que la busqueda es el cuello de botella.
 - Juez Rust (h17): 230/230 vectores, 0 discrepancias (canonEq + BFS nodos exactos).
   Velocidad pendiente de medir en maquina quieta.
 - Conjunto ciego (12 oct, `./mathzero curve 3 60 1000`, cap 1000):
@@ -56,9 +58,10 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
   directorios espurios mathzero/go/mathzero/go y thzero (pushes con ruta en el nombre);
   borrados, con go/go raiz incluido.
 - A/B noche 12 oct (ciego, cap 1000, emparejado): E8 descartado (media +2,7, ruido);
-  E2 descartado (media -23,3); E4 en curso (seed 1: +14, k6-8 158->166).
-- Ejecutable autonomo (datos embebidos + flag -json) para PC Windows y servidor: probado
-  en sandbox (suite verde); NO probado en Windows ni en ese servidor.
+  E2 descartado (media -23,3); E4 descartado (media 0,0/700 en 6 semillas, ruido).
+- Ejecutable autonomo (datos embebidos + flag -json): probado en Windows real por Anto
+  (arranque OK; v0.1.0 daba panic sin argumentos por problems.json no embebido -> corregido
+  en v0.1.1 embebiendolo) y en el servidor (tanda 1, wrapper con reloj de pared).
 - Fijo (levels.json, no ciego; historico): learn 12 rondas, cap 2000:
   k4 26/30, k5 25/30, k6 19/30, k7 16/30, k8 16/30 (BFS: 16, 15, 6, 5, 9).
   Ablacion biblioteca en ciclo 3 (fijo): 146 vs 146 (efecto marginal una vez la red
@@ -73,7 +76,9 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado.
 |---|-------------|--------|-------|--------|
 | E8 | Transferencia k2-k5 -> k6-k8 (entrenar solo bajos, medir altos) | propio | bajo | DESCARTADO (medido: media +2,7/700, dentro del ruido; RESULTADOS_MEJORAS.md) |
 | E2 | Entrenamiento online tras cada lote | propio | bajo | DESCARTADO (medido: media -23/700; 2 de 3 semillas muy negativas) |
-| E4 | Replay priorizado + ponderacion por longitud de prueba | arXiv 2006.00283 | bajo | EN CURSO (seed 1: +14; faltan 2) |
+| E4 | Replay priorizado + ponderacion por longitud de prueba | arXiv 2006.00283 | bajo | DESCARTADO (medido: media 0,0/700 en 6 semillas, ruido puro; RESULTADOS_MEJORAS.md) |
+| E9 | Poda de lemas-accion por uso medido (top-8) vs biblioteca cruda | propio (hallazgo ablacion) | bajo | EN CURSO (aprobado 22:26) |
+| E10 | Datos sinteticos neg-neg/add0 (25% del stream) contra el punto ciego de limpieza | propio (evalfail) | bajo | EN CURSO (aprobado 22:26) |
 | E3 | Curriculo "al borde" 20-80% (tipo STP) vs niveles k fijos, midiendo olvido | arXiv 2502.00212 | medio | pendiente |
 | E5 | Datos sinteticos por reescritura hacia delante como preentrenamiento | AlphaGeometry (Nature) | medio | pendiente |
 | E6 | Biblioteca estilo DreamCoder (macros frecuentes) | DreamCoder | medio | pendiente |
