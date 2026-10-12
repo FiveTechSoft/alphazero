@@ -45,9 +45,15 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 		lv[k] = LoadLevels(k)
 	}
 	fmt.Println("[cycle] metrica fija: levels.json, cap", cap, "(resueltos y nodos medios por nivel)")
+	bestTot := -1
 	for c := 1; c <= nCycles; c++ {
 		// 1) METRICA del estado actual (antes de aprender mas)
 		metric, tot := evalAll(net, lv, cap)
+		if tot > bestTot {
+			bestTot = tot
+			net.Save(modelPath + ".best")
+			fmt.Printf("[ciclo %d] nuevo mejor modelo (%d/210): %s.best%s", c, tot, modelPath, "\n")
+		}
 		fmt.Printf("[ciclo %d] CON biblio (%d lemas): %s total=%d/210\n", c, len(LemmaLib.Lemmas), metric, tot)
 		// ablacion en el primer y ultimo ciclo: mismo net, SIN biblioteca
 		if c == 1 || c == nCycles {
@@ -81,6 +87,9 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 		net.Round++
 		if float64(solved)/float64(perRound) >= 0.8 && net.Level < 8 {
 			net.Level++
+			nombre := fmt.Sprintf("%s.nivel%d", modelPath, net.Level)
+			net.Save(nombre)
+			fmt.Printf("[ciclo %d] nivel superado: checkpoint %s%s", c, nombre, "\n")
 		}
 		fmt.Printf("[ciclo %d] entreno: nivel=%d resueltos=%d/%d lemas_nuevos=%d total_lemas=%d\n",
 			c, net.Level, solved, perRound, nuevos, len(LemmaLib.Lemmas))
