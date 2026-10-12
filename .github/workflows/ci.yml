@@ -14,7 +14,11 @@ jobs:
           echo "sin formatear: $out"
           test -z "$out"
       - name: go vet
-        run: cd mathzero/go && go vet ./...
+        run: |
+          cd mathzero/go
+          pwd
+          go env GOMOD GOVERSION
+          go vet ./...
       - name: go test (suite completa, incluye 230 vectores del juez)
         run: cd mathzero/go && go test ./...
       - name: build CLI
