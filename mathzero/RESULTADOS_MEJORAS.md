@@ -49,3 +49,31 @@ Veredicto: DESCARTADO. La media (+2,7/700) esta dentro del ruido entre
 semillas (+-10); sin mejora robusta en k6-k8. Entrenar solo niveles bajos
 no transfiere mejor que el curriculo completo.
 Comando: `./mathzero ab e8 <semilla>` (log: go/ab_e8.log).
+
+## E2 - Entrenamiento online tras cada problema (completo, 3 semillas)
+
+Variante: entrenar tras CADA problema resuelto (3 epocas) en lugar de
+acumular por ronda. Emparejado por semilla. Mismo ciego, cap 1000, sin biblioteca.
+
+| Semilla | Base | Var | Dif | Base k6-8 | Var k6-8 |
+|---------|------|-----|-----|-----------|----------|
+| 1 | 529 | 470 | -59 | 158 | 132 |
+| 2 | 536 | 518 | -18 | 161 | 158 |
+| 3 | 537 | 544 | +7 | 164 | 165 |
+| media | 534,0 | 510,7 | -23,3 | 161,0 | 151,7 |
+
+Veredicto: DESCARTADO. El online empeora la media en -23/700 (2 de 3
+semillas muy negativas): la red deriva hacia lo reciente. Ademas cuesta
+~4x por semilla. Comando: `./mathzero ab e2 <semilla>` (log: go/ab_e2.log).
+
+## E4 - Replay priorizado por longitud de prueba (parcial: 1/3 semillas)
+
+Variante: replay con peso = longitud de prueba (arXiv 2006.00283), tope 20000.
+
+| Semilla | Base | Var | Dif | Base k6-8 | Var k6-8 |
+|---------|------|-----|-----|-----------|----------|
+| 1 | 529 | 543 | +14 | 158 | 166 |
+| 2-3 | - | - | en curso | - | - |
+
+Parcial: prometedor (+14 seed 1, k6-8 158->166). Veredicto con 3 semillas.
+Comando: `./mathzero ab e4 <semilla>` (log: go/ab_e4.log).
