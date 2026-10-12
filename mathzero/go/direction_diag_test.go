@@ -16,8 +16,8 @@ func TestDirectionDiag(t *testing.T) {
 	exprs := []*Expr{
 		EAdd(EAdd(V("a"), V("b")), EAdd(V("c"), V("d"))), // assoc+ ambas
 		EMul(EMul(V("a"), V("b")), EMul(V("c"), V("d"))), // assoc* ambas
-		EAdd(V("a"), C(0)),                               // add0 f y r
-		EMul(V("a"), C(1)),                               // mul1 f y r
+		EAdd(V("a"), C(0)), // add0 f y r
+		EMul(V("a"), C(1)), // mul1 f y r
 		EMul(EAdd(V("a"), C(0)), EAdd(V("b"), V("c"))),
 		ENeg(ENeg(EAdd(V("x"), C(0)))),
 	}
