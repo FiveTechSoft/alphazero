@@ -1,4 +1,5 @@
-// A/B de experimentos (E2 online, E4 replay priorizado, E8 transferencia).
+// A/B de experimentos (E2 online, E4 replay priorizado, E8 transferencia,
+// E9 poda de lemas por uso, E10 datos sinteticos neg-neg/add0).
 // Un comando, dos brazos desde la MISMA semilla (init identico, mismo stream
 // de problemas), evaluados en el mismo conjunto ciego con el mismo cap:
 //
@@ -19,6 +20,27 @@ type ExpCfg struct {
 	Online   bool // E2: entrena tras cada problema, sin acumular ronda
 	Replay   bool // E4: replay priorizado por longitud de prueba
 	MaxLevel int  // E8: techo de nivel de entrenamiento (0 = sin techo)
+	SynthNeg bool // E10: 25% de objetivos envueltos con neg-neg/add0
+}
+
+// wrapCleanup envuelve subexpresiones al azar con las formas que la red
+// no sabe limpiar (medido en evalfail): doble negacion y sumar cero.
+// El objetivo canonico no cambia: la prueba EXIGE negneg/add0.
+func wrapCleanup(r *rand.Rand, e *Expr) *Expr {
+	for i := 0; i < 1+r.Intn(3); i++ {
+		ps := SubPositions(e)
+		if len(ps) == 0 {
+			break
+		}
+		p := ps[r.Intn(len(ps))]
+		sub := Get(e, p)
+		if r.Float64() < 0.5 {
+			e = Replace(e, p, ENeg(ENeg(sub)))
+		} else {
+			e = Replace(e, p, EAdd(sub, C(0)))
+		}
+	}
+	return e
 }
 
 type wsample struct {
@@ -41,6 +63,9 @@ func trainArm(cfg ExpCfg, seed int64, rounds, per, cap int, blind map[string]boo
 			a, b := genTrain(r, lvl)
 			if blind[pairKey(a, b)] {
 				continue
+			}
+			if cfg.SynthNeg && r.Float64() < 0.25 {
+				b = wrapCleanup(r, b)
 			}
 			ok, _, sm := GuidedSolve(net, a, b, cap)
 			if !ok {
@@ -149,7 +174,7 @@ func ABMain(args []string) {
 	}
 	args = pos
 	if len(args) < 2 {
-		fmt.Println("uso: ./mathzero ab <e2|e4|e8> <semilla> [rondas] [por_ronda] [cap] [-json]")
+		fmt.Println("uso: ./mathzero ab <e2|e4|e8|e9|e10> <semilla> [rondas] [por_ronda] [cap] [-json]")
 		return
 	}
 	exp := args[0]
@@ -178,6 +203,41 @@ func ABMain(args []string) {
 		vari = ExpCfg{Replay: true}
 	case "e8":
 		vari = ExpCfg{MaxLevel: 5}
+	case "e10":
+		vari = ExpCfg{SynthNeg: true}
+	case "e9":
+		// Poda de lemas-accion por uso medido: UN entrenamiento con la
+		// biblioteca cruda midiendo uso; mismo modelo evaluado con la
+		// biblioteca cruda (baseline) y con la podada top-8 (variante).
+		lib := LoadLibrary("lemas.json")
+		fmt.Printf("[ab e9 seed=%d] rondas=%d por_ronda=%d cap=%d, biblioteca=%d lemas\n",
+			seed, rounds, per, cap, len(lib.Lemmas))
+		LemmaLib = lib
+		LemmaUso = map[int]int{}
+		net9 := trainArm(ExpCfg{}, seed, rounds, per, cap, blind)
+		podada := lib.Pruned(LemmaUso, 8)
+		fmt.Printf("[ab e9 seed=%d] lemas con uso medido: %d de %d; podada queda en %d\n",
+			seed, len(LemmaUso), len(lib.Lemmas), len(podada.Lemmas))
+		ebase9 := evalBlind(net9, lv, cap)
+		abReport(fmt.Sprintf("e9 seed=%d baseline (cruda %d lemas)", seed, len(lib.Lemmas)), ebase9)
+		LemmaLib = podada
+		evari9 := evalBlind(net9, lv, cap)
+		abReport(fmt.Sprintf("e9 seed=%d variante (podada %d lemas)", seed, len(podada.Lemmas)), evari9)
+		LemmaLib, LemmaUso = nil, nil
+		if wantJSON {
+			out := ABResultJSON{
+				Experimento: exp, Semilla: seed, Rondas: rounds, PorRonda: per, Cap: cap,
+				Baseline: armJSON(ebase9), Variante: armJSON(evari9),
+			}
+			name := fmt.Sprintf("resultados_ab_%s_seed%d.json", exp, seed)
+			data, _ := json.MarshalIndent(out, "", "  ")
+			if err := os.WriteFile(name, data, 0o644); err != nil {
+				fmt.Println("[ab] error escribiendo", name, ":", err)
+			} else {
+				fmt.Println("[ab] resultados escritos en", name)
+			}
+		}
+		return
 	default:
 		fmt.Println("experimento desconocido:", exp)
 		return
