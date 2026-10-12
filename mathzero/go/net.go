@@ -148,13 +148,12 @@ func (n *MLP) Save(path string) {
 }
 
 func LoadMLP(path string) *MLP {
-	f, err := os.Open(path)
-	if err != nil {
+	data := readDataFile(path)
+	if data == nil {
 		return nil
 	}
-	defer f.Close()
 	n := &MLP{}
-	if json.NewDecoder(f).Decode(n) != nil {
+	if json.Unmarshal(data, n) != nil {
 		return nil
 	}
 	n.m1 = make([][]float64, NHid)
