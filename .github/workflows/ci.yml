@@ -7,9 +7,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version: 'stable'
+          go-version: '1.26'
       - name: gofmt
-        run: test -z "$(gofmt -l mathzero/go)"
+        run: |
+          out=$(gofmt -l mathzero/go)
+          echo "sin formatear: $out"
+          test -z "$out"
       - name: go vet
         run: cd mathzero/go && go vet ./...
       - name: go test (suite completa, incluye 230 vectores del juez)
@@ -26,4 +29,4 @@ jobs:
       - name: build juez Rust y verificar vectores
         run: rustc -O bench/juez.rs -o /tmp/juez_rust && /tmp/juez_rust mathzero/go/juez_vectores.txt
       - name: build bench C
-        run: cc -O3 bench/bench_ttt.c -o /tmp/bench_ttt_c
+        run: cc -O3 bench/bench_ttt.c -lm -o /tmp/bench_ttt_c
