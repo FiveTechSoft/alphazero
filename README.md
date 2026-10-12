@@ -1,67 +1,67 @@
-# AlphaZero mini (tres en raya)
+# Motor genérico de autojuego estilo AlphaZero
 
-Prototipo pequeno pero completo del algoritmo **AlphaZero** (DeepMind, 2017),
-escrito en Python + NumPy puro, sin PyTorch ni TensorFlow: la red, el
-backprop, el MCTS y el bucle de autojuego se pueden leer enteros en una
-tarde. El juego es el tres en raya porque esta resuelto: se puede medir el
-aprendizaje contra un rival perfecto (minimax), no solo "parece que juega
-bien".
+Motor genérico de autojuego estilo AlphaZero (MCTS + red neuronal + juez
+exacto) que aprende solo: matemáticas, juegos y puzles.
 
-## Como funciona
+Estado a 12 oct 2026. Todo lo listado abajo está medido en la misma
+máquina; lo no medido no se afirma.
 
-1. **Autojuego** (`train.py`): el MCTS juega contra si mismo. Cada jugada se
-   elige con 60 simulaciones de busqueda guiadas por la red (PUCT + ruido de
-   Dirichlet en la raiz para explorar).
-2. **Memoria**: cada posicion se guarda con la politica que encontro el MCTS
-   y, al final de la partida, con el resultado real (+1 / 0 / -1).
-3. **Entrenamiento** (`model.py`): la red (MLP de una capa oculta con cabezas
-   de politica y valor) aprende a imitar la politica del MCTS y a predecir el
-   resultado. Con una red mejor, el MCTS juega mejor; y el ciclo se repite.
+## Componentes
 
-## Requisitos
+1. **Núcleo Go (`go/`)**: interfaz `Game` genérica + MCTS (PUCT)
+   compilado. Dos juegos sobre el mismo motor: tres en raya y MathRing.
+2. **MathRing (`go/mathring.go`)**: demostración de identidades
+   algebraicas con juez exacto (forma canónica de polinomio). La red guía
+   la búsqueda mejor-primero y aprende por expert iteration con
+   currículo de niveles.
+3. **Biblioteca de lemas (`go/lemas.go`)**: los caminos ya demostrados
+   se guardan y se reutilizan como reescrituras de un solo paso.
+4. **Ciclo de automejora (`go/ciclo.go`)**: autojuego → entrenamiento →
+   verificación con juez exacto → biblioteca persistente → currículo
+   automático → métrica fija por ciclo.
+5. **Prototipo Python (raíz)**: AlphaZero completo del tres en raya en
+   NumPy puro (red, backprop, MCTS y bucle de autojuego legibles),
+   medido contra minimax.
 
-Solo Python 3.9+ y NumPy (`pip install numpy`). Nada mas.
+## Medido hasta ahora
 
-## Pasos para reproducirlo
+- **Tres en raya (Python, 6000 partidas de autojuego)**: 0 derrotas en
+  100 partidas contra minimax (50 por lado); la misma red sin entrenar
+  pierde 30 de 50 defendiendo. Detalle en `RESULTADOS.md`.
+- **Autojuego red contra sí misma** (200 partidas reales, sims=50,
+  seed=7, temp=1 solo en las 2 primeras jugadas): 95.5% tablas, 4.5%
+  gana X, 0% gana O. Registro en `selfplay_ttt.jsonl`, reproducible con
+  `selfplay.py`.
+- **MathRing, baseline BFS (cap 2000)**: k4 16/30, k6 6/30.
+  Evaluación intermedia tras 6 rondas de expert iteration con el mismo
+  cap y conjunto fijo: k4 28/30, k6 18/30.
+- **Ciclo de automejora** (3 ciclos, cap 1000, métrica fija de 210
+  problemas): resueltos 97 → 140 → 146. Al entrar los primeros 49
+  lemas, los nodos medios en k3 caen de 292 a 20; en el ciclo 3 la
+  ablación CON/SIN biblioteca da el mismo total (146/210): la red
+  acaba interiorizando lo que los lemas aportaban. La biblioteca
+  comprime la búsqueda al principio; el efecto se diluye una vez
+  aprendido.
 
-1. Descomprime el archivo y entra en la carpeta: `cd alphazero_prototipo`
-2. Instala la unica dependencia: `pip install numpy`
-3. (Opcional) Mira el nivel de una red sin entrenar: `python evaluate.py`
-4. Entrena desde cero: `python train.py --games 1500 --sims 40`
-   (unos 2-3 minutos en un portatil; guarda `model.npz`)
-5. Mide el resultado: `python evaluate.py --model model.npz`
-   - contra un jugador aleatorio (100 partidas por lado)
-   - contra minimax, el juego perfecto (20 partidas por lado):
-     el objetivo es **no perder nunca** (el tres en raya optimo es tablas)
-6. Juega tu contra el: `python play.py`
+## Pasos para ejecutar
 
-## Que se midio en esta copia
+1. Tres en raya (Python): `pip install numpy` y luego
+   `python train.py --games 1500 --sims 40` (guarda `model.npz`),
+   `python evaluate.py --model model.npz`, `python play.py`.
+2. Autojuego del tres en raya contra sí misma:
+   `python selfplay.py --games 200 --sims 50`.
+3. Motor Go: `cd go && go build -o mathzero . && ./mathzero`
+   (bench de MCTS en tres en raya + chequeo del juez exacto + baseline
+   BFS de MathRing).
+4. Aprendizaje de MathRing: `./mathzero learn`
+   (12 rondas con currículo; guarda `model_math.json`).
+5. Ciclo de automejora: `./mathzero cycle 3 60 1000`
+   (3 ciclos, 60 problemas de entreno por ciclo, cap 1000, con ablación
+   sin biblioteca en el ciclo 1).
 
-Red entrenada desde cero con 6000 partidas de autojuego (~5 minutos):
+## Hoja de ruta
 
-| Rival | Antes de entrenar | Despues de 6000 partidas |
-|---|---|---|
-| Aleatorio (moviendo primero) | 96G 4T 0P | 99G 1T 0P |
-| Aleatorio (moviendo segundo) | 83G 13T 4P | 84G 16T 0P |
-| Minimax perfecto (primero) | 0G 50T 0P | 0G 50T 0P |
-| Minimax perfecto (segundo) | 0G 20T **30P** | 0G 50T **0P** |
-
-La "tabla" que delata el aprendizaje no es ganarle al azar (el MCTS ya lo
-consigue sin entrenar), sino la fila de minimax moviendo segundo: ahi el
-agente pasa de perder la mitad de las partidas a no perder ninguna.
-
-## Escala
-
-Todo esta parametrizado: cambia el juego en `game.py` (misma interfaz:
-`legal_moves`, `play`, `terminal_value`, `encode`) y el resto funciona igual.
-Conecta 4 o un Othello 4x4 son buenos siguientes pasos; ahi la red ya
-necesitaria ser convolucional y PyTorch empezaria a compensar.
-
-## Archivos
-
-- `game.py`    - reglas del tres en raya y forma canonica del tablero
-- `model.py`   - red neuronal + backprop + Adam, todo en NumPy
-- `mcts.py`    - Monte Carlo Tree Search PUCT guiado por la red
-- `train.py`   - bucle de autojuego y entrenamiento
-- `evaluate.py`- medicion contra aleatorio y contra minimax
-- `play.py`    - partida interactiva contra el agente
+`mathzero/ROADMAP.md` define hitos con criterio "verificado" medible
+cada uno (incluido el benchmark Go vs C vs Rust antes de cualquier
+decisión de lenguaje). `mathzero/DISENO_AUTOMEJORA.md` describe el
+bucle de crecimiento y sus límites.
