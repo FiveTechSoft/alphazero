@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
 	"sort"
 	"testing"
 )
@@ -13,6 +14,9 @@ import (
 // las dos acciones colapsan al sucesor de f y la r pretendida se pierde.
 // Este test NO modifica el motor: solo mide.
 func TestDirectionDiag(t *testing.T) {
+	if os.Getenv("DIRFIX") == "1" {
+		DirFix = true
+	}
 	exprs := []*Expr{
 		EAdd(EAdd(V("a"), V("b")), EAdd(V("c"), V("d"))), // assoc+ ambas
 		EMul(EMul(V("a"), V("b")), EMul(V("c"), V("d"))), // assoc* ambas
@@ -59,8 +63,12 @@ func TestDirectionDiag(t *testing.T) {
 					bothDir[rl.name]++
 					// la accion emitida para la direccion r (Rule=i, Pos=p):
 					// applyAction la resuelve como f -> sucesor equivocado
-					real := Key(applyAction(e, MAction{Rule: i, Pos: p, Lemma: -1}))
-					if real != Key(rNw) {
+					dirProbe := int8(-1)
+					if DirFix {
+						dirProbe = 1
+					}
+					real := Key(applyAction(e, MAction{Rule: i, Pos: p, Lemma: -1, Dir: dirProbe}))
+					if real != Key(Replace(e, p, rNw)) {
 						misActs++
 						misByRule[rl.name]++
 						if examples[rl.name] == "" {
