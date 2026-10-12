@@ -8,7 +8,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"os"
 	"sort"
 	"strings"
 )
@@ -423,13 +422,9 @@ func (MathRing) Terminal(s any) (bool, float64) {
 // ---- problemas (mismo conjunto fijo que Python) ----
 
 func LoadProblems(path, k string) []MState {
-	data, err := os.ReadFile(path)
-	if err != nil {
-		// desde el directorio padre (repo layout)
-		data, err = os.ReadFile("../" + path)
-		if err != nil {
-			panic(err)
-		}
+	data := readDataFile(path)
+	if data == nil {
+		panic("no se encuentra " + path + " (ni en disco ni embebido)")
 	}
 	var all map[string][]struct {
 		A, B json.RawMessage `json:"-"`
