@@ -21,6 +21,8 @@ type ExpCfg struct {
 	Replay   bool // E4: replay priorizado por longitud de prueba
 	MaxLevel int  // E8: techo de nivel de entrenamiento (0 = sin techo)
 	SynthNeg bool // E10: 25% de objetivos envueltos con neg-neg/add0
+	DirFix   bool // E11: motor con direccion explicita + dedup de sucesores
+	Accept   bool // E13: puerta de aceptacion por set fijo (levels.json)
 }
 
 // wrapCleanup envuelve subexpresiones al azar con las formas que la red
@@ -51,6 +53,22 @@ type wsample struct {
 func trainArm(cfg ExpCfg, seed int64, rounds, per, cap int, blind map[string]bool) *MLP {
 	r := rand.New(rand.NewSource(seed))
 	net := NewMLP(seed)
+	prevDirFix := DirFix
+	DirFix = cfg.DirFix
+	defer func() { DirFix = prevDirFix }()
+	var lvFix map[int][]MState
+	var prevPath string
+	if cfg.Accept {
+		lvFix = map[int][]MState{}
+		for k := 2; k <= 8; k++ {
+			lvFix[k] = LoadLevels(k)
+		}
+		if f, err := os.CreateTemp("", "e13prev*.json"); err == nil {
+			prevPath = f.Name()
+			f.Close()
+			defer os.Remove(prevPath)
+		}
+	}
 	var replay []wsample
 	for rd := 1; rd <= rounds; rd++ {
 		var buf []Sample
@@ -87,6 +105,9 @@ func trainArm(cfg ExpCfg, seed int64, rounds, per, cap int, blind map[string]boo
 				buf = append(buf, sm...)
 			}
 		}
+		if cfg.Accept && prevPath != "" {
+			net.Save(prevPath) // copia del estado previo a la ronda
+		}
 		if cfg.Replay && len(replay) > 0 {
 			total := 0.0
 			for _, x := range replay {
@@ -115,6 +136,17 @@ func trainArm(cfg ExpCfg, seed int64, rounds, per, cap int, blind map[string]boo
 				for _, s := range buf {
 					net.TrainCE(s.Feats, s.Target, 0.003)
 				}
+			}
+		}
+		if cfg.Accept && prevPath != "" {
+			prev := LoadMLP(prevPath)
+			_, tPrev := evalAll(prev, lvFix, cap)
+			_, tNew := evalAll(net, lvFix, cap)
+			if tNew < tPrev {
+				net = prev
+				fmt.Printf("[ab e13 ronda %d] set fijo: nuevo %d/210 < previo %d/210 -> RECHAZADA%s", rd, tNew, tPrev, "\n")
+			} else {
+				fmt.Printf("[ab e13 ronda %d] set fijo: nuevo %d/210 >= previo %d/210 -> aceptada%s", rd, tNew, tPrev, "\n")
 			}
 		}
 		net.Round++
@@ -174,7 +206,7 @@ func ABMain(args []string) {
 	}
 	args = pos
 	if len(args) < 2 {
-		fmt.Println("uso: ./mathzero ab <e2|e4|e8|e9|e10> <semilla> [rondas] [por_ronda] [cap] [-json]")
+		fmt.Println("uso: ./mathzero ab <e2|e4|e8|e9|e10|e11|e13> <semilla> [rondas] [por_ronda] [cap] [-json]")
 		return
 	}
 	exp := args[0]
@@ -205,6 +237,10 @@ func ABMain(args []string) {
 		vari = ExpCfg{MaxLevel: 5}
 	case "e10":
 		vari = ExpCfg{SynthNeg: true}
+	case "e11":
+		vari = ExpCfg{DirFix: true}
+	case "e13":
+		vari = ExpCfg{Accept: true}
 	case "e9":
 		// Poda de lemas-accion por uso medido: UN entrenamiento con la
 		// biblioteca cruda midiendo uso; mismo modelo evaluado con la
@@ -247,7 +283,9 @@ func ABMain(args []string) {
 	ebase := evalBlind(base, lv, cap)
 	abReport(fmt.Sprintf("%s seed=%d baseline", exp, seed), ebase)
 	vnet := trainArm(vari, seed, rounds, per, cap, blind)
+	DirFix = vari.DirFix // evaluar la variante con SU motor
 	evari := evalBlind(vnet, lv, cap)
+	DirFix = false
 	abReport(fmt.Sprintf("%s seed=%d variante", exp, seed), evari)
 	if wantJSON {
 		out := ABResultJSON{
