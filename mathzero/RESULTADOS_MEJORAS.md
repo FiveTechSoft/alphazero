@@ -66,14 +66,22 @@ Veredicto: DESCARTADO. El online empeora la media en -23/700 (2 de 3
 semillas muy negativas): la red deriva hacia lo reciente. Ademas cuesta
 ~4x por semilla. Comando: `./mathzero ab e2 <semilla>` (log: go/ab_e2.log).
 
-## E4 - Replay priorizado por longitud de prueba (parcial: 1/3 semillas)
+## E4 - Replay priorizado por longitud de prueba: DESCARTADO (6 semillas)
 
 Variante: replay con peso = longitud de prueba (arXiv 2006.00283), tope 20000.
+Mismo binario y diseno emparejado; semillas 1-3 en local, 4-6 en el servidor
+(mismas rondas/cap; la inicializacion depende de la semilla, asi que el
+baseline de cada semilla es su propio control).
 
-| Semilla | Base | Var | Dif | Base k6-8 | Var k6-8 |
-|---------|------|-----|-----|-----------|----------|
-| 1 | 529 | 543 | +14 | 158 | 166 |
-| 2-3 | - | - | en curso | - | - |
+| Semilla | Origen | Base | Var | Dif | Base k6-8 | Var k6-8 | Dif k6-8 |
+|---------|--------|------|-----|-----|-----------|----------|----------|
+| 1 | local | 529 | 543 | +14 | 158 | 166 | +8 |
+| 2 | local | 536 | 527 | -9 | 161 | 159 | -2 |
+| 3 | local | 537 | 537 | 0 | 164 | 163 | -1 |
+| 4 | servidor | 549 | 553 | +4 | 166 | 171 | +5 |
+| 5 | servidor | 532 | 529 | -3 | 164 | 156 | -8 |
+| 6 | servidor | 551 | 545 | -6 | 170 | 163 | -7 |
 
-Parcial: prometedor (+14 seed 1, k6-8 158->166). Veredicto con 3 semillas.
-Comando: `./mathzero ab e4 <semilla>` (log: go/ab_e4.log).
+Media 6 semillas: 0,0/700 (k6-8: -0,8). Ruido puro: el +14 de la semilla 1
+era espejismo. Veredicto: DESCARTADO, no se incorpora.
+Comando: `./mathzero ab e4 <semilla>` (logs: go/ab_e4.log, tanda 1 servidor).
