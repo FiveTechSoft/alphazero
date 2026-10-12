@@ -328,21 +328,37 @@ var rules = []struct {
 type MAction struct {
 	Rule  int // indice en rules; -1 = accion de lema
 	Pos   []int
-	Lemma int // indice en LemmaLib.Lemmas; -1 = regla normal
+	Lemma int  // indice en LemmaLib.Lemmas; -1 = regla normal
+	Dir   int8 // E11: 0 = f, 1 = r; -1 = sin direccion (lema o motor clasico)
 }
+
+// E11: si true, MathActions fija Dir y deduplica sucesores identicos, y
+// applyAction usa Dir sin reprobar (bug medido: 30% acciones duplicadas,
+// 1.044 direcciones r enmascaradas por la reprobacion f-primero).
+var DirFix bool
 
 func MathActions(e *Expr) []MAction {
 	var out []MAction
+	seenSucc := map[string]bool{}
 	for _, p := range SubPositions(e) {
 		sub := Get(e, p)
 		for i, rl := range rules {
-			for _, fn := range []func(*Expr) *Expr{rl.f, rl.r} {
+			for d, fn := range []func(*Expr) *Expr{rl.f, rl.r} {
 				if fn == nil {
 					continue
 				}
 				nw := fn(sub)
 				if nw != nil && Key(nw) != Key(sub) {
-					out = append(out, MAction{Rule: i, Pos: p, Lemma: -1})
+					if DirFix {
+						kf := Key(Replace(e, p, nw))
+						if seenSucc[kf] {
+							continue
+						}
+						seenSucc[kf] = true
+						out = append(out, MAction{Rule: i, Pos: p, Lemma: -1, Dir: int8(d)})
+					} else {
+						out = append(out, MAction{Rule: i, Pos: p, Lemma: -1, Dir: -1})
+					}
 				}
 			}
 		}
@@ -352,7 +368,19 @@ func MathActions(e *Expr) []MAction {
 		for _, p := range SubPositions(e) {
 			ks := Key(Get(e, p))
 			for _, li := range LemmaLib.ByKey[ks] {
-				out = append(out, MAction{Rule: -1, Pos: p, Lemma: li})
+				if DirFix {
+					lm := LemmaLib.Lemmas[li]
+					nw := lm.To
+					if ks != lm.FromKey {
+						nw = lm.From
+					}
+					kf := Key(Replace(e, p, nw))
+					if seenSucc[kf] {
+						continue
+					}
+					seenSucc[kf] = true
+				}
+				out = append(out, MAction{Rule: -1, Pos: p, Lemma: li, Dir: -1})
 			}
 		}
 	}
@@ -369,6 +397,20 @@ func applyAction(e *Expr, a MAction) *Expr {
 	}
 	sub := Get(e, a.Pos)
 	rl := rules[a.Rule]
+	if a.Dir >= 0 {
+		fn := rl.f
+		if a.Dir == 1 {
+			fn = rl.r
+		}
+		if fn == nil {
+			return e
+		}
+		nw := fn(sub)
+		if nw != nil && Key(nw) != Key(sub) {
+			return Replace(e, a.Pos, nw)
+		}
+		return e
+	}
 	for _, fn := range []func(*Expr) *Expr{rl.f, rl.r} {
 		if fn == nil {
 			continue
