@@ -14,23 +14,27 @@ import (
 )
 
 type Expr struct {
-	Op  string // "const","var","add","mul","neg"
-	N   int
-	S   string
-	A,B *Expr
+	Op   string // "const","var","add","mul","neg"
+	N    int
+	S    string
+	A, B *Expr
 }
 
-func C(n int) *Expr       { return &Expr{Op: "const", N: n} }
-func V(s string) *Expr    { return &Expr{Op: "var", S: s} }
+func C(n int) *Expr         { return &Expr{Op: "const", N: n} }
+func V(s string) *Expr      { return &Expr{Op: "var", S: s} }
 func EAdd(a, b *Expr) *Expr { return &Expr{Op: "add", A: a, B: b} }
 func EMul(a, b *Expr) *Expr { return &Expr{Op: "mul", A: a, B: b} }
-func ENeg(a *Expr) *Expr  { return &Expr{Op: "neg", A: a} }
+func ENeg(a *Expr) *Expr    { return &Expr{Op: "neg", A: a} }
 
 // ---- juez exacto: forma canonica monomio->coef ----
 
 func mergeMon(a, b string) string {
-	if a == "" { return b }
-	if b == "" { return a }
+	if a == "" {
+		return b
+	}
+	if b == "" {
+		return a
+	}
 	vs := append(strings.Split(a, "*"), strings.Split(b, "*")...)
 	sort.Strings(vs)
 	return strings.Join(vs, "*")
@@ -39,19 +43,25 @@ func mergeMon(a, b string) string {
 func Canon(e *Expr) map[string]int {
 	switch e.Op {
 	case "const":
-		if e.N == 0 { return map[string]int{} }
+		if e.N == 0 {
+			return map[string]int{}
+		}
 		return map[string]int{"": e.N}
 	case "var":
 		return map[string]int{e.S: 1}
 	case "neg":
 		r := Canon(e.A)
-		for m, c := range r { r[m] = -c }
+		for m, c := range r {
+			r[m] = -c
+		}
 		return r
 	case "add":
 		r := Canon(e.A)
 		for m, c := range Canon(e.B) {
 			r[m] += c
-			if r[m] == 0 { delete(r, m) }
+			if r[m] == 0 {
+				delete(r, m)
+			}
 		}
 		return r
 	case "mul":
@@ -60,7 +70,9 @@ func Canon(e *Expr) map[string]int {
 			for m2, c2 := range Canon(e.B) {
 				m := mergeMon(m1, m2)
 				r[m] += c1 * c2
-				if r[m] == 0 { delete(r, m) }
+				if r[m] == 0 {
+					delete(r, m)
+				}
 			}
 		}
 		return r
@@ -69,25 +81,50 @@ func Canon(e *Expr) map[string]int {
 }
 
 func canonEq(a, b map[string]int) bool {
-	if len(a) != len(b) { return false }
+	if len(a) != len(b) {
+		return false
+	}
 	for m, c := range a {
-		if b[m] != c { return false }
+		if b[m] != c {
+			return false
+		}
 	}
 	return true
 }
 
 // ---- clave estructural normalizada ----
 
+var keyCache = map[*Expr]string{}
+
+func ClearKeyCache() { keyCache = map[*Expr]string{} }
+
 func Key(e *Expr) string {
+	if k, ok := keyCache[e]; ok {
+		return k
+	}
+	k := keyCompute(e)
+	keyCache[e] = k
+	return k
+}
+
+func keyCompute(e *Expr) string {
 	switch e.Op {
-	case "const": return fmt.Sprintf("c%d", e.N)
-	case "var": return "v" + e.S
-	case "neg": return "neg(" + Key(e.A) + ")"
+	case "const":
+		return fmt.Sprintf("c%d", e.N)
+	case "var":
+		return "v" + e.S
+	case "neg":
+		return "neg(" + Key(e.A) + ")"
 	}
 	parts := []string{}
 	var rec func(x *Expr)
 	rec = func(x *Expr) {
-		if x.Op == e.Op { rec(x.A); rec(x.B) } else { parts = append(parts, Key(x)) }
+		if x.Op == e.Op {
+			rec(x.A)
+			rec(x.B)
+		} else {
+			parts = append(parts, Key(x))
+		}
 	}
 	rec(e)
 	sort.Strings(parts)
@@ -116,15 +153,25 @@ func SubPositions(e *Expr) [][]int {
 
 func Get(e *Expr, p []int) *Expr {
 	for _, i := range p {
-		if i == 0 { e = e.A } else { e = e.B }
+		if i == 0 {
+			e = e.A
+		} else {
+			e = e.B
+		}
 	}
 	return e
 }
 
 func Replace(e *Expr, p []int, nw *Expr) *Expr {
-	if len(p) == 0 { return nw }
-	if e.Op == "neg" { return ENeg(Replace(e.A, p[1:], nw)) }
-	if p[0] == 0 { return &Expr{Op: e.Op, A: Replace(e.A, p[1:], nw), B: e.B} }
+	if len(p) == 0 {
+		return nw
+	}
+	if e.Op == "neg" {
+		return ENeg(Replace(e.A, p[1:], nw))
+	}
+	if p[0] == 0 {
+		return &Expr{Op: e.Op, A: Replace(e.A, p[1:], nw), B: e.B}
+	}
 	return &Expr{Op: e.Op, A: e.A, B: Replace(e.B, p[1:], nw)}
 }
 
@@ -139,54 +186,78 @@ var rules = []struct {
 }{
 	{"add0",
 		func(x *Expr) *Expr {
-			if x.Op == "add" && is0(x.B) { return x.A }
-			if x.Op == "add" && is0(x.A) { return x.B }
+			if x.Op == "add" && is0(x.B) {
+				return x.A
+			}
+			if x.Op == "add" && is0(x.A) {
+				return x.B
+			}
 			return nil
 		},
 		func(x *Expr) *Expr { return EAdd(x, C(0)) }},
 	{"mul1",
 		func(x *Expr) *Expr {
-			if x.Op == "mul" && is1(x.B) { return x.A }
-			if x.Op == "mul" && is1(x.A) { return x.B }
+			if x.Op == "mul" && is1(x.B) {
+				return x.A
+			}
+			if x.Op == "mul" && is1(x.A) {
+				return x.B
+			}
 			return nil
 		},
 		func(x *Expr) *Expr { return EMul(x, C(1)) }},
 	{"mul0",
 		func(x *Expr) *Expr {
-			if x.Op == "mul" && (is0(x.A) || is0(x.B)) { return C(0) }
+			if x.Op == "mul" && (is0(x.A) || is0(x.B)) {
+				return C(0)
+			}
 			return nil
 		}, nil},
 	{"comm+",
 		func(x *Expr) *Expr {
-			if x.Op == "add" { return EAdd(x.B, x.A) }
+			if x.Op == "add" {
+				return EAdd(x.B, x.A)
+			}
 			return nil
 		}, nil},
 	{"comm*",
 		func(x *Expr) *Expr {
-			if x.Op == "mul" { return EMul(x.B, x.A) }
+			if x.Op == "mul" {
+				return EMul(x.B, x.A)
+			}
 			return nil
 		}, nil},
 	{"assoc+",
 		func(x *Expr) *Expr {
-			if x.Op == "add" && x.A.Op == "add" { return EAdd(x.A.A, EAdd(x.A.B, x.B)) }
+			if x.Op == "add" && x.A.Op == "add" {
+				return EAdd(x.A.A, EAdd(x.A.B, x.B))
+			}
 			return nil
 		},
 		func(x *Expr) *Expr {
-			if x.Op == "add" && x.B.Op == "add" { return EAdd(EAdd(x.A, x.B.A), x.B.B) }
+			if x.Op == "add" && x.B.Op == "add" {
+				return EAdd(EAdd(x.A, x.B.A), x.B.B)
+			}
 			return nil
 		}},
 	{"assoc*",
 		func(x *Expr) *Expr {
-			if x.Op == "mul" && x.A.Op == "mul" { return EMul(x.A.A, EMul(x.A.B, x.B)) }
+			if x.Op == "mul" && x.A.Op == "mul" {
+				return EMul(x.A.A, EMul(x.A.B, x.B))
+			}
 			return nil
 		},
 		func(x *Expr) *Expr {
-			if x.Op == "mul" && x.B.Op == "mul" { return EMul(EMul(x.A, x.B.A), x.B.B) }
+			if x.Op == "mul" && x.B.Op == "mul" {
+				return EMul(EMul(x.A, x.B.A), x.B.B)
+			}
 			return nil
 		}},
 	{"dist",
 		func(x *Expr) *Expr {
-			if x.Op == "mul" && x.B.Op == "add" { return EAdd(EMul(x.A, x.B.A), EMul(x.A, x.B.B)) }
+			if x.Op == "mul" && x.B.Op == "add" {
+				return EAdd(EMul(x.A, x.B.A), EMul(x.A, x.B.B))
+			}
 			return nil
 		},
 		func(x *Expr) *Expr {
@@ -197,49 +268,68 @@ var rules = []struct {
 		}},
 	{"negneg",
 		func(x *Expr) *Expr {
-			if x.Op == "neg" && x.A.Op == "neg" { return x.A.A }
+			if x.Op == "neg" && x.A.Op == "neg" {
+				return x.A.A
+			}
 			return nil
 		},
 		func(x *Expr) *Expr { return ENeg(ENeg(x)) }},
 	{"neg+",
 		func(x *Expr) *Expr {
-			if x.Op == "neg" && x.A.Op == "add" { return EAdd(ENeg(x.A.A), ENeg(x.A.B)) }
+			if x.Op == "neg" && x.A.Op == "add" {
+				return EAdd(ENeg(x.A.A), ENeg(x.A.B))
+			}
 			return nil
 		},
 		func(x *Expr) *Expr {
-			if x.Op == "add" && x.A.Op == "neg" && x.B.Op == "neg" { return ENeg(EAdd(x.A.A, x.B.A)) }
+			if x.Op == "add" && x.A.Op == "neg" && x.B.Op == "neg" {
+				return ENeg(EAdd(x.A.A, x.B.A))
+			}
 			return nil
 		}},
 	{"+-0",
 		func(x *Expr) *Expr {
-			if x.Op == "add" && x.B.Op == "neg" && Key(x.A) == Key(x.B.A) { return C(0) }
-			if x.Op == "add" && x.A.Op == "neg" && Key(x.B) == Key(x.A.A) { return C(0) }
+			if x.Op == "add" && x.B.Op == "neg" && Key(x.A) == Key(x.B.A) {
+				return C(0)
+			}
+			if x.Op == "add" && x.A.Op == "neg" && Key(x.B) == Key(x.A.A) {
+				return C(0)
+			}
 			return nil
 		}, nil},
 	{"neg*",
 		func(x *Expr) *Expr {
-			if x.Op == "neg" && x.A.Op == "mul" { return EMul(ENeg(x.A.A), x.A.B) }
+			if x.Op == "neg" && x.A.Op == "mul" {
+				return EMul(ENeg(x.A.A), x.A.B)
+			}
 			return nil
 		},
 		func(x *Expr) *Expr {
-			if x.Op == "mul" && x.A.Op == "neg" { return ENeg(EMul(x.A.A, x.B)) }
+			if x.Op == "mul" && x.A.Op == "neg" {
+				return ENeg(EMul(x.A.A, x.B))
+			}
 			return nil
 		}},
 	{"fold+",
 		func(x *Expr) *Expr {
-			if x.Op == "add" && x.A.Op == "const" && x.B.Op == "const" { return C(x.A.N + x.B.N) }
+			if x.Op == "add" && x.A.Op == "const" && x.B.Op == "const" {
+				return C(x.A.N + x.B.N)
+			}
 			return nil
 		}, nil},
 	{"fold*",
 		func(x *Expr) *Expr {
-			if x.Op == "mul" && x.A.Op == "const" && x.B.Op == "const" { return C(x.A.N * x.B.N) }
+			if x.Op == "mul" && x.A.Op == "const" && x.B.Op == "const" {
+				return C(x.A.N * x.B.N)
+			}
 			return nil
 		}, nil},
 }
 
 type MAction struct {
-	Rule int
-	Pos  []int
+	Rule  int // indice en rules; -1 = accion de lema
+	Pos   []int
+	Lemma int // indice en LemmaLib.Lemmas; -1 = regla normal
 }
 
 func MathActions(e *Expr) []MAction {
@@ -248,11 +338,22 @@ func MathActions(e *Expr) []MAction {
 		sub := Get(e, p)
 		for i, rl := range rules {
 			for _, fn := range []func(*Expr) *Expr{rl.f, rl.r} {
-				if fn == nil { continue }
+				if fn == nil {
+					continue
+				}
 				nw := fn(sub)
 				if nw != nil && Key(nw) != Key(sub) {
-					out = append(out, MAction{Rule: i, Pos: p})
+					out = append(out, MAction{Rule: i, Pos: p, Lemma: -1})
 				}
+			}
+		}
+	}
+	// acciones de lema: reescrituras ya demostradas, en un solo paso
+	if LemmaLib != nil {
+		for _, p := range SubPositions(e) {
+			ks := Key(Get(e, p))
+			for _, li := range LemmaLib.ByKey[ks] {
+				out = append(out, MAction{Rule: -1, Pos: p, Lemma: li})
 			}
 		}
 	}
@@ -260,10 +361,19 @@ func MathActions(e *Expr) []MAction {
 }
 
 func applyAction(e *Expr, a MAction) *Expr {
+	if a.Lemma >= 0 {
+		lm := LemmaLib.Lemmas[a.Lemma]
+		if Key(Get(e, a.Pos)) == lm.FromKey {
+			return Replace(e, a.Pos, lm.To)
+		}
+		return Replace(e, a.Pos, lm.From)
+	}
 	sub := Get(e, a.Pos)
 	rl := rules[a.Rule]
 	for _, fn := range []func(*Expr) *Expr{rl.f, rl.r} {
-		if fn == nil { continue }
+		if fn == nil {
+			continue
+		}
 		nw := fn(sub)
 		if nw != nil && Key(nw) != Key(sub) {
 			return Replace(e, a.Pos, nw)
@@ -286,7 +396,9 @@ func (MathRing) Legal(s any) []any {
 	st := s.(MState)
 	acts := MathActions(st.Cur)
 	out := make([]any, len(acts))
-	for i, a := range acts { out[i] = a }
+	for i, a := range acts {
+		out[i] = a
+	}
 	return out
 }
 
@@ -299,8 +411,12 @@ func (MathRing) Play(s any, a any) any {
 
 func (MathRing) Terminal(s any) (bool, float64) {
 	st := s.(MState)
-	if Key(st.Cur) == Key(st.Target) { return true, 1.0 }
-	if st.Steps >= st.MaxSteps { return true, -1.0 }
+	if Key(st.Cur) == Key(st.Target) {
+		return true, 1.0
+	}
+	if st.Steps >= st.MaxSteps {
+		return true, -1.0
+	}
 	return false, 0
 }
 
@@ -311,11 +427,17 @@ func LoadProblems(path, k string) []MState {
 	if err != nil {
 		// desde el directorio padre (repo layout)
 		data, err = os.ReadFile("../" + path)
-		if err != nil { panic(err) }
+		if err != nil {
+			panic(err)
+		}
 	}
-	var all map[string][]struct{ A, B json.RawMessage `json:"-"` }
+	var all map[string][]struct {
+		A, B json.RawMessage `json:"-"`
+	}
 	var raw map[string][]map[string]json.RawMessage
-	if err := json.Unmarshal(data, &raw); err != nil { panic(err) }
+	if err := json.Unmarshal(data, &raw); err != nil {
+		panic(err)
+	}
 	_ = all
 	var out []MState
 	for _, pr := range raw[k] {
@@ -326,7 +448,9 @@ func LoadProblems(path, k string) []MState {
 
 func parseExpr(m json.RawMessage) *Expr {
 	var d map[string]json.RawMessage
-	if err := json.Unmarshal(m, &d); err != nil { panic(err) }
+	if err := json.Unmarshal(m, &d); err != nil {
+		panic(err)
+	}
 	var op string
 	json.Unmarshal(d["op"], &op)
 	switch op {
@@ -348,6 +472,7 @@ func parseExpr(m json.RawMessage) *Expr {
 // ---- baseline BFS (sin red) ----
 
 func BFSSolve(g MathRing, p MState, cap int) (bool, int) {
+	ClearKeyCache()
 	target := Key(p.Target)
 	seen := map[string]bool{Key(p.Cur): true}
 	queue := []*Expr{p.Cur}
@@ -356,7 +481,9 @@ func BFSSolve(g MathRing, p MState, cap int) (bool, int) {
 		cur := queue[0]
 		queue = queue[1:]
 		nodes++
-		if Key(cur) == target { return true, nodes }
+		if Key(cur) == target {
+			return true, nodes
+		}
 		for _, a := range MathActions(cur) {
 			nxt := applyAction(cur, a)
 			k2 := Key(nxt)
