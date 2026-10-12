@@ -3,6 +3,10 @@
 Motor genérico de autojuego estilo AlphaZero (MCTS + red neuronal + juez
 exacto) que aprende solo: matemáticas, juegos y puzles.
 
+> Visión (dirección del proyecto, no un resultado medido): "La meta es
+> un «superaprendiz» que descubra cosas «tan profundas que no podemos
+> expresarlas con las palabras que tenemos hoy»." - David Silver, FT.
+
 Estado a 12 oct 2026. Todo lo listado abajo está medido en la misma
 máquina; lo no medido no se afirma.
 
