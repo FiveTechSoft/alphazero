@@ -20,6 +20,9 @@ var embeddedModel []byte
 //go:embed lemas.json
 var embeddedLemas []byte
 
+//go:embed problems.json
+var embeddedProblems []byte
+
 func readDataFile(path string) []byte {
 	if data, err := os.ReadFile(path); err == nil {
 		return data
@@ -36,6 +39,8 @@ func readDataFile(path string) []byte {
 		return embeddedModel
 	case "lemas.json":
 		return embeddedLemas
+	case "problems.json":
+		return embeddedProblems
 	}
 	return nil
 }
