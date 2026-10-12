@@ -89,6 +89,14 @@ func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
 			for x := it; x.parent != nil; x = x.parent {
 				out = append(out, Sample{x.parent.feats, x.aidx})
 			}
+			if LemmaLib != nil && LemmaUso != nil {
+				for x := it; x.parent != nil; x = x.parent {
+					acts := MathActions(x.parent.e)
+					if x.aidx >= 0 && x.aidx < len(acts) && acts[x.aidx].Lemma >= 0 {
+						LemmaUso[acts[x.aidx].Lemma]++
+					}
+				}
+			}
 			return true, nodes, out
 		}
 		acts := MathActions(it.e)
