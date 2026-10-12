@@ -1,0 +1,152 @@
+// A/B de experimentos (E2 online, E4 replay priorizado, E8 transferencia).
+// Un comando, dos brazos desde la MISMA semilla (init identico, mismo stream
+// de problemas), evaluados en el mismo conjunto ciego con el mismo cap:
+//
+//	./mathzero ab <e2|e4|e8> <semilla> [rondas] [por_ronda] [cap]
+//
+// Sin biblioteca en los brazos (medido: los lemas crudos hunden la busqueda).
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"strconv"
+)
+
+type ExpCfg struct {
+	Online   bool // E2: entrena tras cada problema, sin acumular ronda
+	Replay   bool // E4: replay priorizado por longitud de prueba
+	MaxLevel int  // E8: techo de nivel de entrenamiento (0 = sin techo)
+}
+
+type wsample struct {
+	s Sample
+	w float64
+}
+
+func trainArm(cfg ExpCfg, seed int64, rounds, per, cap int, blind map[string]bool) *MLP {
+	r := rand.New(rand.NewSource(seed))
+	net := NewMLP(seed)
+	var replay []wsample
+	for rd := 1; rd <= rounds; rd++ {
+		var buf []Sample
+		solved := 0
+		for i := 0; i < per; i++ {
+			lvl := net.Level
+			if cfg.MaxLevel > 0 && lvl > cfg.MaxLevel {
+				lvl = cfg.MaxLevel
+			}
+			a, b := genTrain(r, lvl)
+			if blind[pairKey(a, b)] {
+				continue
+			}
+			ok, _, sm := GuidedSolve(net, a, b, cap)
+			if !ok {
+				continue
+			}
+			solved++
+			switch {
+			case cfg.Online:
+				for ep := 0; ep < 3; ep++ {
+					for _, s := range sm {
+						net.TrainCE(s.Feats, s.Target, 0.003)
+					}
+				}
+			case cfg.Replay:
+				for _, s := range sm {
+					replay = append(replay, wsample{s, float64(len(sm))})
+				}
+			default:
+				buf = append(buf, sm...)
+			}
+		}
+		if cfg.Replay && len(replay) > 0 {
+			total := 0.0
+			for _, x := range replay {
+				total += x.w
+			}
+			ndraws := len(buf) + per*3 // presupuesto comparable al baseline
+			for ep := 0; ep < 3; ep++ {
+				for d := 0; d < ndraws; d++ {
+					u := r.Float64() * total
+					acc := 0.0
+					for _, x := range replay {
+						acc += x.w
+						if acc >= u {
+							net.TrainCE(x.s.Feats, x.s.Target, 0.003)
+							break
+						}
+					}
+				}
+			}
+			if len(replay) > 20000 {
+				replay = replay[len(replay)-20000:]
+			}
+		} else if !cfg.Online && len(buf) > 0 {
+			for ep := 0; ep < 3; ep++ {
+				r.Shuffle(len(buf), func(i, j int) { buf[i], buf[j] = buf[j], buf[i] })
+				for _, s := range buf {
+					net.TrainCE(s.Feats, s.Target, 0.003)
+				}
+			}
+		}
+		net.Round++
+		maxL := 8
+		if cfg.MaxLevel > 0 {
+			maxL = cfg.MaxLevel
+		}
+		if float64(solved)/float64(per) >= 0.8 && net.Level < maxL {
+			net.Level++
+		}
+	}
+	return net
+}
+
+func abReport(tag string, e blindEval) {
+	fmt.Printf("[ab %s] k2:%d k3:%d k4:%d k5:%d k6:%d k7:%d k8:%d total=%d/700 k6-8=%d nodos_med=%d\n",
+		tag, e.perLevel[2], e.perLevel[3], e.perLevel[4], e.perLevel[5],
+		e.perLevel[6], e.perLevel[7], e.perLevel[8], e.total,
+		e.perLevel[6]+e.perLevel[7]+e.perLevel[8], e.nodes)
+}
+
+func ABMain(args []string) {
+	if len(args) < 2 {
+		fmt.Println("uso: ./mathzero ab <e2|e4|e8> <semilla> [rondas] [por_ronda] [cap]")
+		return
+	}
+	exp := args[0]
+	seed, _ := strconv.ParseInt(args[1], 10, 64)
+	rounds, per, cap := 8, 60, 1000
+	if len(args) > 2 {
+		rounds, _ = strconv.Atoi(args[2])
+	}
+	if len(args) > 3 {
+		per, _ = strconv.Atoi(args[3])
+	}
+	if len(args) > 4 {
+		cap, _ = strconv.Atoi(args[4])
+	}
+	LemmaLib = nil
+	blind := LoadBlindKeys("blind.json")
+	lv := map[int][]MState{}
+	for k := 2; k <= 8; k++ {
+		lv[k] = LoadProblems("blind.json", fmt.Sprint(k))
+	}
+	var vari ExpCfg
+	switch exp {
+	case "e2":
+		vari = ExpCfg{Online: true}
+	case "e4":
+		vari = ExpCfg{Replay: true}
+	case "e8":
+		vari = ExpCfg{MaxLevel: 5}
+	default:
+		fmt.Println("experimento desconocido:", exp)
+		return
+	}
+	fmt.Printf("[ab %s seed=%d] rondas=%d por_ronda=%d cap=%d (sin biblioteca, mismo ciego)\n", exp, seed, rounds, per, cap)
+	base := trainArm(ExpCfg{}, seed, rounds, per, cap, blind)
+	abReport(fmt.Sprintf("%s seed=%d baseline", exp, seed), evalBlind(base, lv, cap))
+	vnet := trainArm(vari, seed, rounds, per, cap, blind)
+	abReport(fmt.Sprintf("%s seed=%d variante", exp, seed), evalBlind(vnet, lv, cap))
+}
