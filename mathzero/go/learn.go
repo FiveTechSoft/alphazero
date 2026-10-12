@@ -32,7 +32,9 @@ func count(e *Expr, op string) int {
 // features de (estado, accion): 14 one-hot regla + 10 numericas
 func Feats(cur, target *Expr, a MAction) []float64 {
 	f := make([]float64, NFeat)
-	f[a.Rule] = 1
+	if a.Rule >= 0 {
+		f[a.Rule] = 1
+	}
 	nxt := applyAction(cur, a)
 	sb, sa, st := size(cur), size(nxt), size(target)
 	f[14] = float64(len(a.Pos)) / 5
@@ -73,6 +75,7 @@ type Sample struct {
 
 // GuidedSolve: net==nil -> prior uniforme. Devuelve ok, nodos, muestras del camino.
 func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
+	ClearKeyCache()
 	tk := Key(target)
 	seen := map[string]bool{Key(start): true}
 	h := &pq{}
