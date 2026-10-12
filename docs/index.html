@@ -57,7 +57,7 @@ let busy = false;
 
 async function boot() {
   const go = new Go();
-  const r = await WebAssembly.instantiateStreaming(fetch("engine.wasm"), go.importObject);
+  const r = await WebAssembly.instantiateStreaming(fetch("10-engine.wasm"), go.importObject);
   go.run(r.instance);
   $("status").textContent = "motor Go listo (WebAssembly). Redes cargadas: tres en raya + MathRing.";
   drawBoard(JSON.parse(mzNewTTT()));
