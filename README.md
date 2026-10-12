@@ -8,7 +8,7 @@ la demo web es pública: https://fivetechsoft.github.io/alphazero/
 > un «superaprendiz» que descubra cosas «tan profundas que no podemos
 > expresarlas con las palabras que tenemos hoy»." - David Silver, FT.
 
-## Cómo funciona (guía para bobos)
+## Cómo funciona
 
 ```mermaid
 flowchart TD
