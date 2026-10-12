@@ -15,6 +15,44 @@ func main() {
 		Curriculum(12, 150, 2000, "model_math.json", 1)
 		return
 	}
+	if len(os.Args) > 1 && os.Args[1] == "benchttt" {
+		g := TicTacToe{}
+		games, sims := 200, 100
+		totalSims := 0
+		start := time.Now()
+		for i := 0; i < games; i++ {
+			s := any(TTTState{Player: 1})
+			for {
+				done, _ := g.Terminal(s)
+				if done {
+					break
+				}
+				a := MCTS(s, g, nil, sims, 1.5)
+				totalSims += sims
+				s = g.Play(s, a)
+			}
+		}
+		el := time.Since(start).Seconds()
+		fmt.Printf("[benchttt Go] %d partidas x %d sims = %d sims en %.3fs -> %.0f sims/s (%.1f partidas/s)\n",
+			games, sims, totalSims, el, float64(totalSims)/el, float64(games)/el)
+		return
+	}
+	if len(os.Args) > 1 && os.Args[1] == "judgesv" {
+		JudgeSV()
+		return
+	}
+	if len(os.Args) > 1 && os.Args[1] == "evalfail" {
+		EvalFail(os.Args[2:])
+		return
+	}
+	if len(os.Args) > 1 && os.Args[1] == "genblind" {
+		GenBlind("blind.json", 100, 12345)
+		return
+	}
+	if len(os.Args) > 1 && os.Args[1] == "curve" {
+		CurveMain(os.Args[2:])
+		return
+	}
 	if len(os.Args) > 1 && os.Args[1] == "cycle" {
 		CycleMain(os.Args[2:])
 		return
