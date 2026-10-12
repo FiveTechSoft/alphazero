@@ -41,6 +41,10 @@ func main() {
 		JudgeSV()
 		return
 	}
+	if len(os.Args) > 1 && os.Args[1] == "ab" {
+		ABMain(os.Args[2:])
+		return
+	}
 	if len(os.Args) > 1 && os.Args[1] == "evalfail" {
 		EvalFail(os.Args[2:])
 		return
