@@ -80,7 +80,7 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | E2 | Entrenamiento online tras cada lote | propio | bajo | DESCARTADO (medido: media -23/700; 2 de 3 semillas muy negativas) |
 | E4 | Replay priorizado + ponderacion por longitud de prueba | arXiv 2006.00283 | bajo | DESCARTADO (medido: media 0,0/700 en 6 semillas, ruido puro; RESULTADOS_MEJORAS.md) |
 | E9 | Poda de lemas-accion por uso medido (top-8) vs biblioteca cruda | propio (hallazgo ablacion) | bajo | ACEPTADO (13-oct 00:45): +12,3/700 media, 3/3 semillas +12/+16/+9, k6-8 +4,7, nodos -5,3% |
-| E10 | Datos sinteticos neg-neg/add0 (25% del stream) contra el punto ciego de limpieza | propio (evalfail) | bajo | EN CURSO (aprobado 22:26) |
+| E10 | Datos sinteticos neg-neg/add0 (25% del stream) contra el punto ciego de limpieza | propio (evalfail) | bajo | ACEPTADO (13-oct 01:07): +10,3/700 media, 3/3 semillas +6/+8/+17, k6-8 +3,3, nodos -3,7% |
 | E11 | Motor con direccion en MAction + dedup de sucesores (bug medido: 30% acciones duplicadas, 1.044 r enmascaradas) | revision externa + direction_diag_test.go | bajo | EN CURSO (00:15): motor corregido y validado (0,00% duplicadas bajo DirFix); A/B 3 semillas en cadena local tras E9/E10 |
 | E12 | Ablacion factorial 2x2 (red x biblioteca) multisemilla, eval-only | revision externa | bajo | PROPUESTO, sin aprobar |
 | E13 | Puerta de aceptacion por set fijo (levels.json): quedarse con la red nueva solo si no baja (arena alpha-zero-general traducida a matematicas) | suragnair/alpha-zero-general | bajo | EN CURSO (00:15): puerta implementada (smoke verificado); A/B 3 semillas en cadena local tras E11 |
