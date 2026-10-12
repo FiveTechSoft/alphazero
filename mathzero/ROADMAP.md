@@ -59,9 +59,10 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
   borrados, con go/go raiz incluido.
 - A/B noche 12 oct (ciego, cap 1000, emparejado): E8 descartado (media +2,7, ruido);
   E2 descartado (media -23,3); E4 descartado (media 0,0/700 en 6 semillas, ruido).
-- Ejecutable autonomo (datos embebidos + flag -json): probado en Windows real por Anto
-  (arranque OK; v0.1.0 daba panic sin argumentos por problems.json no embebido -> corregido
-  en v0.1.1 embebiendolo) y en el servidor (tanda 1, wrapper con reloj de pared).
+- Ejecutable autonomo (datos embebidos + flag -json), Release v0.1.1: PROBADO EN WINDOWS
+  REAL por Anto (12 oct 23:24): arranque sin panic, 136 reglas OK, BFS 16/30 y 7/30
+  identicos a Linux. (v0.1.0 daba panic sin argumentos por problems.json no embebido ->
+  corregido embebiendolo.) Servidor: tanda 1 con wrapper de reloj de pared.
 - Fijo (levels.json, no ciego; historico): learn 12 rondas, cap 2000:
   k4 26/30, k5 25/30, k6 19/30, k7 16/30, k8 16/30 (BFS: 16, 15, 6, 5, 9).
   Ablacion biblioteca en ciclo 3 (fijo): 146 vs 146 (efecto marginal una vez la red
@@ -70,7 +71,7 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
 ## Experimentos de la literatura (A/B: mismo conjunto ciego y cap, 3 semillas)
 
 Se ejecutan por impacto/coste; se mantiene solo lo que mejore con cifras.
-Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado.
+Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuevo de evaluacion (logica booleana u otro con juez exacto): PROPUESTO, sin aprobar.
 
 | # | Experimento | Fuente | Coste | Estado |
 |---|-------------|--------|-------|--------|
@@ -79,6 +80,8 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado.
 | E4 | Replay priorizado + ponderacion por longitud de prueba | arXiv 2006.00283 | bajo | DESCARTADO (medido: media 0,0/700 en 6 semillas, ruido puro; RESULTADOS_MEJORAS.md) |
 | E9 | Poda de lemas-accion por uso medido (top-8) vs biblioteca cruda | propio (hallazgo ablacion) | bajo | EN CURSO (aprobado 22:26) |
 | E10 | Datos sinteticos neg-neg/add0 (25% del stream) contra el punto ciego de limpieza | propio (evalfail) | bajo | EN CURSO (aprobado 22:26) |
+| E11 | Motor con direccion en MAction + dedup de sucesores (bug medido: 30% acciones duplicadas, 1.044 r enmascaradas) | revision externa + direction_diag_test.go | bajo | APROBADO (23:53), en cola tras E9/E10 (cambiar el motor invalida la comparabilidad en curso) |
+| E12 | Ablacion factorial 2x2 (red x biblioteca) multisemilla, eval-only | revision externa | bajo | PROPUESTO, sin aprobar |
 | E3 | Curriculo "al borde" 20-80% (tipo STP) vs niveles k fijos, midiendo olvido | arXiv 2502.00212 | medio | pendiente |
 | E5 | Datos sinteticos por reescritura hacia delante como preentrenamiento | AlphaGeometry (Nature) | medio | pendiente |
 | E6 | Biblioteca estilo DreamCoder (macros frecuentes) | DreamCoder | medio | pendiente |
