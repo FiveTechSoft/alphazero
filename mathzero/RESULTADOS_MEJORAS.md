@@ -85,3 +85,24 @@ baseline de cada semilla es su propio control).
 Media 6 semillas: 0,0/700 (k6-8: -0,8). Ruido puro: el +14 de la semilla 1
 era espejismo. Veredicto: DESCARTADO, no se incorpora.
 Comando: `./mathzero ab e4 <semilla>` (logs: go/ab_e4.log, tanda 1 servidor).
+
+## E9 - Poda de lemas por uso medido (top-8): ACEPTADO (3 semillas, 13 oct 00:45)
+
+Variante: biblioteca podada a los 8 lemas con uso medido en el propio
+entrenamiento (de 111), misma red y stream emparejados por semilla. Ambos
+brazos CON biblioteca (cruda vs podada); mismo ciego (700), cap 1000.
+
+| Semilla | Base (cruda) | Var (podada) | Dif | Base k6-8 | Var k6-8 | Dif k6-8 | Base nodos | Var nodos |
+|---------|--------------|--------------|-----|-----------|----------|----------|------------|-----------|
+| 1 | 519 | 531 | +12 | 152 | 157 | +5 | 324 | 304 |
+| 2 | 500 | 516 | +16 | 140 | 147 | +7 | 346 | 328 |
+| 3 | 515 | 524 | +9 | 149 | 151 | +2 | 332 | 317 |
+| media | 511,3 | 523,7 | +12,3 | 147,0 | 151,7 | +4,7 | 334,0 | 316,3 |
+
+Veredicto: ACEPTADO. 3/3 semillas positivas (+12/+16/+9), media +12,3/700,
+k6-8 +4,7 y -5,3% de nodos. La poda por uso convierte la biblioteca de
+lastre (Hallazgo 1) en mejora neta sobre la cruda. Lo NO medido aqui:
+podada vs SIN biblioteca en diseno emparejado (Hallazgo 1 era otra red y
+otro diseno; no comparable directamente). Propuesto como parte de E12
+(factorial), NO aprobado aun.
+Comando: `./mathzero ab e9 <semilla>` (log: go/ab_e9.log).
