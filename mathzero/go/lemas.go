@@ -9,6 +9,7 @@ package main
 import (
 	"encoding/json"
 	"os"
+	"sort"
 )
 
 type Lemma struct {
@@ -33,6 +34,10 @@ type Library struct {
 
 // Biblioteca global; nil = desactivada (para ablaciones).
 var LemmaLib *Library
+
+// Contador de uso de lemas en caminos ganadores (nil = sin medicion).
+// Lo rellena GuidedSolve solo cuando la biblioteca esta activa.
+var LemmaUso map[int]int
 
 func NewLibrary() *Library {
 	return &Library{ByKey: map[string][]int{}, MaxSize: 12}
@@ -73,6 +78,37 @@ func (L *Library) Insert(a, b *Expr, saving int) bool {
 	L.ByKey[ka] = append(L.ByKey[ka], idx)
 	L.ByKey[kb] = append(L.ByKey[kb], idx)
 	return true
+}
+
+// Pruned devuelve una biblioteca con solo los lemas de uso medido
+// (uso>=1), ordenados por uso, como maximo maxK: poda la branching.
+func (L *Library) Pruned(uso map[int]int, maxK int) *Library {
+	type us struct{ i, u int }
+	ord := make([]us, 0, len(L.Lemmas))
+	for i := range L.Lemmas {
+		if uso[i] >= 1 {
+			ord = append(ord, us{i, uso[i]})
+		}
+	}
+	sort.Slice(ord, func(a, b int) bool {
+		if ord[a].u != ord[b].u {
+			return ord[a].u > ord[b].u
+		}
+		return ord[a].i < ord[b].i
+	})
+	P := NewLibrary()
+	P.MaxSize = L.MaxSize
+	for j, o := range ord {
+		if j >= maxK {
+			break
+		}
+		l := L.Lemmas[o.i]
+		idx := len(P.Lemmas)
+		P.Lemmas = append(P.Lemmas, l)
+		P.ByKey[l.FromKey] = append(P.ByKey[l.FromKey], idx)
+		P.ByKey[l.ToKey] = append(P.ByKey[l.ToKey], idx)
+	}
+	return P
 }
 
 func (L *Library) Save(path string) {
