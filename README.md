@@ -1,8 +1,7 @@
 # Motor genérico de autojuego estilo AlphaZero
 
 Motor genérico de autojuego estilo AlphaZero (MCTS + red neuronal + juez
-exacto) que aprende solo: matemáticas, juegos y puzles. Repo privado;
-la demo web es pública: https://fivetechsoft.github.io/alphazero/
+exacto) que aprende solo: matemáticas, juegos y puzles.
 
 > Visión (dirección del proyecto, no un resultado medido): "La meta es
 > un «superaprendiz» que descubra cosas «tan profundas que no podemos
