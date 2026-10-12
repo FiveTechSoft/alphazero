@@ -1,4 +1,4 @@
-# ROADMAP (privado) - actualizado 12 oct 2026 16:25
+# ROADMAP (privado) - actualizado 12 oct 2026 17:05
 
 Vision (no es un resultado, es la direccion): "La meta es un
 <<superaprendiz>> que descubra cosas <<tan profundas que no podemos
@@ -36,6 +36,7 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
 | 21 | Idea Symbols (nota/vision) | la red propone parches/reescrituras y un motor simbolico verifica; solo diseno hasta tener h18 | 0% | 0% |
 | 22 | MoE (futuro, CONDICIONADO) | primero expertos por dominio + router simple por tipo de problema; MoE aprendido SOLO si el panel (h18) muestra beneficio de compartir parametros | 0% | 0% |
 | 23 | Minilaboratorio multiagente (largo plazo, tras h9) | 2-3 agentes se coordinan para resolver un puzle con juez (uno ve el laberinto, otro mueve); criterio: tasa de resolucion con y sin canal de comunicacion, 3 semillas. Vision "placa de Petri"; sin afirmar nada sobre superinteligencia | 0% | 0% |
+| 24 | Dominio futuro: geometria con la razon aurea phi | enunciados verificables en Q(raiz5) por el juez exacto (p.ej. phi^2=phi+1, coordenadas de dodecaedro/icosaedro con rectangulos aureos); SOLO cuando el core de algebra este solido. Anotado, sin trabajo actual. Vision del dominio (Anto, 17:04): darle lo MINIMO en geometria - axiomas + juez exacto - para que descubra por si mismo, como en algebra | 0% | 0% |
 
 ## Datos medidos (12 oct)
 
