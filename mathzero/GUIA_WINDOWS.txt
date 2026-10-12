@@ -1,0 +1,35 @@
+GUIA RAPIDA - mathzero.exe (Windows) - v0.1.1
+
+QUE ES: un unico ejecutable. NO instala nada, NO toca nada del PC.
+Los datos van dentro del .exe, no necesita ningun otro fichero.
+
+1. Guarda mathzero.exe en una carpeta, por ejemplo
+   C:\Users\TuNombre\Downloads\mathzero\
+
+2. Abre PowerShell en esa carpeta:
+   Explorador de archivos -> clic en la barra de direcciones ->
+   escribe   powershell   y pulsa Enter.
+
+3. Si Windows dice "Windows protegio su PC" (es un .exe sin firma):
+   pulsa "Mas informacion" -> "Ejecutar de todas formas".
+   Es el aviso normal de cualquier .exe sin certificado.
+
+4. PRUEBA RAPIDA (~1 minuto): ejecutalo sin argumentos:
+     .\mathzero.exe
+   Debe mostrar [TicTacToe] sims/s, [MathRing] 136 reglas verificadas,
+   dos lineas de baseline BFS y terminar sin errores.
+
+5. EXPERIMENTOS DE VERDAD (cada uno tarda ~10-40 minutos).
+   Ejecuta los que quieras, uno detras de otro:
+     .\mathzero.exe ab e2 4 -json
+     .\mathzero.exe ab e2 5 -json
+     .\mathzero.exe ab e2 6 -json
+     .\mathzero.exe ab e4 4 -json
+     .\mathzero.exe ab e4 5 -json
+     .\mathzero.exe ab e4 6 -json
+   Cada uno deja un fichero resultados_ab_*.json en la misma carpeta.
+   Mandanos esos .json (valen tal cual).
+
+NOTA: v0.1.1 PROBADA EN WINDOWS REAL (Anto, 12 oct 23:24): arranca sin
+panic, 136 reglas verificadas OK y baseline BFS 16/30 y 7/30, identico a
+Linux. Si algo falla, copia el mensaje de error y nos lo mandas tal cual.
