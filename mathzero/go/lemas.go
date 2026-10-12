@@ -92,13 +92,12 @@ func (L *Library) Save(path string) {
 
 func LoadLibrary(path string) *Library {
 	L := NewLibrary()
-	f, err := os.Open(path)
-	if err != nil {
+	data := readDataFile(path)
+	if data == nil {
 		return L
 	}
-	defer f.Close()
 	var raw []lemmaJSON
-	if json.NewDecoder(f).Decode(&raw) != nil {
+	if json.Unmarshal(data, &raw) != nil {
 		return L
 	}
 	for _, lj := range raw {
