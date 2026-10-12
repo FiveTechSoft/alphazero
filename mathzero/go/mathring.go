@@ -424,7 +424,8 @@ func (MathRing) Terminal(s any) (bool, float64) {
 func LoadProblems(path, k string) []MState {
 	data := readDataFile(path)
 	if data == nil {
-		panic("no se encuentra " + path + " (ni en disco ni embebido)")
+		fmt.Println("aviso: no se encuentra " + path + " (ni en disco ni embebido); se omite")
+		return nil
 	}
 	var all map[string][]struct {
 		A, B json.RawMessage `json:"-"`
