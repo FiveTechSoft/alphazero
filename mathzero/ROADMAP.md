@@ -1,4 +1,4 @@
-# ROADMAP (privado) - actualizado 12 oct 2026 15:08
+# ROADMAP (privado) - actualizado 12 oct 2026 15:12
 
 "Conseguido" = existe y corre. "Verificado" = medido y repetible (comando + numero).
 
@@ -17,3 +17,4 @@
 | 11 | Velocidad Go vs Python | mismo test, sims/s | 100% | 80% |
 | 12 | Medicion repetible | un comando reproduce todas las tablas | 30% | 0% |
 | 13 | Idea futura: Tensor Logic con juez sudoku NumPy | solo nota, no integrar | 0% | 0% |
+| 14 | Decision de lenguaje (Go vs C vs Rust) | micro-benchmark repetible del bucle caliente (MCTS + juez) en Go, C y Rust | 10% | 0% |
