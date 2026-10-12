@@ -86,6 +86,7 @@ Media 6 semillas: 0,0/700 (k6-8: -0,8). Ruido puro: el +14 de la semilla 1
 era espejismo. Veredicto: DESCARTADO, no se incorpora.
 Comando: `./mathzero ab e4 <semilla>` (logs: go/ab_e4.log, tanda 1 servidor).
 
+
 ## E9 - Poda de lemas por uso medido (top-8): ACEPTADO (3 semillas, 13 oct 00:45)
 
 Variante: biblioteca podada a los 8 lemas con uso medido en el propio
@@ -106,3 +107,22 @@ podada vs SIN biblioteca en diseno emparejado (Hallazgo 1 era otra red y
 otro diseno; no comparable directamente). Propuesto como parte de E12
 (factorial), NO aprobado aun.
 Comando: `./mathzero ab e9 <semilla>` (log: go/ab_e9.log).
+
+## E10 - Datos sinteticos neg-neg/add0 (25% del stream): ACEPTADO (3 semillas, 13 oct 01:07)
+
+Variante: 25% de problemas sinteticos dirigidos al punto ciego de limpieza
+(neg-neg, add0) en el stream de entrenamiento. Emparejado por semilla;
+ambos brazos SIN biblioteca; mismo ciego (700), cap 1000.
+
+| Semilla | Base | Var | Dif | Base k6-8 | Var k6-8 | Dif k6-8 | Base nodos | Var nodos |
+|---------|------|-----|-----|-----------|----------|----------|------------|-----------|
+| 1 | 529 | 535 | +6 | 158 | 159 | +1 | 306 | 297 |
+| 2 | 536 | 544 | +8 | 161 | 165 | +4 | 295 | 286 |
+| 3 | 537 | 554 | +17 | 164 | 169 | +5 | 297 | 282 |
+| media | 534,0 | 544,3 | +10,3 | 161,0 | 164,3 | +3,3 | 299,3 | 288,3 |
+
+Veredicto: ACEPTADO. 3/3 semillas positivas (+6/+8/+17), media +10,3/700,
+k6-8 +3,3 y -3,7% de nodos. Nota: brazos SIN biblioteca, no comparable con
+las cifras de E9 (ambos brazos CON biblioteca). E12 (factorial E9xE10)
+mediria la interaccion: PROPUESTO, NO aprobado.
+Comando: `./mathzero ab e10 <semilla>` (log: go/ab_e10.log).
