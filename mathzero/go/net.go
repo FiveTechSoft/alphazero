@@ -23,12 +23,12 @@ type MLP struct {
 	Level int         `json:"level"`
 	Round int         `json:"round"`
 	// Adam
-	m1 [][]float64
-	v1 [][]float64
-	mb []float64
-	vb []float64
-	m2 []float64
-	v2 []float64
+	m1          [][]float64
+	v1          [][]float64
+	mb          []float64
+	vb          []float64
+	m2          []float64
+	v2          []float64
 	mb2, vb2, t float64
 }
 
