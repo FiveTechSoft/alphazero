@@ -8,6 +8,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"os"
 	"time"
 )
 
@@ -157,6 +158,10 @@ func (TicTacToe) Terminal(s any) (bool, float64) {
 // ---------------- main: test de las DOS games en el mismo ejecutable ----------------
 
 func main() {
+	if len(os.Args) > 1 && os.Args[1] == "learn" {
+		Curriculum(12, 150, 2000, "model_math.json", 1)
+		return
+	}
 	// 1) TicTacToe: bench de velocidad del motor (sin red)
 	g := TicTacToe{}
 	games, sims := 100, 50
