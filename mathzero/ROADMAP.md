@@ -89,6 +89,7 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | E6 | Biblioteca estilo DreamCoder (macros frecuentes) | DreamCoder | medio | pendiente |
 | E1 | Red dentro del MCTS/PUCT (la red como prior en el arbol) | HyperTree, arXiv 2205.11491 | alto | pendiente |
 | E7 | Test-time RL ligero para k7-k8 | AlphaProof | alto | pendiente |
+| E14 | Senal de aprendizaje tipo RL sobre la iteracion de expertos: aprovechar los problemas fallidos (relabeling) y/o una cabeza de valor para ordenar la busqueda; relacionada con E1 y E7 | hipotesis propia | medio | CANDIDATO (13-oct): sin aprobar ni medir. Solo tras E13 y el checkpoint completo. Un unico cambio, A/B desde cero, mismo ciego de 700, semillas pareadas; el criterio de aceptacion se fija y justifica antes de medir |
 
 ## Eje de calidad profesional (Q)
 
