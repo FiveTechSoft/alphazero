@@ -121,3 +121,10 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 - Que AlphaZero, partiendo de reglas basicas + juez exacto, desarrolle sobre Tensor Logic (Domingos, arXiv 2510.12269) como dominio nuevo con juez exacto.
 - Y, en general, sobre matematicas, algebra y geometria (AlphaGeometry/AlphaProof como referencias de direccion, no como plan).
 - Tensor Logic tambien se valora como NOTACION para describir el diseno del proyecto (reglas, juez, busqueda, aprendizaje) con mas claridad.
+
+## Capa conversacional (direccion DECIDIDA por Anto via main, 13-oct 05:55)
+
+**Estado: direccion aprobada como hito POSTERIOR a E13. NO empezada; no es trabajo actual.** Anto dejo la eleccion a main ("lo dejo a tu eleccion", WhatsApp 05:55) y main eligio: opcion 4 empezando por la 1.
+
+- Un LLM encima traduce lenguaje natural a problemas formales; AlphaZero razona; el juez verifica cada paso (sin alucinaciones: cada afirmacion pasa por el verificador).
+- Orden: primero cerrar el motor (E11/E13 + tanda Charles); al cerrar esa etapa, diseño formal de la capa (entrada/salida, contrato con el verificador, minimo viable) como propuesta de siguiente hito.
