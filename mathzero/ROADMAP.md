@@ -122,9 +122,9 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 - Y, en general, sobre matematicas, algebra y geometria (AlphaGeometry/AlphaProof como referencias de direccion, no como plan).
 - Tensor Logic tambien se valora como NOTACION para describir el diseno del proyecto (reglas, juez, busqueda, aprendizaje) con mas claridad.
 
-## Capa conversacional (direccion DECIDIDA por Anto via main, 13-oct 05:55)
+## Capa conversacional (vision a largo plazo; direccion decidida por Anto via main, 13-oct 05:55)
 
-**Estado: direccion aprobada como hito POSTERIOR a E13. NO empezada; no es trabajo actual.** Anto dejo la eleccion a main ("lo dejo a tu eleccion", WhatsApp 05:55) y main eligio: opcion 4 empezando por la 1.
+**Estado: vision futura, DESPUES de TODOS los hitos actuales de este ROADMAP. NO es el siguiente paso ni trabajo actual.** Anto dejo la eleccion a main ("lo dejo a tu eleccion", WhatsApp 05:55) y main eligio: opcion 4 empezando por la 1. Anto matizo despues (06:02): en el ROADMAP hay muchas otras cosas antes.
 
 - Un LLM encima traduce lenguaje natural a problemas formales; AlphaZero razona; el juez verifica cada paso (sin alucinaciones: cada afirmacion pasa por el verificador).
-- Orden: primero cerrar el motor (E11/E13 + tanda Charles); al cerrar esa etapa, diseño formal de la capa (entrada/salida, contrato con el verificador, minimo viable) como propuesta de siguiente hito.
+- Antes quedan todos los hitos actuales (motor, experimentos de la tabla, eje de calidad). Cuando algun dia toque, entrara como propuesta con aprobacion explicita y medicion en ciego como todo lo demas.
