@@ -126,3 +126,24 @@ k6-8 +3,3 y -3,7% de nodos. Nota: brazos SIN biblioteca, no comparable con
 las cifras de E9 (ambos brazos CON biblioteca). E12 (factorial E9xE10)
 mediria la interaccion: PROPUESTO, NO aprobado.
 Comando: `./mathzero ab e10 <semilla>` (log: go/ab_e10.log).
+
+## E11 - Motor con direccion en MAction + dedup de sucesores: ACEPTADO (3 semillas, 13 oct 06:20)
+
+Variante: MAction.Dir + DirFix global + dedup por clave de sucesor completo
+(corrige el bug medido: 30,06% de acciones duplicadas, 1.046 acciones-r
+mal aplicadas; assoc/comm absorbidas gratis por la Key canonica). Emparejado
+por semilla; ambos brazos SIN biblioteca; mismo ciego (700), cap 1000.
+
+| Semilla | Base | Var (DirFix) | Dif | Base k6-8 | Var k6-8 | Dif k6-8 | Base nodos | Var nodos |
+|---------|------|--------------|-----|-----------|----------|----------|------------|-----------|
+| 1 | 529 | 561 | +32 | 158 | 183 | +25 | 306 | 285 |
+| 2 | 536 | 557 | +21 | 161 | 178 | +17 | 295 | 271 |
+| 3 | 537 | 559 | +22 | 164 | 175 | +11 | 297 | 273 |
+| media | 534,0 | 559,0 | +25,0 | 161,0 | 178,7 | +17,7 | 299,3 | 276,3 |
+
+Veredicto: ACEPTADO. 3/3 semillas muy positivas (+32/+21/+22), media
++25,0/700, k6-8 +17,7 y -7,7% de nodos. Mayor mejora medida hasta ahora:
+la direccion en el motor elimina trabajo duplicado y descubre las acciones-r
+que estaban enmascaradas. Validado en tests: modo clasico sin cambios,
+DirFix 0,00% duplicadas (direction_diag_test.go).
+Comando: `./mathzero ab e11 <semilla>` (log: go/ab_e11.log).
