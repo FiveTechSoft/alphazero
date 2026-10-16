@@ -77,12 +77,15 @@ type Sample struct {
 func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
 	ClearKeyCache()
 	tk := Key(target)
-	seen := map[string]bool{Key(start): true}
+	bestCost := map[string]float64{Key(start): 0}
 	h := &pq{}
 	heap.Push(h, &item{e: start})
 	nodes := 0
 	for h.Len() > 0 && nodes < cap {
 		it := heap.Pop(h).(*item)
+		if searchStale(bestCost, Key(it.e), it.cost) {
+			continue
+		}
 		nodes++
 		if Key(it.e) == tk {
 			var out []Sample
@@ -120,15 +123,16 @@ func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
 			z += math.Exp(s - mx)
 		}
 		it.feats = fs
+		logZ := math.Log(z)
 		for i, a := range acts {
 			nx := applyAction(it.e, a)
 			k := Key(nx)
-			if seen[k] {
+			lp := sc[i] - mx - logZ
+			cost := it.cost - lp
+			if !searchRelax(bestCost, k, cost) {
 				continue
 			}
-			seen[k] = true
-			lp := sc[i] - mx - math.Log(z)
-			heap.Push(h, &item{cost: it.cost - lp, e: nx, parent: it, aidx: i})
+			heap.Push(h, &item{cost: cost, e: nx, parent: it, aidx: i})
 		}
 	}
 	return false, nodes, nil
