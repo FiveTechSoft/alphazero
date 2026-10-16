@@ -1,0 +1,919 @@
+{
+  "1": [
+    {
+      "id": "axis-pythagoras",
+      "meaning": "Right triangle O=(0,0), B=(a,0), C=(a,b): OC^2=OB^2+BC^2. Coordinates encode the right angle; no assumed equation is discharged.",
+      "a": {
+        "op": "add",
+        "a": {
+          "op": "mul",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "a"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "const",
+                "n": 0
+              }
+            }
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "a"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "const",
+                "n": 0
+              }
+            }
+          }
+        },
+        "b": {
+          "op": "mul",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "b"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "const",
+                "n": 0
+              }
+            }
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "b"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "const",
+                "n": 0
+              }
+            }
+          }
+        }
+      },
+      "b": {
+        "op": "add",
+        "a": {
+          "op": "mul",
+          "a": {
+            "op": "var",
+            "s": "a"
+          },
+          "b": {
+            "op": "var",
+            "s": "a"
+          }
+        },
+        "b": {
+          "op": "mul",
+          "a": {
+            "op": "var",
+            "s": "b"
+          },
+          "b": {
+            "op": "var",
+            "s": "b"
+          }
+        }
+      }
+    }
+  ],
+  "2": [
+    {
+      "id": "distance-symmetry",
+      "meaning": "AB^2=BA^2 for arbitrary planar A and B.",
+      "a": {
+        "op": "add",
+        "a": {
+          "op": "mul",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "c"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "var",
+                "s": "a"
+              }
+            }
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "c"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "var",
+                "s": "a"
+              }
+            }
+          }
+        },
+        "b": {
+          "op": "mul",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "d"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "var",
+                "s": "b"
+              }
+            }
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "d"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "var",
+                "s": "b"
+              }
+            }
+          }
+        }
+      },
+      "b": {
+        "op": "add",
+        "a": {
+          "op": "mul",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "a"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "var",
+                "s": "c"
+              }
+            }
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "a"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "var",
+                "s": "c"
+              }
+            }
+          }
+        },
+        "b": {
+          "op": "mul",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "b"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "var",
+                "s": "d"
+              }
+            }
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "var",
+              "s": "b"
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "var",
+                "s": "d"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "3": [
+    {
+      "id": "parallelogram",
+      "meaning": "|u+v|^2+|u-v|^2=2(|u|^2+|v|^2), arbitrary planar vectors.",
+      "a": {
+        "op": "add",
+        "a": {
+          "op": "add",
+          "a": {
+            "op": "mul",
+            "a": {
+              "op": "add",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "a"
+                },
+                "b": {
+                  "op": "var",
+                  "s": "c"
+                }
+              },
+              "b": {
+                "op": "neg",
+                "a": {
+                  "op": "const",
+                  "n": 0
+                }
+              }
+            },
+            "b": {
+              "op": "add",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "a"
+                },
+                "b": {
+                  "op": "var",
+                  "s": "c"
+                }
+              },
+              "b": {
+                "op": "neg",
+                "a": {
+                  "op": "const",
+                  "n": 0
+                }
+              }
+            }
+          },
+          "b": {
+            "op": "mul",
+            "a": {
+              "op": "add",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "b"
+                },
+                "b": {
+                  "op": "var",
+                  "s": "d"
+                }
+              },
+              "b": {
+                "op": "neg",
+                "a": {
+                  "op": "const",
+                  "n": 0
+                }
+              }
+            },
+            "b": {
+              "op": "add",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "b"
+                },
+                "b": {
+                  "op": "var",
+                  "s": "d"
+                }
+              },
+              "b": {
+                "op": "neg",
+                "a": {
+                  "op": "const",
+                  "n": 0
+                }
+              }
+            }
+          }
+        },
+        "b": {
+          "op": "add",
+          "a": {
+            "op": "mul",
+            "a": {
+              "op": "add",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "a"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "var",
+                    "s": "c"
+                  }
+                }
+              },
+              "b": {
+                "op": "neg",
+                "a": {
+                  "op": "const",
+                  "n": 0
+                }
+              }
+            },
+            "b": {
+              "op": "add",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "a"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "var",
+                    "s": "c"
+                  }
+                }
+              },
+              "b": {
+                "op": "neg",
+                "a": {
+                  "op": "const",
+                  "n": 0
+                }
+              }
+            }
+          },
+          "b": {
+            "op": "mul",
+            "a": {
+              "op": "add",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "b"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "var",
+                    "s": "d"
+                  }
+                }
+              },
+              "b": {
+                "op": "neg",
+                "a": {
+                  "op": "const",
+                  "n": 0
+                }
+              }
+            },
+            "b": {
+              "op": "add",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "b"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "var",
+                    "s": "d"
+                  }
+                }
+              },
+              "b": {
+                "op": "neg",
+                "a": {
+                  "op": "const",
+                  "n": 0
+                }
+              }
+            }
+          }
+        }
+      },
+      "b": {
+        "op": "mul",
+        "a": {
+          "op": "const",
+          "n": 2
+        },
+        "b": {
+          "op": "add",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "mul",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "a"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "const",
+                    "n": 0
+                  }
+                }
+              },
+              "b": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "a"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "const",
+                    "n": 0
+                  }
+                }
+              }
+            },
+            "b": {
+              "op": "mul",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "b"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "const",
+                    "n": 0
+                  }
+                }
+              },
+              "b": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "b"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "const",
+                    "n": 0
+                  }
+                }
+              }
+            }
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "mul",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "c"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "const",
+                    "n": 0
+                  }
+                }
+              },
+              "b": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "c"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "const",
+                    "n": 0
+                  }
+                }
+              }
+            },
+            "b": {
+              "op": "mul",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "d"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "const",
+                    "n": 0
+                  }
+                }
+              },
+              "b": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "d"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "const",
+                    "n": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "4": [
+    {
+      "id": "doubled-midpoint-metric",
+      "meaning": "|A+B-2P|^2=2|A-P|^2+2|B-P|^2-|A-B|^2. Left side equals 4|M-P|^2 for 2M=A+B; no half-coordinate enters Expr.",
+      "a": {
+        "op": "add",
+        "a": {
+          "op": "mul",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "mul",
+              "a": {
+                "op": "const",
+                "n": 2
+              },
+              "b": {
+                "op": "var",
+                "s": "e"
+              }
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "a"
+                },
+                "b": {
+                  "op": "var",
+                  "s": "c"
+                }
+              }
+            }
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "mul",
+              "a": {
+                "op": "const",
+                "n": 2
+              },
+              "b": {
+                "op": "var",
+                "s": "e"
+              }
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "a"
+                },
+                "b": {
+                  "op": "var",
+                  "s": "c"
+                }
+              }
+            }
+          }
+        },
+        "b": {
+          "op": "mul",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "mul",
+              "a": {
+                "op": "const",
+                "n": 2
+              },
+              "b": {
+                "op": "var",
+                "s": "f"
+              }
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "b"
+                },
+                "b": {
+                  "op": "var",
+                  "s": "d"
+                }
+              }
+            }
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "mul",
+              "a": {
+                "op": "const",
+                "n": 2
+              },
+              "b": {
+                "op": "var",
+                "s": "f"
+              }
+            },
+            "b": {
+              "op": "neg",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "b"
+                },
+                "b": {
+                  "op": "var",
+                  "s": "d"
+                }
+              }
+            }
+          }
+        }
+      },
+      "b": {
+        "op": "add",
+        "a": {
+          "op": "mul",
+          "a": {
+            "op": "const",
+            "n": 2
+          },
+          "b": {
+            "op": "add",
+            "a": {
+              "op": "add",
+              "a": {
+                "op": "mul",
+                "a": {
+                  "op": "add",
+                  "a": {
+                    "op": "var",
+                    "s": "e"
+                  },
+                  "b": {
+                    "op": "neg",
+                    "a": {
+                      "op": "var",
+                      "s": "a"
+                    }
+                  }
+                },
+                "b": {
+                  "op": "add",
+                  "a": {
+                    "op": "var",
+                    "s": "e"
+                  },
+                  "b": {
+                    "op": "neg",
+                    "a": {
+                      "op": "var",
+                      "s": "a"
+                    }
+                  }
+                }
+              },
+              "b": {
+                "op": "mul",
+                "a": {
+                  "op": "add",
+                  "a": {
+                    "op": "var",
+                    "s": "f"
+                  },
+                  "b": {
+                    "op": "neg",
+                    "a": {
+                      "op": "var",
+                      "s": "b"
+                    }
+                  }
+                },
+                "b": {
+                  "op": "add",
+                  "a": {
+                    "op": "var",
+                    "s": "f"
+                  },
+                  "b": {
+                    "op": "neg",
+                    "a": {
+                      "op": "var",
+                      "s": "b"
+                    }
+                  }
+                }
+              }
+            },
+            "b": {
+              "op": "add",
+              "a": {
+                "op": "mul",
+                "a": {
+                  "op": "add",
+                  "a": {
+                    "op": "var",
+                    "s": "e"
+                  },
+                  "b": {
+                    "op": "neg",
+                    "a": {
+                      "op": "var",
+                      "s": "c"
+                    }
+                  }
+                },
+                "b": {
+                  "op": "add",
+                  "a": {
+                    "op": "var",
+                    "s": "e"
+                  },
+                  "b": {
+                    "op": "neg",
+                    "a": {
+                      "op": "var",
+                      "s": "c"
+                    }
+                  }
+                }
+              },
+              "b": {
+                "op": "mul",
+                "a": {
+                  "op": "add",
+                  "a": {
+                    "op": "var",
+                    "s": "f"
+                  },
+                  "b": {
+                    "op": "neg",
+                    "a": {
+                      "op": "var",
+                      "s": "d"
+                    }
+                  }
+                },
+                "b": {
+                  "op": "add",
+                  "a": {
+                    "op": "var",
+                    "s": "f"
+                  },
+                  "b": {
+                    "op": "neg",
+                    "a": {
+                      "op": "var",
+                      "s": "d"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "b": {
+          "op": "neg",
+          "a": {
+            "op": "add",
+            "a": {
+              "op": "mul",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "c"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "var",
+                    "s": "a"
+                  }
+                }
+              },
+              "b": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "c"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "var",
+                    "s": "a"
+                  }
+                }
+              }
+            },
+            "b": {
+              "op": "mul",
+              "a": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "d"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "var",
+                    "s": "b"
+                  }
+                }
+              },
+              "b": {
+                "op": "add",
+                "a": {
+                  "op": "var",
+                  "s": "d"
+                },
+                "b": {
+                  "op": "neg",
+                  "a": {
+                    "op": "var",
+                    "s": "b"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

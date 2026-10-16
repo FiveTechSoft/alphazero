@@ -106,3 +106,12 @@ cada uno. `mathzero/DISENO_AUTOMEJORA.md` describe el bucle de
 crecimiento y sus límites.
 
 Research variants are prepared but unvalidated; the complete validation suite is not published, and the preserved full tests remain outside this repository.
+
+## Geometry research branch
+
+`research/geometry-bridge` adds an opt-in polynomial geometry translator and
+four direct metric identities. Source only: not compiled, tested or trained.
+No default curriculum or exact-judge changes; no general implication proving.
+Midpoints use doubled coordinates, not division. See
+`docs/research/geometry-bridge.md` for API, bank, library limits and validation.
+The full prepared validation suite remains private and is not published here.
