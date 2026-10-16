@@ -61,6 +61,10 @@ func main() {
 		CycleMain(os.Args[2:])
 		return
 	}
+	if len(os.Args) > 1 && os.Args[1] == "geometry" {
+		GeomMain(os.Args[2:])
+		return
+	}
 	// 1) TicTacToe: bench de velocidad del motor (sin red)
 	g := TicTacToe{}
 	games, sims := 100, 50

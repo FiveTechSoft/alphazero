@@ -1,8 +1,24 @@
 # Geometry bridge, source-only v1
 
-Status: prepared, not compiled or executed. No solver success, timing, training
-improvement, regression PASS, or equivalence validation is claimed. Validation
-must be coordinated with the other variants before any computation is launched.
+Status: compiled and tested (Go 1.27). `go vet ./...` clean, `go test ./...`
+green (includes `geometry_test.go`). A CLI is installed:
+
+    ./mathzero geometry [presupuesto_nodos]
+
+Measured on this branch (uniform prior, budget 2000):
+
+- Exact judge (`canonEq`): **4/4** identity fixtures are valid identities.
+- Guided search: **0/4** proved. The search does not reach the target structure.
+
+Root cause of the search gap (documented, not fixed here): the fixtures contain
+`neg(const)`, e.g. level 1 is `(a + -0)*(a + -0) + (b + -0)*(b + -0)` vs
+`a*a + b*b`. The 14 rewrite rules cannot fold `neg(const)`, so those subterms
+never reduce and the identity is unreachable by rewriting even though the exact
+judge confirms it. Fixing this needs a `neg(const)` axiom, which changes the
+rule count and therefore the one-hot features (`NFeat`) and invalidates the
+trained model: out of scope for this branch.
+
+No training improvement, regression PASS, or equivalence validation is claimed.
 The branch starts from the preserved historical updater H, not C or the search
 variants. Existing source, model, datasets, library and numerical fixtures stay
 unchanged. This is a separate opt-in bank, not a change to the default curriculum.
@@ -70,8 +86,11 @@ nondegeneracy conditions and constructions such as concurrency of altitudes
 remain out of scope. No Wu or Groebner algorithm is implemented. Nonzero segment
 checks and geometric existence assumptions are not proved by the residuals.
 
-The full prepared validation suite is retained privately, not published. It
-covers bridge formulas, the four identity fixtures, negative residuals,
-degenerate cases, midpoint scaling, embedded loading, unchanged core hashes and
-ordinary library insertion/rewrite. None has been run. Numerical H/C tests,
-fixtures and tolerances remain unchanged. No remote computation was launched.
+The public test suite now published here (`geometry_test.go`) covers bridge
+formulas (DistSq/Dot symmetry, perpendicular and collinear residuals, midpoint
+scaling) and the four identity fixtures against the exact judge; it runs in
+`go test ./...` and is green. Still not covered here: unchanged core hashes and
+ordinary library insertion/rewrite. The midpoint and degenerate checks are
+exercised; a broader negative/degenerate battery remains unrun. Numerical H/C
+tests, fixtures and tolerances remain unchanged. No remote computation was
+launched.
