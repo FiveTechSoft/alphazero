@@ -47,7 +47,7 @@ func jsRet(s string) js.Value { return js.ValueOf(s) }
 
 func main() {
 	tttNet = LoadTTTNet(tttModelJSON)
-	LemmaLib = NewLibrary()
+	LemmaLib = LoadLibrary("lemas.json")
 	mathNet = &MLP{}
 	if json.Unmarshal(mathModelJSON, mathNet) != nil {
 		mathNet = nil
