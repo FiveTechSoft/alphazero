@@ -68,6 +68,10 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
   k4 26/30, k5 25/30, k6 19/30, k7 16/30, k8 16/30 (BFS: 16, 15, 6, 5, 9).
   Ablacion biblioteca en ciclo 3 (fijo): 146 vs 146 (efecto marginal una vez la red
   interioriza los lemas; reportado con honestidad).
+- Geometria (16-oct, revision): el soporte vive solo en la rama `research/geometry-bridge`
+  (no en main). Compila y los tests pasan. Las 4 identidades del banco son validas por el
+  juez exacto (4/4) pero la busqueda NO prueba ninguna (0/4; prior uniforme, cap 2000-20000).
+  Causa raiz: los fixtures contienen neg(const) y las 14 reglas no lo pliegan. Ver E15.
 
 ## Experimentos de la literatura (A/B: mismo conjunto ciego y cap, 3 semillas)
 
@@ -90,6 +94,7 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | E1 | Red dentro del MCTS/PUCT (la red como prior en el arbol) | HyperTree, arXiv 2205.11491 | alto | pendiente |
 | E7 | Test-time RL ligero para k7-k8 | AlphaProof | alto | pendiente |
 | E14 | Senal de aprendizaje tipo RL sobre la iteracion de expertos: aprovechar los problemas fallidos (relabeling) y/o una cabeza de valor para ordenar la busqueda; relacionada con E1 y E7 | hipotesis propia | medio | CANDIDATO (13-oct): sin aprobar ni medir. Solo tras E13 y el checkpoint completo. Un unico cambio, A/B desde cero, mismo ciego de 700, semillas pareadas; el criterio de aceptacion se fija y justifica antes de medir |
+| E15 | Axioma neg(const)->const (plegado de constantes negadas) para que el motor alcance las identidades que hoy no reduce; medido en el banco de geometria (hoy 0/4 por busqueda) y en el ciego de algebra | propio (revision geometria 16-oct) | alto | CANDIDATO (16-oct): sin aprobar ni medir. Cambia el numero de reglas -> cambia NFeat -> invalida model_math.json: exige reentrenar. A/B 3 semillas en el ciego de 700 + comprobar el banco de geometria. Criterio de aceptacion a fijar antes de medir |
 
 ## Eje de calidad profesional (Q)
 
