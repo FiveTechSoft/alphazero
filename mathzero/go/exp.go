@@ -23,6 +23,7 @@ type ExpCfg struct {
 	SynthNeg bool // E10: 25% de objetivos envueltos con neg-neg/add0
 	DirFix   bool // E11: motor con direccion explicita + dedup de sucesores
 	Accept   bool // E13: puerta de aceptacion por set fijo (levels.json)
+	FixCeil  int  `json:"FixCeil,omitempty"` // NUEVO: calendario fijo; 0 conserva el modo anterior
 }
 
 // wrapCleanup envuelve subexpresiones al azar con las formas que la red
@@ -50,7 +51,30 @@ type wsample struct {
 	w float64
 }
 
+// Reimplementacion local de 2026-10-15 sobre base 7276f6. No implementa checkpoints.
+func fixedLevel(ceil, round int) int {
+	level := round + 1
+	if level > ceil {
+		level = ceil
+	}
+	return level
+}
+
+// Observadores nil fuera de tests/piloto, no afectan el flujo del RNG.
+var fixedProblemObserver func(round, index, level int, key string)
+var fixedRoundObserver func(round, solved int)
+
 func trainArm(cfg ExpCfg, seed int64, rounds, per, cap int, blind map[string]bool) *MLP {
+	return trainArmCT(cfg, seed, rounds, per, cap, cap, blind)
+}
+
+func trainArmCT(cfg ExpCfg, seed int64, rounds, per, cap, capTrain int, blind map[string]bool) *MLP {
+	if cfg.FixCeil != 0 && (cfg.FixCeil < 2 || cfg.FixCeil > 8) {
+		panic("FixCeil fuera de 2..8")
+	}
+	if rounds < 1 || per < 1 || cap < 1 || capTrain < 1 {
+		panic("presupuestos deben ser positivos")
+	}
 	r := rand.New(rand.NewSource(seed))
 	net := NewMLP(seed)
 	prevDirFix := DirFix
@@ -73,19 +97,29 @@ func trainArm(cfg ExpCfg, seed int64, rounds, per, cap int, blind map[string]boo
 	for rd := 1; rd <= rounds; rd++ {
 		var buf []Sample
 		solved := 0
+		taskRNG := r
+		if cfg.FixCeil > 0 {
+			taskRNG = rand.New(rand.NewSource(seed*7919 + int64(rd)*1000003 + 14))
+		}
 		for i := 0; i < per; i++ {
 			lvl := net.Level
 			if cfg.MaxLevel > 0 && lvl > cfg.MaxLevel {
 				lvl = cfg.MaxLevel
 			}
-			a, b := genTrain(r, lvl)
+			if cfg.FixCeil > 0 {
+				lvl = fixedLevel(cfg.FixCeil, rd)
+			}
+			a, b := genTrain(taskRNG, lvl)
+			if fixedProblemObserver != nil {
+				fixedProblemObserver(rd, i, lvl, pairKey(a, b))
+			}
 			if blind[pairKey(a, b)] {
 				continue
 			}
 			if cfg.SynthNeg && r.Float64() < 0.25 {
 				b = wrapCleanup(r, b)
 			}
-			ok, _, sm := GuidedSolve(net, a, b, cap)
+			ok, _, sm := GuidedSolve(net, a, b, capTrain)
 			if !ok {
 				continue
 			}
@@ -154,7 +188,12 @@ func trainArm(cfg ExpCfg, seed int64, rounds, per, cap int, blind map[string]boo
 		if cfg.MaxLevel > 0 {
 			maxL = cfg.MaxLevel
 		}
-		if float64(solved)/float64(per) >= 0.8 && net.Level < maxL {
+		if fixedRoundObserver != nil {
+			fixedRoundObserver(rd, solved)
+		}
+		if cfg.FixCeil > 0 {
+			net.Level = fixedLevel(cfg.FixCeil, rd+1)
+		} else if float64(solved)/float64(per) >= 0.8 && net.Level < maxL {
 			net.Level++
 		}
 	}

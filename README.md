@@ -104,3 +104,5 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
 `mathzero/ROADMAP.md` define hitos con criterio "verificado" medible
 cada uno. `mathzero/DISENO_AUTOMEJORA.md` describe el bucle de
 crecimiento y sus límites.
+
+Research variants are prepared but unvalidated; the complete validation suite is not published, and the preserved full tests remain outside this repository.
