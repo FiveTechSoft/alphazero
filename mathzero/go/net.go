@@ -112,32 +112,45 @@ func (n *MLP) TrainCE(feats [][]float64, target int, lr float64) float64 {
 	for i := range p {
 		p[i] /= sum
 	}
-	// gradientes
+	// Joint gradient: all reads use theta_old, before any parameter write.
 	b1, b2, e1, e2 := 0.9, 0.999, 1e-8, 1e-4
-	n.t++
+	g1 := make([][]float64, NHid)
+	g2 := make([]float64, NHid)
+	for j := 0; j < NHid; j++ {
+		g1[j] = make([]float64, NFeat)
+	}
 	for i, f := range feats {
 		d := p[i]
 		if i == target {
 			d -= 1.0
 		}
 		for j := 0; j < NHid; j++ {
-			g2 := d * hidden[i][j]
-			n.m2[j] = b1*n.m2[j] + (1-b1)*g2
-			n.v2[j] = b2*n.v2[j] + (1-b2)*g2*g2
-			n.W2[j] -= lr * (n.m2[j] / (1 - math.Pow(b1, n.t))) / (math.Sqrt(n.v2[j]/(1-math.Pow(b2, n.t))) + e1)
+			g2[j] += d * hidden[i][j]
 			dh := d * n.W2[j] * (1 - hidden[i][j]*hidden[i][j])
 			for l := 0; l < NFeat; l++ {
-				g1 := dh*f[l] + e2*n.W1[j][l]
-				n.m1[j][l] = b1*n.m1[j][l] + (1-b1)*g1
-				n.v1[j][l] = b2*n.v1[j][l] + (1-b2)*g1*g1
-				n.W1[j][l] -= lr * (n.m1[j][l] / (1 - math.Pow(b1, n.t))) / (math.Sqrt(n.v1[j][l]/(1-math.Pow(b2, n.t))) + e1)
+				g1[j][l] += dh * f[l]
 			}
 		}
-		gb := d
-		n.mb2 = b1*n.mb2 + (1-b1)*gb
-		n.vb2 = b2*n.vb2 + (1-b2)*gb*gb
-		n.B2 -= lr * (n.mb2 / (1 - math.Pow(b1, n.t))) / (math.Sqrt(n.vb2/(1-math.Pow(b2, n.t))) + e1)
 	}
+	// L2(W1) once per sample, still evaluated on the old W1.
+	for j := 0; j < NHid; j++ {
+		for l := 0; l < NFeat; l++ {
+			g1[j][l] += e2 * n.W1[j][l]
+		}
+	}
+	n.t++
+	for j := 0; j < NHid; j++ {
+		n.m2[j] = b1*n.m2[j] + (1-b1)*g2[j]
+		n.v2[j] = b2*n.v2[j] + (1-b2)*g2[j]*g2[j]
+		n.W2[j] -= lr * (n.m2[j] / (1 - math.Pow(b1, n.t))) / (math.Sqrt(n.v2[j]/(1-math.Pow(b2, n.t))) + e1)
+		for l := 0; l < NFeat; l++ {
+			n.m1[j][l] = b1*n.m1[j][l] + (1-b1)*g1[j][l]
+			n.v1[j][l] = b2*n.v1[j][l] + (1-b2)*g1[j][l]*g1[j][l]
+			n.W1[j][l] -= lr * (n.m1[j][l] / (1 - math.Pow(b1, n.t))) / (math.Sqrt(n.v1[j][l]/(1-math.Pow(b2, n.t))) + e1)
+		}
+	}
+	// B1 and its moments are deliberately fixed. B2 is a common logit
+	// offset: preserve B2, mb2 and vb2 exactly under the frozen contract.
 	return -math.Log(p[target] + 1e-12)
 }
 
