@@ -30,6 +30,9 @@ func evalAll(net *MLP, lv map[int][]MState, cap int) (string, int) {
 }
 
 func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
+	// E11 aceptado (ver RESULTADOS_MEJORAS.md): motor con direccion
+	// explicita + dedup de sucesores. El pipeline real lo usa por defecto.
+	DirFix = true
 	r := rand.New(rand.NewSource(seed))
 	net := LoadMLP(modelPath)
 	if net == nil {

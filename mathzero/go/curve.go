@@ -43,6 +43,9 @@ func evalBlind(net *MLP, lv map[int][]MState, cap int) blindEval {
 }
 
 func CurveMain(args []string) {
+	// E11 aceptado (ver RESULTADOS_MEJORAS.md): motor con direccion
+	// explicita + dedup de sucesores. El pipeline real lo usa por defecto.
+	DirFix = true
 	n, per, cap := 3, 60, 1000
 	if len(args) > 0 {
 		n, _ = strconv.Atoi(args[0])

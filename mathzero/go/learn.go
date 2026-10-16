@@ -179,6 +179,9 @@ func genTrain(r *rand.Rand, k int) (*Expr, *Expr) {
 func LoadLevels(k int) []MState { return LoadProblems("levels.json", fmt.Sprint(k)) }
 
 func Curriculum(rounds, perRound, cap int, modelPath string, seed int64) {
+	// E11 aceptado (ver RESULTADOS_MEJORAS.md): motor con direccion
+	// explicita + dedup de sucesores. El pipeline real lo usa por defecto.
+	DirFix = true
 	r := rand.New(rand.NewSource(seed))
 	net := LoadMLP(modelPath)
 	if net == nil {
