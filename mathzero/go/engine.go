@@ -9,7 +9,14 @@ import "math"
 type Game interface {
 	Legal(s any) []any              // acciones legales desde s
 	Play(s any, a any) any          // transicion
-	Terminal(s any) (bool, float64) // fin?, valor para quien busca
+	Terminal(s any) (bool, float64) // terminal value: side-to-move, or fixed perspective for single-player
+}
+
+// Optional value-perspective contract. Existing games default to alternating
+// two-player zero-sum values. A single-player adapter explicitly returns false;
+// then terminal/net values stay in one fixed perspective throughout the tree.
+type MCTSValuePerspective interface {
+	AlternatingTurns() bool
 }
 
 // Red enchufable: si es nil, prior uniforme y valor neutro (modo bench).
@@ -32,6 +39,7 @@ func expand(n *Node, s any, g Game, net Net) float64 {
 	n.W = make([]float64, len(n.Acts))
 	n.P = make([]float64, len(n.Acts))
 	n.Children = make(map[int]*Node, len(n.Acts))
+	n.Expanded = true
 	if net == nil {
 		for i := range n.P {
 			n.P[i] = 1.0 / float64(len(n.P))
@@ -46,6 +54,10 @@ func expand(n *Node, s any, g Game, net Net) float64 {
 // MCTSVisits ejecuta sims simulaciones PUCT y devuelve las acciones de la
 // raiz con sus visitas (para argmax o muestreo con temperatura).
 func MCTSVisits(s any, g Game, net Net, sims int, cPuct float64) ([]any, []int) {
+	alternating := true
+	if perspective, ok := g.(MCTSValuePerspective); ok {
+		alternating = perspective.AlternatingTurns()
+	}
 	root := &Node{}
 	expand(root, s, g, net)
 	for i := 0; i < sims; i++ {
@@ -87,7 +99,9 @@ func MCTSVisits(s any, g Game, net Net, sims int, cPuct float64) ([]any, []int) 
 			v = expand(node, cur, g, net)
 		}
 		for k := len(path) - 1; k >= 0; k-- {
-			v = -v
+			if alternating {
+				v = -v
+			}
 			path[k].nd.N[path[k].j]++
 			path[k].nd.W[path[k].j] += v
 		}
