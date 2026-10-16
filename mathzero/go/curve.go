@@ -64,10 +64,11 @@ func CurveMain(args []string) {
 	} else {
 		fmt.Printf("[curve] continuando desde model_math.json (nivel %d, ronda %d)\n", net.Level, net.Round)
 	}
-	LemmaLib = LoadLibrary("lemas.json")
+	full := LoadLibrary("lemas.json")
+	LemmaLib = full.Pruned(full.UsoMap(), 8) // E9: activa solo lemas con uso medido (top-8)
 	blind := LoadBlindKeys("blind.json")
-	fmt.Printf("[curve] conjunto ciego: %d problemas excluidos del entrenamiento; biblioteca: %d lemas\n",
-		len(blind), len(LemmaLib.Lemmas))
+	fmt.Printf("[curve] conjunto ciego: %d problemas excluidos del entrenamiento; biblioteca: %d candidatos, %d activos (E9)\n",
+		len(blind), len(full.Lemmas), len(LemmaLib.Lemmas))
 	lv := map[int][]MState{}
 	for k := 2; k <= 8; k++ {
 		lv[k] = LoadProblems("blind.json", fmt.Sprint(k))
@@ -82,7 +83,9 @@ func CurveMain(args []string) {
 			e.total, e.nodes, pl)
 	}
 	for c := 1; c <= n; c++ {
-		report(fmt.Sprintf("%d CON todo (%d lemas)", c, len(LemmaLib.Lemmas)), evalBlind(net, lv, cap))
+		// E9: la metrica usa solo los lemas con uso medido (top-8).
+		LemmaLib = full.Pruned(full.UsoMap(), 8)
+		report(fmt.Sprintf("%d CON todo (%d lemas activos)", c, len(LemmaLib.Lemmas)), evalBlind(net, lv, cap))
 		if c == 1 || c == n {
 			report(fmt.Sprintf("%d SIN red", c), evalBlind(nil, lv, cap))
 			saved := LemmaLib
@@ -90,7 +93,9 @@ func CurveMain(args []string) {
 			report(fmt.Sprintf("%d SIN biblio", c), evalBlind(net, lv, cap))
 			LemmaLib = saved
 		}
-		// entrenamiento del ciclo (excluyendo el ciego por clave)
+		// E9: el entrenamiento ve los candidatos CRUDOS para medir que lemas
+		// se usan de verdad en caminos ganadores (y anadir candidatos nuevos).
+		LemmaLib = full
 		var buf []Sample
 		solved, nuevos := 0, 0
 		for i := 0; i < per; i++ {
@@ -119,7 +124,7 @@ func CurveMain(args []string) {
 		}
 		fmt.Printf("[curva %d] entreno: nivel=%d resueltos=%d/%d lemas_nuevos=%d\n", c, net.Level, solved, per, nuevos)
 		net.Save("model_math.json")
-		LemmaLib.Save("lemas.json")
+		full.Save("lemas.json")
 	}
 	fmt.Println("[curve] modelo y biblioteca guardados")
 }

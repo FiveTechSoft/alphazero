@@ -108,6 +108,27 @@ otro diseno; no comparable directamente). Propuesto como parte de E12
 (factorial), NO aprobado aun.
 Comando: `./mathzero ab e9 <semilla>` (log: go/ab_e9.log).
 
+## E9 enviado al pipeline real (16 oct): la biblioteca cruda penalizaba +218/700
+
+E9 deja de vivir solo en `ab`: los comandos shipped (`curve`, `cycle`) usan
+SOLO los lemas con uso medido (`Uses>=1`, top-8) para la metrica y la busqueda;
+el autojuego ve los candidatos CRUDOS para medir uso y anadir candidatos. El
+contador de uso de cada lema ahora es PERSISTENTE (`Lemma.Uses` se incrementa en
+GuidedSolve y se salva/carga en `lemas.json`).
+
+Medido con el modelo y la biblioteca commiteados, `curve 1 0 1000` (ciego, 700):
+
+| Config | Total | k6 | k7 | k8 | nodos_med | tiempo |
+|--------|-------|----|----|----|-----------|--------|
+| CON todo crudo (94 lemas) [antes] | 336/700 | 39 | 26 | 14 | 580 | 767s |
+| CON todo E9 (0 activos*) [despues] | 554/700 | 67 | 66 | 38 | 283 | 265s |
+
+*Los 94 candidatos commiteados tienen Uses=0 (el contador nunca se incrementaba);
+E9 no activa ninguno, luego la metrica coincide con SIN biblioteca. Ganancia
++218/700 y -54% de tiempo. Lo NO medido: si el top-8 de lemas que SI se usan
+(tras acumular uso con `cycle`) bate a SIN biblioteca en diseno emparejado; E9
+se acepto contra la biblioteca cruda (+12,3/700), no contra el vacio.
+
 ## E10 - Datos sinteticos neg-neg/add0 (25% del stream): ACEPTADO (3 semillas, 13 oct 01:07)
 
 Variante: 25% de problemas sinteticos dirigidos al punto ciego de limpieza

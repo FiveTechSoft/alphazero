@@ -72,6 +72,10 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
   (no en main). Compila y los tests pasan. Las 4 identidades del banco son validas por el
   juez exacto (4/4) pero la busqueda NO prueba ninguna (0/4; prior uniforme, cap 2000-20000).
   Causa raiz: los fixtures contienen neg(const) y las 14 reglas no lo pliegan. Ver E15.
+- E9 enviado al pipeline real (16-oct): `curve`/`cycle` activan SOLO los lemas con uso
+  medido (top-8; `Lemma.Uses` ahora es persistente y se incrementa en GuidedSolve). Con el
+  modelo/biblioteca commiteados, `curve 1 0 1000` pasa de 336 a 554/700 en el ciego y -54%
+  de tiempo. Detalle en RESULTADOS_MEJORAS.md.
 
 ## Experimentos de la literatura (A/B: mismo conjunto ciego y cap, 3 semillas)
 
@@ -83,7 +87,7 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | E8 | Transferencia k2-k5 -> k6-k8 (entrenar solo bajos, medir altos) | propio | bajo | DESCARTADO (medido: media +2,7/700, dentro del ruido; RESULTADOS_MEJORAS.md) |
 | E2 | Entrenamiento online tras cada lote | propio | bajo | DESCARTADO (medido: media -23/700; 2 de 3 semillas muy negativas) |
 | E4 | Replay priorizado + ponderacion por longitud de prueba | arXiv 2006.00283 | bajo | DESCARTADO (medido: media 0,0/700 en 6 semillas, ruido puro; RESULTADOS_MEJORAS.md) |
-| E9 | Poda de lemas-accion por uso medido (top-8) vs biblioteca cruda | propio (hallazgo ablacion) | bajo | ACEPTADO (13-oct 00:45): +12,3/700 media, 3/3 semillas +12/+16/+9, k6-8 +4,7, nodos -5,3% |
+| E9 | Poda de lemas-accion por uso medido (top-8) vs biblioteca cruda | propio (hallazgo ablacion) | bajo | ACEPTADO (13-oct 00:45): +12,3/700 media, 3/3 semillas +12/+16/+9, k6-8 +4,7, nodos -5,3%. ENVIADO al pipeline real (16-oct): con el modelo/biblioteca commiteados, `curve 1 0 1000` pasa de 336 a 554/700 (los 94 lemas commiteados tenian Uses=0 -> E9 no activa ninguno) |
 | E10 | Datos sinteticos neg-neg/add0 (25% del stream) contra el punto ciego de limpieza | propio (evalfail) | bajo | ACEPTADO (13-oct 01:07): +10,3/700 media, 3/3 semillas +6/+8/+17, k6-8 +3,3, nodos -3,7% |
 | E11 | Motor con direccion en MAction + dedup de sucesores (bug medido: 30% acciones duplicadas, 1.044 r enmascaradas) | revision externa + direction_diag_test.go | bajo | ACEPTADO (13-oct 06:20): +25,0/700 media, 3/3 semillas +32/+21/+22, k6-8 +17,7, nodos -7,7% |
 | E12 | Ablacion factorial 2x2 (red x biblioteca) multisemilla, eval-only | revision externa | bajo | PROPUESTO, sin aprobar |

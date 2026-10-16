@@ -41,8 +41,9 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 	} else {
 		fmt.Printf("[cycle] continuando desde %s (nivel %d, ronda %d)\n", modelPath, net.Level, net.Round)
 	}
-	LemmaLib = LoadLibrary(libPath)
-	fmt.Printf("[cycle] biblioteca: %d lemas cargados\n", len(LemmaLib.Lemmas))
+	full := LoadLibrary(libPath)
+	LemmaLib = full.Pruned(full.UsoMap(), 8) // E9: solo lemas con uso medido (top-8)
+	fmt.Printf("[cycle] biblioteca: %d candidatos, %d activos (E9)\n", len(full.Lemmas), len(LemmaLib.Lemmas))
 	lv := map[int][]MState{}
 	for k := 2; k <= 8; k++ {
 		lv[k] = LoadLevels(k)
@@ -50,7 +51,9 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 	fmt.Println("[cycle] metrica fija: levels.json, cap", cap, "(resueltos y nodos medios por nivel)")
 	bestTot := -1
 	for c := 1; c <= nCycles; c++ {
-		// 1) METRICA del estado actual (antes de aprender mas)
+		// 1) METRICA del estado actual (antes de aprender mas); E9: la metrica
+		// usa solo los lemas con uso medido (top-8).
+		LemmaLib = full.Pruned(full.UsoMap(), 8)
 		metric, tot := evalAll(net, lv, cap)
 		if tot > bestTot {
 			bestTot = tot
@@ -66,7 +69,9 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 			LemmaLib = saved
 			fmt.Printf("[ciclo %d] SIN biblio (ablacion): %s total=%d/210\n", c, m2, t2)
 		}
-		// 2) AUTOJUEGO + verificacion + extraccion de lemas
+		// 2) AUTOJUEGO + verificacion + extraccion de lemas. E9: el autojuego
+		// ve los candidatos CRUDOS para medir uso y anadir candidatos nuevos.
+		LemmaLib = full
 		var buf []Sample
 		solved, nuevos := 0, 0
 		for i := 0; i < perRound; i++ {
@@ -98,7 +103,7 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 			c, net.Level, solved, perRound, nuevos, len(LemmaLib.Lemmas))
 		// 4) PERSISTENCIA: todo versionado en disco tras cada ciclo
 		net.Save(modelPath)
-		LemmaLib.Save(libPath)
+		full.Save(libPath)
 	}
 	fmt.Println("[cycle] modelo y biblioteca guardados:", modelPath, libPath)
 }

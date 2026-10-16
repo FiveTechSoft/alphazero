@@ -89,11 +89,18 @@ func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
 			for x := it; x.parent != nil; x = x.parent {
 				out = append(out, Sample{x.parent.feats, x.aidx})
 			}
-			if LemmaLib != nil && LemmaUso != nil {
+			// E9: se registra el uso de cada lema en el camino ganador. El
+			// contador del lema es PERSISTENTE (lo salva/carga la biblioteca);
+			// LemmaUso se mantiene para el arnes de experimentos.
+			if LemmaLib != nil {
 				for x := it; x.parent != nil; x = x.parent {
 					acts := MathActions(x.parent.e)
 					if x.aidx >= 0 && x.aidx < len(acts) && acts[x.aidx].Lemma >= 0 {
-						LemmaUso[acts[x.aidx].Lemma]++
+						li := acts[x.aidx].Lemma
+						LemmaLib.Lemmas[li].Uses++
+						if LemmaUso != nil {
+							LemmaUso[li]++
+						}
 					}
 				}
 			}

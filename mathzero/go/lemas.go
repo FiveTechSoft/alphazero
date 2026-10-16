@@ -80,6 +80,20 @@ func (L *Library) Insert(a, b *Expr, saving int) bool {
 	return true
 }
 
+// UsoMap construye el mapa de uso desde los contadores persistidos
+// (Lemma.Uses). Solo incluye lemas con Uso>=1: los que aun no se han
+// usado nunca no entran, asi la biblioteca activa no trae lemas sin
+// evidencia de utilidad.
+func (L *Library) UsoMap() map[int]int {
+	m := map[int]int{}
+	for i, l := range L.Lemmas {
+		if l.Uses > 0 {
+			m[i] = l.Uses
+		}
+	}
+	return m
+}
+
 // Pruned devuelve una biblioteca con solo los lemas de uso medido
 // (uso>=1), ordenados por uso, como maximo maxK: poda la branching.
 func (L *Library) Pruned(uso map[int]int, maxK int) *Library {
