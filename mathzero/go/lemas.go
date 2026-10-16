@@ -13,23 +13,35 @@ import (
 )
 
 type Lemma struct {
-	From, To       *Expr
-	FromKey, ToKey string
-	Saving         int // pasos del camino original que comprime
-	Uses           int
+	From, To             *Expr
+	FromKey, ToKey       string
+	Saving               int // pasos del camino original que comprime
+	Uses                 int
+	MatchingAttempts     int
+	WinningApplications  int
+	FailedGeneratedNodes int
+	TrainingProblems     int
 }
 
 type lemmaJSON struct {
-	From   json.RawMessage `json:"from"`
-	To     json.RawMessage `json:"to"`
-	Saving int             `json:"saving"`
-	Uses   int             `json:"uses"`
+	From                 json.RawMessage `json:"from"`
+	To                   json.RawMessage `json:"to"`
+	Saving               int             `json:"saving"`
+	SavedStepsBase       int             `json:"pasos_ahorrados"`
+	Uses                 int             `json:"uses"`
+	MatchingAttempts     int             `json:"intentos_matching"`
+	WinningApplications  int             `json:"aplicaciones_en_camino_ganador"`
+	FailedGeneratedNodes int             `json:"nodos_generados_fallidos"`
+	TrainingProblems     int             `json:"problemas_expuestos"`
 }
 
 type Library struct {
-	Lemmas  []*Lemma
-	ByKey   map[string][]int // clave estructural -> lemas que la contienen
-	MaxSize int
+	Lemmas             []*Lemma
+	ByKey              map[string][]int // clave estructural -> lemas que la contienen
+	MaxSize            int
+	ActiveCap          int
+	UtilityLambda      float64
+	UtilityMinProblems int
 }
 
 // Biblioteca global; nil = desactivada (para ablaciones).
@@ -40,7 +52,7 @@ var LemmaLib *Library
 var LemmaUso map[int]int
 
 func NewLibrary() *Library {
-	return &Library{ByKey: map[string][]int{}, MaxSize: 12}
+	return &Library{ByKey: map[string][]int{}, MaxSize: 12, ActiveCap: LemmaActiveCap, UtilityLambda: LemmaUtilityLambda, UtilityMinProblems: LemmaUtilityMinProblems}
 }
 
 func exprJSON(e *Expr) map[string]any {
@@ -58,7 +70,7 @@ func exprJSON(e *Expr) map[string]any {
 // Insert verifica la identidad con el juez exacto y evita duplicados.
 func (L *Library) Insert(a, b *Expr, saving int) bool {
 	ka, kb := Key(a), Key(b)
-	if ka == kb || saving < 2 {
+	if ka == kb || saving < 2 || (L.ActiveCap > 0 && len(L.Lemmas) >= L.ActiveCap) {
 		return false
 	}
 	if size(a) > L.MaxSize || size(b) > L.MaxSize {
@@ -96,8 +108,12 @@ func (L *Library) Pruned(uso map[int]int, maxK int) *Library {
 		}
 		return ord[a].i < ord[b].i
 	})
+	if L.ActiveCap > 0 && maxK > L.ActiveCap {
+		maxK = L.ActiveCap
+	}
 	P := NewLibrary()
 	P.MaxSize = L.MaxSize
+	P.ActiveCap, P.UtilityLambda, P.UtilityMinProblems = L.ActiveCap, L.UtilityLambda, L.UtilityMinProblems
 	for j, o := range ord {
 		if j >= maxK {
 			break
@@ -116,7 +132,7 @@ func (L *Library) Save(path string) {
 	for _, l := range L.Lemmas {
 		fj, _ := json.Marshal(exprJSON(l.From))
 		tj, _ := json.Marshal(exprJSON(l.To))
-		out = append(out, lemmaJSON{From: fj, To: tj, Saving: l.Saving, Uses: l.Uses})
+		out = append(out, lemmaJSON{From: fj, To: tj, Saving: l.Saving, SavedStepsBase: l.Saving, Uses: l.Uses, MatchingAttempts: l.MatchingAttempts, WinningApplications: l.WinningApplications, FailedGeneratedNodes: l.FailedGeneratedNodes, TrainingProblems: l.TrainingProblems})
 	}
 	f, err := os.Create(path)
 	if err != nil {
@@ -128,19 +144,31 @@ func (L *Library) Save(path string) {
 
 func LoadLibrary(path string) *Library {
 	L := NewLibrary()
+	// Load all candidates before ranking; never keep merely the first96.
+	L.ActiveCap = 0
 	data := readDataFile(path)
 	if data == nil {
+		L.ActiveCap = LemmaActiveCap
 		return L
 	}
 	var raw []lemmaJSON
 	if json.Unmarshal(data, &raw) != nil {
+		L.ActiveCap = LemmaActiveCap
 		return L
 	}
 	for _, lj := range raw {
+		if lj.Saving == 0 {
+			lj.Saving = lj.SavedStepsBase
+		}
 		a, b := parseExpr(lj.From), parseExpr(lj.To)
 		if L.Insert(a, b, lj.Saving) {
-			L.Lemmas[len(L.Lemmas)-1].Uses = lj.Uses
+			l := L.Lemmas[len(L.Lemmas)-1]
+			l.Uses = lj.Uses
+			l.MatchingAttempts, l.WinningApplications = lj.MatchingAttempts, lj.WinningApplications
+			l.FailedGeneratedNodes, l.TrainingProblems = lj.FailedGeneratedNodes, lj.TrainingProblems
 		}
 	}
+	L.ActiveCap = LemmaActiveCap
+	L.PruneUtility()
 	return L
 }

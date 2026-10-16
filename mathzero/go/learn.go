@@ -74,7 +74,7 @@ type Sample struct {
 }
 
 // GuidedSolve: net==nil -> prior uniforme. Devuelve ok, nodos, muestras del camino.
-func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
+func GuidedSolveUnidirectional(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
 	ClearKeyCache()
 	tk := Key(target)
 	seen := map[string]bool{Key(start): true}
@@ -135,6 +135,12 @@ func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
 }
 
 func EvalLevel(net *MLP, probs []MState, cap int) (int, int) {
+	if len(probs) == 0 {
+		return 0, 0
+	}
+	savedTraining := SearchTraining
+	SearchTraining = false
+	defer func() { SearchTraining = savedTraining }()
 	ok, nodes := 0, 0
 	for _, p := range probs {
 		s, n, _ := GuidedSolve(net, p.Cur, p.Target, cap)
