@@ -42,8 +42,11 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 		fmt.Printf("[cycle] continuando desde %s (nivel %d, ronda %d)\n", modelPath, net.Level, net.Round)
 	}
 	full := LoadLibrary(libPath)
-	LemmaLib = full.Pruned(full.UsoMap(), 8) // E9: solo lemas con uso medido (top-8)
-	fmt.Printf("[cycle] biblioteca: %d candidatos, %d activos (E9)\n", len(full.Lemmas), len(LemmaLib.Lemmas))
+	// E16 (cierre de E9, 2026-10-17): en el ciego canonico (ab e9 seed=12345,
+	// mismo net) vacio=539 > top-8=526 > cruda=520 /700. La biblioteca NO bate
+	// al vacio: el pipeline shipped no usa lemas; el top-8 queda como ablacion.
+	LemmaLib = nil
+	fmt.Printf("[cycle] biblioteca: %d candidatos, 0 activos (E16: default sin lemas)\n", len(full.Lemmas))
 	lv := map[int][]MState{}
 	for k := 2; k <= 8; k++ {
 		lv[k] = LoadLevels(k)
@@ -51,23 +54,23 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 	fmt.Println("[cycle] metrica fija: levels.json, cap", cap, "(resueltos y nodos medios por nivel)")
 	bestTot := -1
 	for c := 1; c <= nCycles; c++ {
-		// 1) METRICA del estado actual (antes de aprender mas); E9: la metrica
-		// usa solo los lemas con uso medido (top-8).
-		LemmaLib = full.Pruned(full.UsoMap(), 8)
+		// 1) METRICA del estado actual (antes de aprender mas). Shipped: sin
+		// biblioteca (E16).
 		metric, tot := evalAll(net, lv, cap)
 		if tot > bestTot {
 			bestTot = tot
 			net.Save(modelPath + ".best")
 			fmt.Printf("[ciclo %d] nuevo mejor modelo (%d/210): %s.best%s", c, tot, modelPath, "\n")
 		}
-		fmt.Printf("[ciclo %d] CON biblio (%d lemas): %s total=%d/210\n", c, len(LemmaLib.Lemmas), metric, tot)
-		// ablacion en el primer y ultimo ciclo: mismo net, SIN biblioteca
+		fmt.Printf("[ciclo %d] shipped sin lemas: %s total=%d/210\n", c, metric, tot)
+		// ablacion en el primer y ultimo ciclo: mismo net, top-8 por uso medido
 		if c == 1 || c == nCycles {
+			pod := full.Pruned(full.UsoMap(), 8)
 			saved := LemmaLib
-			LemmaLib = nil
+			LemmaLib = pod
 			m2, t2 := evalAll(net, lv, cap)
 			LemmaLib = saved
-			fmt.Printf("[ciclo %d] SIN biblio (ablacion): %s total=%d/210\n", c, m2, t2)
+			fmt.Printf("[ciclo %d] ablacion top-8 (%d lemas): %s total=%d/210\n", c, len(pod.Lemmas), m2, t2)
 		}
 		// 2) AUTOJUEGO + verificacion + extraccion de lemas. E9: el autojuego
 		// ve los candidatos CRUDOS para medir uso y anadir candidatos nuevos.

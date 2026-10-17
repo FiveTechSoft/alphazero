@@ -65,10 +65,13 @@ func CurveMain(args []string) {
 		fmt.Printf("[curve] continuando desde model_math.json (nivel %d, ronda %d)\n", net.Level, net.Round)
 	}
 	full := LoadLibrary("lemas.json")
-	LemmaLib = full.Pruned(full.UsoMap(), 8) // E9: activa solo lemas con uso medido (top-8)
+	// E16 (cierre de E9, 2026-10-17): medido en el ciego canonico con
+	// ab e9 seed=12345 (mismo net): vacio=539 > top-8=526 > cruda=520 /700.
+	// Shipped: sin biblioteca; el top-8 queda como ablacion.
+	LemmaLib = nil
 	blind := LoadBlindKeys("blind.json")
-	fmt.Printf("[curve] conjunto ciego: %d problemas excluidos del entrenamiento; biblioteca: %d candidatos, %d activos (E9)\n",
-		len(blind), len(full.Lemmas), len(LemmaLib.Lemmas))
+	fmt.Printf("[curve] conjunto ciego: %d problemas excluidos del entrenamiento; biblioteca: %d candidatos, 0 activos (E16)\n",
+		len(blind), len(full.Lemmas))
 	lv := map[int][]MState{}
 	for k := 2; k <= 8; k++ {
 		lv[k] = LoadProblems("blind.json", fmt.Sprint(k))
@@ -83,14 +86,14 @@ func CurveMain(args []string) {
 			e.total, e.nodes, pl)
 	}
 	for c := 1; c <= n; c++ {
-		// E9: la metrica usa solo los lemas con uso medido (top-8).
-		LemmaLib = full.Pruned(full.UsoMap(), 8)
-		report(fmt.Sprintf("%d CON todo (%d lemas activos)", c, len(LemmaLib.Lemmas)), evalBlind(net, lv, cap))
+		// Shipped: sin biblioteca (E16).
+		report(fmt.Sprintf("%d shipped sin lemas", c), evalBlind(net, lv, cap))
 		if c == 1 || c == n {
 			report(fmt.Sprintf("%d SIN red", c), evalBlind(nil, lv, cap))
+			pod := full.Pruned(full.UsoMap(), 8)
 			saved := LemmaLib
-			LemmaLib = nil
-			report(fmt.Sprintf("%d SIN biblio", c), evalBlind(net, lv, cap))
+			LemmaLib = pod
+			report(fmt.Sprintf("%d ablacion top-8 (%d lemas)", c, len(pod.Lemmas)), evalBlind(net, lv, cap))
 			LemmaLib = saved
 		}
 		// E9: el entrenamiento ve los candidatos CRUDOS para medir que lemas

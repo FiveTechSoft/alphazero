@@ -76,6 +76,11 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
   medido (top-8; `Lemma.Uses` ahora es persistente y se incrementa en GuidedSolve). Con el
   modelo/biblioteca commiteados, `curve 1 0 1000` pasa de 336 a 554/700 en el ciego y -54%
   de tiempo. Detalle en RESULTADOS_MEJORAS.md.
+- E16 cierre de E9 (17-oct): medido el brazo que faltaba, el VACIO. En el ciego canonico
+  (`ab e9 12345`, mismo net): vacio=539 > top-8=526 > cruda=520 /700; en `cycle 2 150 1000`
+  el top-8 (8 lemas) da 135/210 vs 161/210 sin biblio. La biblioteca NO bate al vacio ->
+  el pipeline shipped (`curve`/`cycle`) va SIN lemas por defecto; el top-8 queda como
+  ablacion (y `ab e9` conserva los tres brazos). Detalle en RESULTADOS_MEJORAS.md.
 
 ## Experimentos de la literatura (A/B: mismo conjunto ciego y cap, 3 semillas)
 
@@ -87,7 +92,8 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | E8 | Transferencia k2-k5 -> k6-k8 (entrenar solo bajos, medir altos) | propio | bajo | DESCARTADO (medido: media +2,7/700, dentro del ruido; RESULTADOS_MEJORAS.md) |
 | E2 | Entrenamiento online tras cada lote | propio | bajo | DESCARTADO (medido: media -23/700; 2 de 3 semillas muy negativas) |
 | E4 | Replay priorizado + ponderacion por longitud de prueba | arXiv 2006.00283 | bajo | DESCARTADO (medido: media 0,0/700 en 6 semillas, ruido puro; RESULTADOS_MEJORAS.md) |
-| E9 | Poda de lemas-accion por uso medido (top-8) vs biblioteca cruda | propio (hallazgo ablacion) | bajo | ACEPTADO (13-oct 00:45): +12,3/700 media, 3/3 semillas +12/+16/+9, k6-8 +4,7, nodos -5,3%. ENVIADO al pipeline real (16-oct): con el modelo/biblioteca commiteados, `curve 1 0 1000` pasa de 336 a 554/700 (los 94 lemas commiteados tenian Uses=0 -> E9 no activa ninguno) |
+| E9 | Poda de lemas-accion por uso medido (top-8) vs biblioteca cruda | propio (hallazgo ablacion) | bajo | CERRADO por E16 (17-oct): +12,3/700 vs cruda (3/3 semillas), pero el top-8 NO bate al vacio (526 vs 539 en el ciego). `curve 1 0 1000` pasa de 336 a 554/700 (los 94 lemas commiteados tenian Uses=0). Sustituido por E16 |
+| E16 | Cierre de E9: medir el brazo VACIO (biblioteca off) vs top-8 en el ciego | propio (deuda de E9) | bajo | ACEPTADO (17-oct): vacio 539 > top-8 526 > cruda 520 /700 (`ab e9 12345`); `cycle` 161 vs 135/210. Pipeline shipped (`curve`/`cycle`) SIN lemas por defecto; top-8 queda como ablacion |
 | E10 | Datos sinteticos neg-neg/add0 (25% del stream) contra el punto ciego de limpieza | propio (evalfail) | bajo | ACEPTADO (13-oct 01:07): +10,3/700 media, 3/3 semillas +6/+8/+17, k6-8 +3,3, nodos -3,7% |
 | E11 | Motor con direccion en MAction + dedup de sucesores (bug medido: 30% acciones duplicadas, 1.044 r enmascaradas) | revision externa + direction_diag_test.go | bajo | ACEPTADO (13-oct 06:20): +25,0/700 media, 3/3 semillas +32/+21/+22, k6-8 +17,7, nodos -7,7% |
 | E12 | Ablacion factorial 2x2 (red x biblioteca) multisemilla, eval-only | revision externa | bajo | PROPUESTO, sin aprobar |

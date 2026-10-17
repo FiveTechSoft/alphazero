@@ -129,7 +129,31 @@ E9 no activa ninguno, luego la metrica coincide con SIN biblioteca. Ganancia
 (tras acumular uso con `cycle`) bate a SIN biblioteca en diseno emparejado; E9
 se acepto contra la biblioteca cruda (+12,3/700), no contra el vacio.
 
-## E10 - Datos sinteticos neg-neg/add0 (25% del stream): ACEPTADO (3 semillas, 13 oct 01:07)
+## E16 - Cierre de E9: el vacio bate al top-8 (17 oct): biblioteca OFF por defecto
+
+Responde a lo NO medido de E9. Dos disenos, ambos emparejados (mismo net,
+mismo ciego, solo cambia `LemmaLib`):
+
+1) `cycle 2 150 1000` (ciego de niveles, 210), pares en el mismo ciclo:
+   ciclo 1 CON biblio (0 lemas) = 158/210 == SIN biblio = 158/210;
+   ciclo 2 CON biblio (8 lemas) = 135/210 vs SIN biblio = **161/210** (-26, -12%).
+
+2) `ab e9 12345` (ciego canonico, 700), mismo net, brazo VACIO anadido:
+
+| Brazo (mismo net) | Total ciego |
+|-------------------|-------------|
+| cruda (94 lemas) | 520/700 |
+| top-8 (8 lemas) | 526/700 |
+| vacio (sin lemas) | **539/700** |
+
+Veredicto: la biblioteca NO bate al vacio: vacio > top-8 > cruda. Aunque el
+juez verifica cada lema, inyectarlos como acciones amplia el branching y
+consume el cap antes del objetivo. E9 ayudo porque pasa de CRUDA a top-8
+(menos lastre), no porque la biblioteca aporte. Decision (E16): el pipeline
+shipped (`curve`, `cycle`) NO usa la biblioteca; el top-8 queda como ablacion
+en los comandos y en `ab e9`. Confirmado sin regresion: `curve 1 0 1000` da
+554/700 (= previo SIN biblioteca).
+
 
 Variante: 25% de problemas sinteticos dirigidos al punto ciego de limpieza
 (neg-neg, add0) en el stream de entrenamiento. Emparejado por semilla;

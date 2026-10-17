@@ -259,6 +259,11 @@ func ABMain(args []string) {
 		LemmaLib = podada
 		evari9 := evalBlind(net9, lv, cap)
 		abReport(fmt.Sprintf("e9 seed=%d variante (podada %d lemas)", seed, len(podada.Lemmas)), evari9)
+		// E16 (cierre de E9, 2026-10-17): brazo VACIO, mismo net/ciego, para
+		// medir en el ciego canonico si la top-8 bate a no usar biblioteca.
+		LemmaLib = nil
+		eempty9 := evalBlind(net9, lv, cap)
+		abReport(fmt.Sprintf("e9 seed=%d vacio (sin lemas)", seed), eempty9)
 		LemmaLib, LemmaUso = nil, nil
 		if wantJSON {
 			out := ABResultJSON{
