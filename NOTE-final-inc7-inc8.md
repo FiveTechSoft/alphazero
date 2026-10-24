@@ -20,3 +20,6 @@ La rama incorpora inc7, inc8, inc9, inc10 e inc11 en una sola pasada, sobre base
 - El piloto P3 NO se ha lanzado: scripts/PILOT-INVOCATIONS.txt documenta las invocaciones
   exactas pendientes de autorizacion. Ningun hecho fue reescrito; sin registros internos.
   main (d93ea95) no se toca.
+- scripts/PILOT-INVOCATIONS.txt incluye una correccion de documentacion posterior a la revision
+  (requisito BIN_SHA explícito), hecha por el verificador el 2026-10-24 por instruccion del
+  coordinador; no se altero codigo revisado. El texto original de inc10/inc11 no la incluia.
