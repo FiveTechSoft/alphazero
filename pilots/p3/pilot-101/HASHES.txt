@@ -1,0 +1,8 @@
+binary 60a95de7b58b9d85d58c9088f93f1d356ead1ae2485fed1c0115c82f08fc5c2e
+guard.sh (inc8/inc11, scripts/guard.sh en la rama) da23456b580e70060bfbb191e73a03c57469e857bc862174b87b7cd42e7ad4d1
+pilot_stage.sh (inc11, scripts/pilot_stage.sh en la rama) 4839a1261689c0351f23315e5b37b1bcf1b125b95a762a763f85e69c900fd951
+config: -seed 101 -rounds 6 -perround 40 -cap 100 -evalcap 100 -evallevels 6,7,8 -secseed 9001 -secperlevel 30
+go 1.26.10, arbol = base 62c089d + inc1..9 (contenido igual a exp/mathzero-next tras inc9)
+report.out 8ad40857c666c29a4541368c8d5dc0698d55f4fd5d6b13af1889a9e898585216
+weights_post.json 700c6ec38ca68ef0549b1be12bb094aced66a07e874612c5c3f447bee529a337
+train.json 4f57bef1148e83218305680dee1b90e290d7fc22e606514f01c0ad676e1c879f
