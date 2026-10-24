@@ -1,0 +1,80 @@
+{
+ "level": "2",
+ "cap": 300,
+ "model": "model_math.json",
+ "model_sha256": "1466ee8be8f22e69f1457a8070d49e66cf6c931da92fd21633c2a04f51e0e516",
+ "seed": 1,
+ "library": "lemas.json",
+ "library_sha256": "5ce68ec3fdee10d7cea6ea71578f16e84b8fa2fac04a5756b0722054b50b4c3c",
+ "bank_sha256": "cc88d99960e164b51d1b158b568260be1396c2f8238853e25137e91066fac97f",
+ "bank_rule": "GenBank seed=101 perlevel=4 levels=4,5,6",
+ "nodes_total": 464,
+ "elapsed_ms": 8183,
+ "summary": {
+  "N": 12,
+  "Solved": 11,
+  "BudgetExhausted": 1
+ },
+ "results": [
+  {
+   "id": "s101-L4-0",
+   "solved": true,
+   "nodes": 8
+  },
+  {
+   "id": "s101-L4-1",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s101-L4-2",
+   "solved": true,
+   "nodes": 17
+  },
+  {
+   "id": "s101-L4-3",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s101-L5-0",
+   "solved": false,
+   "nodes": 300
+  },
+  {
+   "id": "s101-L5-1",
+   "solved": true,
+   "nodes": 3
+  },
+  {
+   "id": "s101-L5-2",
+   "solved": true,
+   "nodes": 1
+  },
+  {
+   "id": "s101-L5-3",
+   "solved": true,
+   "nodes": 71
+  },
+  {
+   "id": "s101-L6-0",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s101-L6-1",
+   "solved": true,
+   "nodes": 19
+  },
+  {
+   "id": "s101-L6-2",
+   "solved": true,
+   "nodes": 31
+  },
+  {
+   "id": "s101-L6-3",
+   "solved": true,
+   "nodes": 8
+  }
+ ]
+}
