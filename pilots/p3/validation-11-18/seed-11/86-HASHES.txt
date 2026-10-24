@@ -1,0 +1,6 @@
+binary 60a95de7b58b9d85d58c9088f93f1d356ead1ae2485fed1c0115c82f08fc5c2e
+guard.sh (inc8/inc11, scripts/guard.sh en la rama) da23456b580e70060bfbb191e73a03c57469e857bc862174b87b7cd42e7ad4d1
+pilot_stage.sh (inc11, scripts/pilot_stage.sh en la rama) 4839a1261689c0351f23315e5b37b1bcf1b125b95a762a763f85e69c900fd951
+config: -seed 11 -rounds 6 -perround 40 -cap 100 -evalcap 100 -evallevels 6,7,8 -secseed 9001 -secperlevel 30
+report.out 68510cc231e2c4e1dfd1fe84aadf434f6709e812fb25ff94beb78c88a36c2feb
+weights_post.json 414bb0dbe1566460262c1a8d46ad6e9a4aa46cfe007f05167febf313280838e5
