@@ -44,7 +44,8 @@ type G1BankReport struct {
 
 func RunG1Gen(args []string, w io.Writer) error {
 	fs := flag.NewFlagSet("d1g1gen", flag.ContinueOnError)
-	seed := fs.Int64("seed", G1Seed, "bank seed")
+	which := fs.String("bank", "g1", "g1 | g2 (g2: seed default 20261025, PRIOR extended with the G1 bank)")
+	seed := fs.Int64("seed", 0, "bank seed (default: the frozen seed of the chosen bank)")
 	per := fs.Int("perlevel", 30, "cases per level")
 	levels := fs.String("levels", "6,7,8", "levels")
 	if err := fs.Parse(args); err != nil {
@@ -58,8 +59,26 @@ func RunG1Gen(args []string, w io.Writer) error {
 		}
 		lv = append(lv, n)
 	}
+	var prior map[string]bool
+	switch *which {
+	case "g1":
+		if *seed == 0 {
+			*seed = G1Seed
+		}
+		prior = G1PriorKeys()
+	case "g2":
+		if *seed == 0 {
+			*seed = G2Seed
+		}
+		var perr error
+		if prior, perr = G2PriorKeys(); perr != nil {
+			return perr
+		}
+	default:
+		return fmt.Errorf("unknown -bank %q", *which)
+	}
 	rule := G1Rule{Seed: *seed, PerLevel: *per, Levels: lv}
-	cs, st, gerr := GenBankG1(rule, G1PriorKeys())
+	cs, st, gerr := GenBankG1(rule, prior)
 	rep := G1BankReport{Rule: rule, Feasible: gerr == nil, Digest: BankDigest(cs), DigestAlgo: BankDigestAlgo, Stats: st}
 	if gerr != nil {
 		rep.Error = gerr.Error()
