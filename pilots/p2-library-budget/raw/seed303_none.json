@@ -1,0 +1,49 @@
+{
+ "level": "2",
+ "cap": 300,
+ "model": "model_math.json",
+ "model_sha256": "1466ee8be8f22e69f1457a8070d49e66cf6c931da92fd21633c2a04f51e0e516",
+ "seed": 1,
+ "library": "none",
+ "bank_sha256": "6573afc1e97af9d7cd525585adefebcc7a5a2756bf944329dbc9d9402cde7bbc",
+ "bank_rule": "GenBank seed=303 perlevel=3 levels=6,8",
+ "nodes_total": 360,
+ "elapsed_ms": 5587,
+ "summary": {
+  "N": 6,
+  "Solved": 6,
+  "BudgetExhausted": 0
+ },
+ "results": [
+  {
+   "id": "s303-L6-0",
+   "solved": true,
+   "nodes": 4
+  },
+  {
+   "id": "s303-L6-1",
+   "solved": true,
+   "nodes": 246
+  },
+  {
+   "id": "s303-L6-2",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s303-L8-0",
+   "solved": true,
+   "nodes": 4
+  },
+  {
+   "id": "s303-L8-1",
+   "solved": true,
+   "nodes": 98
+  },
+  {
+   "id": "s303-L8-2",
+   "solved": true,
+   "nodes": 6
+  }
+ ]
+}
