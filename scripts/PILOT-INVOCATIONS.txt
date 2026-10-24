@@ -1,12 +1,18 @@
-# Exact invocations for the frozen P3 pilot, seed 101. NOT EXECUTED. Run ONE per shell call, in this order,
-# only after independent review authorizes the pilot. Build once first (binary hash recorded):
+# Exact invocations for the frozen P3 pilot, seed 101. Run ONE per shell call, in this order.
+# Build once first and pass the binary hash explicitly (pilot_stage.sh requires BIN_SHA and
+# records binary.sha256 on the first stage; later stages refuse a different binary):
 #   cd mathzero/go && GOTOOLCHAIN=local GOPROXY=off CGO_ENABLED=0 go build -o /home/sandbox/p3bin/mathzero . && sha256sum /home/sandbox/p3bin/mathzero
-# Then, from the scripts directory, with BIN=/home/sandbox/p3bin/mathzero DIR=/home/sandbox/p3-pilot-101:
+# Then, from the scripts directory, with:
+#   BIN=/home/sandbox/p3bin/mathzero BIN_SHA=<full sha256 printed above> DIR=/home/sandbox/p3-pilot-101
 #   ./pilot_stage.sh pre-primary
 #   ./pilot_stage.sh pre-secondary
 #   ./pilot_stage.sh train
 #   ./pilot_stage.sh post-primary
 #   ./pilot_stage.sh post-secondary
-#   ./pilot_stage.sh report > report.json
-# After each stage: confirm residual_procs=0 in the guard line, then attach/preserve $DIR to the parent.
-# A censored stage stops the pilot: preserve state, report; do not retry with other parameters.
+#   ./pilot_stage.sh report   (report JSON goes to $DIR/report.out)
+# After each stage: confirm outcome=COMPLETED in status_<stage> and residual_procs=0 in <stage>.guard,
+# then attach/preserve $DIR to the parent. A censored or failed stage stops the pilot: preserve state,
+# report; do not retry and do not change parameters. A LOCK_HELD or STATE_INCONSISTENT exit means a
+# previous run ended abnormally: investigate before clearing $DIR/.lock or $DIR/inflight by hand.
+# (BIN_SHA requirement documented by the verifier on 2026-10-24 per coordinator instruction after the
+# inc11 review; only this document changed, no reviewed code was altered.)
