@@ -67,6 +67,9 @@ type stageFile struct {
 	Weights     string       `json:"weights_sha256,omitempty"`
 	Train       *TrainLog    `json:"train_log,omitempty"`
 	Level       int          `json:"final_level,omitempty"`
+	// A1 only (omitted otherwise): guide hash around training in the frozen-guide arm.
+	GuideSHAPre  string `json:"guide_sha_pre,omitempty"`
+	GuideSHAPost string `json:"guide_sha_post,omitempty"`
 }
 
 func writeJSON(path string, v any) error {
