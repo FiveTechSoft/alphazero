@@ -1,0 +1,12 @@
+# Exact invocations for the frozen P3 pilot, seed 101. NOT EXECUTED. Run ONE per shell call, in this order,
+# only after independent review authorizes the pilot. Build once first (binary hash recorded):
+#   cd mathzero/go && GOTOOLCHAIN=local GOPROXY=off CGO_ENABLED=0 go build -o /home/sandbox/p3bin/mathzero . && sha256sum /home/sandbox/p3bin/mathzero
+# Then, from the scripts directory, with BIN=/home/sandbox/p3bin/mathzero DIR=/home/sandbox/p3-pilot-101:
+#   ./pilot_stage.sh pre-primary
+#   ./pilot_stage.sh pre-secondary
+#   ./pilot_stage.sh train
+#   ./pilot_stage.sh post-primary
+#   ./pilot_stage.sh post-secondary
+#   ./pilot_stage.sh report > report.json
+# After each stage: confirm residual_procs=0 in the guard line, then attach/preserve $DIR to the parent.
+# A censored stage stops the pilot: preserve state, report; do not retry with other parameters.
