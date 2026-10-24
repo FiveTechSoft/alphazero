@@ -1,0 +1,232 @@
+{
+ "101": {
+  "bank_rule": "GenBank seed=101 perlevel=4 levels=4,5,6",
+  "bank_sha256_runner": "cc88d99960e164b51d1b158b568260be1396c2f8238853e25137e91066fac97f",
+  "cap": 300,
+  "model_sha256": "1466ee8be8f22e69f1457a8070d49e66cf6c931da92fd21633c2a04f51e0e516",
+  "library_sha256": "5ce68ec3fdee10d7cea6ea71578f16e84b8fa2fac04a5756b0722054b50b4c3c",
+  "cases": [
+   {
+    "id": "s101-L4-0",
+    "none": {
+     "solved": true,
+     "nodes": 5
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 8
+    }
+   },
+   {
+    "id": "s101-L4-1",
+    "none": {
+     "solved": true,
+     "nodes": 2
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 2
+    }
+   },
+   {
+    "id": "s101-L4-2",
+    "none": {
+     "solved": true,
+     "nodes": 5
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 17
+    }
+   },
+   {
+    "id": "s101-L4-3",
+    "none": {
+     "solved": true,
+     "nodes": 2
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 2
+    }
+   },
+   {
+    "id": "s101-L5-0",
+    "none": {
+     "solved": true,
+     "nodes": 75
+    },
+    "lib": {
+     "solved": false,
+     "nodes": 300
+    }
+   },
+   {
+    "id": "s101-L5-1",
+    "none": {
+     "solved": true,
+     "nodes": 11
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 3
+    }
+   },
+   {
+    "id": "s101-L5-2",
+    "none": {
+     "solved": true,
+     "nodes": 1
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 1
+    }
+   },
+   {
+    "id": "s101-L5-3",
+    "none": {
+     "solved": true,
+     "nodes": 70
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 71
+    }
+   },
+   {
+    "id": "s101-L6-0",
+    "none": {
+     "solved": true,
+     "nodes": 2
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 2
+    }
+   },
+   {
+    "id": "s101-L6-1",
+    "none": {
+     "solved": true,
+     "nodes": 5
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 19
+    }
+   },
+   {
+    "id": "s101-L6-2",
+    "none": {
+     "solved": true,
+     "nodes": 9
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 31
+    }
+   },
+   {
+    "id": "s101-L6-3",
+    "none": {
+     "solved": true,
+     "nodes": 5
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 8
+    }
+   }
+  ],
+  "n": 12,
+  "both_solved": 11,
+  "only_none_solved": 1,
+  "only_lib_solved": 0,
+  "neither": 0,
+  "nodes_none": 192,
+  "nodes_lib": 464
+ },
+ "303": {
+  "bank_rule": "GenBank seed=303 perlevel=3 levels=6,8",
+  "bank_sha256_runner": "6573afc1e97af9d7cd525585adefebcc7a5a2756bf944329dbc9d9402cde7bbc",
+  "cap": 300,
+  "model_sha256": "1466ee8be8f22e69f1457a8070d49e66cf6c931da92fd21633c2a04f51e0e516",
+  "library_sha256": "5ce68ec3fdee10d7cea6ea71578f16e84b8fa2fac04a5756b0722054b50b4c3c",
+  "cases": [
+   {
+    "id": "s303-L6-0",
+    "none": {
+     "solved": true,
+     "nodes": 4
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 2
+    }
+   },
+   {
+    "id": "s303-L6-1",
+    "none": {
+     "solved": true,
+     "nodes": 246
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 163
+    }
+   },
+   {
+    "id": "s303-L6-2",
+    "none": {
+     "solved": true,
+     "nodes": 2
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 2
+    }
+   },
+   {
+    "id": "s303-L8-0",
+    "none": {
+     "solved": true,
+     "nodes": 4
+    },
+    "lib": {
+     "solved": true,
+     "nodes": 83
+    }
+   },
+   {
+    "id": "s303-L8-1",
+    "none": {
+     "solved": true,
+     "nodes": 98
+    },
+    "lib": {
+     "solved": false,
+     "nodes": 300
+    }
+   },
+   {
+    "id": "s303-L8-2",
+    "none": {
+     "solved": true,
+     "nodes": 6
+    },
+    "lib": {
+     "solved": false,
+     "nodes": 300
+    }
+   }
+  ],
+  "n": 6,
+  "both_solved": 4,
+  "only_none_solved": 2,
+  "only_lib_solved": 0,
+  "neither": 0,
+  "nodes_none": 360,
+  "nodes_lib": 850
+ }
+}
