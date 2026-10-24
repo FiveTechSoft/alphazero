@@ -30,19 +30,23 @@ func init() {
 }
 
 type D1EvalReport struct {
-	Level     string       `json:"level"`
-	Cap       int          `json:"cap"`
-	Model     string       `json:"model"`
-	ModelSHA  string       `json:"model_sha256,omitempty"`
-	Seed      int64        `json:"seed"`
-	Library   string       `json:"library"`
-	LibSHA    string       `json:"library_sha256,omitempty"`
-	BankSHA   string       `json:"bank_sha256"`
-	BankRule  string       `json:"bank_rule"`
-	NodesTot  int          `json:"nodes_total"`
-	ElapsedMs int64        `json:"elapsed_ms"`
-	Summary   BankSummary  `json:"summary"`
-	Results   []CaseResult `json:"results"`
+	Level    string `json:"level"`
+	Cap      int    `json:"cap"`
+	Model    string `json:"model"`
+	ModelSHA string `json:"model_sha256,omitempty"`
+	Seed     int64  `json:"seed"`
+	Library  string `json:"library"`
+	LibSHA   string `json:"library_sha256,omitempty"`
+	BankSHA  string `json:"bank_sha256"`
+	BankRule string `json:"bank_rule"`
+	// BankDigest is the unambiguous digest: BankDigestAlgo describes it. BankSHA is
+	// kept unchanged for historical identifiers (see PROVENANCE-inc7).
+	BankDigest     string       `json:"bank_digest"`
+	BankDigestAlgo string       `json:"bank_digest_algo"`
+	NodesTot       int          `json:"nodes_total"`
+	ElapsedMs      int64        `json:"elapsed_ms"`
+	Summary        BankSummary  `json:"summary"`
+	Results        []CaseResult `json:"results"`
 }
 
 func fileSHA(path string) string {
@@ -71,6 +75,7 @@ func RunD1Eval(args []string, w io.Writer) error {
 		return fmt.Errorf("negative cap")
 	}
 	var cases []EvalCase
+	var bcases []BankCase
 	h := sha256.New()
 	ruleDesc := "levels.json level " + *level
 	if *bankSeed != 0 {
@@ -92,7 +97,8 @@ func RunD1Eval(args []string, w io.Writer) error {
 		if *max > 0 && *max < len(cases) {
 			cases = cases[:*max]
 		}
-		hh := BankDigest(bank[:len(cases)])
+		bcases = bank[:len(cases)]
+		hh := BankDigest(bcases)
 		fmt.Fprint(h, hh)
 		ruleDesc = fmt.Sprintf("GenBank seed=%d perlevel=%d levels=%s", *bankSeed, *perLevel, *levels)
 	} else {
@@ -106,9 +112,11 @@ func RunD1Eval(args []string, w io.Writer) error {
 		for i, p := range probs {
 			cases = append(cases, EvalCase{ID: fmt.Sprintf("L%s-%d", *level, i), Start: p.Cur, Target: p.Target})
 			fmt.Fprintf(h, "%s\x00%s\n", RenderPrefix(p.Cur), RenderPrefix(p.Target))
+			lv, _ := strconv.Atoi(*level)
+			bcases = append(bcases, BankCase{cases[len(cases)-1], lv})
 		}
 	}
-	rep := D1EvalReport{Level: *level, Cap: *capN, Seed: *seed, Library: "none", BankSHA: fmt.Sprintf("%x", h.Sum(nil)), BankRule: ruleDesc}
+	rep := D1EvalReport{Level: *level, Cap: *capN, Seed: *seed, Library: "none", BankSHA: fmt.Sprintf("%x", h.Sum(nil)), BankRule: ruleDesc, BankDigest: BankDigest(bcases), BankDigestAlgo: BankDigestAlgo}
 	var net *MLP
 	if *model != "" {
 		net = LoadMLP(*model)
