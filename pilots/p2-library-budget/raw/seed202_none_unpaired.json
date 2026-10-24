@@ -1,0 +1,169 @@
+{
+ "level": "2",
+ "cap": 300,
+ "model": "model_math.json",
+ "model_sha256": "1466ee8be8f22e69f1457a8070d49e66cf6c931da92fd21633c2a04f51e0e516",
+ "seed": 1,
+ "library": "none",
+ "bank_sha256": "19c51b5e44d6730771527748175efd064978c2109f13a23671645887155945e1",
+ "bank_rule": "GenBank seed=202 perlevel=6 levels=4,5,6,7,8",
+ "nodes_total": 2183,
+ "elapsed_ms": 35053,
+ "summary": {
+  "N": 30,
+  "Solved": 25,
+  "BudgetExhausted": 5
+ },
+ "results": [
+  {
+   "id": "s202-L4-0",
+   "solved": true,
+   "nodes": 12
+  },
+  {
+   "id": "s202-L4-1",
+   "solved": true,
+   "nodes": 8
+  },
+  {
+   "id": "s202-L4-2",
+   "solved": true,
+   "nodes": 4
+  },
+  {
+   "id": "s202-L4-3",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s202-L4-4",
+   "solved": true,
+   "nodes": 6
+  },
+  {
+   "id": "s202-L4-5",
+   "solved": true,
+   "nodes": 12
+  },
+  {
+   "id": "s202-L5-0",
+   "solved": true,
+   "nodes": 4
+  },
+  {
+   "id": "s202-L5-1",
+   "solved": true,
+   "nodes": 7
+  },
+  {
+   "id": "s202-L5-2",
+   "solved": true,
+   "nodes": 3
+  },
+  {
+   "id": "s202-L5-3",
+   "solved": true,
+   "nodes": 5
+  },
+  {
+   "id": "s202-L5-4",
+   "solved": true,
+   "nodes": 11
+  },
+  {
+   "id": "s202-L5-5",
+   "solved": true,
+   "nodes": 3
+  },
+  {
+   "id": "s202-L6-0",
+   "solved": true,
+   "nodes": 5
+  },
+  {
+   "id": "s202-L6-1",
+   "solved": true,
+   "nodes": 5
+  },
+  {
+   "id": "s202-L6-2",
+   "solved": true,
+   "nodes": 16
+  },
+  {
+   "id": "s202-L6-3",
+   "solved": true,
+   "nodes": 4
+  },
+  {
+   "id": "s202-L6-4",
+   "solved": true,
+   "nodes": 123
+  },
+  {
+   "id": "s202-L6-5",
+   "solved": true,
+   "nodes": 252
+  },
+  {
+   "id": "s202-L7-0",
+   "solved": true,
+   "nodes": 10
+  },
+  {
+   "id": "s202-L7-1",
+   "solved": false,
+   "nodes": 300
+  },
+  {
+   "id": "s202-L7-2",
+   "solved": true,
+   "nodes": 8
+  },
+  {
+   "id": "s202-L7-3",
+   "solved": true,
+   "nodes": 3
+  },
+  {
+   "id": "s202-L7-4",
+   "solved": false,
+   "nodes": 300
+  },
+  {
+   "id": "s202-L7-5",
+   "solved": true,
+   "nodes": 120
+  },
+  {
+   "id": "s202-L8-0",
+   "solved": true,
+   "nodes": 39
+  },
+  {
+   "id": "s202-L8-1",
+   "solved": false,
+   "nodes": 300
+  },
+  {
+   "id": "s202-L8-2",
+   "solved": true,
+   "nodes": 14
+  },
+  {
+   "id": "s202-L8-3",
+   "solved": true,
+   "nodes": 7
+  },
+  {
+   "id": "s202-L8-4",
+   "solved": false,
+   "nodes": 300
+  },
+  {
+   "id": "s202-L8-5",
+   "solved": false,
+   "nodes": 300
+  }
+ ]
+}
