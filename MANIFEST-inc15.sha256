@@ -1,0 +1,12 @@
+1e3782bc694477f97eb9112302ede053fdf07339a097deb0d3ce7447042ed7ea  ./PROVENANCE-inc15.md
+053867d551e7fe7e4531226994d583ef3c70418c5d1ccd461af6c6709a154324  ./mathzero/go/a1_main.go
+8d974c86b6b621bd10060fdb8c81a80abdef2ecbe3fa06a85896d405f264de8c  ./mathzero/go/a1_train.go
+dab3c01b55df891d898ceb2c5d6c2bec0772cd5344492701823b5c0376f2e6e6  ./mathzero/go/a1_train_test.go
+ea8ee8c3ad45d878fe58cb4f79ca68834686e6ede243fd860673e68955cc71bc  ./mathzero/go/d1_train_stages.go
+d05556d21fd82fe1874d96ee0d5fe60a95f00ec6a766abb480048cea018f49c9  ./mathzero/go/g1_bank.go
+7a0694727a6adc8ee2009bfba3900da47da2dfe194bbf065b1d9e33cf465ce91  ./mathzero/go/g1_main.go
+1a4b24b66953f20ff3ec44465e9f83e43be78013492e6f9b32ed2c912e2c4426  ./pilots/a1/BANK-G2.json
+dbb2a7341f846d03eb6b71bad7324bd370e6ab07c1233bacb553e672c9dfa386  ./pilots/a1/DESIGN-A1-frozen.md
+f2d8c0be5a3926f161ac132bbb9d26d15b599a0317a7112f174e923fc579fcb1  ./scripts/PILOT-A1-101-PLAN.txt
+da23456b580e70060bfbb191e73a03c57469e857bc862174b87b7cd42e7ad4d1  ./scripts/guard.sh
+4266301a4bbec9826ee96b004d03cf2b78fea5fed4bcf0d6b5f61f975edb6186  ./scripts/pilot_a1_stage.sh
