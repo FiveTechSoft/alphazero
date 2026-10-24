@@ -1,0 +1,13 @@
+# Plan exacto, piloto G1 semilla 101 (NO EJECUTADO; requiere desbloqueo explicito). Banco, regla, checkpoints y config NO cambian.
+# Estado actual: el piloto G1 NO esta autorizado. Un piloto = 1 semilla (101), separado de las semillas de validacion 11..18.
+# Build (una vez): cd mathzero/go && GOTOOLCHAIN=local GOPROXY=off CGO_ENABLED=0 go build -o /home/sandbox/g1bin/mathzero . && sha256sum /home/sandbox/g1bin/mathzero   -> BIN_SHA
+# cwd de las llamadas: mathzero/go (necesita levels.json y blind.json); wrapper desde su carpeta. Variables: BIN, BIN_SHA, DIR=/home/sandbox/g1-pilot-101 (nuevo), GUARD=guard.sh (inc8, prefijo da23456b580e7006), SEED=101.
+# Una etapa por llamada, tope 110 s por etapa, RSS 900 MiB, 900 s TOTAL (reserva previa), preflight memoria >=1300 MiB:
+#   ./pilot_g1_stage.sh pre-g1
+#   ./pilot_g1_stage.sh train
+#   ./pilot_g1_stage.sh post-g1
+#   ./pilot_g1_stage.sh report > report.json
+# Cada etapa regenera el banco G1 (~1 s), exige digest 8bc4db33...209e y falla cerrado si no coincide o si es infactible.
+# Si falla/censura una etapa: parar, conservar estado, no reintentar ni cambiar limites.
+# Orden de magnitud (HIPOTESIS, no medido en G1): 1 banco de 90 casos => etapas de evaluacion similares a las ~25-58 s por banco de P3; train con rechazo de claves: no medido. Es posible que alguna etapa supere 110 s y quede censurada.
+# El piloto mediria SOLO viabilidad y coste de G1; con n=1 no hay criterio.
