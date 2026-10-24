@@ -1,0 +1,14 @@
+# Plan exacto del piloto A1 semilla 101 (NO EJECUTADO; ninguna campana ni piloto autorizado). Banco G2, calendario, config y criterio NO cambian.
+# Un piloto = 1 semilla (101), separado de las semillas 11..18. Mide viabilidad y coste; con n=1 no hay criterio.
+# Build unico: cd mathzero/go && GOTOOLCHAIN=local GOPROXY=off CGO_ENABLED=0 go build -o $HOME/a1bin/mathzero . && sha256sum -> BIN_SHA. cwd = mathzero/go (levels.json, blind.json).
+# Variables: BIN, BIN_SHA, DIR (nuevo), GUARD=guard.sh (inc8, da23456b580e7006), SEED=101.
+# Orden operativo (una etapa por llamada, tope 110 s, RSS 900 MiB, 900 s TOTAL compartido, preflight >=1300 MiB):
+#   ./pilot_a1_stage.sh pre-g2     # pre-evaluacion de NewMLP(101) en G2, COMPARTIDA
+#   ./pilot_a1_stage.sh train-A
+#   ./pilot_a1_stage.sh train-F
+#   ./pilot_a1_stage.sh post-A
+#   ./pilot_a1_stage.sh post-F
+#   ./pilot_a1_stage.sh report > report.json
+# Cada etapa regenera el banco G2 y falla cerrado si el digest != f58161c5...67b6 o es infactible; train falla si el pool de problemas se agota; train-F falla si el hash de la guia cambia.
+# Primer fallo/censura: parar, conservar estado, sin reintento ni cambio de limites.
+# Coste NO medido para A1; el brazo F podria generar pocas muestras (resultado/mediador, no motivo de rediseno).
