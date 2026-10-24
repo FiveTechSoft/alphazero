@@ -58,6 +58,9 @@ func GenBank(rule BankRule) []BankCase {
 	return out
 }
 
+// BankDigestAlgo names the algorithm of BankDigest; it is part of every report.
+const BankDigestAlgo = "sha256 over lines level\\0start\\0target\\n in case order; start/target = RenderPrefix; ids excluded"
+
 // BankDigest hashes the ordered (level, start, target) content, not the ids.
 func BankDigest(cs []BankCase) string {
 	h := sha256.New()
