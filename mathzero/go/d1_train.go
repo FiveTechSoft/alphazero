@@ -23,10 +23,19 @@ type TrainConfig struct {
 	// ExcludeRender holds RenderPrefix(start)+"|"+RenderPrefix(target) of evaluation
 	// pairs (either orientation); hindsight pairs found in it are dropped.
 	ExcludeRender map[string]bool
+	// G1 (new protocol). When ExcludeKeys is non-nil, any training problem whose
+	// Start or Target has a Key in ExcludeKeys is rejected and regenerated, a
+	// hindsight pair is dropped when the Key of its Start or of its REAL
+	// substitute target is in ExcludeKeys (or the pair cannot be parsed), and the
+	// rendered problems and kept hindsight pairs are recorded in the log. nil =
+	// P3 behaviour, bit for bit.
+	ExcludeKeys map[string]bool
 }
 
 type TrainRoundLog struct {
 	Round, Level, Solved, Problems, Samples, HindsightKept, HindsightDropped int
+	// G1 only (omitted otherwise): attempts drawn and rejected by the Key rule.
+	Attempts, KeyRejected int `json:",omitempty"`
 }
 
 type TrainLog struct {
@@ -34,6 +43,10 @@ type TrainLog struct {
 	Pairs   []string // pairKey of every training problem, in order
 	Starts  []string // Key of each training start
 	Targets []string
+	// G1 only (omitted otherwise): rendered training problems ("start|target") and
+	// kept hindsight pairs, for verification with a normalization independent of Key.
+	RenderedProblems      []string `json:",omitempty"`
+	HindsightKeptRendered []string `json:",omitempty"`
 }
 
 // WeightsSHA hashes the exported weights, Level and Round (not optimizer state).
@@ -83,10 +96,18 @@ func TrainRounds(net *MLP, cfg TrainConfig) (TrainLog, error) {
 			ok := false
 			for attempt := 0; attempt < 1000; attempt++ {
 				a, b = genTrain(r, net.Level)
-				if !cfg.Exclude[pairKey(a, b)] {
-					ok = true
-					break
+				if cfg.ExcludeKeys != nil {
+					rl.Attempts++
 				}
+				if cfg.Exclude[pairKey(a, b)] {
+					continue
+				}
+				if cfg.ExcludeKeys != nil && (cfg.ExcludeKeys[Key(a)] || cfg.ExcludeKeys[Key(b)]) {
+					rl.KeyRejected++
+					continue
+				}
+				ok = true
+				break
 			}
 			if !ok {
 				return log, fmt.Errorf("no training pair outside the evaluation set at level %d", net.Level)
@@ -94,11 +115,17 @@ func TrainRounds(net *MLP, cfg TrainConfig) (TrainLog, error) {
 			log.Pairs = append(log.Pairs, pairKey(a, b))
 			log.Starts = append(log.Starts, Key(a))
 			log.Targets = append(log.Targets, Key(b))
+			if cfg.ExcludeKeys != nil {
+				log.RenderedProblems = append(log.RenderedProblems, RenderPrefix(a)+"|"+RenderPrefix(b))
+			}
 			res := guidedSolveBidirectional(net, a, b, cfg.Cap, true)
 			if res.Hindsight != nil {
-				if cfg.ExcludeRender[res.Hindsight.Start+"|"+res.Hindsight.Target] {
+				if cfg.ExcludeRender[res.Hindsight.Start+"|"+res.Hindsight.Target] || (cfg.ExcludeKeys != nil && hindsightExcludedByKey(res.Hindsight, cfg.ExcludeKeys)) {
 					rl.HindsightDropped++
 				} else {
+					if cfg.ExcludeKeys != nil {
+						log.HindsightKeptRendered = append(log.HindsightKeptRendered, res.Hindsight.Start+"|"+res.Hindsight.Target)
+					}
 					rl.HindsightKept++
 					buf = append(buf, res.Samples...)
 				}
