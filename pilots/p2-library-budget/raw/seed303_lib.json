@@ -1,0 +1,50 @@
+{
+ "level": "2",
+ "cap": 300,
+ "model": "model_math.json",
+ "model_sha256": "1466ee8be8f22e69f1457a8070d49e66cf6c931da92fd21633c2a04f51e0e516",
+ "seed": 1,
+ "library": "lemas.json",
+ "library_sha256": "5ce68ec3fdee10d7cea6ea71578f16e84b8fa2fac04a5756b0722054b50b4c3c",
+ "bank_sha256": "6573afc1e97af9d7cd525585adefebcc7a5a2756bf944329dbc9d9402cde7bbc",
+ "bank_rule": "GenBank seed=303 perlevel=3 levels=6,8",
+ "nodes_total": 850,
+ "elapsed_ms": 34876,
+ "summary": {
+  "N": 6,
+  "Solved": 4,
+  "BudgetExhausted": 2
+ },
+ "results": [
+  {
+   "id": "s303-L6-0",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s303-L6-1",
+   "solved": true,
+   "nodes": 163
+  },
+  {
+   "id": "s303-L6-2",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s303-L8-0",
+   "solved": true,
+   "nodes": 83
+  },
+  {
+   "id": "s303-L8-1",
+   "solved": false,
+   "nodes": 300
+  },
+  {
+   "id": "s303-L8-2",
+   "solved": false,
+   "nodes": 300
+  }
+ ]
+}
