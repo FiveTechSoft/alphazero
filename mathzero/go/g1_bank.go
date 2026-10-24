@@ -167,3 +167,24 @@ func G1KeySetOf(cs []BankCase) map[string]bool {
 	}
 	return m
 }
+
+// ---- A1 bank G2 (frozen in pilots/a1/DESIGN-A1-frozen.md) ----
+
+const G2Seed int64 = 20261025
+
+// G2PriorKeys = G1PriorKeys + Key of Start and Target of the frozen G1 bank. It
+// fails closed if the regenerated G1 bank does not match its frozen digest.
+func G2PriorKeys() (map[string]bool, error) {
+	prior := G1PriorKeys()
+	g1, _, err := GenBankG1(G1Rule{Seed: G1Seed, PerLevel: 30, Levels: []int{6, 7, 8}}, prior)
+	if err != nil {
+		return nil, err
+	}
+	if BankDigest(g1) != G1FrozenDigest {
+		return nil, fmt.Errorf("G1 bank digest %s differs from frozen %s", BankDigest(g1), G1FrozenDigest)
+	}
+	for k := range G1KeySetOf(g1) {
+		prior[k] = true
+	}
+	return prior, nil
+}
