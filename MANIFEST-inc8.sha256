@@ -1,0 +1,5 @@
+0ad45962bd9561511374f2c212735a572a48f366b1c35b9adaa3220652883480  ./PROVENANCE-inc8.md
+bdd576570cb70a39f037f7f6741fea0f04a9851481b075fa4330fb5f7c735e4b  ./mathzero/go/d1_train_main.go
+2f8f547f399cb9c9efee4d2a7749399def4d30e6fe6e113e70792932acef3edc  ./mathzero/go/d1_train_main_test.go
+da23456b580e70060bfbb191e73a03c57469e857bc862174b87b7cd42e7ad4d1  ./scripts/guard.sh
+a626a8f13b61c594da3b97255eccdb1f01f3e7e39543dbea1f521144e18bc4b2  ./scripts/guard_test.sh
