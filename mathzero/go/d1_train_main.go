@@ -59,6 +59,7 @@ type D1TrainReport struct {
 	Overlap      map[string]TrainEvalOverlap `json:"train_eval_overlap"`
 	Banks        []D1BankReport              `json:"banks"`
 	SecondsPhase map[string]float64          `json:"seconds_by_phase"`
+	G1           *G1ReportInfo               `json:"g1,omitempty"`
 }
 
 func parseIntList(s string) ([]int, error) {
