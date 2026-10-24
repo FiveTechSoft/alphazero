@@ -1,0 +1,7 @@
+93dddaae4bb6983ea2884da8c35851764a624c6e159944da677a6436d10fb74a  ./PROVENANCE-inc12.md
+4c1660b0030d40330daaf4787071478ebcf78d3ca094a4b34511de306aff4242  ./mathzero/go/d1_train.go
+4ee7b4f5f579a4b0c90a8ad7e9d050dedd1e3367503d316fd164e88213598afc  ./mathzero/go/g1_bank.go
+29fae75b1418133537fc7fca7f8b304c7c6fa5ca50c9d4972d3608e70200bcb4  ./mathzero/go/g1_bank_test.go
+e7ecf9e59514375043ec7791531855f36721dbbb42d32fea365ea873d48b36b2  ./mathzero/go/g1_main.go
+fd4bccfbc3f14f48b60a81c6cac2770545f2cad36782261bc1649f83ac0d7414  ./pilots/g1/BANK-G1.json
+837aa5dd0133a8b524026a1eb6050c3680f141c3473cd81e8a612ae1ae5f4879  ./pilots/g1/DESIGN-G1-frozen.md
