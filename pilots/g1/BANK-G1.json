@@ -1,0 +1,589 @@
+{
+ "rule": {
+  "Seed": 20261024,
+  "PerLevel": 30,
+  "Levels": [
+   6,
+   7,
+   8
+  ],
+  "MaxAttemptsPerLevel": 0
+ },
+ "feasible": true,
+ "bank_digest": "8bc4db332ab0e6c240b0b9e788a091f282a695f31b777301d1d1bcc7962b209e",
+ "bank_digest_algo": "sha256 over lines level\\0start\\0target\\n in case order; start/target = RenderPrefix; ids excluded",
+ "cases": [
+  {
+   "ID": "g1-20261024-L6-0",
+   "Start": "add(mul(va,neg(vc)),va)",
+   "Target": "neg(add(neg(add(mul(add(neg(neg(va)),c0),neg(vc)),mul(va,c1))),add(c0,c0)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-1",
+   "Start": "add(add(neg(vc),neg(va)),vb)",
+   "Target": "add(add(neg(add(neg(mul(add(neg(vc),neg(va)),c1)),c0)),c0),add(vb,add(c0,c0)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-2",
+   "Start": "add(add(vb,va),va)",
+   "Target": "add(add(add(add(vb,c0),neg(neg(va))),neg(neg(va))),c0)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-3",
+   "Start": "add(mul(c1,va),vc)",
+   "Target": "add(mul(mul(add(add(mul(c1,c1),c0),c0),c1),va),mul(vc,neg(neg(c1))))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-4",
+   "Start": "neg(add(add(c-2,va),c-3))",
+   "Target": "neg(neg(add(add(neg(add(c-2,va)),neg(mul(neg(mul(neg(c-3),c1)),c1))),c0)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-5",
+   "Start": "mul(add(vc,vc),mul(c-2,va))",
+   "Target": "neg(neg(add(mul(neg(neg(add(vc,vc))),mul(c-2,add(va,c0))),c0)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-6",
+   "Start": "mul(neg(neg(vb)),mul(mul(c4,c-2),add(c3,vb)))",
+   "Target": "mul(vb,mul(mul(c4,c-2),add(neg(neg(c3)),vb)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-7",
+   "Start": "add(vb,vb)",
+   "Target": "mul(add(add(add(vb,c0),vb),mul(c0,c1)),c1)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-8",
+   "Start": "neg(mul(mul(vb,vc),mul(vc,vc)))",
+   "Target": "mul(neg(mul(mul(neg(neg(mul(vb,neg(neg(vc))))),c1),mul(vc,vc))),c1)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-9",
+   "Start": "add(c-3,add(va,vb))",
+   "Target": "add(mul(c-3,c1),add(add(va,mul(vb,neg(neg(c1)))),c0))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-10",
+   "Start": "mul(mul(add(c-1,vb),mul(c4,vc)),add(add(c-2,c1),mul(vb,va)))",
+   "Target": "mul(mul(add(add(c-1,vb),c0),mul(c4,vc)),neg(neg(mul(add(add(neg(neg(mul(neg(neg(c-2)),c1))),c1),mul(vb,va)),c1))))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-11",
+   "Start": "mul(neg(mul(vc,c-1)),add(va,va))",
+   "Target": "mul(mul(neg(mul(neg(neg(vc)),c-1)),c1),add(va,va))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-12",
+   "Start": "add(va,mul(c4,c3))",
+   "Target": "neg(add(neg(add(va,mul(mul(c4,mul(c3,c1)),c1))),c0))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-13",
+   "Start": "mul(mul(mul(c3,c4),vc),mul(neg(vc),mul(c0,va)))",
+   "Target": "mul(mul(mul(mul(c3,neg(neg(c4))),vc),add(c1,c0)),mul(neg(mul(vc,c1)),mul(c0,va)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-14",
+   "Start": "add(mul(mul(c4,vc),mul(c-1,vb)),vb)",
+   "Target": "add(mul(neg(neg(mul(mul(mul(c4,c1),vc),neg(neg(neg(neg(mul(neg(neg(c-1)),vb)))))))),c1),vb)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-15",
+   "Start": "mul(add(vb,c-3),va)",
+   "Target": "mul(neg(neg(add(add(vb,c0),neg(neg(add(c-3,c0)))))),va)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-16",
+   "Start": "neg(mul(mul(vb,c3),mul(vb,vc)))",
+   "Target": "neg(mul(mul(add(vb,c0),neg(neg(c3))),neg(neg(mul(vb,neg(neg(vc)))))))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-17",
+   "Start": "mul(mul(c1,va),neg(vb))",
+   "Target": "mul(mul(mul(c1,neg(neg(mul(va,c1)))),add(neg(vb),c0)),c1)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-18",
+   "Start": "add(vb,add(vc,c-1))",
+   "Target": "add(mul(mul(vb,c1),c1),mul(add(add(neg(neg(vc)),c0),c-1),mul(c1,c1)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-19",
+   "Start": "add(neg(mul(va,va)),vb)",
+   "Target": "add(add(neg(neg(neg(mul(mul(mul(va,c1),add(va,c0)),c1)))),c0),mul(vb,c1))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-20",
+   "Start": "add(vc,mul(mul(vb,c-2),add(c4,c4)))",
+   "Target": "add(add(neg(neg(vc)),mul(mul(add(neg(neg(vb)),c0),c-2),add(c4,c4))),c0)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-21",
+   "Start": "add(neg(mul(c1,vc)),mul(add(va,vb),mul(vc,va)))",
+   "Target": "add(neg(mul(c1,vc)),mul(add(va,vb),neg(neg(mul(vc,neg(neg(neg(add(neg(neg(mul(neg(va),c1))),c0)))))))))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-22",
+   "Start": "neg(mul(c4,neg(vb)))",
+   "Target": "neg(neg(neg(mul(neg(neg(c4)),neg(vb)))))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-23",
+   "Start": "add(add(neg(vc),mul(va,c4)),neg(neg(c0)))",
+   "Target": "add(add(neg(add(vc,neg(neg(c0)))),mul(va,c4)),neg(neg(c0)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-24",
+   "Start": "add(c1,c2)",
+   "Target": "mul(add(c1,neg(neg(c2))),c1)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-25",
+   "Start": "add(vb,c2)",
+   "Target": "add(neg(neg(add(vb,c0))),c2)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-26",
+   "Start": "mul(vc,vc)",
+   "Target": "neg(neg(mul(mul(neg(neg(neg(neg(neg(neg(neg(neg(vc)))))))),c1),vc)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-27",
+   "Start": "add(add(mul(vc,c-2),mul(va,va)),c2)",
+   "Target": "neg(neg(mul(add(add(mul(add(neg(neg(neg(mul(neg(vc),c1)))),c0),c-2),mul(va,va)),c2),c1)))",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-28",
+   "Start": "add(add(add(c2,c4),mul(vc,vc)),vb)",
+   "Target": "add(mul(add(add(c2,c4),mul(vc,neg(neg(vc)))),c1),vb)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L6-29",
+   "Start": "mul(vc,neg(c-3))",
+   "Target": "add(mul(add(neg(neg(vc)),c0),mul(neg(c-3),c1)),c0)",
+   "Level": 6
+  },
+  {
+   "ID": "g1-20261024-L7-0",
+   "Start": "mul(mul(add(c2,c4),add(c-2,vc)),add(mul(vc,vc),add(va,vb)))",
+   "Target": "mul(mul(neg(neg(mul(add(add(add(c2,c0),c0),c4),c1))),add(c-2,vc)),neg(neg(add(mul(vc,neg(neg(vc))),add(mul(va,c1),vb)))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-1",
+   "Start": "add(add(vb,c-2),mul(va,vb))",
+   "Target": "add(add(mul(add(vb,c0),c1),add(add(c-2,neg(neg(mul(c0,c1)))),c0)),add(mul(va,vb),c0))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-2",
+   "Start": "neg(add(mul(c1,c3),c2))",
+   "Target": "mul(neg(mul(add(neg(neg(neg(mul(mul(neg(c1),c1),c3)))),c2),c1)),c1)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-3",
+   "Start": "mul(add(vb,c2),mul(c4,vc))",
+   "Target": "mul(add(add(vb,c0),c2),mul(c4,mul(vc,neg(add(neg(neg(neg(c1))),c0)))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-4",
+   "Start": "mul(mul(neg(vc),c-1),va)",
+   "Target": "mul(neg(neg(mul(neg(add(vc,neg(neg(c0)))),neg(neg(mul(c-1,c1)))))),va)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-5",
+   "Start": "add(neg(c2),c-2)",
+   "Target": "add(mul(neg(c2),neg(neg(mul(add(add(c1,c0),c0),c1)))),c-2)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-6",
+   "Start": "neg(mul(neg(va),neg(vc)))",
+   "Target": "add(neg(mul(neg(neg(neg(va))),neg(add(mul(vc,mul(c1,c1)),c0)))),neg(neg(neg(c0))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-7",
+   "Start": "add(mul(va,va),c-3)",
+   "Target": "add(add(mul(mul(neg(neg(va)),mul(c1,neg(neg(c1)))),va),c-3),c0)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-8",
+   "Start": "neg(mul(mul(vc,c3),va))",
+   "Target": "neg(neg(mul(add(neg(add(mul(mul(mul(vc,c3),va),c1),c0)),c0),c1)))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-9",
+   "Start": "add(add(va,c3),vb)",
+   "Target": "add(add(add(add(mul(va,c1),add(c3,c0)),c0),mul(vb,c1)),c0)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-10",
+   "Start": "mul(mul(c4,c4),mul(mul(vb,vc),add(vc,c2)))",
+   "Target": "mul(mul(c4,add(c4,c0)),mul(mul(mul(vb,add(vc,neg(neg(c0)))),add(add(vc,c0),c2)),c1))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-11",
+   "Start": "neg(mul(neg(vc),mul(c3,va)))",
+   "Target": "neg(neg(neg(mul(mul(neg(vc),c1),mul(add(c3,c0),va)))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-12",
+   "Start": "neg(add(mul(c0,vb),add(c4,c-1)))",
+   "Target": "add(neg(add(mul(c0,vb),add(c4,add(mul(c-1,c1),c0)))),c0)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-13",
+   "Start": "add(neg(mul(c0,vb)),mul(vb,c-1))",
+   "Target": "add(neg(add(mul(c0,vb),add(c0,c0))),neg(neg(mul(vb,mul(c-1,c1)))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-14",
+   "Start": "add(c-3,neg(va))",
+   "Target": "add(c-3,neg(add(add(neg(mul(neg(neg(neg(add(mul(va,c1),c0)))),c1)),c0),c0)))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-15",
+   "Start": "add(mul(mul(c-1,vc),vb),c2)",
+   "Target": "add(mul(add(add(add(mul(mul(c-1,c1),vc),neg(neg(c0))),c0),add(c0,c0)),vb),mul(c2,c1))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-16",
+   "Start": "mul(mul(mul(vb,c-1),mul(vc,vb)),vb)",
+   "Target": "neg(neg(mul(mul(mul(mul(mul(vb,c1),c-1),c1),mul(vc,vb)),vb)))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-17",
+   "Start": "add(vb,add(vb,c1))",
+   "Target": "add(add(vb,add(c0,c0)),add(neg(neg(vb)),add(add(c1,c0),c0)))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-18",
+   "Start": "mul(add(c1,vc),neg(c4))",
+   "Target": "mul(add(c1,mul(vc,c1)),neg(add(c4,add(mul(neg(neg(c0)),c1),c0))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-19",
+   "Start": "add(va,add(c-1,c2))",
+   "Target": "add(mul(add(va,add(c-1,neg(neg(c2)))),c1),c0)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-20",
+   "Start": "add(mul(mul(vb,vc),add(vb,vb)),add(neg(c4),add(c0,c3)))",
+   "Target": "add(add(mul(add(mul(mul(vb,neg(neg(c1))),vc),c0),add(vb,vb)),add(neg(mul(c4,c1)),add(c0,c3))),c0)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-21",
+   "Start": "add(c4,neg(c-3))",
+   "Target": "neg(neg(add(mul(add(c4,mul(c0,c1)),add(add(c1,c0),c0)),neg(add(c-3,c0)))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-22",
+   "Start": "add(mul(c3,add(vb,va)),add(mul(c-1,va),add(va,vb)))",
+   "Target": "neg(add(neg(mul(add(mul(c3,c1),c0),add(neg(neg(vb)),va))),neg(add(mul(c-1,va),add(neg(neg(va)),add(vb,c0))))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-23",
+   "Start": "add(mul(c2,va),mul(va,c4))",
+   "Target": "add(add(mul(c2,va),mul(neg(neg(mul(va,c4))),c1)),c0)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-24",
+   "Start": "mul(mul(c0,va),neg(vc))",
+   "Target": "neg(neg(neg(neg(mul(neg(neg(neg(neg(mul(c0,add(va,c0)))))),neg(vc))))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-25",
+   "Start": "mul(add(c-1,va),neg(add(vb,vc)))",
+   "Target": "mul(add(mul(add(c-1,va),c1),c0),add(add(neg(neg(neg(add(neg(neg(vb)),vc)))),c0),neg(c0)))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-26",
+   "Start": "neg(add(c-1,c-1))",
+   "Target": "mul(add(neg(add(c-1,add(c-1,add(add(c0,neg(neg(c0))),add(c0,c0))))),c0),c1)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-27",
+   "Start": "add(add(add(va,vc),add(va,c3)),vb)",
+   "Target": "add(add(add(add(add(neg(neg(va)),mul(vc,c1)),c0),add(neg(add(neg(va),mul(c0,c1))),c3)),c0),vb)",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-28",
+   "Start": "add(vc,neg(neg(va)))",
+   "Target": "neg(neg(neg(neg(add(neg(add(neg(neg(neg(vc))),c0)),neg(neg(neg(neg(neg(neg(va)))))))))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L7-29",
+   "Start": "neg(mul(add(vc,va),mul(va,va)))",
+   "Target": "neg(mul(mul(add(neg(neg(vc)),va),c1),neg(neg(neg(neg(mul(va,mul(va,c1))))))))",
+   "Level": 7
+  },
+  {
+   "ID": "g1-20261024-L8-0",
+   "Start": "mul(c2,add(c3,va))",
+   "Target": "add(neg(neg(neg(add(neg(mul(c2,add(mul(c3,c1),va))),c0)))),neg(neg(c0)))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-1",
+   "Start": "add(neg(c3),mul(c4,va))",
+   "Target": "add(neg(c3),mul(mul(c4,add(mul(va,c1),add(c0,c0))),c1))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-2",
+   "Start": "add(va,add(mul(c3,c-1),mul(c2,vb)))",
+   "Target": "neg(neg(add(va,add(mul(c3,c-1),mul(c2,add(neg(neg(vb)),neg(c0)))))))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-3",
+   "Start": "mul(neg(vb),neg(mul(c3,c4)))",
+   "Target": "neg(neg(mul(neg(mul(vb,c1)),add(neg(mul(c3,mul(mul(c4,c1),mul(c1,c1)))),c0))))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-4",
+   "Start": "neg(mul(vb,c0))",
+   "Target": "mul(neg(mul(mul(add(vb,c0),c1),c0)),mul(neg(neg(add(c1,c0))),c1))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-5",
+   "Start": "mul(vc,neg(c4))",
+   "Target": "mul(neg(neg(mul(vc,neg(neg(c1))))),neg(neg(neg(c4))))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-6",
+   "Start": "add(neg(mul(va,c1)),c1)",
+   "Target": "add(neg(mul(va,add(neg(neg(c1)),c0))),add(c1,mul(c0,c1)))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-7",
+   "Start": "add(add(c0,vc),mul(c3,c4))",
+   "Target": "add(add(neg(neg(c0)),neg(neg(vc))),add(mul(c3,neg(neg(neg(neg(add(c4,c0)))))),c0))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-8",
+   "Start": "add(mul(vc,vb),vb)",
+   "Target": "add(neg(neg(add(neg(add(neg(mul(vc,vb)),c0)),c0))),vb)",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-9",
+   "Start": "mul(c-2,neg(add(vb,vb)))",
+   "Target": "mul(c-2,add(neg(mul(add(neg(neg(add(add(mul(neg(neg(vb)),c1),vb),c0))),c0),c1)),neg(neg(c0))))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-10",
+   "Start": "add(neg(c0),c0)",
+   "Target": "add(mul(add(neg(add(neg(neg(c0)),c0)),c0),c1),mul(c0,c1))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-11",
+   "Start": "neg(mul(mul(vb,vb),mul(vb,va)))",
+   "Target": "neg(mul(mul(mul(mul(vb,c1),vb),c1),mul(vb,mul(add(va,mul(neg(neg(c0)),c1)),c1))))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-12",
+   "Start": "mul(neg(add(vb,va)),vc)",
+   "Target": "mul(mul(neg(add(add(mul(vb,c1),c0),neg(neg(va)))),c1),vc)",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-13",
+   "Start": "add(c0,add(va,mul(vb,vb)))",
+   "Target": "add(neg(neg(add(mul(va,c1),c0))),mul(mul(vb,c1),add(vb,c0)))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-14",
+   "Start": "mul(c4,mul(va,mul(vb,c1)))",
+   "Target": "mul(neg(neg(add(c4,c0))),mul(mul(va,vb),c1))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-15",
+   "Start": "add(add(neg(vc),neg(vb)),neg(mul(va,c-1)))",
+   "Target": "add(add(add(neg(neg(neg(mul(vc,mul(c1,c1))))),c0),neg(add(vb,c0))),mul(neg(mul(mul(va,c-1),c1)),c1))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-16",
+   "Start": "add(neg(mul(vc,c3)),neg(add(vc,vc)))",
+   "Target": "add(neg(mul(mul(add(vc,c0),c3),c1)),neg(add(add(add(vc,c0),c0),vc)))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-17",
+   "Start": "add(mul(c2,vc),add(va,c2))",
+   "Target": "mul(add(mul(neg(neg(c2)),vc),neg(neg(add(mul(va,neg(neg(add(c1,c0)))),c2)))),c1)",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-18",
+   "Start": "add(neg(mul(c0,vb)),neg(neg(vc)))",
+   "Target": "mul(neg(add(mul(mul(c0,c1),add(vb,c0)),neg(vc))),c1)",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-19",
+   "Start": "add(mul(va,va),mul(vb,c0))",
+   "Target": "add(mul(mul(add(va,neg(neg(c0))),mul(neg(neg(va)),c1)),c1),mul(mul(add(vb,c0),neg(neg(c0))),c1))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-20",
+   "Start": "add(add(c3,mul(c3,c0)),vc)",
+   "Target": "add(add(add(c3,c0),add(mul(mul(c3,add(c0,c0)),mul(c1,c1)),c0)),add(vc,c0))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-21",
+   "Start": "mul(neg(neg(va)),va)",
+   "Target": "mul(mul(add(neg(add(neg(va),neg(c0))),neg(mul(c0,c1))),c1),va)",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-22",
+   "Start": "add(neg(vc),mul(vb,va))",
+   "Target": "add(add(neg(neg(add(neg(vc),c0))),c0),neg(neg(mul(vb,mul(add(mul(va,c1),neg(neg(c0))),c1)))))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-23",
+   "Start": "mul(neg(c-2),neg(c2))",
+   "Target": "add(mul(neg(mul(neg(neg(c-2)),c1)),neg(mul(mul(c2,c1),c1))),c0)",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-24",
+   "Start": "add(neg(vc),mul(c2,vb))",
+   "Target": "mul(add(neg(vc),add(mul(add(c2,c0),mul(vb,c1)),mul(add(c2,mul(c0,c1)),c0))),c1)",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-25",
+   "Start": "add(add(add(vc,c0),add(vb,c0)),c2)",
+   "Target": "add(neg(neg(mul(add(mul(add(add(mul(vc,c1),mul(neg(neg(c0)),c1)),c0),c1),add(mul(vb,c1),c0)),c1))),c2)",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-26",
+   "Start": "add(vc,mul(neg(va),c3))",
+   "Target": "add(vc,mul(add(mul(add(mul(neg(add(va,c0)),c1),c0),c3),mul(c0,c1)),c1))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-27",
+   "Start": "mul(vb,add(c2,c4))",
+   "Target": "mul(add(mul(vb,c1),c0),add(c2,c4))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-28",
+   "Start": "add(c4,add(va,neg(c2)))",
+   "Target": "add(neg(neg(c4)),add(add(va,add(add(neg(mul(c2,neg(neg(c1)))),c0),c0)),c0))",
+   "Level": 8
+  },
+  {
+   "ID": "g1-20261024-L8-29",
+   "Start": "mul(mul(c4,c0),add(vc,vc))",
+   "Target": "mul(add(neg(mul(add(add(neg(neg(neg(add(c4,c0)))),c0),c0),add(c0,c0))),c0),add(vc,vc))",
+   "Level": 8
+  }
+ ],
+ "stats": {
+  "PerLevel": [
+   {
+    "Level": 6,
+    "Attempts": 56,
+    "Accepted": 30,
+    "EqualKey": 0,
+    "StartPrior": 26,
+    "TargetPrior": 0,
+    "RepeatInBank": 0
+   },
+   {
+    "Level": 7,
+    "Attempts": 71,
+    "Accepted": 30,
+    "EqualKey": 1,
+    "StartPrior": 40,
+    "TargetPrior": 0,
+    "RepeatInBank": 0
+   },
+   {
+    "Level": 8,
+    "Attempts": 58,
+    "Accepted": 30,
+    "EqualKey": 0,
+    "StartPrior": 28,
+    "TargetPrior": 0,
+    "RepeatInBank": 0
+   }
+  ],
+  "PriorKeys": 1559
+ }
+}
