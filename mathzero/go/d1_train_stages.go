@@ -16,6 +16,8 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"sort"
+	"strings"
 	"time"
 )
 
@@ -26,11 +28,31 @@ type stageParams struct {
 	Lv          []int
 	SecSeed     int64
 	SecPer      int
+	// G1 only (zero for P3). Not part of the P3 fingerprint format.
+	ExcludeKeys map[string]bool
+	G1Info      *G1ReportInfo
 }
 
 func (p stageParams) fingerprint(banks map[string][]BankCase, names []string) string {
 	h := sha256.New()
-	fmt.Fprintf(h, "%+v\n", p)
+	// The P3 fingerprint format is preserved bit for bit: it prints exactly the
+	// original fields; G1 adds its own line below.
+	fmt.Fprintf(h, "%+v\n", struct {
+		Seed        int64
+		Rounds, Per int
+		CapT, CapE  int
+		Lv          []int
+		SecSeed     int64
+		SecPer      int
+	}{p.Seed, p.Rounds, p.Per, p.CapT, p.CapE, p.Lv, p.SecSeed, p.SecPer})
+	if p.ExcludeKeys != nil {
+		ks := make([]string, 0, len(p.ExcludeKeys))
+		for k := range p.ExcludeKeys {
+			ks = append(ks, k)
+		}
+		sort.Strings(ks)
+		fmt.Fprintf(h, "G1 exclude-keys %d %x\n", len(ks), sha256.Sum256([]byte(strings.Join(ks, "\n"))))
+	}
 	for _, n := range names {
 		fmt.Fprintf(h, "%s %s\n", n, BankDigest(banks[n]))
 	}
@@ -106,8 +128,14 @@ func runStage(stage, dir string, p stageParams, banks map[string][]BankCase, nam
 		return nil
 	}
 	timed := func(f func()) float64 { t0 := time.Now(); f(); return time.Since(t0).Seconds() }
-	switch stage {
-	case "pre-primary", "pre-secondary":
+	kind := stage
+	if strings.HasPrefix(stage, "pre-") {
+		kind = "pre"
+	} else if strings.HasPrefix(stage, "post-") {
+		kind = "post"
+	}
+	switch kind {
+	case "pre":
 		n := stage[4:]
 		if _, ok := banks[n]; !ok {
 			return fmt.Errorf("no %s bank in this configuration", n)
@@ -122,7 +150,7 @@ func runStage(stage, dir string, p stageParams, banks map[string][]BankCase, nam
 		var terr error
 		sec := timed(func() {
 			lg, terr = TrainRounds(net, TrainConfig{Seed: p.Seed, Rounds: p.Rounds, PerRound: p.Per, Cap: p.CapT,
-				Exclude: ExcludeSetFor(all), ExcludeRender: RenderExcludeFor(all)})
+				Exclude: ExcludeSetFor(all), ExcludeRender: RenderExcludeFor(all), ExcludeKeys: p.ExcludeKeys})
 		})
 		if terr != nil {
 			return terr
@@ -132,7 +160,7 @@ func runStage(stage, dir string, p stageParams, banks map[string][]BankCase, nam
 		}
 		net.Save(weightsPath)
 		return done("train", stageFile{Seconds: sec, Train: &lg, Weights: WeightsSHA(net), Level: net.Level})
-	case "post-primary", "post-secondary":
+	case "post":
 		n := stage[5:]
 		if _, ok := banks[n]; !ok {
 			return fmt.Errorf("no %s bank in this configuration", n)
@@ -158,6 +186,7 @@ func runStage(stage, dir string, p stageParams, banks map[string][]BankCase, nam
 		if err != nil {
 			return err
 		}
+		rep.G1 = p.G1Info
 		rep.Train, rep.PostWeights, rep.FinalLevel = *tr.Train, tr.Weights, tr.Level
 		rep.SecondsPhase["train"] = tr.Seconds
 		for _, n := range names {
