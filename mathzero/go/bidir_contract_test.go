@@ -78,7 +78,7 @@ func TestContractTrainingSamplesAreValidIndices(t *testing.T) {
 		}
 	}
 	if seen == 0 {
-		t.Skip("no training samples were produced by these cases; invariant not exercised")
+		t.Fatal("no training samples were produced: the invariant would not be exercised")
 	}
 }
 
@@ -86,7 +86,7 @@ func TestContractExactActionAndVerifiedEdge(t *testing.T) {
 	p := contractCases("2", 1)[0]
 	acts := MathActions(p.Cur)
 	if len(acts) == 0 {
-		t.Skip("no actions")
+		t.Fatal("no actions on the first level-2 case")
 	}
 	for i, a := range acts {
 		child := applyAction(p.Cur, a)
