@@ -1,0 +1,79 @@
+{
+ "level": "2",
+ "cap": 300,
+ "model": "model_math.json",
+ "model_sha256": "1466ee8be8f22e69f1457a8070d49e66cf6c931da92fd21633c2a04f51e0e516",
+ "seed": 1,
+ "library": "none",
+ "bank_sha256": "cc88d99960e164b51d1b158b568260be1396c2f8238853e25137e91066fac97f",
+ "bank_rule": "GenBank seed=101 perlevel=4 levels=4,5,6",
+ "nodes_total": 192,
+ "elapsed_ms": 594,
+ "summary": {
+  "N": 12,
+  "Solved": 12,
+  "BudgetExhausted": 0
+ },
+ "results": [
+  {
+   "id": "s101-L4-0",
+   "solved": true,
+   "nodes": 5
+  },
+  {
+   "id": "s101-L4-1",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s101-L4-2",
+   "solved": true,
+   "nodes": 5
+  },
+  {
+   "id": "s101-L4-3",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s101-L5-0",
+   "solved": true,
+   "nodes": 75
+  },
+  {
+   "id": "s101-L5-1",
+   "solved": true,
+   "nodes": 11
+  },
+  {
+   "id": "s101-L5-2",
+   "solved": true,
+   "nodes": 1
+  },
+  {
+   "id": "s101-L5-3",
+   "solved": true,
+   "nodes": 70
+  },
+  {
+   "id": "s101-L6-0",
+   "solved": true,
+   "nodes": 2
+  },
+  {
+   "id": "s101-L6-1",
+   "solved": true,
+   "nodes": 5
+  },
+  {
+   "id": "s101-L6-2",
+   "solved": true,
+   "nodes": 9
+  },
+  {
+   "id": "s101-L6-3",
+   "solved": true,
+   "nodes": 5
+  }
+ ]
+}
