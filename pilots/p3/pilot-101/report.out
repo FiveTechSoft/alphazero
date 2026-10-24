@@ -1,0 +1,2682 @@
+{
+ "seed": 101,
+ "rounds": 6,
+ "per_round": 40,
+ "train_cap": 100,
+ "eval_cap": 100,
+ "library": "none",
+ "weights_sha256_pre": "da7d7a883b189dff9f1935985175e6b31f64eab5022e20e74653ddd1b40ef555",
+ "weights_sha256_post": "61bcb1edb62a50076bec9556d31b0ee9138086dea09188bb1816b10e160233da",
+ "final_level": 8,
+ "train_log": {
+  "Rounds": [
+   {
+    "Round": 1,
+    "Level": 2,
+    "Solved": 40,
+    "Problems": 40,
+    "Samples": 62,
+    "HindsightKept": 0,
+    "HindsightDropped": 0
+   },
+   {
+    "Round": 2,
+    "Level": 3,
+    "Solved": 40,
+    "Problems": 40,
+    "Samples": 100,
+    "HindsightKept": 0,
+    "HindsightDropped": 0
+   },
+   {
+    "Round": 3,
+    "Level": 4,
+    "Solved": 40,
+    "Problems": 40,
+    "Samples": 120,
+    "HindsightKept": 0,
+    "HindsightDropped": 0
+   },
+   {
+    "Round": 4,
+    "Level": 5,
+    "Solved": 40,
+    "Problems": 40,
+    "Samples": 134,
+    "HindsightKept": 0,
+    "HindsightDropped": 0
+   },
+   {
+    "Round": 5,
+    "Level": 6,
+    "Solved": 39,
+    "Problems": 40,
+    "Samples": 167,
+    "HindsightKept": 0,
+    "HindsightDropped": 0
+   },
+   {
+    "Round": 6,
+    "Level": 7,
+    "Solved": 34,
+    "Problems": 40,
+    "Samples": 160,
+    "HindsightKept": 1,
+    "HindsightDropped": 0
+   }
+  ],
+  "Pairs": [
+   "add(neg(neg(c-1)),vb)=\u003eadd(c-1,c0,vb)",
+   "c3=\u003emul(c1,c1,c3)",
+   "c-3=\u003eadd(c-3,c0,c0)",
+   "add(neg(c-1),neg(c-3),neg(mul(vc,vc)))=\u003eadd(mul(neg(mul(vc,vc)),neg(neg(c1))),neg(c-1),neg(c-3))",
+   "mul(neg(c-3),neg(c0))=\u003eadd(c0,neg(neg(mul(neg(c-3),neg(c0)))))",
+   "add(c2,neg(c-2))=\u003eneg(neg(neg(neg(add(c2,neg(c-2))))))",
+   "c1=\u003ec1",
+   "add(c1,mul(c-3,c2))=\u003eadd(mul(c-3,c2),mul(c1,neg(neg(c1))))",
+   "mul(c1,c2,vb,vc)=\u003emul(c2,neg(neg(add(c0,c1))),vb,vc)",
+   "vc=\u003evc",
+   "vb=\u003evb",
+   "mul(c3,neg(c0))=\u003emul(c3,neg(neg(neg(add(c0,c0)))))",
+   "mul(add(c1,vc),neg(vb))=\u003emul(add(c1,vc),neg(vb))",
+   "va=\u003eneg(neg(add(c0,va)))",
+   "add(mul(add(c-3,vc),neg(vc)),mul(va,vc),mul(vc,vc))=\u003eadd(mul(add(c-3,vc),neg(vc)),mul(va,vc),neg(neg(mul(neg(neg(vc)),vc))))",
+   "add(mul(c-3,c3,va),mul(va,va),mul(vb,vb))=\u003eadd(mul(c-3,c3,va),mul(c1,va,va),mul(c1,vb,vb))",
+   "va=\u003eva",
+   "add(neg(va),vc)=\u003eadd(mul(c1,neg(add(c0,va))),vc)",
+   "mul(add(c-2,vc),vc)=\u003emul(neg(neg(mul(add(c-2,vc),c1))),vc)",
+   "neg(neg(neg(va)))=\u003emul(c1,neg(add(c0,neg(neg(va)))))",
+   "neg(vc)=\u003eneg(neg(neg(add(c0,vc))))",
+   "va=\u003eneg(neg(add(c0,va)))",
+   "vb=\u003eadd(c0,neg(neg(vb)))",
+   "neg(neg(vc))=\u003eneg(neg(vc))",
+   "add(c-1,vb)=\u003eneg(neg(add(c-1,c0,vb)))",
+   "neg(add(c-1,va))=\u003eadd(neg(c-1),neg(mul(c1,va)))",
+   "vc=\u003eneg(add(c0,neg(vc)))",
+   "va=\u003eadd(mul(c0,c1),va)",
+   "mul(c2,neg(add(c-1,c-2)))=\u003emul(c2,neg(add(c-1,c-2)))",
+   "neg(c-1)=\u003eneg(c-1)",
+   "c2=\u003ec2",
+   "c4=\u003emul(c1,neg(neg(c4)))",
+   "c3=\u003eadd(c0,neg(neg(c3)))",
+   "neg(neg(vb))=\u003eneg(neg(mul(c1,c1,vb)))",
+   "vc=\u003eadd(mul(c0,c1),vc)",
+   "mul(c2,c4,va,vc,vc)=\u003emul(neg(neg(mul(c1,c2,c4,va,vc))),vc)",
+   "add(va,vc)=\u003eadd(mul(c1,va),neg(neg(vc)))",
+   "mul(add(c-1,c-2,va,vb),add(mul(c4,vc),vb))=\u003emul(add(c-3,va,vb),add(mul(c1,c4,vc),vb))",
+   "vc=\u003emul(add(c0,c1),vc)",
+   "neg(mul(neg(va),va))=\u003eneg(mul(neg(neg(mul(c1,va))),neg(va)))",
+   "add(c-3,neg(add(c2,vc)),va,vb,vb)=\u003eadd(mul(add(c-3,va),c1),mul(add(vb,vb),c1),neg(mul(add(c2,vc),c1)))",
+   "vb=\u003eneg(mul(c1,neg(neg(neg(vb)))))",
+   "mul(add(neg(vb),vc),vb)=\u003emul(neg(neg(add(c0,mul(c1,vc),neg(vb)))),vb)",
+   "neg(add(va,vb,vc))=\u003eadd(c0,neg(add(c0,mul(c1,vc),va,vb)))",
+   "va=\u003eadd(c0,va)",
+   "add(c3,neg(vb))=\u003eadd(c0,c3,neg(neg(c0)),neg(vb))",
+   "add(mul(c2,neg(c-1),va),neg(mul(c-1,vc)))=\u003eadd(mul(c1,c2,neg(c-1),va),neg(mul(c-1,vc)))",
+   "mul(add(c4,vb),c-2,va)=\u003emul(add(c0,va),add(c4,vb),c-2)",
+   "neg(add(neg(vc),va,vc))=\u003emul(c1,neg(add(c0,neg(neg(add(va,vc))),neg(vc))))",
+   "neg(mul(add(c3,va),c-1))=\u003eneg(neg(neg(mul(c-1,neg(neg(add(neg(neg(c3)),va)))))))",
+   "neg(va)=\u003eneg(mul(add(c1,mul(c0,c1)),va))",
+   "vc=\u003eadd(c0,neg(neg(c0)),vc)",
+   "neg(mul(vb,vc))=\u003eneg(mul(add(c0,mul(add(c0,vb),c1)),vc))",
+   "mul(c1,neg(c-1),vc)=\u003eadd(c0,mul(add(c0,mul(neg(neg(neg(c-1))),vc)),c1))",
+   "add(c1,mul(vb,vc),vc)=\u003eadd(c1,mul(neg(neg(vc)),vb),neg(neg(mul(c1,vc))))",
+   "neg(mul(vb,vc))=\u003eneg(mul(c1,vb,vc))",
+   "add(c2,mul(c2,va),vb)=\u003eneg(neg(add(mul(add(c0,va),c2),mul(add(c2,vb),c1))))",
+   "add(c-2,c-3,neg(neg(c3)),va)=\u003eadd(c-3,mul(c-2,c1),neg(neg(mul(c1,neg(neg(c3))))),va)",
+   "neg(add(neg(c-1),va))=\u003eadd(c0,neg(add(c0,c0,neg(c-1),va)))",
+   "vb=\u003eadd(c0,vb)",
+   "mul(c0,vc)=\u003ec0",
+   "add(mul(c-2,vb),mul(va,vc))=\u003eadd(mul(add(c-2,c0),neg(neg(vb))),mul(neg(neg(vc)),va))",
+   "neg(neg(mul(c2,vc)))=\u003emul(c2,neg(neg(mul(c1,vc))))",
+   "add(neg(va),va)=\u003eadd(neg(add(c0,neg(neg(add(c0,va))))),va)",
+   "neg(mul(c4,vc))=\u003emul(c1,neg(neg(mul(neg(c4),vc))))",
+   "c-3=\u003eadd(c-3,c0)",
+   "va=\u003emul(add(c0,neg(neg(va))),c1)",
+   "vb=\u003emul(add(c0,neg(neg(vb))),c1)",
+   "va=\u003eadd(c0,va)",
+   "mul(add(mul(c-2,c3),neg(c0)),add(mul(c0,va),va))=\u003emul(add(mul(c-2,c1,c3),neg(c0)),add(neg(neg(mul(neg(neg(c0)),va))),va))",
+   "mul(add(c-3,c1),c-3)=\u003emul(c1,c6)",
+   "mul(neg(vc),vb)=\u003emul(add(c0,neg(vc)),c1,c1,vb)",
+   "c4=\u003eneg(mul(add(c0,neg(c4)),c1))",
+   "mul(neg(neg(vb)),vc)=\u003emul(c1,c1,neg(neg(vb)),neg(neg(vc)))",
+   "add(mul(c-2,va),neg(vb))=\u003eadd(mul(c-2,va),mul(c0,c1),mul(c1,neg(vb)))",
+   "c4=\u003emul(c1,c4)",
+   "va=\u003eneg(mul(c1,c1,neg(va)))",
+   "neg(vc)=\u003emul(c1,neg(vc))",
+   "add(mul(c0,c3),neg(c3))=\u003eadd(mul(c1,neg(c3)),neg(neg(c0)))",
+   "neg(vb)=\u003eneg(add(c0,vb))",
+   "add(neg(add(c-2,vb)),vc)=\u003eadd(neg(add(c0,neg(neg(neg(neg(add(c-2,c0,vb))))))),vc)",
+   "neg(add(c1,vc))=\u003eadd(c0,neg(add(c0,c0,c1,neg(neg(vc)))))",
+   "neg(va)=\u003eneg(add(mul(c0,c1),va))",
+   "mul(add(c3,vb),c4,neg(vb),va,vb)=\u003emul(add(c0,c3,mul(c1,vb)),c1,c4,neg(neg(vb)),neg(vb),va)",
+   "neg(mul(add(vb,vc),neg(va)))=\u003eneg(mul(add(c0,c0,mul(c1,vc),vb),add(c0,neg(va))))",
+   "mul(c3,vc)=\u003eadd(c0,neg(neg(mul(c3,vc))))",
+   "mul(c-2,neg(va))=\u003eneg(neg(mul(c-2,neg(neg(neg(mul(add(c0,c1),va)))))))",
+   "add(neg(c0),neg(va))=\u003eadd(neg(add(c0,neg(neg(va)))),neg(c0),neg(c0))",
+   "mul(add(neg(va),neg(vb)),va)=\u003emul(add(c0,neg(mul(c1,va)),neg(neg(neg(vb)))),c1,va)",
+   "vc=\u003eneg(mul(c1,neg(vc)))",
+   "neg(neg(vc))=\u003eadd(c0,vc)",
+   "c4=\u003eadd(mul(c1,neg(neg(c0))),neg(neg(c4)))",
+   "vb=\u003emul(add(c0,neg(neg(neg(neg(vb))))),c1)",
+   "add(c-3,mul(c1,neg(va),vb))=\u003eadd(c-3,mul(add(c0,vb),neg(va)))",
+   "neg(mul(add(c-3,vb),va))=\u003eneg(mul(add(c-3,vb),add(c0,mul(c1,va))))",
+   "add(mul(vc,vc),va,vb)=\u003eadd(mul(add(mul(neg(neg(vc)),vc),va),neg(neg(c1))),mul(c1,vb))",
+   "add(neg(vc),vb,vb)=\u003eneg(neg(add(neg(vc),vb,vb)))",
+   "neg(mul(add(vc,vc),va))=\u003eneg(mul(add(neg(neg(mul(c1,vc))),vc),neg(neg(neg(neg(va))))))",
+   "neg(neg(c-2))=\u003eneg(add(c0,c0,neg(mul(c-2,neg(neg(c1))))))",
+   "add(neg(neg(vc)),neg(vb))=\u003eadd(neg(neg(neg(mul(c1,neg(vc))))),neg(neg(neg(neg(neg(vb))))))",
+   "mul(add(va,vc),add(vc,vc),neg(neg(vc)))=\u003emul(add(vc,vc),c1,neg(neg(neg(add(c0,neg(add(va,vc)))))),neg(neg(vc)))",
+   "mul(add(neg(c4),vc),neg(add(c0,vc)))=\u003emul(add(c0,c0,neg(c4),vc),c1,neg(add(neg(neg(c0)),vc)))",
+   "neg(neg(vb))=\u003eneg(neg(neg(mul(c1,neg(vb)))))",
+   "add(mul(c-2,vc),vb)=\u003emul(add(mul(c-2,c1,vc),vb),c1)",
+   "neg(add(mul(c2,va),neg(vb)))=\u003emul(add(c0,c1),neg(add(c0,mul(add(c0,va),c2),neg(vb))))",
+   "c-1=\u003emul(c-1,c1,c1)",
+   "mul(c3,neg(neg(va)))=\u003emul(c3,neg(add(c0,c0,neg(va))))",
+   "c-1=\u003eneg(neg(neg(neg(c-1))))",
+   "neg(c-3)=\u003eneg(add(c-3,c0,c0))",
+   "mul(vb,vc)=\u003emul(add(c0,c0,vc),vb)",
+   "neg(vc)=\u003eneg(add(mul(c0,c1),vc))",
+   "mul(neg(vc),vc,vc,vc)=\u003emul(c1,neg(neg(c1)),neg(neg(mul(vc,vc))),neg(vc),vc)",
+   "va=\u003eadd(c0,neg(neg(va)))",
+   "vc=\u003emul(c1,c1,neg(neg(neg(neg(vc)))))",
+   "mul(add(c-3,neg(va),va),neg(neg(c0)))=\u003emul(add(c-3,neg(neg(mul(c1,va))),neg(va)),neg(neg(c0)))",
+   "neg(add(c-1,c0))=\u003eneg(add(c0,mul(add(c-1,c0),c1)))",
+   "vb=\u003emul(add(c0,vb),c1)",
+   "mul(add(c-1,c1,c1),c2)=\u003emul(add(c0,c1,mul(add(c-1,c1),c1),mul(c0,c1)),c2)",
+   "add(vb,vc)=\u003eadd(neg(neg(add(c0,mul(c1,c1,vb)))),vc)",
+   "neg(add(c1,c3))=\u003eadd(c0,neg(c4))",
+   "add(c1,mul(add(c0,va),c0),mul(c2,vc))=\u003eneg(neg(mul(add(mul(add(c0,mul(c0,c1)),add(c0,va)),mul(c1,c1),mul(c2,vc)),c1)))",
+   "neg(add(c3,vb))=\u003eneg(neg(neg(add(c0,c3,mul(c1,vb)))))",
+   "mul(vb,vc)=\u003eadd(c0,neg(neg(neg(neg(mul(vb,vc))))))",
+   "c-2=\u003emul(c-2,c1)",
+   "c2=\u003eadd(c0,c2,mul(c0,c1))",
+   "mul(c4,neg(va),vc)=\u003emul(add(c0,neg(va)),add(c0,vc),c1,neg(neg(add(c0,c4))))",
+   "add(mul(va,va),vb,vc)=\u003emul(c1,neg(neg(add(c0,c1))),neg(neg(add(mul(va,va),vb,vc))))",
+   "add(c3,neg(vc),vc)=\u003eadd(c0,neg(neg(add(c0,c3))),neg(vc),vc)",
+   "add(mul(c4,neg(va)),neg(add(c4,vc)))=\u003eadd(mul(add(neg(c0),neg(va)),c4),neg(neg(neg(add(c0,c4,neg(neg(vc)))))))",
+   "add(neg(mul(va,vb)),va)=\u003eadd(neg(neg(mul(c1,neg(mul(add(c0,vb),c1,c1,va))))),va)",
+   "mul(c4,va)=\u003emul(add(c0,mul(add(c0,c1),c4)),va)",
+   "neg(neg(vb))=\u003eneg(neg(add(c0,vb)))",
+   "mul(add(mul(c-1,vb),neg(c3)),neg(c-2))=\u003emul(add(mul(add(c0,c1),add(c0,c1),c-1,neg(neg(vb))),neg(c3)),neg(c-2))",
+   "add(mul(c0,c3),vc,vc)=\u003eadd(c0,neg(neg(add(neg(neg(vc)),neg(neg(vc))))),neg(neg(mul(c0,c3))))",
+   "c1=\u003emul(c1,neg(neg(add(c0,c1))))",
+   "neg(va)=\u003eadd(c0,neg(add(c0,c0,va)))",
+   "neg(add(va,vc))=\u003emul(add(mul(c1,neg(va)),neg(vc)),c1)",
+   "mul(add(c1,c4,neg(va)),c3)=\u003emul(add(c0,c3),add(c0,c5,neg(va)),c1,c1)",
+   "vc=\u003emul(add(mul(add(c0,neg(neg(c1))),c0),vc),c1)",
+   "neg(vc)=\u003eadd(c0,c0,neg(add(c0,neg(add(c0,neg(vc))))))",
+   "vc=\u003eadd(c0,vc)",
+   "va=\u003eadd(c0,c0,mul(c1,neg(add(c0,neg(va)))))",
+   "add(c4,neg(vb),va)=\u003eadd(c0,mul(c1,neg(neg(mul(add(c4,neg(vb),va),c1,c1)))))",
+   "neg(mul(c-3,c1))=\u003eneg(neg(neg(mul(c-3,neg(neg(add(c0,c1)))))))",
+   "c-3=\u003eneg(neg(add(c0,mul(c-3,c1))))",
+   "vc=\u003eneg(add(c0,neg(add(c0,vc))))",
+   "va=\u003eadd(c0,mul(c0,c1),va)",
+   "neg(neg(c3))=\u003emul(neg(neg(add(c0,c3))),neg(neg(c1)))",
+   "add(neg(vb),va)=\u003eadd(c0,mul(c1,va),neg(neg(mul(c1,neg(neg(neg(vb)))))))",
+   "neg(neg(neg(c4)))=\u003emul(c1,neg(neg(neg(c4))))",
+   "vc=\u003emul(c1,vc)",
+   "add(c-2,c-3,neg(add(va,va)),neg(c0))=\u003eadd(c-2,c-3,neg(c0),neg(va),neg(va))",
+   "mul(neg(c1),neg(neg(c0)),neg(vc))=\u003emul(add(c0,neg(neg(neg(neg(c0))))),c1,neg(c1),neg(vc))",
+   "vb=\u003emul(neg(add(c0,neg(c1))),vb)",
+   "neg(add(neg(va),vb))=\u003eneg(neg(add(c0,neg(mul(c1,neg(neg(add(neg(neg(neg(va))),vb))))))))",
+   "add(mul(c-1,vb),neg(c3))=\u003eadd(mul(add(c-1,c0),vb),neg(c3))",
+   "add(mul(c1,vc),vb)=\u003eadd(mul(c1,vc),neg(neg(mul(add(c0,c1),vb))))",
+   "add(c2,neg(mul(c-2,vc)))=\u003emul(c1,neg(neg(add(c2,mul(c1,neg(mul(c-2,vc)))))))",
+   "add(mul(c3,vc),vb,vc)=\u003emul(add(c0,c0,mul(c1,c1,c3,vc),vb,vc),c1)",
+   "mul(c1,c1,c2)=\u003emul(c1,c2)",
+   "neg(neg(va))=\u003eneg(neg(neg(add(neg(mul(add(c0,c0,c0),c1)),neg(va)))))",
+   "neg(c1)=\u003eneg(mul(c1,neg(add(c0,neg(c0),neg(mul(c1,c1))))))",
+   "add(mul(vc,vc),vb,vc)=\u003eadd(mul(c1,neg(neg(vc)),vc),neg(neg(neg(add(c0,c0,neg(vc))))),vb)",
+   "neg(vb)=\u003eadd(c0,mul(c1,c1,neg(neg(neg(add(neg(neg(c0)),vb))))))",
+   "add(neg(vc),va,vc)=\u003eadd(mul(add(c0,mul(c1,neg(vc))),c1),mul(c1,vc),va)",
+   "neg(mul(c1,va))=\u003eadd(c0,neg(neg(c0)),neg(va))",
+   "add(c4,c4,mul(va,vc),vc,vc,vc,vc)=\u003eadd(c4,c4,mul(c1,vc),mul(c1,vc),mul(neg(neg(vc)),va),neg(neg(vc)),vc)",
+   "vc=\u003eadd(neg(neg(neg(neg(add(c0,c0))))),vc)",
+   "va=\u003eva",
+   "c-1=\u003eadd(c-1,c0,neg(mul(c1,c1,neg(c0))))",
+   "add(c1,mul(c4,vb,vc),neg(c1))=\u003emul(add(mul(c1,c1,neg(neg(add(c1,neg(c1))))),mul(c4,neg(neg(mul(c1,vc))),vb)),c1)",
+   "neg(neg(neg(vb)))=\u003eneg(neg(neg(neg(neg(mul(c1,neg(mul(c1,neg(vb)))))))))",
+   "add(c-1,c-2,vc)=\u003eadd(c-1,c-2,c0,neg(neg(c0)),vc)",
+   "add(mul(c2,vb),neg(vc))=\u003eneg(neg(add(c0,mul(add(c0,c1),c2,vb),neg(vc))))",
+   "add(mul(c3,vc),va)=\u003eneg(neg(add(mul(c0,c1),neg(neg(neg(neg(add(mul(c1,c3,vc),va))))))))",
+   "add(c0,neg(vb))=\u003eadd(mul(c0,c1),neg(add(c0,vb)))",
+   "add(c-2,c3,va,vb)=\u003eadd(c-2,mul(c1,neg(mul(neg(neg(c1)),neg(va)))),neg(add(c0,neg(c3))),vb)",
+   "c3=\u003emul(add(c0,c3),c1,c1,c1)",
+   "add(c-3,c0,vb,vb)=\u003eneg(neg(add(c0,mul(add(c-3,vb),c1),neg(neg(c0)),neg(neg(c0)),vb)))",
+   "add(mul(add(vb,vc),vc),neg(add(c-1,vb)))=\u003eadd(c0,c0,neg(neg(add(neg(neg(mul(add(vb,vc),c1,vc))),neg(neg(neg(add(c-1,vb))))))))",
+   "c4=\u003emul(c4,neg(neg(c1)))",
+   "va=\u003eadd(c0,neg(mul(c1,neg(neg(neg(va))))))",
+   "add(c0,mul(va,va),vc)=\u003eadd(c0,mul(add(c0,va),va),mul(c1,c1,neg(neg(vc))))",
+   "add(c-1,c2)=\u003eneg(add(c0,neg(add(c-1,mul(add(c0,c2),c1)))))",
+   "va=\u003emul(add(c0,neg(neg(neg(neg(c1))))),va)",
+   "add(mul(vb,vb),vc)=\u003eadd(c0,c0,mul(c1,vb,vb),mul(c1,vc))",
+   "neg(mul(vb,vc))=\u003eadd(c0,neg(neg(neg(mul(vb,vc)))))",
+   "vb=\u003eneg(add(mul(c0,c1,c1),neg(vb)))",
+   "vc=\u003eadd(neg(neg(neg(neg(neg(neg(mul(c0,c1))))))),neg(neg(vc)))",
+   "mul(neg(mul(c-2,vb)),neg(neg(c0)))=\u003emul(c0,c1,neg(neg(c-2)),neg(vb))",
+   "mul(add(c0,vb),c1,va,vb,vc)=\u003emul(c1,neg(add(c0,neg(mul(neg(neg(vb)),va)))),neg(neg(neg(neg(vb)))),vc)",
+   "va=\u003eneg(neg(add(c0,va)))",
+   "vb=\u003eadd(c0,mul(add(c0,c0,vb),c1))",
+   "c2=\u003eneg(neg(neg(mul(c1,neg(add(c0,c2))))))",
+   "mul(add(neg(c-2),vc,vc),add(neg(c1),neg(vc)))=\u003emul(add(neg(c-2),vc,vc),add(neg(neg(neg(neg(neg(add(c0,mul(c1,c1))))))),neg(vc)))",
+   "add(neg(add(c4,va)),neg(c-2))=\u003eneg(neg(add(mul(c1,neg(mul(c1,c4,neg(neg(c1))))),neg(c-2),neg(va))))",
+   "c-2=\u003emul(c-2,neg(neg(neg(neg(mul(c1,c1))))))",
+   "neg(add(c-2,vb))=\u003eneg(add(mul(add(c0,vb),c1),mul(c-2,c1,c1)))",
+   "add(c2,c3)=\u003eadd(c0,mul(add(c0,c0,c0,c2,mul(c1,c3)),c1))",
+   "c-2=\u003eadd(c-2,neg(neg(c0)))",
+   "c-2=\u003eneg(neg(neg(neg(add(c-2,c0)))))",
+   "neg(neg(c4))=\u003eadd(neg(neg(c4)),neg(neg(mul(add(c0,neg(c0)),c1))))",
+   "mul(add(va,vb),va,vb)=\u003emul(add(c0,neg(neg(neg(neg(vb)))),va),va,vb)",
+   "add(neg(c3),va)=\u003eadd(c0,c0,mul(c1,c1,va),neg(neg(neg(c3))))",
+   "add(c-1,c2,va,vc)=\u003eadd(c-1,c2,neg(neg(add(c0,c0))),va,vc)",
+   "add(c-2,c-2,c0,va,vb)=\u003eadd(c-2,c0,mul(add(c-2,c0,c0),c1),va,vb)",
+   "vc=\u003eadd(c0,neg(neg(mul(c0,c1))),neg(neg(neg(neg(vc)))))",
+   "vb=\u003eneg(neg(neg(add(neg(add(c0,mul(c1,neg(neg(c0))))),neg(vb)))))",
+   "c4=\u003eneg(neg(neg(neg(add(c4,mul(add(c0,c0),c1))))))",
+   "neg(c3)=\u003eadd(c0,mul(c1,c1,neg(mul(c1,neg(neg(c3))))))",
+   "vb=\u003eadd(mul(add(c0,neg(neg(c0))),vb),mul(c1,vb))",
+   "add(neg(c3),neg(va))=\u003emul(c1,neg(add(c0,neg(neg(neg(neg(c3)))),va)))",
+   "mul(add(vb,vc),neg(va))=\u003emul(add(neg(neg(vc)),vb),neg(add(c0,mul(c1,va))),neg(neg(c1)))",
+   "c2=\u003emul(c1,c2,neg(neg(c1)))",
+   "mul(c-1,c-2,vb)=\u003eneg(neg(mul(add(neg(neg(c0)),vb),c1,c2)))",
+   "add(c1,c2,vc)=\u003eadd(c0,neg(neg(c1)),neg(neg(c2)),vc)",
+   "add(neg(vc),va)=\u003eadd(mul(c1,neg(neg(va))),neg(neg(neg(vc))))",
+   "neg(vb)=\u003emul(add(c0,neg(neg(add(c0,neg(c0),neg(neg(neg(vb))))))),c1)",
+   "va=\u003eadd(c0,mul(c1,neg(neg(va))))",
+   "neg(mul(c0,vc))=\u003eneg(mul(c0,c1,c1,neg(neg(add(neg(neg(c0)),vc)))))",
+   "mul(add(mul(c-3,vc),vc,vc),neg(mul(c-3,vb)))=\u003eneg(neg(mul(add(c0,neg(add(c0,mul(c-3,vb)))),neg(neg(add(c0,mul(add(mul(c-3,c1,vc),vc,vc),c1)))))))",
+   "mul(add(c1,c3),add(va,vb),neg(neg(vc)))=\u003emul(add(c0,mul(c1,vb),va),add(c1,c3),c1,neg(neg(mul(add(c0,vc),c1))))",
+   "vc=\u003eadd(c0,mul(add(c0,neg(neg(mul(c1,vc)))),c1),neg(neg(c0)))",
+   "neg(vc)=\u003eneg(mul(c1,neg(mul(c1,neg(neg(neg(mul(c1,vc))))))))",
+   "va=\u003eadd(mul(add(c0,neg(neg(c1))),c1,c1,va),neg(neg(c0)))",
+   "neg(add(c0,c4))=\u003eneg(add(c0,neg(neg(add(c0,mul(add(c0,c4),c1,c1))))))",
+   "add(mul(vb,vc),neg(c1))=\u003eneg(mul(c1,neg(neg(neg(add(mul(add(c0,neg(neg(vb))),add(c0,vc),c1),neg(c1)))))))",
+   "va=\u003emul(c1,neg(neg(add(neg(c0),neg(neg(va))))))",
+   "neg(add(c4,mul(vc,vc),vb))=\u003eneg(add(c0,c4,mul(add(c0,neg(neg(c0)),vc),add(c0,vc)),mul(c0,c1),vb))",
+   "neg(neg(add(c0,va)))=\u003eneg(mul(c1,neg(neg(add(mul(c1,neg(va)),neg(neg(neg(c0))))))))",
+   "mul(neg(vc),vb)=\u003emul(c1,c1,neg(add(c0,vc)),neg(neg(c1)),vb)",
+   "add(c-2,c2,neg(vc))=\u003eadd(c-2,c0,c0,c2,neg(mul(c1,neg(neg(mul(c1,vc))))))",
+   "add(neg(c4),neg(vc),va,vc)=\u003eadd(neg(add(c0,c4)),neg(neg(neg(neg(va)))),neg(vc),vc)",
+   "add(c-1,neg(add(c2,va)))=\u003eneg(neg(add(neg(add(mul(c1,c2),va)),neg(neg(c-1)))))",
+   "add(mul(c-3,va),mul(c4,vc))=\u003eadd(mul(add(c0,neg(neg(c-3))),c1,neg(neg(c1)),va),mul(c4,vc))",
+   "neg(add(c-3,mul(vb,vb),vb))=\u003eneg(add(mul(add(c0,mul(c0,c1),neg(mul(c1,neg(vb)))),vb),neg(neg(add(c-3,neg(neg(vb)))))))",
+   "va=\u003eneg(mul(c1,neg(mul(add(neg(neg(c0)),va),c1,c1))))",
+   "neg(add(c-2,mul(c-3,va)))=\u003eadd(c0,neg(add(mul(c-3,va),neg(neg(neg(neg(c-2)))))),neg(neg(add(c0,c0,c0))))",
+   "c1=\u003eneg(neg(add(c0,c0,c1,mul(c0,c1))))",
+   "neg(neg(vc))=\u003emul(c1,c1,c1,neg(neg(vc)))"
+  ],
+  "Starts": [
+   "add(neg(neg(c-1)),vb)",
+   "c3",
+   "c-3",
+   "add(neg(c-1),neg(c-3),neg(mul(vc,vc)))",
+   "mul(neg(c-3),neg(c0))",
+   "add(c2,neg(c-2))",
+   "c1",
+   "add(c1,mul(c-3,c2))",
+   "mul(c1,c2,vb,vc)",
+   "vc",
+   "vb",
+   "mul(c3,neg(c0))",
+   "mul(add(c1,vc),neg(vb))",
+   "va",
+   "add(mul(add(c-3,vc),neg(vc)),mul(va,vc),mul(vc,vc))",
+   "add(mul(c-3,c3,va),mul(va,va),mul(vb,vb))",
+   "va",
+   "add(neg(va),vc)",
+   "mul(add(c-2,vc),vc)",
+   "neg(neg(neg(va)))",
+   "neg(vc)",
+   "va",
+   "vb",
+   "neg(neg(vc))",
+   "add(c-1,vb)",
+   "neg(add(c-1,va))",
+   "vc",
+   "va",
+   "mul(c2,neg(add(c-1,c-2)))",
+   "neg(c-1)",
+   "c2",
+   "c4",
+   "c3",
+   "neg(neg(vb))",
+   "vc",
+   "mul(c2,c4,va,vc,vc)",
+   "add(va,vc)",
+   "mul(add(c-1,c-2,va,vb),add(mul(c4,vc),vb))",
+   "vc",
+   "neg(mul(neg(va),va))",
+   "add(c-3,neg(add(c2,vc)),va,vb,vb)",
+   "vb",
+   "mul(add(neg(vb),vc),vb)",
+   "neg(add(va,vb,vc))",
+   "va",
+   "add(c3,neg(vb))",
+   "add(mul(c2,neg(c-1),va),neg(mul(c-1,vc)))",
+   "mul(add(c4,vb),c-2,va)",
+   "neg(add(neg(vc),va,vc))",
+   "neg(mul(add(c3,va),c-1))",
+   "neg(va)",
+   "vc",
+   "neg(mul(vb,vc))",
+   "mul(c1,neg(c-1),vc)",
+   "add(c1,mul(vb,vc),vc)",
+   "neg(mul(vb,vc))",
+   "add(c2,mul(c2,va),vb)",
+   "add(c-2,c-3,neg(neg(c3)),va)",
+   "neg(add(neg(c-1),va))",
+   "vb",
+   "mul(c0,vc)",
+   "add(mul(c-2,vb),mul(va,vc))",
+   "neg(neg(mul(c2,vc)))",
+   "add(neg(va),va)",
+   "neg(mul(c4,vc))",
+   "c-3",
+   "va",
+   "vb",
+   "va",
+   "mul(add(mul(c-2,c3),neg(c0)),add(mul(c0,va),va))",
+   "mul(add(c-3,c1),c-3)",
+   "mul(neg(vc),vb)",
+   "c4",
+   "mul(neg(neg(vb)),vc)",
+   "add(mul(c-2,va),neg(vb))",
+   "c4",
+   "va",
+   "neg(vc)",
+   "add(mul(c0,c3),neg(c3))",
+   "neg(vb)",
+   "add(neg(add(c-2,vb)),vc)",
+   "neg(add(c1,vc))",
+   "neg(va)",
+   "mul(add(c3,vb),c4,neg(vb),va,vb)",
+   "neg(mul(add(vb,vc),neg(va)))",
+   "mul(c3,vc)",
+   "mul(c-2,neg(va))",
+   "add(neg(c0),neg(va))",
+   "mul(add(neg(va),neg(vb)),va)",
+   "vc",
+   "neg(neg(vc))",
+   "c4",
+   "vb",
+   "add(c-3,mul(c1,neg(va),vb))",
+   "neg(mul(add(c-3,vb),va))",
+   "add(mul(vc,vc),va,vb)",
+   "add(neg(vc),vb,vb)",
+   "neg(mul(add(vc,vc),va))",
+   "neg(neg(c-2))",
+   "add(neg(neg(vc)),neg(vb))",
+   "mul(add(va,vc),add(vc,vc),neg(neg(vc)))",
+   "mul(add(neg(c4),vc),neg(add(c0,vc)))",
+   "neg(neg(vb))",
+   "add(mul(c-2,vc),vb)",
+   "neg(add(mul(c2,va),neg(vb)))",
+   "c-1",
+   "mul(c3,neg(neg(va)))",
+   "c-1",
+   "neg(c-3)",
+   "mul(vb,vc)",
+   "neg(vc)",
+   "mul(neg(vc),vc,vc,vc)",
+   "va",
+   "vc",
+   "mul(add(c-3,neg(va),va),neg(neg(c0)))",
+   "neg(add(c-1,c0))",
+   "vb",
+   "mul(add(c-1,c1,c1),c2)",
+   "add(vb,vc)",
+   "neg(add(c1,c3))",
+   "add(c1,mul(add(c0,va),c0),mul(c2,vc))",
+   "neg(add(c3,vb))",
+   "mul(vb,vc)",
+   "c-2",
+   "c2",
+   "mul(c4,neg(va),vc)",
+   "add(mul(va,va),vb,vc)",
+   "add(c3,neg(vc),vc)",
+   "add(mul(c4,neg(va)),neg(add(c4,vc)))",
+   "add(neg(mul(va,vb)),va)",
+   "mul(c4,va)",
+   "neg(neg(vb))",
+   "mul(add(mul(c-1,vb),neg(c3)),neg(c-2))",
+   "add(mul(c0,c3),vc,vc)",
+   "c1",
+   "neg(va)",
+   "neg(add(va,vc))",
+   "mul(add(c1,c4,neg(va)),c3)",
+   "vc",
+   "neg(vc)",
+   "vc",
+   "va",
+   "add(c4,neg(vb),va)",
+   "neg(mul(c-3,c1))",
+   "c-3",
+   "vc",
+   "va",
+   "neg(neg(c3))",
+   "add(neg(vb),va)",
+   "neg(neg(neg(c4)))",
+   "vc",
+   "add(c-2,c-3,neg(add(va,va)),neg(c0))",
+   "mul(neg(c1),neg(neg(c0)),neg(vc))",
+   "vb",
+   "neg(add(neg(va),vb))",
+   "add(mul(c-1,vb),neg(c3))",
+   "add(mul(c1,vc),vb)",
+   "add(c2,neg(mul(c-2,vc)))",
+   "add(mul(c3,vc),vb,vc)",
+   "mul(c1,c1,c2)",
+   "neg(neg(va))",
+   "neg(c1)",
+   "add(mul(vc,vc),vb,vc)",
+   "neg(vb)",
+   "add(neg(vc),va,vc)",
+   "neg(mul(c1,va))",
+   "add(c4,c4,mul(va,vc),vc,vc,vc,vc)",
+   "vc",
+   "va",
+   "c-1",
+   "add(c1,mul(c4,vb,vc),neg(c1))",
+   "neg(neg(neg(vb)))",
+   "add(c-1,c-2,vc)",
+   "add(mul(c2,vb),neg(vc))",
+   "add(mul(c3,vc),va)",
+   "add(c0,neg(vb))",
+   "add(c-2,c3,va,vb)",
+   "c3",
+   "add(c-3,c0,vb,vb)",
+   "add(mul(add(vb,vc),vc),neg(add(c-1,vb)))",
+   "c4",
+   "va",
+   "add(c0,mul(va,va),vc)",
+   "add(c-1,c2)",
+   "va",
+   "add(mul(vb,vb),vc)",
+   "neg(mul(vb,vc))",
+   "vb",
+   "vc",
+   "mul(neg(mul(c-2,vb)),neg(neg(c0)))",
+   "mul(add(c0,vb),c1,va,vb,vc)",
+   "va",
+   "vb",
+   "c2",
+   "mul(add(neg(c-2),vc,vc),add(neg(c1),neg(vc)))",
+   "add(neg(add(c4,va)),neg(c-2))",
+   "c-2",
+   "neg(add(c-2,vb))",
+   "add(c2,c3)",
+   "c-2",
+   "c-2",
+   "neg(neg(c4))",
+   "mul(add(va,vb),va,vb)",
+   "add(neg(c3),va)",
+   "add(c-1,c2,va,vc)",
+   "add(c-2,c-2,c0,va,vb)",
+   "vc",
+   "vb",
+   "c4",
+   "neg(c3)",
+   "vb",
+   "add(neg(c3),neg(va))",
+   "mul(add(vb,vc),neg(va))",
+   "c2",
+   "mul(c-1,c-2,vb)",
+   "add(c1,c2,vc)",
+   "add(neg(vc),va)",
+   "neg(vb)",
+   "va",
+   "neg(mul(c0,vc))",
+   "mul(add(mul(c-3,vc),vc,vc),neg(mul(c-3,vb)))",
+   "mul(add(c1,c3),add(va,vb),neg(neg(vc)))",
+   "vc",
+   "neg(vc)",
+   "va",
+   "neg(add(c0,c4))",
+   "add(mul(vb,vc),neg(c1))",
+   "va",
+   "neg(add(c4,mul(vc,vc),vb))",
+   "neg(neg(add(c0,va)))",
+   "mul(neg(vc),vb)",
+   "add(c-2,c2,neg(vc))",
+   "add(neg(c4),neg(vc),va,vc)",
+   "add(c-1,neg(add(c2,va)))",
+   "add(mul(c-3,va),mul(c4,vc))",
+   "neg(add(c-3,mul(vb,vb),vb))",
+   "va",
+   "neg(add(c-2,mul(c-3,va)))",
+   "c1",
+   "neg(neg(vc))"
+  ],
+  "Targets": [
+   "add(c-1,c0,vb)",
+   "mul(c1,c1,c3)",
+   "add(c-3,c0,c0)",
+   "add(mul(neg(mul(vc,vc)),neg(neg(c1))),neg(c-1),neg(c-3))",
+   "add(c0,neg(neg(mul(neg(c-3),neg(c0)))))",
+   "neg(neg(neg(neg(add(c2,neg(c-2))))))",
+   "c1",
+   "add(mul(c-3,c2),mul(c1,neg(neg(c1))))",
+   "mul(c2,neg(neg(add(c0,c1))),vb,vc)",
+   "vc",
+   "vb",
+   "mul(c3,neg(neg(neg(add(c0,c0)))))",
+   "mul(add(c1,vc),neg(vb))",
+   "neg(neg(add(c0,va)))",
+   "add(mul(add(c-3,vc),neg(vc)),mul(va,vc),neg(neg(mul(neg(neg(vc)),vc))))",
+   "add(mul(c-3,c3,va),mul(c1,va,va),mul(c1,vb,vb))",
+   "va",
+   "add(mul(c1,neg(add(c0,va))),vc)",
+   "mul(neg(neg(mul(add(c-2,vc),c1))),vc)",
+   "mul(c1,neg(add(c0,neg(neg(va)))))",
+   "neg(neg(neg(add(c0,vc))))",
+   "neg(neg(add(c0,va)))",
+   "add(c0,neg(neg(vb)))",
+   "neg(neg(vc))",
+   "neg(neg(add(c-1,c0,vb)))",
+   "add(neg(c-1),neg(mul(c1,va)))",
+   "neg(add(c0,neg(vc)))",
+   "add(mul(c0,c1),va)",
+   "mul(c2,neg(add(c-1,c-2)))",
+   "neg(c-1)",
+   "c2",
+   "mul(c1,neg(neg(c4)))",
+   "add(c0,neg(neg(c3)))",
+   "neg(neg(mul(c1,c1,vb)))",
+   "add(mul(c0,c1),vc)",
+   "mul(neg(neg(mul(c1,c2,c4,va,vc))),vc)",
+   "add(mul(c1,va),neg(neg(vc)))",
+   "mul(add(c-3,va,vb),add(mul(c1,c4,vc),vb))",
+   "mul(add(c0,c1),vc)",
+   "neg(mul(neg(neg(mul(c1,va))),neg(va)))",
+   "add(mul(add(c-3,va),c1),mul(add(vb,vb),c1),neg(mul(add(c2,vc),c1)))",
+   "neg(mul(c1,neg(neg(neg(vb)))))",
+   "mul(neg(neg(add(c0,mul(c1,vc),neg(vb)))),vb)",
+   "add(c0,neg(add(c0,mul(c1,vc),va,vb)))",
+   "add(c0,va)",
+   "add(c0,c3,neg(neg(c0)),neg(vb))",
+   "add(mul(c1,c2,neg(c-1),va),neg(mul(c-1,vc)))",
+   "mul(add(c0,va),add(c4,vb),c-2)",
+   "mul(c1,neg(add(c0,neg(neg(add(va,vc))),neg(vc))))",
+   "neg(neg(neg(mul(c-1,neg(neg(add(neg(neg(c3)),va)))))))",
+   "neg(mul(add(c1,mul(c0,c1)),va))",
+   "add(c0,neg(neg(c0)),vc)",
+   "neg(mul(add(c0,mul(add(c0,vb),c1)),vc))",
+   "add(c0,mul(add(c0,mul(neg(neg(neg(c-1))),vc)),c1))",
+   "add(c1,mul(neg(neg(vc)),vb),neg(neg(mul(c1,vc))))",
+   "neg(mul(c1,vb,vc))",
+   "neg(neg(add(mul(add(c0,va),c2),mul(add(c2,vb),c1))))",
+   "add(c-3,mul(c-2,c1),neg(neg(mul(c1,neg(neg(c3))))),va)",
+   "add(c0,neg(add(c0,c0,neg(c-1),va)))",
+   "add(c0,vb)",
+   "c0",
+   "add(mul(add(c-2,c0),neg(neg(vb))),mul(neg(neg(vc)),va))",
+   "mul(c2,neg(neg(mul(c1,vc))))",
+   "add(neg(add(c0,neg(neg(add(c0,va))))),va)",
+   "mul(c1,neg(neg(mul(neg(c4),vc))))",
+   "add(c-3,c0)",
+   "mul(add(c0,neg(neg(va))),c1)",
+   "mul(add(c0,neg(neg(vb))),c1)",
+   "add(c0,va)",
+   "mul(add(mul(c-2,c1,c3),neg(c0)),add(neg(neg(mul(neg(neg(c0)),va))),va))",
+   "mul(c1,c6)",
+   "mul(add(c0,neg(vc)),c1,c1,vb)",
+   "neg(mul(add(c0,neg(c4)),c1))",
+   "mul(c1,c1,neg(neg(vb)),neg(neg(vc)))",
+   "add(mul(c-2,va),mul(c0,c1),mul(c1,neg(vb)))",
+   "mul(c1,c4)",
+   "neg(mul(c1,c1,neg(va)))",
+   "mul(c1,neg(vc))",
+   "add(mul(c1,neg(c3)),neg(neg(c0)))",
+   "neg(add(c0,vb))",
+   "add(neg(add(c0,neg(neg(neg(neg(add(c-2,c0,vb))))))),vc)",
+   "add(c0,neg(add(c0,c0,c1,neg(neg(vc)))))",
+   "neg(add(mul(c0,c1),va))",
+   "mul(add(c0,c3,mul(c1,vb)),c1,c4,neg(neg(vb)),neg(vb),va)",
+   "neg(mul(add(c0,c0,mul(c1,vc),vb),add(c0,neg(va))))",
+   "add(c0,neg(neg(mul(c3,vc))))",
+   "neg(neg(mul(c-2,neg(neg(neg(mul(add(c0,c1),va)))))))",
+   "add(neg(add(c0,neg(neg(va)))),neg(c0),neg(c0))",
+   "mul(add(c0,neg(mul(c1,va)),neg(neg(neg(vb)))),c1,va)",
+   "neg(mul(c1,neg(vc)))",
+   "add(c0,vc)",
+   "add(mul(c1,neg(neg(c0))),neg(neg(c4)))",
+   "mul(add(c0,neg(neg(neg(neg(vb))))),c1)",
+   "add(c-3,mul(add(c0,vb),neg(va)))",
+   "neg(mul(add(c-3,vb),add(c0,mul(c1,va))))",
+   "add(mul(add(mul(neg(neg(vc)),vc),va),neg(neg(c1))),mul(c1,vb))",
+   "neg(neg(add(neg(vc),vb,vb)))",
+   "neg(mul(add(neg(neg(mul(c1,vc))),vc),neg(neg(neg(neg(va))))))",
+   "neg(add(c0,c0,neg(mul(c-2,neg(neg(c1))))))",
+   "add(neg(neg(neg(mul(c1,neg(vc))))),neg(neg(neg(neg(neg(vb))))))",
+   "mul(add(vc,vc),c1,neg(neg(neg(add(c0,neg(add(va,vc)))))),neg(neg(vc)))",
+   "mul(add(c0,c0,neg(c4),vc),c1,neg(add(neg(neg(c0)),vc)))",
+   "neg(neg(neg(mul(c1,neg(vb)))))",
+   "mul(add(mul(c-2,c1,vc),vb),c1)",
+   "mul(add(c0,c1),neg(add(c0,mul(add(c0,va),c2),neg(vb))))",
+   "mul(c-1,c1,c1)",
+   "mul(c3,neg(add(c0,c0,neg(va))))",
+   "neg(neg(neg(neg(c-1))))",
+   "neg(add(c-3,c0,c0))",
+   "mul(add(c0,c0,vc),vb)",
+   "neg(add(mul(c0,c1),vc))",
+   "mul(c1,neg(neg(c1)),neg(neg(mul(vc,vc))),neg(vc),vc)",
+   "add(c0,neg(neg(va)))",
+   "mul(c1,c1,neg(neg(neg(neg(vc)))))",
+   "mul(add(c-3,neg(neg(mul(c1,va))),neg(va)),neg(neg(c0)))",
+   "neg(add(c0,mul(add(c-1,c0),c1)))",
+   "mul(add(c0,vb),c1)",
+   "mul(add(c0,c1,mul(add(c-1,c1),c1),mul(c0,c1)),c2)",
+   "add(neg(neg(add(c0,mul(c1,c1,vb)))),vc)",
+   "add(c0,neg(c4))",
+   "neg(neg(mul(add(mul(add(c0,mul(c0,c1)),add(c0,va)),mul(c1,c1),mul(c2,vc)),c1)))",
+   "neg(neg(neg(add(c0,c3,mul(c1,vb)))))",
+   "add(c0,neg(neg(neg(neg(mul(vb,vc))))))",
+   "mul(c-2,c1)",
+   "add(c0,c2,mul(c0,c1))",
+   "mul(add(c0,neg(va)),add(c0,vc),c1,neg(neg(add(c0,c4))))",
+   "mul(c1,neg(neg(add(c0,c1))),neg(neg(add(mul(va,va),vb,vc))))",
+   "add(c0,neg(neg(add(c0,c3))),neg(vc),vc)",
+   "add(mul(add(neg(c0),neg(va)),c4),neg(neg(neg(add(c0,c4,neg(neg(vc)))))))",
+   "add(neg(neg(mul(c1,neg(mul(add(c0,vb),c1,c1,va))))),va)",
+   "mul(add(c0,mul(add(c0,c1),c4)),va)",
+   "neg(neg(add(c0,vb)))",
+   "mul(add(mul(add(c0,c1),add(c0,c1),c-1,neg(neg(vb))),neg(c3)),neg(c-2))",
+   "add(c0,neg(neg(add(neg(neg(vc)),neg(neg(vc))))),neg(neg(mul(c0,c3))))",
+   "mul(c1,neg(neg(add(c0,c1))))",
+   "add(c0,neg(add(c0,c0,va)))",
+   "mul(add(mul(c1,neg(va)),neg(vc)),c1)",
+   "mul(add(c0,c3),add(c0,c5,neg(va)),c1,c1)",
+   "mul(add(mul(add(c0,neg(neg(c1))),c0),vc),c1)",
+   "add(c0,c0,neg(add(c0,neg(add(c0,neg(vc))))))",
+   "add(c0,vc)",
+   "add(c0,c0,mul(c1,neg(add(c0,neg(va)))))",
+   "add(c0,mul(c1,neg(neg(mul(add(c4,neg(vb),va),c1,c1)))))",
+   "neg(neg(neg(mul(c-3,neg(neg(add(c0,c1)))))))",
+   "neg(neg(add(c0,mul(c-3,c1))))",
+   "neg(add(c0,neg(add(c0,vc))))",
+   "add(c0,mul(c0,c1),va)",
+   "mul(neg(neg(add(c0,c3))),neg(neg(c1)))",
+   "add(c0,mul(c1,va),neg(neg(mul(c1,neg(neg(neg(vb)))))))",
+   "mul(c1,neg(neg(neg(c4))))",
+   "mul(c1,vc)",
+   "add(c-2,c-3,neg(c0),neg(va),neg(va))",
+   "mul(add(c0,neg(neg(neg(neg(c0))))),c1,neg(c1),neg(vc))",
+   "mul(neg(add(c0,neg(c1))),vb)",
+   "neg(neg(add(c0,neg(mul(c1,neg(neg(add(neg(neg(neg(va))),vb))))))))",
+   "add(mul(add(c-1,c0),vb),neg(c3))",
+   "add(mul(c1,vc),neg(neg(mul(add(c0,c1),vb))))",
+   "mul(c1,neg(neg(add(c2,mul(c1,neg(mul(c-2,vc)))))))",
+   "mul(add(c0,c0,mul(c1,c1,c3,vc),vb,vc),c1)",
+   "mul(c1,c2)",
+   "neg(neg(neg(add(neg(mul(add(c0,c0,c0),c1)),neg(va)))))",
+   "neg(mul(c1,neg(add(c0,neg(c0),neg(mul(c1,c1))))))",
+   "add(mul(c1,neg(neg(vc)),vc),neg(neg(neg(add(c0,c0,neg(vc))))),vb)",
+   "add(c0,mul(c1,c1,neg(neg(neg(add(neg(neg(c0)),vb))))))",
+   "add(mul(add(c0,mul(c1,neg(vc))),c1),mul(c1,vc),va)",
+   "add(c0,neg(neg(c0)),neg(va))",
+   "add(c4,c4,mul(c1,vc),mul(c1,vc),mul(neg(neg(vc)),va),neg(neg(vc)),vc)",
+   "add(neg(neg(neg(neg(add(c0,c0))))),vc)",
+   "va",
+   "add(c-1,c0,neg(mul(c1,c1,neg(c0))))",
+   "mul(add(mul(c1,c1,neg(neg(add(c1,neg(c1))))),mul(c4,neg(neg(mul(c1,vc))),vb)),c1)",
+   "neg(neg(neg(neg(neg(mul(c1,neg(mul(c1,neg(vb)))))))))",
+   "add(c-1,c-2,c0,neg(neg(c0)),vc)",
+   "neg(neg(add(c0,mul(add(c0,c1),c2,vb),neg(vc))))",
+   "neg(neg(add(mul(c0,c1),neg(neg(neg(neg(add(mul(c1,c3,vc),va))))))))",
+   "add(mul(c0,c1),neg(add(c0,vb)))",
+   "add(c-2,mul(c1,neg(mul(neg(neg(c1)),neg(va)))),neg(add(c0,neg(c3))),vb)",
+   "mul(add(c0,c3),c1,c1,c1)",
+   "neg(neg(add(c0,mul(add(c-3,vb),c1),neg(neg(c0)),neg(neg(c0)),vb)))",
+   "add(c0,c0,neg(neg(add(neg(neg(mul(add(vb,vc),c1,vc))),neg(neg(neg(add(c-1,vb))))))))",
+   "mul(c4,neg(neg(c1)))",
+   "add(c0,neg(mul(c1,neg(neg(neg(va))))))",
+   "add(c0,mul(add(c0,va),va),mul(c1,c1,neg(neg(vc))))",
+   "neg(add(c0,neg(add(c-1,mul(add(c0,c2),c1)))))",
+   "mul(add(c0,neg(neg(neg(neg(c1))))),va)",
+   "add(c0,c0,mul(c1,vb,vb),mul(c1,vc))",
+   "add(c0,neg(neg(neg(mul(vb,vc)))))",
+   "neg(add(mul(c0,c1,c1),neg(vb)))",
+   "add(neg(neg(neg(neg(neg(neg(mul(c0,c1))))))),neg(neg(vc)))",
+   "mul(c0,c1,neg(neg(c-2)),neg(vb))",
+   "mul(c1,neg(add(c0,neg(mul(neg(neg(vb)),va)))),neg(neg(neg(neg(vb)))),vc)",
+   "neg(neg(add(c0,va)))",
+   "add(c0,mul(add(c0,c0,vb),c1))",
+   "neg(neg(neg(mul(c1,neg(add(c0,c2))))))",
+   "mul(add(neg(c-2),vc,vc),add(neg(neg(neg(neg(neg(add(c0,mul(c1,c1))))))),neg(vc)))",
+   "neg(neg(add(mul(c1,neg(mul(c1,c4,neg(neg(c1))))),neg(c-2),neg(va))))",
+   "mul(c-2,neg(neg(neg(neg(mul(c1,c1))))))",
+   "neg(add(mul(add(c0,vb),c1),mul(c-2,c1,c1)))",
+   "add(c0,mul(add(c0,c0,c0,c2,mul(c1,c3)),c1))",
+   "add(c-2,neg(neg(c0)))",
+   "neg(neg(neg(neg(add(c-2,c0)))))",
+   "add(neg(neg(c4)),neg(neg(mul(add(c0,neg(c0)),c1))))",
+   "mul(add(c0,neg(neg(neg(neg(vb)))),va),va,vb)",
+   "add(c0,c0,mul(c1,c1,va),neg(neg(neg(c3))))",
+   "add(c-1,c2,neg(neg(add(c0,c0))),va,vc)",
+   "add(c-2,c0,mul(add(c-2,c0,c0),c1),va,vb)",
+   "add(c0,neg(neg(mul(c0,c1))),neg(neg(neg(neg(vc)))))",
+   "neg(neg(neg(add(neg(add(c0,mul(c1,neg(neg(c0))))),neg(vb)))))",
+   "neg(neg(neg(neg(add(c4,mul(add(c0,c0),c1))))))",
+   "add(c0,mul(c1,c1,neg(mul(c1,neg(neg(c3))))))",
+   "add(mul(add(c0,neg(neg(c0))),vb),mul(c1,vb))",
+   "mul(c1,neg(add(c0,neg(neg(neg(neg(c3)))),va)))",
+   "mul(add(neg(neg(vc)),vb),neg(add(c0,mul(c1,va))),neg(neg(c1)))",
+   "mul(c1,c2,neg(neg(c1)))",
+   "neg(neg(mul(add(neg(neg(c0)),vb),c1,c2)))",
+   "add(c0,neg(neg(c1)),neg(neg(c2)),vc)",
+   "add(mul(c1,neg(neg(va))),neg(neg(neg(vc))))",
+   "mul(add(c0,neg(neg(add(c0,neg(c0),neg(neg(neg(vb))))))),c1)",
+   "add(c0,mul(c1,neg(neg(va))))",
+   "neg(mul(c0,c1,c1,neg(neg(add(neg(neg(c0)),vc)))))",
+   "neg(neg(mul(add(c0,neg(add(c0,mul(c-3,vb)))),neg(neg(add(c0,mul(add(mul(c-3,c1,vc),vc,vc),c1)))))))",
+   "mul(add(c0,mul(c1,vb),va),add(c1,c3),c1,neg(neg(mul(add(c0,vc),c1))))",
+   "add(c0,mul(add(c0,neg(neg(mul(c1,vc)))),c1),neg(neg(c0)))",
+   "neg(mul(c1,neg(mul(c1,neg(neg(neg(mul(c1,vc))))))))",
+   "add(mul(add(c0,neg(neg(c1))),c1,c1,va),neg(neg(c0)))",
+   "neg(add(c0,neg(neg(add(c0,mul(add(c0,c4),c1,c1))))))",
+   "neg(mul(c1,neg(neg(neg(add(mul(add(c0,neg(neg(vb))),add(c0,vc),c1),neg(c1)))))))",
+   "mul(c1,neg(neg(add(neg(c0),neg(neg(va))))))",
+   "neg(add(c0,c4,mul(add(c0,neg(neg(c0)),vc),add(c0,vc)),mul(c0,c1),vb))",
+   "neg(mul(c1,neg(neg(add(mul(c1,neg(va)),neg(neg(neg(c0))))))))",
+   "mul(c1,c1,neg(add(c0,vc)),neg(neg(c1)),vb)",
+   "add(c-2,c0,c0,c2,neg(mul(c1,neg(neg(mul(c1,vc))))))",
+   "add(neg(add(c0,c4)),neg(neg(neg(neg(va)))),neg(vc),vc)",
+   "neg(neg(add(neg(add(mul(c1,c2),va)),neg(neg(c-1)))))",
+   "add(mul(add(c0,neg(neg(c-3))),c1,neg(neg(c1)),va),mul(c4,vc))",
+   "neg(add(mul(add(c0,mul(c0,c1),neg(mul(c1,neg(vb)))),vb),neg(neg(add(c-3,neg(neg(vb)))))))",
+   "neg(mul(c1,neg(mul(add(neg(neg(c0)),va),c1,c1))))",
+   "add(c0,neg(add(mul(c-3,va),neg(neg(neg(neg(c-2)))))),neg(neg(add(c0,c0,c0))))",
+   "neg(neg(add(c0,c0,c1,mul(c0,c1))))",
+   "mul(c1,c1,c1,neg(neg(vc)))"
+  ]
+ },
+ "train_eval_overlap": {
+  "primary": {
+   "TrainProblems": 240,
+   "StartInEval": 82,
+   "TargetInEval": 0,
+   "PairInEval": 0
+  },
+  "secondary": {
+   "TrainProblems": 240,
+   "StartInEval": 89,
+   "TargetInEval": 0,
+   "PairInEval": 0
+  }
+ },
+ "banks": [
+  {
+   "name": "primary",
+   "bank_digest": "1bd3a2dad9f4482e026ee85df8f137356bdf81123bbbcd5cd06364bfe94af86d",
+   "bank_digest_algo": "sha256 over lines level\\0start\\0target\\n in case order; start/target = RenderPrefix; ids excluded",
+   "cases": 90,
+   "pre": [
+    {
+     "id": "L6-0",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-1",
+     "solved": true,
+     "nodes": 20
+    },
+    {
+     "id": "L6-2",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-3",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-4",
+     "solved": true,
+     "nodes": 18
+    },
+    {
+     "id": "L6-5",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-6",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-7",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-8",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-9",
+     "solved": true,
+     "nodes": 9
+    },
+    {
+     "id": "L6-10",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-11",
+     "solved": true,
+     "nodes": 75
+    },
+    {
+     "id": "L6-12",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-13",
+     "solved": true,
+     "nodes": 80
+    },
+    {
+     "id": "L6-14",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-15",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-16",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-17",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L6-18",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-19",
+     "solved": true,
+     "nodes": 12
+    },
+    {
+     "id": "L6-20",
+     "solved": true,
+     "nodes": 46
+    },
+    {
+     "id": "L6-21",
+     "solved": true,
+     "nodes": 76
+    },
+    {
+     "id": "L6-22",
+     "solved": true,
+     "nodes": 70
+    },
+    {
+     "id": "L6-23",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-24",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L6-25",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L6-26",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-27",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-28",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-29",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L7-0",
+     "solved": true,
+     "nodes": 99
+    },
+    {
+     "id": "L7-1",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-2",
+     "solved": true,
+     "nodes": 15
+    },
+    {
+     "id": "L7-3",
+     "solved": true,
+     "nodes": 74
+    },
+    {
+     "id": "L7-4",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-5",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-6",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-7",
+     "solved": true,
+     "nodes": 67
+    },
+    {
+     "id": "L7-8",
+     "solved": true,
+     "nodes": 31
+    },
+    {
+     "id": "L7-9",
+     "solved": true,
+     "nodes": 19
+    },
+    {
+     "id": "L7-10",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-11",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L7-12",
+     "solved": true,
+     "nodes": 7
+    },
+    {
+     "id": "L7-13",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-14",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-15",
+     "solved": true,
+     "nodes": 78
+    },
+    {
+     "id": "L7-16",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-17",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-18",
+     "solved": true,
+     "nodes": 31
+    },
+    {
+     "id": "L7-19",
+     "solved": true,
+     "nodes": 16
+    },
+    {
+     "id": "L7-20",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-21",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-22",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-23",
+     "solved": true,
+     "nodes": 16
+    },
+    {
+     "id": "L7-24",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-25",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-26",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-27",
+     "solved": true,
+     "nodes": 63
+    },
+    {
+     "id": "L7-28",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "L7-29",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-0",
+     "solved": true,
+     "nodes": 17
+    },
+    {
+     "id": "L8-1",
+     "solved": true,
+     "nodes": 9
+    },
+    {
+     "id": "L8-2",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-3",
+     "solved": true,
+     "nodes": 60
+    },
+    {
+     "id": "L8-4",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L8-5",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-6",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-7",
+     "solved": true,
+     "nodes": 8
+    },
+    {
+     "id": "L8-8",
+     "solved": true,
+     "nodes": 64
+    },
+    {
+     "id": "L8-9",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-10",
+     "solved": true,
+     "nodes": 7
+    },
+    {
+     "id": "L8-11",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-12",
+     "solved": true,
+     "nodes": 88
+    },
+    {
+     "id": "L8-13",
+     "solved": true,
+     "nodes": 48
+    },
+    {
+     "id": "L8-14",
+     "solved": true,
+     "nodes": 18
+    },
+    {
+     "id": "L8-15",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-16",
+     "solved": true,
+     "nodes": 80
+    },
+    {
+     "id": "L8-17",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-18",
+     "solved": true,
+     "nodes": 8
+    },
+    {
+     "id": "L8-19",
+     "solved": true,
+     "nodes": 67
+    },
+    {
+     "id": "L8-20",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-21",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-22",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-23",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L8-24",
+     "solved": true,
+     "nodes": 46
+    },
+    {
+     "id": "L8-25",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-26",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-27",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-28",
+     "solved": true,
+     "nodes": 14
+    },
+    {
+     "id": "L8-29",
+     "solved": false,
+     "nodes": 100
+    }
+   ],
+   "post": [
+    {
+     "id": "L6-0",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-1",
+     "solved": true,
+     "nodes": 7
+    },
+    {
+     "id": "L6-2",
+     "solved": true,
+     "nodes": 92
+    },
+    {
+     "id": "L6-3",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-4",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L6-5",
+     "solved": true,
+     "nodes": 37
+    },
+    {
+     "id": "L6-6",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-7",
+     "solved": true,
+     "nodes": 35
+    },
+    {
+     "id": "L6-8",
+     "solved": true,
+     "nodes": 35
+    },
+    {
+     "id": "L6-9",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L6-10",
+     "solved": true,
+     "nodes": 20
+    },
+    {
+     "id": "L6-11",
+     "solved": true,
+     "nodes": 28
+    },
+    {
+     "id": "L6-12",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-13",
+     "solved": true,
+     "nodes": 7
+    },
+    {
+     "id": "L6-14",
+     "solved": true,
+     "nodes": 20
+    },
+    {
+     "id": "L6-15",
+     "solved": true,
+     "nodes": 48
+    },
+    {
+     "id": "L6-16",
+     "solved": true,
+     "nodes": 82
+    },
+    {
+     "id": "L6-17",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "L6-18",
+     "solved": true,
+     "nodes": 37
+    },
+    {
+     "id": "L6-19",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "L6-20",
+     "solved": true,
+     "nodes": 26
+    },
+    {
+     "id": "L6-21",
+     "solved": true,
+     "nodes": 15
+    },
+    {
+     "id": "L6-22",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L6-23",
+     "solved": true,
+     "nodes": 31
+    },
+    {
+     "id": "L6-24",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L6-25",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L6-26",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L6-27",
+     "solved": true,
+     "nodes": 58
+    },
+    {
+     "id": "L6-28",
+     "solved": true,
+     "nodes": 26
+    },
+    {
+     "id": "L6-29",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L7-0",
+     "solved": true,
+     "nodes": 37
+    },
+    {
+     "id": "L7-1",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-2",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "L7-3",
+     "solved": true,
+     "nodes": 32
+    },
+    {
+     "id": "L7-4",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-5",
+     "solved": true,
+     "nodes": 25
+    },
+    {
+     "id": "L7-6",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-7",
+     "solved": true,
+     "nodes": 21
+    },
+    {
+     "id": "L7-8",
+     "solved": true,
+     "nodes": 25
+    },
+    {
+     "id": "L7-9",
+     "solved": true,
+     "nodes": 16
+    },
+    {
+     "id": "L7-10",
+     "solved": true,
+     "nodes": 54
+    },
+    {
+     "id": "L7-11",
+     "solved": true,
+     "nodes": 4
+    },
+    {
+     "id": "L7-12",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "L7-13",
+     "solved": true,
+     "nodes": 26
+    },
+    {
+     "id": "L7-14",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-15",
+     "solved": true,
+     "nodes": 40
+    },
+    {
+     "id": "L7-16",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-17",
+     "solved": true,
+     "nodes": 15
+    },
+    {
+     "id": "L7-18",
+     "solved": true,
+     "nodes": 21
+    },
+    {
+     "id": "L7-19",
+     "solved": true,
+     "nodes": 7
+    },
+    {
+     "id": "L7-20",
+     "solved": true,
+     "nodes": 72
+    },
+    {
+     "id": "L7-21",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-22",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-23",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "L7-24",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-25",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-26",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L7-27",
+     "solved": true,
+     "nodes": 46
+    },
+    {
+     "id": "L7-28",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "L7-29",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-0",
+     "solved": true,
+     "nodes": 9
+    },
+    {
+     "id": "L8-1",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L8-2",
+     "solved": true,
+     "nodes": 83
+    },
+    {
+     "id": "L8-3",
+     "solved": true,
+     "nodes": 33
+    },
+    {
+     "id": "L8-4",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L8-5",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-6",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-7",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L8-8",
+     "solved": true,
+     "nodes": 25
+    },
+    {
+     "id": "L8-9",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-10",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L8-11",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-12",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-13",
+     "solved": true,
+     "nodes": 7
+    },
+    {
+     "id": "L8-14",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L8-15",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-16",
+     "solved": true,
+     "nodes": 37
+    },
+    {
+     "id": "L8-17",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-18",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "L8-19",
+     "solved": true,
+     "nodes": 11
+    },
+    {
+     "id": "L8-20",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-21",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-22",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-23",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "L8-24",
+     "solved": true,
+     "nodes": 7
+    },
+    {
+     "id": "L8-25",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-26",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "L8-27",
+     "solved": true,
+     "nodes": 84
+    },
+    {
+     "id": "L8-28",
+     "solved": true,
+     "nodes": 17
+    },
+    {
+     "id": "L8-29",
+     "solved": false,
+     "nodes": 100
+    }
+   ],
+   "pre_solved": 43,
+   "post_solved": 61,
+   "delta": 18,
+   "solved_to_unsolved": 1,
+   "unsolved_to_solved": 19,
+   "per_level_pre_post_n": {
+    "6": [
+     13,
+     25,
+     30
+    ],
+    "7": [
+     14,
+     19,
+     30
+    ],
+    "8": [
+     16,
+     17,
+     30
+    ]
+   }
+  },
+  {
+   "name": "secondary",
+   "bank_digest": "8909948adae8f2b17e3151c943a59215197adf4aea787f11185eaedc3d2ee6f2",
+   "bank_digest_algo": "sha256 over lines level\\0start\\0target\\n in case order; start/target = RenderPrefix; ids excluded",
+   "cases": 90,
+   "pre": [
+    {
+     "id": "s9001-L6-0",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-1",
+     "solved": true,
+     "nodes": 22
+    },
+    {
+     "id": "s9001-L6-2",
+     "solved": true,
+     "nodes": 22
+    },
+    {
+     "id": "s9001-L6-3",
+     "solved": true,
+     "nodes": 97
+    },
+    {
+     "id": "s9001-L6-4",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-5",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-6",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-7",
+     "solved": true,
+     "nodes": 8
+    },
+    {
+     "id": "s9001-L6-8",
+     "solved": true,
+     "nodes": 20
+    },
+    {
+     "id": "s9001-L6-9",
+     "solved": true,
+     "nodes": 8
+    },
+    {
+     "id": "s9001-L6-10",
+     "solved": true,
+     "nodes": 42
+    },
+    {
+     "id": "s9001-L6-11",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-12",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-13",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-14",
+     "solved": true,
+     "nodes": 34
+    },
+    {
+     "id": "s9001-L6-15",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-16",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-17",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-18",
+     "solved": true,
+     "nodes": 20
+    },
+    {
+     "id": "s9001-L6-19",
+     "solved": true,
+     "nodes": 23
+    },
+    {
+     "id": "s9001-L6-20",
+     "solved": true,
+     "nodes": 27
+    },
+    {
+     "id": "s9001-L6-21",
+     "solved": true,
+     "nodes": 30
+    },
+    {
+     "id": "s9001-L6-22",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-23",
+     "solved": true,
+     "nodes": 15
+    },
+    {
+     "id": "s9001-L6-24",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-25",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-26",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-27",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-28",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-29",
+     "solved": true,
+     "nodes": 23
+    },
+    {
+     "id": "s9001-L7-0",
+     "solved": true,
+     "nodes": 89
+    },
+    {
+     "id": "s9001-L7-1",
+     "solved": true,
+     "nodes": 16
+    },
+    {
+     "id": "s9001-L7-2",
+     "solved": true,
+     "nodes": 15
+    },
+    {
+     "id": "s9001-L7-3",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "s9001-L7-4",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-5",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-6",
+     "solved": true,
+     "nodes": 23
+    },
+    {
+     "id": "s9001-L7-7",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "s9001-L7-8",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-9",
+     "solved": true,
+     "nodes": 17
+    },
+    {
+     "id": "s9001-L7-10",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-11",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-12",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-13",
+     "solved": true,
+     "nodes": 59
+    },
+    {
+     "id": "s9001-L7-14",
+     "solved": true,
+     "nodes": 21
+    },
+    {
+     "id": "s9001-L7-15",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-16",
+     "solved": true,
+     "nodes": 15
+    },
+    {
+     "id": "s9001-L7-17",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-18",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-19",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-20",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "s9001-L7-21",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "s9001-L7-22",
+     "solved": true,
+     "nodes": 60
+    },
+    {
+     "id": "s9001-L7-23",
+     "solved": true,
+     "nodes": 22
+    },
+    {
+     "id": "s9001-L7-24",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-25",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-26",
+     "solved": true,
+     "nodes": 35
+    },
+    {
+     "id": "s9001-L7-27",
+     "solved": true,
+     "nodes": 70
+    },
+    {
+     "id": "s9001-L7-28",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-29",
+     "solved": true,
+     "nodes": 9
+    },
+    {
+     "id": "s9001-L8-0",
+     "solved": true,
+     "nodes": 92
+    },
+    {
+     "id": "s9001-L8-1",
+     "solved": true,
+     "nodes": 27
+    },
+    {
+     "id": "s9001-L8-2",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-3",
+     "solved": true,
+     "nodes": 87
+    },
+    {
+     "id": "s9001-L8-4",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-5",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-6",
+     "solved": true,
+     "nodes": 22
+    },
+    {
+     "id": "s9001-L8-7",
+     "solved": true,
+     "nodes": 20
+    },
+    {
+     "id": "s9001-L8-8",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-9",
+     "solved": true,
+     "nodes": 19
+    },
+    {
+     "id": "s9001-L8-10",
+     "solved": true,
+     "nodes": 15
+    },
+    {
+     "id": "s9001-L8-11",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-12",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-13",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-14",
+     "solved": true,
+     "nodes": 90
+    },
+    {
+     "id": "s9001-L8-15",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-16",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-17",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-18",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-19",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-20",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-21",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "s9001-L8-22",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-23",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-24",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-25",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-26",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-27",
+     "solved": true,
+     "nodes": 18
+    },
+    {
+     "id": "s9001-L8-28",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-29",
+     "solved": false,
+     "nodes": 100
+    }
+   ],
+   "post": [
+    {
+     "id": "s9001-L6-0",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-1",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "s9001-L6-2",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "s9001-L6-3",
+     "solved": true,
+     "nodes": 28
+    },
+    {
+     "id": "s9001-L6-4",
+     "solved": true,
+     "nodes": 55
+    },
+    {
+     "id": "s9001-L6-5",
+     "solved": true,
+     "nodes": 32
+    },
+    {
+     "id": "s9001-L6-6",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-7",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "s9001-L6-8",
+     "solved": true,
+     "nodes": 4
+    },
+    {
+     "id": "s9001-L6-9",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "s9001-L6-10",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "s9001-L6-11",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-12",
+     "solved": true,
+     "nodes": 78
+    },
+    {
+     "id": "s9001-L6-13",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-14",
+     "solved": true,
+     "nodes": 4
+    },
+    {
+     "id": "s9001-L6-15",
+     "solved": true,
+     "nodes": 52
+    },
+    {
+     "id": "s9001-L6-16",
+     "solved": true,
+     "nodes": 78
+    },
+    {
+     "id": "s9001-L6-17",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-18",
+     "solved": true,
+     "nodes": 11
+    },
+    {
+     "id": "s9001-L6-19",
+     "solved": true,
+     "nodes": 18
+    },
+    {
+     "id": "s9001-L6-20",
+     "solved": true,
+     "nodes": 11
+    },
+    {
+     "id": "s9001-L6-21",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "s9001-L6-22",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L6-23",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "s9001-L6-24",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-25",
+     "solved": true,
+     "nodes": 56
+    },
+    {
+     "id": "s9001-L6-26",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-27",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L6-28",
+     "solved": true,
+     "nodes": 46
+    },
+    {
+     "id": "s9001-L6-29",
+     "solved": true,
+     "nodes": 27
+    },
+    {
+     "id": "s9001-L7-0",
+     "solved": true,
+     "nodes": 14
+    },
+    {
+     "id": "s9001-L7-1",
+     "solved": true,
+     "nodes": 7
+    },
+    {
+     "id": "s9001-L7-2",
+     "solved": true,
+     "nodes": 6
+    },
+    {
+     "id": "s9001-L7-3",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "s9001-L7-4",
+     "solved": true,
+     "nodes": 59
+    },
+    {
+     "id": "s9001-L7-5",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-6",
+     "solved": true,
+     "nodes": 9
+    },
+    {
+     "id": "s9001-L7-7",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "s9001-L7-8",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-9",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "s9001-L7-10",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-11",
+     "solved": true,
+     "nodes": 64
+    },
+    {
+     "id": "s9001-L7-12",
+     "solved": true,
+     "nodes": 39
+    },
+    {
+     "id": "s9001-L7-13",
+     "solved": true,
+     "nodes": 24
+    },
+    {
+     "id": "s9001-L7-14",
+     "solved": true,
+     "nodes": 10
+    },
+    {
+     "id": "s9001-L7-15",
+     "solved": true,
+     "nodes": 29
+    },
+    {
+     "id": "s9001-L7-16",
+     "solved": true,
+     "nodes": 8
+    },
+    {
+     "id": "s9001-L7-17",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-18",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-19",
+     "solved": true,
+     "nodes": 46
+    },
+    {
+     "id": "s9001-L7-20",
+     "solved": true,
+     "nodes": 4
+    },
+    {
+     "id": "s9001-L7-21",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "s9001-L7-22",
+     "solved": true,
+     "nodes": 24
+    },
+    {
+     "id": "s9001-L7-23",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "s9001-L7-24",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-25",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-26",
+     "solved": true,
+     "nodes": 9
+    },
+    {
+     "id": "s9001-L7-27",
+     "solved": true,
+     "nodes": 11
+    },
+    {
+     "id": "s9001-L7-28",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L7-29",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "s9001-L8-0",
+     "solved": true,
+     "nodes": 37
+    },
+    {
+     "id": "s9001-L8-1",
+     "solved": true,
+     "nodes": 8
+    },
+    {
+     "id": "s9001-L8-2",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-3",
+     "solved": true,
+     "nodes": 46
+    },
+    {
+     "id": "s9001-L8-4",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-5",
+     "solved": true,
+     "nodes": 61
+    },
+    {
+     "id": "s9001-L8-6",
+     "solved": true,
+     "nodes": 8
+    },
+    {
+     "id": "s9001-L8-7",
+     "solved": true,
+     "nodes": 15
+    },
+    {
+     "id": "s9001-L8-8",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-9",
+     "solved": true,
+     "nodes": 4
+    },
+    {
+     "id": "s9001-L8-10",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "s9001-L8-11",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-12",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-13",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-14",
+     "solved": true,
+     "nodes": 10
+    },
+    {
+     "id": "s9001-L8-15",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-16",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-17",
+     "solved": true,
+     "nodes": 32
+    },
+    {
+     "id": "s9001-L8-18",
+     "solved": true,
+     "nodes": 37
+    },
+    {
+     "id": "s9001-L8-19",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-20",
+     "solved": true,
+     "nodes": 42
+    },
+    {
+     "id": "s9001-L8-21",
+     "solved": true,
+     "nodes": 3
+    },
+    {
+     "id": "s9001-L8-22",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-23",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-24",
+     "solved": true,
+     "nodes": 2
+    },
+    {
+     "id": "s9001-L8-25",
+     "solved": true,
+     "nodes": 35
+    },
+    {
+     "id": "s9001-L8-26",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-27",
+     "solved": true,
+     "nodes": 5
+    },
+    {
+     "id": "s9001-L8-28",
+     "solved": false,
+     "nodes": 100
+    },
+    {
+     "id": "s9001-L8-29",
+     "solved": true,
+     "nodes": 69
+    }
+   ],
+   "pre_solved": 53,
+   "post_solved": 71,
+   "delta": 18,
+   "solved_to_unsolved": 0,
+   "unsolved_to_solved": 18,
+   "per_level_pre_post_n": {
+    "6": [
+     21,
+     28,
+     30
+    ],
+    "7": [
+     17,
+     22,
+     30
+    ],
+    "8": [
+     15,
+     21,
+     30
+    ]
+   }
+  }
+ ],
+ "seconds_by_phase": {
+  "eval_post_primary": 37.151254731,
+  "eval_post_secondary": 27.573049768,
+  "eval_pre_primary": 50.644734531,
+  "eval_pre_secondary": 42.178858524,
+  "train": 23.502523907
+ }
+}
