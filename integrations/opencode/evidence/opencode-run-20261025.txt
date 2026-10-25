@@ -1,0 +1,20 @@
+OpenCode 1.19.4, `opencode run`, provider alphazero -> azserve (d1serve) con
+politica A1 semilla 17 (sha256 ab33795077136eadc83aa1b74e1bae8af6779277c61cc32e96935fc8b087a0e1), cap 400.
+2026-10-25 ~04:46 CET, sandbox Linux.
+
+1) opencode run "Hola, quien eres"  (exit 0)
+Soy AlphaZero (MathZero), un motor de algebra local: una politica neuronal entrenada por autojuego guia una busqueda sobre reglas de reescritura de expresiones. No soy un modelo de lenguaje: no converso. Resuelvo problemas de algebra escritos como '<expresion> -> <objetivo>' en notacion prefija (operadores add/mul/neg, constantes cN, variables va-vz). Ejemplo: 'add(va,c0) -> va'.
+[plantilla fija de identidad, NO generada por la red]
+
+2) opencode run "mul(add(add(va,c0),va),va) -> mul(add(add(add(add(va,c0),c0),neg(neg(va))),c0),add(va,c0))"  (exit 0)
+Resuelto por el motor MathZero (cap 400 nodos; 4 pasos, 306 nodos explorados):
+[camino de 4 pasos con reglas negneg/add0/add0/add0; igualdad modulo normalizacion AC]
+
+3) opencode run "cuentame un chiste"  (exit 0)
+Eso esta fuera de mi alcance. AlphaZero (MathZero) solo resuelve problemas de algebra ... / Out of scope: ...
+[abstencion fija]
+
+Verificado tambien via curl: GET /v1/models; stream SSE; "hi" -> greeting EN;
+"quien eres?" -> identidad ES; "perro -> gato" -> error de parseo explicado.
+Bug corregido durante la prueba: matching de rutas por subcadena tomaba "hi"
+dentro de "chiste"; ahora por palabras completas (d1sHas).
