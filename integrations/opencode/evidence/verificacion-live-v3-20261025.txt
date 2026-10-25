@@ -1,0 +1,34 @@
+Verificacion en vivo v3 - 2026-10-25 ~05:24-05:25 CET (Linux)
+Binario: <BUILD_DIR>/azserve, compilado del fuente v3 actual
+(d1serve_main.go con build tag !js && linux) tras restaurar func init().
+
+1) Dispatch real del binario (no benchmark TicTacToe):
+   $ timeout 4 ./azserve d1serve -port 8101 -model weights_A.json
+   d1serve: politica weights_A.json (sha256 ab33795077136eadc83aa1b74e1bae8af6779277c61cc32e96935fc8b087a0e1)
+   d1serve: escuchando en http://127.0.0.1:8101/v1 (modelo "alphazero", cap 200, rss 384 MiB, worker 20 s)
+
+2) Rafaga 12 resoluciones concurrentes (L4, curl -m 60):
+   12 x HTTP 200, ~5 s total (serializadas: 1 worker + cola), 0 x 503.
+   Contenido: "presupuesto (200 nodos; explorados 200)" - honesto: el
+   problema L4 necesita 306 nodos y el cap por defecto es 200; con -cap 400
+   resuelve (cap maximo admitido 500).
+   Residual tras la rafaga: pgrep -cf 'd1solve|guard.sh' = 0.
+
+3) Regresion opencode (opencode-ai 1.19.4, servidor en 8100):
+   "Hola, quien eres" -> plantilla de identidad (texto programado declarado).
+   "neg(neg(c4)) -> neg(neg(mul(neg(neg(c4)),c1)))" -> Resuelto, 2 pasos,
+   3 nodos (cap 200). Residual tras opencode: 0. Servidor detenido despues.
+
+4) Tests unitarios -race (11 tests) PASARON ~05:2x CET (33.6 s) ANTES de
+   que el sandbox perdiera su toolchain Go (ver abajo). Lista:
+   concurrencia 16x (10x200+6x503), mezcla rutas, 413, expr larga/anidada,
+   parseo sin <nil>, rutas, stream, models, hog-128MiB matado a 96MiB->500
+   con servidor vivo, worker lento ->504, cancel-en-cola sin arranque.
+   NO se pudo re-capturar la salida: el entorno se reconstruyo y el
+   toolchain Go quedo inaccesible (/opt/lazy/go.tar.zst solo lectura root,
+   /opt/lazy no escribible). Ejecutar `go test -race -run D1Serve -v .`
+   sobre los fuentes incluidos para re-auditar.
+
+5) Mediciones RSS previas via guard.sh (mismo binario/guardia):
+   L4 cap400: pico 25 MiB. Peor admitida (depth16/200B/cap500): pico 164
+   MiB, residual 0. Limite defecto 384 MiB.
