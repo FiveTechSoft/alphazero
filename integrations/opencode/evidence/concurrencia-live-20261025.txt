@@ -1,0 +1,11 @@
+Escenario exacto de la revision independiente, en vivo con el binario y la
+politica A1 s17 (checkpoint demo), 2026-10-25 05:15 CET:
+- 12 POST simultaneos del problema L4 (306 nodos c/u) -> 12/12 HTTP 200 "Resuelto".
+  Antes de la correccion: fatal concurrent map read/write (Key cache global).
+- POST con cuerpo de 300000 bytes -> HTTP 413 "cuerpo demasiado grande (max 262144 bytes)".
+- `opencode run "Hola, quien eres"` -> plantilla de identidad (200).
+- `opencode run "add(va,c0) -> va"` -> resuelto, 1 paso/2 nodos (200).
+Nota: el primer intento de esta prueba en vivo fallo por un error mio de shell
+(`wait` esperaba al propio servidor), no del servidor; y destapo que la
+reescritura habia perdido el init() de despacho del subcomando (corregido y
+reconstruido; los tests -race pasaban porque montan el servidor sin init).
