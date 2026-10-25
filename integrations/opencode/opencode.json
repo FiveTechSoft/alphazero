@@ -1,0 +1,23 @@
+{
+  "$schema": "https://opencode.ai/config.schema.json",
+  "model": "alphazero/alphazero",
+  "provider": {
+    "alphazero": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "AlphaZero MathZero (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8100/v1"
+      },
+      "models": {
+        "alphazero": {
+          "name": "AlphaZero MathZero",
+          "tool_call": false,
+          "limit": {
+            "context": 4096,
+            "output": 2048
+          }
+        }
+      }
+    }
+  }
+}
