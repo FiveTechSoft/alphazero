@@ -1,0 +1,88 @@
+{
+ "status": "PRIMARY_COMPLETE",
+ "expected_seeds": [
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26
+ ],
+ "seeds": [
+  {
+   "seed": 19,
+   "complete": true,
+   "pre": 40,
+   "solved_A": 61,
+   "solved_F": 56,
+   "d": 5
+  },
+  {
+   "seed": 20,
+   "complete": true,
+   "pre": 36,
+   "solved_A": 47,
+   "solved_F": 56,
+   "d": -9
+  },
+  {
+   "seed": 21,
+   "complete": true,
+   "pre": 34,
+   "solved_A": 70,
+   "solved_F": 55,
+   "d": 15
+  },
+  {
+   "seed": 22,
+   "complete": true,
+   "pre": 38,
+   "solved_A": 69,
+   "solved_F": 54,
+   "d": 15
+  },
+  {
+   "seed": 23,
+   "complete": true,
+   "pre": 38,
+   "solved_A": 60,
+   "solved_F": 65,
+   "d": -5
+  },
+  {
+   "seed": 24,
+   "complete": true,
+   "pre": 35,
+   "solved_A": 50,
+   "solved_F": 68,
+   "d": -18
+  },
+  {
+   "seed": 25,
+   "complete": true,
+   "pre": 38,
+   "solved_A": 54,
+   "solved_F": 58,
+   "d": -4
+  },
+  {
+   "seed": 26,
+   "complete": true,
+   "pre": 37,
+   "solved_A": 56,
+   "solved_F": 59,
+   "d": -3
+  }
+ ],
+ "P": 3,
+ "N": 5,
+ "Z": 0,
+ "n_effective": 8,
+ "sign_test_p": 0.7265625,
+ "verdict": "no_advantage_detected",
+ "mean_d": -0.5,
+ "signflip_perm_p": 0.9140625,
+ "note": "nominal, conditional on bank G3 and this configuration; low power; not equivalence; not general learning; not TUI"
+}
