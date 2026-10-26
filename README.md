@@ -47,7 +47,9 @@ En 5 pasos:
 |-----------|-------|--------|
 | Curva de automejora, 3 ciclos (cap 1000) | 330 → 382 → 450/700 | ✅ |
 | Aportación de la red (ablación misma semilla) | +150/700 sobre prior uniforme | ✅ |
-| Lemas crudos como acciones (ablación replicada) | duplican branching: 450 con vs 526 sin biblioteca | ⚠️ poda en experimento (E9) |
+| Biblioteca de lemas (E9/E16) | top-8 526 < vacío 539/700; cruda 520 | ❌ desactivada por defecto |
+| Datos sintéticos de limpieza (E10) | +10,3/700 (3/3 semillas) | ✅ |
+| Dirección explícita + dedup de acciones (E11) | +25,0/700 (3/3 semillas), k6-8 +17,7 | ✅ |
 | Juez exacto en Rust (230 vectores) | 0 discrepancias; canonización 4,2× Go; BFS empate 1,06× | ✅ |
 | Micro-bench bucle MCTS | Rust 1,96× Go, C 1,88× (no predice al juez) | ✅ |
 | E2 entrenamiento online | −23,3/700 (3 semillas) | ❌ descartado |
@@ -69,7 +71,8 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
    polinomio). La red guía la búsqueda y aprende por expert iteration
    con currículo de niveles k2-k8.
 3. **Biblioteca de lemas (`mathzero/go/lemas.go`)**: caminos ya
-   demostrados, reutilizables como reescrituras de un solo paso.
+   demostrados, reutilizables como reescrituras de un solo paso. Queda
+   desactivada por defecto: en el ciego el vacío bate al top-8 (E16).
 4. **Ciclo de automejora (`mathzero/go/ciclo.go`)**: autojuego →
    entrenamiento → verificación con juez exacto → biblioteca
    persistente → currículo automático → métrica ciega por ciclo.
