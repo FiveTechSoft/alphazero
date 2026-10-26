@@ -103,9 +103,12 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
    árbol usa `-nosave` o `-datadir DIR`, p.ej. `cycle 3 60 1000 -nosave`).
 6. Evaluación ciega solo-lectura: `./mathzero evalblind 1000`
    (no entrena ni modifica `model_math.json`/`lemas.json`).
-7. A/B de un experimento: `./mathzero ab e4 1 -json`
-   (semilla 1, deja `resultados_ab_e4_seed1.json`).
-8. Windows: descargar `mathzero.exe` de la Release v0.1.1 y seguir
+7. Panel de capacidades: `./mathzero panel -json`
+   (ciego por nivel + nodos/tiempo + tres en raya vs minimax).
+8. A/B de un experimento: `./mathzero ab e4 1 -json`
+   (semilla 1, deja `resultados_ab_e4_seed1.json`). E12 compara las 4
+   celdas red x biblioteca: `./mathzero ab e12 1 -json`.
+9. Windows: descargar `mathzero.exe` de la Release v0.1.1 y seguir
    `GUIA_WINDOWS.txt` (ejecutar sin argumentos = prueba rápida).
 
 ## Pruebas

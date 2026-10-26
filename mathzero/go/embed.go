@@ -24,6 +24,9 @@ var embeddedLemas []byte
 //go:embed problems.json
 var embeddedProblems []byte
 
+//go:embed ttt_model.json
+var embeddedTTT []byte
+
 func readDataFile(path string) []byte {
 	p := path
 	if DataDir != "" && !filepath.IsAbs(path) {
@@ -49,6 +52,8 @@ func readDataFile(path string) []byte {
 		return embeddedLemas
 	case "problems.json":
 		return embeddedProblems
+	case "ttt_model.json":
+		return embeddedTTT
 	}
 	return nil
 }

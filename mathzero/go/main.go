@@ -21,6 +21,7 @@ Uso:
   mathzero cycle [n] [per] [cap]    ciclo de automejora
   mathzero curve [n] [per] [cap]    curva sobre el conjunto ciego
   mathzero evalblind [cap] [modelo] evaluacion solo-lectura en el ciego
+  mathzero panel [cap] [modelo]     panel de capacidades (ciego + TTT)
   mathzero ab <exp> <semilla> ...   A/B con el mismo ciego
   mathzero ab <exp> <semilla> [rondas] [per] [cap] [-json]
   mathzero evalfail [datos] [modelo] [capNet] [capOr] [kmin] [kmax]
@@ -85,6 +86,10 @@ func main() {
 	}
 	if len(os.Args) > 1 && os.Args[1] == "evalblind" {
 		EvalBlindMain(os.Args[2:])
+		return
+	}
+	if len(os.Args) > 1 && os.Args[1] == "panel" {
+		PanelMain(os.Args[2:])
 		return
 	}
 	if len(os.Args) > 1 && os.Args[1] == "curve" {

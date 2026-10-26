@@ -30,7 +30,7 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
 | 15 | Descubrimiento | la biblioteca produce un lema NUEVO (no esta en el curriculo ni es instancia de las 14 reglas), verificado por el juez exacto; un comando lo genera y lo valida. Sin afirmar crecimiento ilimitado | 0% | 0% |
 | 16 | Medicion ciega (curva + ablaciones) | un comando (`./mathzero curve`): curva por ciclo (resueltos, nodos medios, longitud de prueba) + ablaciones con/sin red y con/sin biblioteca sobre 700 problemas ciegos | 100% | 70% |
 | 17 | Juez exacto en Rust (y C si barato) | 0 discrepancias vs el juez Go en los 230 vectores + velocidades medidas: canon Rust 4,2x Go; BFS empate 1,06x | 95% | 85% |
-| 18 | Panel de capacidades | un comando, 3 semillas, tabla versionada en resultados/*.json o csv, visible en la web: (1) % por nivel k2-k8 ciego; (2) nodos/tiempo y longitud de prueba; (3) generalizacion k2-k5 -> k6-k8 y otro dominio; (4) curva por ciclo; (5) version nueva vs anterior (Elo); (6) lemas nuevos verificados; (7) referencias externas (demostrador clasico, luego LLM con el mismo juez) | 10% | 0% |
+| 18 | Panel de capacidades | un comando, 3 semillas, tabla versionada en resultados/*.json o csv, visible en la web: (1) % por nivel k2-k8 ciego; (2) nodos/tiempo y longitud de prueba; (3) generalizacion k2-k5 -> k6-k8 y otro dominio; (4) curva por ciclo; (5) version nueva vs anterior (Elo); (6) lemas nuevos verificados; (7) referencias externas (demostrador clasico, luego LLM con el mismo juez) | 40% | 0% |
 | 19 | Eje de calidad profesional (Q1-Q10 abajo) | cada criterio Q verificable en CI | 40% | 25% |
 | 20 | Comparacion con LLM | mismo conjunto ciego + mismo juez exacto; tabla lado a lado | 0% | 0% |
 | 21 | Idea Symbols (nota/vision) | la red propone parches/reescrituras y un motor simbolico verifica; solo diseno hasta tener h18 | 0% | 0% |
@@ -153,7 +153,11 @@ antes de medir y, cuando aplique, reportarse sobre el conjunto ciego.
    el mismo ciego; JSON con las 4 celdas). Falta la tanda de 3 semillas.
 4. (P1) **Panel de capacidades (h18)**: comando unico `panel` con 3 semillas,
    por nivel, nodos/tiempo y JSON versionado en `resultados/`. Convierte las
-   mediciones dispersas en una tabla reproducible (Q3/Q10/h12).
+   mediciones dispersas en una tabla reproducible (Q3/Q10/h12). **EN CURSO
+   (26-oct)**: `./mathzero panel [cap] [modelo] [-json]` ya cubre los puntos
+   1, 2, 3 (k2-5/k6-8) y 6, con tres en raya vs minimax exacto como segundo
+   dominio. Faltan la tanda de 3 semillas versionada, la curva por ciclo (4),
+   Elo entre versiones (5) y la referencia externa (7).
 5. (P2) **Descubrimiento (h15)**: generar y validar un lema nuevo que no sea
    instancia de las 14 reglas, con criterio de aceptacion fijado antes de medir.
 6. (P2) **Dominio nuevo (h9 laberinto) antes que h10 sudoku**: el juez BFS es
