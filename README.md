@@ -84,7 +84,7 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
 
 ## Pasos para ejecutar
 
-1. Tres en raya (Python): `pip install numpy` y luego
+1. Tres en raya (Python): `pip install -r requirements.txt` y luego
    `python train.py --games 1500 --sims 40` (guarda `model.npz`),
    `python evaluate.py --model model.npz`, `python play.py`.
 2. Autojuego del tres en raya: `python selfplay.py --games 200 --sims 50`.
@@ -98,6 +98,16 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
    (semilla 1, deja `resultados_ab_e4_seed1.json`).
 7. Windows: descargar `mathzero.exe` de la Release v0.1.1 y seguir
    `GUIA_WINDOWS.txt` (ejecutar sin argumentos = prueba rápida).
+
+## Pruebas
+
+```bash
+python -m unittest discover -s tests -v   # prototipo Python (rápido)
+cd mathzero/go && go test ./...            # motor Go, juez y vectores
+```
+
+CI ejecuta además `gofmt`, `go vet`, los builds CLI/WASM, el juez Rust
+contra los 230 vectores y los benchmarks C/Rust.
 
 ## Hoja de ruta
 

@@ -23,6 +23,17 @@ jobs:
         run: cd mathzero/go && go build -o mathzero .
       - name: build WASM
         run: cd mathzero/go && GOOS=js GOARCH=wasm go build -o /tmp/engine.wasm .
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: instalar dependencias
+        run: python -m pip install -r requirements.txt
+      - name: tests del prototipo tres en raya
+        run: python -m unittest discover -s tests -v
   rust-c:
     runs-on: ubuntu-latest
     steps:
@@ -30,5 +41,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - name: build juez Rust y verificar vectores
         run: rustc -O bench/juez.rs -o /tmp/juez_rust && /tmp/juez_rust mathzero/go/juez_vectores.txt
+      - name: build bench Rust
+        run: rustc -O bench/bench_ttt.rs -o /tmp/bench_ttt_rust
       - name: build bench C
         run: cc -O3 bench/bench_ttt.c -lm -o /tmp/bench_ttt_c

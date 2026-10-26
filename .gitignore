@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Artefactos de build
+*.exe
+mathzero/go/mathzero
+mathzero/go/juez_rust
+mathzero/go/*.test
+
+# Salidas generadas por experimentos (no versionar resultados locales)
+*.log
+mathzero/go/model_math.json.best
+mathzero/go/model_math.json.nivel*
+mathzero/go/resultados_ab_*.json
