@@ -10,7 +10,33 @@ import (
 	"time"
 )
 
+func usage() {
+	fmt.Print(`MathZero - motor de autojuego con juez exacto
+
+Uso:
+  mathzero                     prueba rapida (bench MCTS + juez + BFS)
+  mathzero help                muestra esta ayuda
+  mathzero benchttt            bench del tres en raya (sin red)
+  mathzero learn               entrenamiento con curriculo (12 rondas)
+  mathzero cycle [n] [per] [cap]   ciclo de automejora
+  mathzero curve [n] [per] [cap]   curva sobre el conjunto ciego
+  mathzero ab <exp> <semilla> [rondas] [per] [cap] [-json]
+  mathzero evalfail [datos] [modelo] [capNet] [capOr] [kmin] [kmax]
+  mathzero judgesv             exporta/verifica vectores del juez
+  mathzero genblind            regenera blind.json (semilla 12345)
+
+Los comandos cycle/curve escriben model_math.json y lemas.json.
+`)
+}
+
 func main() {
+	if len(os.Args) > 1 {
+		switch os.Args[1] {
+		case "help", "-h", "--help":
+			usage()
+			return
+		}
+	}
 	if len(os.Args) > 1 && os.Args[1] == "learn" {
 		Curriculum(12, 150, 2000, "model_math.json", 1)
 		return
@@ -60,6 +86,11 @@ func main() {
 	if len(os.Args) > 1 && os.Args[1] == "cycle" {
 		CycleMain(os.Args[2:])
 		return
+	}
+	if len(os.Args) > 1 {
+		fmt.Fprintf(os.Stderr, "subcomando desconocido: %s\n\n", os.Args[1])
+		usage()
+		os.Exit(2)
 	}
 	// 1) TicTacToe: bench de velocidad del motor (sin red)
 	g := TicTacToe{}

@@ -90,7 +90,8 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
 2. Autojuego del tres en raya: `python selfplay.py --games 200 --sims 50`.
 3. Motor Go: `cd mathzero/go && go build -o mathzero . && ./mathzero`
    (bench MCTS + chequeo del juez exacto + baseline BFS de MathRing;
-   funciona sin ficheros al lado, todo va embebido).
+   funciona sin ficheros al lado, todo va embebido). `./mathzero help`
+   lista todos los subcomandos.
 4. Aprendizaje de MathRing: `./mathzero learn`
    (12 rondas con currículo; guarda `model_math.json`).
 5. Ciclo de automejora: `./mathzero cycle 3 60 1000`.
