@@ -16,3 +16,7 @@ mathzero/go/*.test
 mathzero/go/model_math.json.best
 mathzero/go/model_math.json.nivel*
 mathzero/go/resultados_ab_*.json
+
+# Builds de Rust y muestras pesadas
+pbixengine-rs/target/
+pbixengine/samples/
