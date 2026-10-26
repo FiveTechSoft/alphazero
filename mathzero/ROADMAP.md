@@ -71,6 +71,10 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
   k4 26/30, k5 25/30, k6 19/30, k7 16/30, k8 16/30 (BFS: 16, 15, 6, 5, 9).
   Ablacion biblioteca en ciclo 3 (fijo): 146 vs 146 (efecto marginal una vez la red
   interioriza los lemas; reportado con honestidad).
+- E13/E12 (26-oct): la puerta de aceptacion sube +11,0/700 (3/3 semillas no
+  negativas; k6-8 +4,7). El factorial 2x2 confirma que la red aporta ~+200 y
+  que la biblioteca resta (-18,3 con red, -32,7 sin red). Detalle en
+  RESULTADOS_MEJORAS.md; comandos `ab e13 <s>` y `ab e12 <s>`.
 - Descubrimiento (h15, 26-oct): `discover 3 2000 1 -nosave` genera 3 lemas
   nuevos (3, 4 y 5 pasos) fuera de levels/blind, los verifica con el juez
   exacto y los descarta si son una sola regla. Comando repetible por semilla;
@@ -107,8 +111,8 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | E16 | Cierre de E9: medir el brazo VACIO (biblioteca off) vs top-8 en el ciego | propio (deuda de E9) | bajo | ACEPTADO (17-oct): vacio 539 > top-8 526 > cruda 520 /700 (`ab e9 12345`); `cycle` 161 vs 135/210. Pipeline shipped (`curve`/`cycle`) SIN lemas por defecto; top-8 queda como ablacion |
 | E10 | Datos sinteticos neg-neg/add0 (25% del stream) contra el punto ciego de limpieza | propio (evalfail) | bajo | ACEPTADO (13-oct 01:07): +10,3/700 media, 3/3 semillas +6/+8/+17, k6-8 +3,3, nodos -3,7% |
 | E11 | Motor con direccion en MAction + dedup de sucesores (bug medido: 30% acciones duplicadas, 1.044 r enmascaradas) | revision externa + direction_diag_test.go | bajo | ACEPTADO (13-oct 06:20): +25,0/700 media, 3/3 semillas +32/+21/+22, k6-8 +17,7, nodos -7,7% |
-| E12 | Ablacion factorial 2x2 (red x biblioteca) multisemilla, eval-only | revision externa | bajo | PROPUESTO, sin aprobar |
-| E13 | Puerta de aceptacion por set fijo (levels.json): quedarse con la red nueva solo si no baja (arena alpha-zero-general traducida a matematicas) | suragnair/alpha-zero-general | bajo | EN CURSO (00:15): puerta implementada (smoke verificado); A/B 3 semillas en cadena local tras E11 |
+| E12 | Ablacion factorial 2x2 (red x biblioteca) multisemilla, eval-only | revision externa | bajo | CERRADO (26-oct): red +193,3 sin biblio y +207,7 con biblio; biblioteca -18,3 con red y -32,7 sin red. Confirma E16: la biblioteca no bate al vacio |
+| E13 | Puerta de aceptacion por set fijo (levels.json): quedarse con la red nueva solo si no baja (arena alpha-zero-general traducida a matematicas) | suragnair/alpha-zero-general | bajo | ACEPTADO (26-oct): 3/3 semillas no negativas; 529->547, 536->538, 537->550; media +11,0/700, k6-8 +4,7; rechaza rondas malas sin bajar el ciego |
 | E3 | Curriculo "al borde" 20-80% (tipo STP) vs niveles k fijos, midiendo olvido | arXiv 2502.00212 | medio | pendiente |
 | E5 | Datos sinteticos por reescritura hacia delante como preentrenamiento | AlphaGeometry (Nature) | medio | pendiente |
 | E6 | Biblioteca estilo DreamCoder (macros frecuentes) | DreamCoder | medio | pendiente |
@@ -154,11 +158,14 @@ antes de medir y, cuando aplique, reportarse sobre el conjunto ciego.
    `evalblind`/`evalfail`; tests `dataflags_test.go` (nosave, datadir y no-op).
 2. (P1) **Cerrar E13** (puerta de aceptacion por set fijo): completar el A/B
    de 3 semillas en cadena local. Es la salvaguarda para aceptar modelos.
+   **HECHO (26-oct)**: media +11,0/700, 3/3 semillas no negativas; rechaza
+   rondas malas sin bajar el ciego. Detalle en RESULTADOS_MEJORAS.md.
 3. (P1) **E12 (factorial 2x2 red x biblioteca)** multisemilla y eval-only:
    resuelve la interaccion que E9/E10/E16 midieron por separado. **EN CURSO
    (26-oct)**: implementado `./mathzero ab e12 <semilla>` (entrena un modelo
    con la biblioteca cruda para medir uso y evalua red x biblioteca top-8 en
-   el mismo ciego; JSON con las 4 celdas). Falta la tanda de 3 semillas.
+   el mismo ciego; JSON con las 4 celdas). **HECHO (26-oct)**: red +193,3 y
+   +207,7; biblioteca -18,3 con red y -32,7 sin red. Confirma E16.
 4. (P1) **Panel de capacidades (h18)**: comando unico `panel` con 3 semillas,
    por nivel, nodos/tiempo y JSON versionado en `resultados/`. Convierte las
    mediciones dispersas en una tabla reproducible (Q3/Q10/h12). **EN CURSO

@@ -212,3 +212,43 @@ Veredicto: DESCARTADO. No mejora el ciego y pierde 2 problemas; el cambio
 no se incorpora. La rama queda como referencia. El comando `evalblind` si
 se mantiene: permite repetir esta comparacion sin entrenar ni escribir
 `model_math.json`/`lemas.json`.
+
+## E13 - Puerta de aceptacion por set fijo: ACEPTADO (3 semillas, 26 oct)
+
+Variante: tras cada ronda, el modelo nuevo solo se conserva si no baja en el
+set fijo (`levels.json`, 210); si baja, se restaura el previo. Emparejado por
+semilla; ambos brazos SIN biblioteca; mismo ciego (700), cap 1000, 8 rondas x
+60 problemas.
+
+| Semilla | Base | Var (E13) | Dif | Base k6-8 | Var k6-8 | Dif k6-8 | Base nodos | Var nodos |
+|---------|------|-----------|-----|-----------|----------|----------|------------|-----------|
+| 1 | 529 | 547 | +18 | 158 | 171 | +13 | 306 | 297 |
+| 2 | 536 | 538 | +2 | 161 | 159 | -2 | 295 | 295 |
+| 3 | 537 | 550 | +13 | 164 | 167 | +3 | 297 | 293 |
+| media | 534,0 | 545,0 | +11,0 | 161,0 | 165,7 | +4,7 | 299,3 | 295,0 |
+
+Veredicto: ACEPTADO. 3/3 semillas no negativas (+18/+2/+13), media +11,0/700,
+k6-8 +4,7 y -1,4% de nodos. La puerta rechazo rondas que empeoraban el set
+fijo (p.ej. semilla 2: 4 rechazos de 8) y aun asi el modelo final no baja en
+el ciego. No sustituye al ciego: es una salvaguarda barata.
+Comando: `./mathzero ab e13 <semilla> 8 60 1000`.
+
+## E12 - Factorial 2x2 red x biblioteca: CERRADO (3 semillas, 26 oct)
+
+Diseno eval-only: un unico entrenamiento por semilla con la biblioteca cruda
+(para medir uso) y despues las cuatro celdas sobre el mismo ciego (700), cap
+1000. La biblioteca es la top-8 por uso medido; "vacio" = sin lemas.
+
+| Semilla | red+biblio | red+vacio | sin-red+biblio | sin-red+vacio |
+|---------|-----------|-----------|----------------|---------------|
+| 1 | 540 | 559 | 320 | 359 |
+| 2 | 534 | 555 | 331 | 359 |
+| 3 | 528 | 543 | 328 | 359 |
+| media | 534,0 | 552,3 | 326,3 | 359,0 |
+
+Veredicto: CERRADO. La red aporta +193,3/700 sin biblioteca y +207,7 con
+ella; la biblioteca aporta -18,3 con red y -32,7 sin red. La interaccion es
+pequena (+14,4) frente al efecto de la red. Confirma E16 por la otra diagonal:
+la biblioteca no bate al vacio en ninguna celda y sin red es claramente
+perjudicial. El pipeline sigue SIN lemas por defecto.
+Comando: `./mathzero ab e12 <semilla> 8 60 1000`.

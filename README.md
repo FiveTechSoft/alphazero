@@ -62,6 +62,8 @@ En 5 pasos:
 | Biblioteca de lemas (E9/E16) | top-8 526 < vacío 539/700; cruda 520 | ❌ desactivada por defecto |
 | Datos sintéticos de limpieza (E10) | +10,3/700 (3/3 semillas) | ✅ |
 | Dirección explícita + dedup de acciones (E11) | +25,0/700 (3/3 semillas), k6-8 +17,7 | ✅ |
+| Puerta de aceptación por set fijo (E13) | +11,0/700 (3/3 semillas), k6-8 +4,7 | ✅ |
+| Factorial 2x2 red × biblioteca (E12) | red +193,3/+207,7; biblioteca −18,3/−32,7 | ✅ diagnóstico |
 | Juez exacto en Rust (230 vectores) | 0 discrepancias; canonización 4,2× Go; BFS empate 1,06× | ✅ |
 | Micro-bench bucle MCTS (corregido 26-oct) | Rust 3,28× Go, C 2,90× (no predice al juez) | ✅ |
 | E2 entrenamiento online | −23,3/700 (3 semillas) | ❌ descartado |
