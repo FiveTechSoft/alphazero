@@ -1,0 +1,117 @@
+{
+ "version": 2,
+ "held_out_pairs": [
+  [
+   "coche",
+   "amarillo"
+  ],
+  [
+   "globo",
+   "negro"
+  ],
+  [
+   "libro",
+   "blanco"
+  ],
+  [
+   "mesa",
+   "morado"
+  ],
+  [
+   "pelota",
+   "verde"
+  ],
+  [
+   "taza",
+   "gris"
+  ]
+ ],
+ "d0": {
+  "n_dialogues": 6000,
+  "gen_seed": 5000,
+  "allow_heldout": false,
+  "chars": 888793,
+  "sha256": "7c55384dfe9dab31421a1c6bedba0a4be3d8dccf15de5dbbe6315914b947114d",
+  "n_question_prefixes_banned": 10552
+ },
+ "eval_sets": {
+  "dev_seen": {
+   "n": 300,
+   "n_pron": 117,
+   "n_expl": 183,
+   "asked_pair_heldout": 0,
+   "seed": 91001,
+   "novel": false,
+   "seen_only_dialogues": true,
+   "dup_vs_d0": 0,
+   "within_set_dups": 0,
+   "reserved": false
+  },
+  "dev_novel": {
+   "n": 300,
+   "n_pron": 99,
+   "n_expl": 201,
+   "asked_pair_heldout": 300,
+   "seed": 91002,
+   "novel": true,
+   "dup_vs_d0": 0,
+   "within_set_dups": 0,
+   "reserved": false
+  },
+  "test_seen": {
+   "n": 400,
+   "n_pron": 150,
+   "n_expl": 250,
+   "asked_pair_heldout": 0,
+   "seed": 92001,
+   "novel": false,
+   "seen_only_dialogues": true,
+   "dup_vs_d0": 0,
+   "within_set_dups": 0,
+   "reserved": true
+  },
+  "test_novel": {
+   "n": 400,
+   "n_pron": 170,
+   "n_expl": 230,
+   "asked_pair_heldout": 400,
+   "seed": 92002,
+   "novel": true,
+   "dup_vs_d0": 0,
+   "within_set_dups": 0,
+   "reserved": true
+  },
+  "test_novel_long": {
+   "n": 300,
+   "n_pron": 112,
+   "n_expl": 188,
+   "asked_pair_heldout": 300,
+   "seed": 92003,
+   "novel": true,
+   "max_extra": 8,
+   "dup_vs_d0": 0,
+   "within_set_dups": 0,
+   "reserved": true
+  }
+ },
+ "round_prompts": {
+  "round0": {
+   "n": 800,
+   "allow_heldout": false,
+   "asked_pair_heldout": 0,
+   "text_mentions_heldout": 0
+  },
+  "round1": {
+   "n": 800,
+   "allow_heldout": false,
+   "asked_pair_heldout": 0,
+   "text_mentions_heldout": 0
+  },
+  "round2": {
+   "n": 800,
+   "allow_heldout": false,
+   "asked_pair_heldout": 0,
+   "text_mentions_heldout": 0
+  }
+ }
+}
