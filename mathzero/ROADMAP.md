@@ -119,7 +119,7 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | Q4 | Arquitectura limpia | interfaz Game, modulos separados, sin duplicados | parcial |
 | Q5 | Rendimiento medido | RESULTADOS_BENCH.md + bench/ repetible | hecho |
 | Q6 | Documentacion "Guia para bobos" | pasos numerados, un diagrama simple, sin humo | pendiente |
-| Q7 | CLI estable | subcomandos documentados y con tests de humo | pendiente |
+| Q7 | CLI estable | subcomandos documentados y con tests de humo | parcial (validacion, no-op y evalblind probados) |
 | Q8 | API local documentada | endpoints + ejemplos curl | pendiente |
 | Q9 | Empaquetado en un ejecutable | un binario sin dependencias | parcial (el CLI ya es un binario) |
 | Q10 | Metricas, logs y evaluacion rigurosa | logs por corrida + ciego + varias semillas con intervalos | parcial |
