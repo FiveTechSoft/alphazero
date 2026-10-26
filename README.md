@@ -88,8 +88,9 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
 ## Pasos para ejecutar
 
 1. Tres en raya (Python): `pip install -r requirements.txt` y luego
-   `python train.py --games 1500 --sims 40` (guarda `model.npz`),
-   `python evaluate.py --model model.npz`, `python play.py`.
+   `python train.py --games 6000 --sims 50` (reproduce la tabla de
+   `RESULTADOS.md`, ~6 min; con `--games 1500 --sims 40` hay una versión
+   rápida), `python evaluate.py --model model.npz`, `python play.py`.
 2. Autojuego del tres en raya: `python selfplay.py --games 200 --sims 50`.
 3. Motor Go: `cd mathzero/go && go build -o mathzero . && ./mathzero`
    (bench MCTS + chequeo del juez exacto + baseline BFS de MathRing;
