@@ -56,6 +56,21 @@ func exprJSON(e *Expr) map[string]any {
 	return map[string]any{"op": e.Op, "a": exprJSON(e.A), "b": exprJSON(e.B)}
 }
 
+// Contains indica si ya existe el lema a<->b por clave estructural.
+func (L *Library) Contains(a, b *Expr) bool {
+	if L == nil {
+		return false
+	}
+	ka, kb := Key(a), Key(b)
+	for _, i := range L.ByKey[ka] {
+		l := L.Lemmas[i]
+		if l.ToKey == kb || l.FromKey == kb {
+			return true
+		}
+	}
+	return false
+}
+
 // Insert verifica la identidad con el juez exacto y evita duplicados.
 func (L *Library) Insert(a, b *Expr, saving int) bool {
 	ka, kb := Key(a), Key(b)

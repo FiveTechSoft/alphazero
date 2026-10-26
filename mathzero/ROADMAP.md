@@ -27,7 +27,7 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
 | 12 | Medicion repetible | un comando reproduce todas las tablas | 50% | 30% |
 | 13 | Idea futura: Tensor Logic con juez sudoku NumPy | solo nota, no integrar | 0% | 0% |
 | 14 | Decision de lenguaje (Go vs C vs Rust) | micro-benchmark repetible del bucle caliente MCTS en Go, C y Rust | 95% | 85% |
-| 15 | Descubrimiento | la biblioteca produce un lema NUEVO (no esta en el curriculo ni es instancia de las 14 reglas), verificado por el juez exacto; un comando lo genera y lo valida. Sin afirmar crecimiento ilimitado | 0% | 0% |
+| 15 | Descubrimiento | la biblioteca produce un lema NUEVO (no esta en el curriculo ni es instancia de las 14 reglas), verificado por el juez exacto; un comando lo genera y lo valida. Sin afirmar crecimiento ilimitado | 100% | 100% |
 | 16 | Medicion ciega (curva + ablaciones) | un comando (`./mathzero curve`): curva por ciclo (resueltos, nodos medios, longitud de prueba) + ablaciones con/sin red y con/sin biblioteca sobre 700 problemas ciegos | 100% | 70% |
 | 17 | Juez exacto en Rust (y C si barato) | 0 discrepancias vs el juez Go en los 230 vectores + velocidades medidas: canon Rust 4,2x Go; BFS empate 1,06x | 95% | 85% |
 | 18 | Panel de capacidades | un comando, 3 semillas, tabla versionada en resultados/*.json o csv, visible en la web: (1) % por nivel k2-k8 ciego; (2) nodos/tiempo y longitud de prueba; (3) generalizacion k2-k5 -> k6-k8 y otro dominio; (4) curva por ciclo; (5) version nueva vs anterior (Elo); (6) lemas nuevos verificados; (7) referencias externas (demostrador clasico, luego LLM con el mismo juez) | 40% | 0% |
@@ -71,6 +71,10 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
   k4 26/30, k5 25/30, k6 19/30, k7 16/30, k8 16/30 (BFS: 16, 15, 6, 5, 9).
   Ablacion biblioteca en ciclo 3 (fijo): 146 vs 146 (efecto marginal una vez la red
   interioriza los lemas; reportado con honestidad).
+- Descubrimiento (h15, 26-oct): `discover 3 2000 1 -nosave` genera 3 lemas
+  nuevos (3, 4 y 5 pasos) fuera de levels/blind, los verifica con el juez
+  exacto y los descarta si son una sola regla. Comando repetible por semilla;
+  no se afirma crecimiento ilimitado.
 - Laberinto (h9, 26-oct): `maze 5 200 9` -> BFS 5/5 (28 nodos medios,
   23 pasos medios) y MCTS 5/5 (23 pasos medios, prior Manhattan, 200 sims).
   El laberinto usa celdas no revisitadas y la extension `SinglePlayer` del
@@ -164,6 +168,10 @@ antes de medir y, cuando aplique, reportarse sobre el conjunto ciego.
    Elo entre versiones (5) y la referencia externa (7).
 5. (P2) **Descubrimiento (h15)**: generar y validar un lema nuevo que no sea
    instancia de las 14 reglas, con criterio de aceptacion fijado antes de medir.
+   **HECHO (26-oct)**: `./mathzero discover [n] [cap] [semilla]`. Medido con
+   `discover 3 2000 1 -nosave`: 3/3 lemas nuevos verificados por `canonEq`
+   (3, 4 y 5 pasos; no son una sola regla ni estan en levels/blind). No se
+   afirma crecimiento ilimitado.
 6. (P2) **Dominio nuevo (h9 laberinto) antes que h10 sudoku**: el juez BFS es
    barato y sube h2 (genericidad de `Game`), alimentando el punto 3 de h18.
    **HECHO (26-oct)**: `./mathzero maze [n] [sims] [lado]`. Medido con

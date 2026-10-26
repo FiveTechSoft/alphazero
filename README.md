@@ -107,10 +107,12 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
    (ciego por nivel + nodos/tiempo + tres en raya vs minimax).
 8. Laberinto (Game sobre el mismo MCTS): `./mathzero maze 5 200 9`
    (5 laberintos 9x9, MCTS con prior Manhattan vs BFS exacto).
-9. A/B de un experimento: `./mathzero ab e4 1 -json`
+9. Descubrimiento de lemas: `./mathzero discover 3 2000 1 -nosave`
+   (genera fuera del currículo, resuelve y valida con el juez exacto).
+10. A/B de un experimento: `./mathzero ab e4 1 -json`
    (semilla 1, deja `resultados_ab_e4_seed1.json`). E12 compara las 4
    celdas red x biblioteca: `./mathzero ab e12 1 -json`.
-10. Windows: descargar `mathzero.exe` de la Release v0.1.1 y seguir
+11. Windows: descargar `mathzero.exe` de la Release v0.1.1 y seguir
    `GUIA_WINDOWS.txt` (ejecutar sin argumentos = prueba rápida).
 
 ## Pruebas
