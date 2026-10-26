@@ -32,6 +32,7 @@ func expand(n *Node, s any, g Game, net Net) float64 {
 	n.W = make([]float64, len(n.Acts))
 	n.P = make([]float64, len(n.Acts))
 	n.Children = make(map[int]*Node, len(n.Acts))
+	n.Expanded = true
 	if net == nil {
 		for i := range n.P {
 			n.P[i] = 1.0 / float64(len(n.P))

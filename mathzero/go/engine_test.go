@@ -202,6 +202,29 @@ func TestMCTSGanaForzada(t *testing.T) {
 	}
 }
 
+// La raiz debe expandirse: sin esto todas las visitas quedan a cero y MCTS
+// devuelve siempre la primera accion legal (bug regresivo).
+func TestMCTSExpandeRaizYVisita(t *testing.T) {
+	g := TicTacToe{}
+	// X gana en la casilla 5, que no es la primera accion legal.
+	s := any(TTTState{Player: 1, Board: [9]int8{0, 0, 0, 1, 1, 0, -1, -1, 0}})
+	acts, visits := MCTSVisits(s, g, nil, 200, 1.5)
+	total := 0
+	mejor, mejorN := -1, -1
+	for j, n := range visits {
+		total += n
+		if n > mejorN {
+			mejorN, mejor = n, acts[j].(int)
+		}
+	}
+	if total != 200 {
+		t.Errorf("visitas en la raiz = %d, esperadas 200", total)
+	}
+	if mejor != 5 {
+		t.Errorf("MCTS elige %d, esperado remate en 5", mejor)
+	}
+}
+
 // En un estado terminal no se buscan ni se devuelven jugadas.
 func TestMCTSTerminalSinJugadas(t *testing.T) {
 	g := TicTacToe{}
