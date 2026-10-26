@@ -1,0 +1,1 @@
+Binario congelado (mismo sha256), subcomando d1a1confirm con: -root <raiz tanda B> -seeds 19,20,21,22,23,24,25,26 -budget 7200 -bank <banco G3>. Sin cambios de codigo.

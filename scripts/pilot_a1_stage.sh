@@ -4,11 +4,12 @@
 # Exit: 0 completed; 2 usage; 3 preflight; 4 already done/censored/failed; 5 budget exhausted; 6 stage not completed;
 #       7 corrupt/inconsistent state; 8 binary mismatch; 9 lock held.
 set -u
+mono() { awk '{print int($1)}' /proc/uptime 2>/dev/null; }  # operative clock: /proc/uptime seconds (observed behaviour, not a universal guarantee)
 STAGE=${1:?stage}
 HERE=$(cd "$(dirname "$0")" && pwd)
 BIN=${BIN:?BIN}; BIN_SHA=${BIN_SHA:?BIN_SHA}; DIR=${DIR:?DIR}
 GUARD=${GUARD:-$HERE/guard.sh}
-RSS_MIB=${RSS_MIB:-900}; TOTAL=${TOTAL_BUDGET_S:-900}; CAP=${STAGE_CAP_S:-110}; SEED=${SEED:-101}
+RSS_MIB=${RSS_MIB:-900}; TOTAL=${TOTAL_BUDGET_S:-1500}; CAP=${STAGE_CAP_S:-300}; SEED=${SEED:-101}
 ARGS="-seed $SEED -perround 40 -cap 100 -evalcap 100 -bank ${BANK:-g2}"
 case "$STAGE" in pre-g2|pre-g3|train-A|train-F|post-A|post-F|report) ;; *) echo "unknown stage"; exit 2;; esac
 mkdir -p "$DIR" || exit 7
@@ -43,23 +44,26 @@ pgrep -f ' (d1a1train|d1g1train|d1train) ' >/dev/null && { echo "PREFLIGHT_FAIL:
 # RESERVE the full limit before running (conservative: a signal/kill never gives time back)
 atomic_write "$DIR/inflight" "stage=$STAGE reserved=${lim}s prev_used=${used}s"
 atomic_write "$DIR/budget_used_s" "$((used+lim))"
-start=$(date +%s)
+start=$(mono); [ -n "$start" ] || { echo "CLOCK_FAILED"; exit 7; }
 OUT="$DIR/$STAGE.log"; [ "$STAGE" = report ] && OUT="$DIR/report.out"
 bash "$GUARD" "$lim" "$RSS_MIB" "$OUT" "$BIN" d1a1train $ARGS -stage "$STAGE" -dir "$DIR" > "$DIR/$STAGE.guard" 2>&1 &
 GPID=$!
 wait "$GPID"; grc=$?
 # a trapped signal interrupts wait; make sure guard really ended
 if [ "$SIGNALLED" = 1 ]; then wait "$GPID" 2>/dev/null; grc=$?; fi
-el=$(( $(date +%s) - start ))
+em=$(mono); if [[ "$em" =~ ^[0-9]+$ ]] && [ "$em" -ge "$start" ]; then el=$((em-start)); else el=$lim; ELNOTE=" elapsed_unknown_reserved_counted"; fi
 gline=$(tail -n1 "$DIR/$STAGE.guard" 2>/dev/null)
 if [ "$SIGNALLED" = 1 ]; then outcome="CENSORED_SIGNAL"
-elif [ "$grc" -eq 0 ] && { [ "$STAGE" = report ] || [ -e "$DIR/$STAGE.json" ]; } && ! grep -q 'residual_procs=[1-9]' "$DIR/$STAGE.guard"; then outcome="COMPLETED"
+elif [ "$grc" -eq 0 ] && echo "$gline" | grep -q '^status=exit rc=0 ' && { [ "$STAGE" = report ] || [ -e "$DIR/$STAGE.json" ]; } && echo "$gline" | grep -q 'residual_procs=0$'; then outcome="COMPLETED"
 elif echo "$gline" | grep -q 'status=TIMEOUT'; then outcome="CENSORED_TIMEOUT"
+elif echo "$gline" | grep -q 'status=CIVIL_DEADLINE'; then outcome="CENSORED_CIVIL"
+elif echo "$gline" | grep -q 'status=CIVIL_CLOCK\|status=CLOCK'; then outcome="CENSORED_CLOCK"
 elif echo "$gline" | grep -q 'status=.*RSS\|status=OOM\|status=MEM'; then outcome="CENSORED_MEMORY"
 else outcome="FAILED"; fi
-atomic_write "$DIR/status_$STAGE" "outcome=$outcome guard_rc=$grc elapsed_s=$el limit_s=$lim guard=[$gline]"
+atomic_write "$DIR/status_$STAGE" "outcome=$outcome guard_rc=$grc elapsed_s=$el limit_s=$lim guard=[$gline]${ELNOTE:-}"
 # conservative accounting: keep reservation unless clean completion shortens it; elapsed is never under-counted
-if [ "$outcome" = COMPLETED ]; then atomic_write "$DIR/budget_used_s" "$((used+el))"; fi
+if [ "$outcome" = COMPLETED ]; then atomic_write "$DIR/budget_used_s" "$((used+el))"
+else atomic_write "$DIR/budget_used_s" "$((used + (el > lim ? el : lim)))"; fi  # failure: max(observed, reserved)
 rm -f "$DIR/inflight"
 echo "STAGE $STAGE outcome=$outcome rc=$grc elapsed=${el}s limit=${lim}s budget_used=$(cat "$DIR/budget_used_s")s/${TOTAL}s"
 [ "$outcome" = COMPLETED ] || { echo "NOT COMPLETED: state kept, no retry, no parameter change"; exit 6; }
