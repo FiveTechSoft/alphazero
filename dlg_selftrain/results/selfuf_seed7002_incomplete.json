@@ -1,0 +1,14 @@
+{
+ "arm": "selfuf",
+ "seed": 7002,
+ "status": "INCOMPLETE - interrupted twice (round0 step 200/500, round1 step 100/500); closed by decision without consuming reserved TEST; causes not determined",
+ "completed_work": {
+  "round0": "trained (steps 0-200 pre-kill, 200-500 post-resume from preserved checkpoint); dev_seen 0.717, dev_novel 0.467",
+  "round1": "check+gen complete (800/800 parse, 0 mismatches, first_sample_acc 0.46); training killed at step 100/500"
+ },
+ "test": null,
+ "evidence": [
+  "evidence/selfuf7002_kill_r0/",
+  "evidence/selfuf7002_kill_r1/"
+ ]
+}

@@ -79,3 +79,11 @@ comparison, not a confirmatory test. Direction differs by split and seed:
 No consistent ordering between self and sup across splits or seeds.
 
 Aggregates only; raw fail examples are not published.
+
+## Seed 7002 - arm `selfuf`: INCOMPLETE
+
+Interrupted twice by process kills (round0 step 200/500, round1 step 100/500; causes not
+determined). Round0 completed via verified checkpoint resume. Closed by decision WITHOUT
+consuming the reserved TEST. See REPORT.md (final report) for full results, hypothesis
+verdicts, interruption accounting and limits. The experiment is NOT complete: the
+self vs selfuf comparison on seed 7002 (H3 replication) remains open.
