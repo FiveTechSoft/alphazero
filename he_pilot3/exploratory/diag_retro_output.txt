@@ -1,0 +1,16 @@
+n 4848 rounds(inferred) 202 frac neg 0.50 median 0.0
+type 0 n 1702 meanY -0.53 sd 1.27 frac>0 0.13
+type 1 n 1711 meanY -0.80 sd 1.40 frac>0 0.08
+type 2 n 783 meanY -3.18 sd 3.83 frac>0 0.15
+type 3 n 652 meanY -0.27 sd 1.71 frac>0 0.19
+var total 4.94 within-round 3.77 between-round-means 1.17
+in-sample linear R2 within-round: all 0.431 {'type': np.float64(0.249), 'freq': np.float64(0.369), 'red': np.float64(0.002)}
+mean within-round spearman freq~gain -0.171 (201 rounds)
+top1 by freqrule 0.03, random -1.02, best-of-24 1.81
+train lib size min/median/p90/max [ 6.  9. 12. 16.]
+freqrule 48 audit 172.1 rounds 44.8 accepts 13.3 lib 21.3 max lib 30
+learned 48 audit 154.7 rounds 40.6 accepts 9.4 lib 14.2 max lib 22
+random 48 audit 154.9 rounds 40.4 accepts 10.1 lib 13.2 max lib 20
+transfer 48 audit 156.4 rounds 41.0 accepts 8.0 lib 14.3 max lib 20
+transfer_shuf 48 audit 146.3 rounds 40.0 accepts 10.6 lib 8.2 max lib 14
+ucb 48 audit 155.5 rounds 40.2 accepts 8.7 lib 15.6 max lib 23
