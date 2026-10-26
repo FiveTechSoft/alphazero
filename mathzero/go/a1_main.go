@@ -94,8 +94,9 @@ func RunD1A1Train(args []string, w, prog io.Writer) error {
 	per := fs.Int("perround", 40, "problems per round")
 	capT := fs.Int("cap", 100, "training search budget")
 	capE := fs.Int("evalcap", 100, "evaluation search budget")
-	stage := fs.String("stage", "", "pre-g2 | train-A | train-F | post-A | post-F | report")
+	stage := fs.String("stage", "", "pre-g2 (bank g2) or pre-g3 (bank g3) | train-A | train-F | post-A | post-F | report")
 	dir := fs.String("dir", "", "state directory (required)")
+	bankName := fs.String("bank", "g2", "g2 (default, unchanged) | g3 (A1C confirmation bank)")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
@@ -105,23 +106,41 @@ func RunD1A1Train(args []string, w, prog io.Writer) error {
 	if *per < 1 || *capT < 2 || *capE < 0 {
 		return fmt.Errorf("invalid perround/cap/evalcap")
 	}
-	prior, err := G2PriorKeys()
+	var prior map[string]bool
+	var err error
+	var rule G1Rule
+	digest := G2FrozenDigest
+	switch *bankName {
+	case "g2":
+		prior, err = G2PriorKeys()
+		rule = G1Rule{Seed: G2Seed, PerLevel: 30, Levels: []int{6, 7, 8}}
+	case "g3":
+		if G3FrozenDigest == "" {
+			return fmt.Errorf("bank g3: digest not frozen yet, refusing to run")
+		}
+		prior, err = G3PriorKeys()
+		rule = G1Rule{Seed: G3Seed, PerLevel: 30, Levels: []int{6, 7, 8}}
+		digest = G3FrozenDigest
+	default:
+		return fmt.Errorf("unknown -bank %q", *bankName)
+	}
 	if err != nil {
 		return err
 	}
-	rule := G1Rule{Seed: G2Seed, PerLevel: 30, Levels: []int{6, 7, 8}}
 	bank, st, err := GenBankG1(rule, prior)
 	if err != nil {
 		return err
 	}
-	return RunA1StageWithBank(*stage, *dir, *seed, A1Schedule, *per, *capT, *capE, bank, st, G2FrozenDigest, rule, w, prog)
+	return RunA1StageWithBank(*stage, *dir, *seed, A1Schedule, *per, *capT, *capE, bank, st, digest, rule, w, prog)
 }
 
 func RunA1StageWithBank(stage, dir string, seed int64, sched []int, per, capT, capE int, bank []BankCase, st G1GenStats, wantDigest string, rule G1Rule, w, prog io.Writer) error {
+	tag := a1BankTag(rule)
+	preName := "pre-" + tag
 	switch stage {
-	case "pre-g2", "train-A", "train-F", "post-A", "post-F", "report":
+	case preName, "train-A", "train-F", "post-A", "post-F", "report":
 	default:
-		return fmt.Errorf("unknown A1 stage %q", stage)
+		return fmt.Errorf("unknown A1 stage %q for bank %s (the pre stage of this bank is %q)", stage, tag, preName)
 	}
 	if dir == "" {
 		return fmt.Errorf("-dir is required")
@@ -151,7 +170,7 @@ func RunA1StageWithBank(stage, dir string, seed int64, sched []int, per, capT, c
 		return nil
 	}
 	switch {
-	case stage == "pre-g2":
+	case stage == preName:
 		net := NewMLP(seed)
 		var rs []CaseResult
 		sec := timed(func() { rs = EvalBank(net, cases, EvalConfig{Cap: capE}) })
@@ -193,7 +212,7 @@ func RunA1StageWithBank(stage, dir string, seed int64, sched []int, per, capT, c
 		}
 		return done(stage, stageFile{Seconds: sec, Results: rs, Weights: WeightsSHA(net)})
 	case stage == "report":
-		pre, err := readStage(dir, "pre-g2", fp)
+		pre, err := readStage(dir, preName, fp)
 		if err != nil {
 			return err
 		}
@@ -211,7 +230,7 @@ func RunA1StageWithBank(stage, dir string, seed int64, sched []int, per, capT, c
 			if err != nil {
 				return err
 			}
-			br := evalBankReport("g2-"+arm, bank, pre.Results, po.Results)
+			br := evalBankReport(tag+"-"+arm, bank, pre.Results, po.Results)
 			deltas[arm] = br.Delta
 			problems = append(problems, tr.Train.RenderedProblems)
 			rep.Arms = append(rep.Arms, A1ArmReport{Arm: arm, WeightsPost: tr.Weights, GuideSHAPre: tr.GuideSHAPre, GuideSHAPost: tr.GuideSHAPost, Train: *tr.Train,

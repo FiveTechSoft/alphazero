@@ -9,8 +9,8 @@ HERE=$(cd "$(dirname "$0")" && pwd)
 BIN=${BIN:?BIN}; BIN_SHA=${BIN_SHA:?BIN_SHA}; DIR=${DIR:?DIR}
 GUARD=${GUARD:-$HERE/guard.sh}
 RSS_MIB=${RSS_MIB:-900}; TOTAL=${TOTAL_BUDGET_S:-900}; CAP=${STAGE_CAP_S:-110}; SEED=${SEED:-101}
-ARGS="-seed $SEED -perround 40 -cap 100 -evalcap 100"
-case "$STAGE" in pre-g2|train-A|train-F|post-A|post-F|report) ;; *) echo "unknown stage"; exit 2;; esac
+ARGS="-seed $SEED -perround 40 -cap 100 -evalcap 100 -bank ${BANK:-g2}"
+case "$STAGE" in pre-g2|pre-g3|train-A|train-F|post-A|post-F|report) ;; *) echo "unknown stage"; exit 2;; esac
 mkdir -p "$DIR" || exit 7
 # exclusive atomic lock (mkdir). Stale lock after SIGKILL is NOT auto-cleared: fail closed.
 mkdir "$DIR/.lock" 2>/dev/null || { echo "LOCK_HELD: $DIR/.lock (another run, or a killed run: investigate)"; exit 9; }
@@ -45,7 +45,7 @@ atomic_write "$DIR/inflight" "stage=$STAGE reserved=${lim}s prev_used=${used}s"
 atomic_write "$DIR/budget_used_s" "$((used+lim))"
 start=$(date +%s)
 OUT="$DIR/$STAGE.log"; [ "$STAGE" = report ] && OUT="$DIR/report.out"
-"$GUARD" "$lim" "$RSS_MIB" "$OUT" "$BIN" d1a1train $ARGS -stage "$STAGE" -dir "$DIR" > "$DIR/$STAGE.guard" 2>&1 &
+bash "$GUARD" "$lim" "$RSS_MIB" "$OUT" "$BIN" d1a1train $ARGS -stage "$STAGE" -dir "$DIR" > "$DIR/$STAGE.guard" 2>&1 &
 GPID=$!
 wait "$GPID"; grc=$?
 # a trapped signal interrupts wait; make sure guard really ended
