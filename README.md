@@ -120,4 +120,5 @@ contra los 230 vectores y los benchmarks C/Rust.
 
 `mathzero/ROADMAP.md` define hitos con criterio "verificado" medible
 cada uno. `mathzero/DISENO_AUTOMEJORA.md` describe el bucle de
-crecimiento y sus límites.
+crecimiento y sus límites. `mathzero/RAMAS.md` resume la auditoría de
+ramas experimentales y qué no conviene mergear.
