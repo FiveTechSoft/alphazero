@@ -192,3 +192,23 @@ la direccion en el motor elimina trabajo duplicado y descubre las acciones-r
 que estaban enmascaradas. Validado en tests: modo clasico sin cambios,
 DirFix 0,00% duplicadas (direction_diag_test.go).
 Comando: `./mathzero ab e11 <semilla>` (log: go/ab_e11.log).
+
+## Relajacion de costes en GuidedSolve (26 oct): DESCARTADO (1 semilla)
+
+Idea (rama `fix/guidedsolve-best-cost`): sustituir el `seen` booleano por un
+mapa `bestCost` y reabrir un estado solo si se alcanza con un coste
+estrictamente menor. Se implemento sobre `GuidedSolve` y `SolvePath`,
+conservando el contador persistente `Lemma.Uses` de E9.
+
+Medicion (`./mathzero evalblind 1000`, mismo modelo nivel 6 ronda 12,
+ciego 700, sin lemas):
+
+| Variante | Total | k3 | k7 | nodos_med |
+|----------|-------|----|----|-----------|
+| `seen` actual | **554/700** | 99 | 66 | 283 |
+| `bestCost` | 552/700 | 98 | 65 | 283 |
+
+Veredicto: DESCARTADO. No mejora el ciego y pierde 2 problemas; el cambio
+no se incorpora. La rama queda como referencia. El comando `evalblind` si
+se mantiene: permite repetir esta comparacion sin entrenar ni escribir
+`model_math.json`/`lemas.json`.
