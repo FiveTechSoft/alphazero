@@ -30,5 +30,16 @@ func writeFileAtomic(path string, data []byte) error {
 	if err := f.Close(); err != nil {
 		return err
 	}
-	return os.Rename(tmp, path)
+	if err := os.Rename(tmp, path); err != nil {
+		// En algunos sistemas (p.ej. Windows) Rename puede no reemplazar
+		// un fichero existente; se conserva el contenido anterior si falla.
+		if _, statErr := os.Stat(path); statErr != nil {
+			return err
+		}
+		if rmErr := os.Remove(path); rmErr != nil {
+			return err
+		}
+		return os.Rename(tmp, path)
+	}
+	return nil
 }

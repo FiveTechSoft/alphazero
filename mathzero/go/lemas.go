@@ -8,6 +8,8 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
+	"os"
 	"sort"
 )
 
@@ -133,9 +135,12 @@ func (L *Library) Save(path string) {
 	}
 	data, err := json.Marshal(out)
 	if err != nil {
+		fmt.Fprintf(os.Stderr, "aviso: no se pudo serializar %s: %v\n", path, err)
 		return
 	}
-	_ = writeFileAtomic(path, data)
+	if err := writeFileAtomic(path, data); err != nil {
+		fmt.Fprintf(os.Stderr, "aviso: no se pudo guardar %s: %v\n", path, err)
+	}
 }
 
 func LoadLibrary(path string) *Library {
