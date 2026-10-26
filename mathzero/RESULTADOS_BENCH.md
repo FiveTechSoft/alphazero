@@ -1,5 +1,25 @@
 # Hito 14 - Benchmark de lenguaje (bucle caliente)
 
+> **CORRECCION (26 oct 2026): la cifra de Go de la tabla original era invalida.**
+> `expand()` no marcaba `Node.Expanded = true`, asi que el MCTS de Go no
+> exploraba: devolvia la primera accion legal y el "bench" medía un bucle
+> vacio. C y Rust sí exploraban. Corregido en el commit `36d01d2` (test
+> `TestMCTSExpandeRaizYVisita`). Re-medido en esta maquina (Go 1.27.3,
+> gcc -O2, rustc 1.99.1), mediana de 5 ejecuciones:
+>
+> | Lenguaje | sims/s | partidas/s | vs Go |
+> |----------|--------|------------|-------|
+> | Go 1.27.3 | 1.278.000 | ~1.826 | 1.00x |
+> | C (-O2) | 3.700.000 | ~5.288 | 2.90x |
+> | Rust (-O) | 4.195.000 | ~6.028 | 3.28x |
+>
+> En esta maquina Rust queda ~13% por encima de C y ambos ~3x Go. Las
+> cifras absolutas no son comparables con las del 12-oct (otra maquina).
+> Lectura: el fix no cambia el veredicto cualitativo previo (C/Rust
+> claramente mas rapidos en el bucle caliente), pero invalida los
+> multiplicadores publicados antes.
+
+
 Medido el 12 oct 2026, misma maquina (sandbox), mismo algoritmo y
 parametros en los tres lenguajes: MCTS PUCT sobre tres en raya sin red
 (prior uniforme), 200 partidas x 100 simulaciones por jugada,
@@ -12,7 +32,7 @@ Comandos repetibles:
 - C:    `gcc -O2 -o bench_ttt_c bench/bench_ttt.c -lm && ./bench_ttt_c`
 - Rust: `rustc -O -o bench_ttt_rs bench/bench_ttt.rs && ./bench_ttt_rs`
 
-Resultado (mediana de 5 ejecuciones):
+Resultado ORIGINAL del 12-oct (INVALIDO para Go, ver correccion arriba; mediana de 5 ejecuciones):
 
 | Lenguaje | sims/s      | partidas/s | vs Go |
 |----------|-------------|------------|-------|
@@ -33,6 +53,7 @@ Lectura honesta:
   hashing de claves). El MCTS es el bucle dominante en todas las
   busquedas actuales.
 
-Conclusion: si el proyecto migra, Rust da ~2x en el bucle caliente con
-seguridad de memoria; C da lo mismo sin ella. La decision queda abierta
-y ahora tiene numeros.
+Conclusion (revisada tras la correccion): en el bucle caliente C y Rust
+dan ~3x Go; Rust queda algo por encima de C y aporta seguridad de memoria.
+La decision de lenguaje sigue abierta y debe re-medirse en la maquina de
+decision, con el mismo binario y sin el bug de `Expanded`.

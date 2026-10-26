@@ -41,7 +41,10 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
 ## Datos medidos (12 oct)
 
 - Benchmark bucle MCTS TicTacToe (200 partidas x 100 sims, mediana):
-  Go 2,93M sims/s; C 5,51M (1,88x); Rust 5,74M (1,96x). Detalle: RESULTADOS_BENCH.md.
+  Go 2,93M sims/s; C 5,51M (1,88x); Rust 5,74M (1,96x). **INVALIDO para Go**
+  (12-oct): `expand()` no marcaba `Expanded` y el MCTS Go no exploraba.
+  Corregido 26-oct (commit `36d01d2`); re-medido en otra maquina:
+  Go 1,28M; C 3,70M (2,90x); Rust 4,20M (3,28x). Detalle: RESULTADOS_BENCH.md.
   MCTS en Rust: PRIORIDAD APARCADA (decision de Anto 22:31) - va detras de lemas/negaciones;
   se reabre solo si las medidas muestran que la busqueda es el cuello de botella.
 - Juez Rust (h17): 230/230 vectores, 0 discrepancias (canonEq + BFS nodos exactos).

@@ -22,6 +22,8 @@
 - "Verificado" pasa a significar: medido SOLO sobre el conjunto ciego
   (blind.json, 700 problemas, 100/nivel, semilla 12345, excluido del entrenamiento).
 - Benchmark lenguajes (mediana): Go 2,93M / C 5,51M (1,88x) / Rust 5,74M (1,96x) sims/s.
+  **Correccion 26-oct:** la cifra Go era invalida (MCTS no exploraba por falta de
+  `Expanded=true`); re-medido: Go 1,28M / C 3,70M (2,90x) / Rust 4,20M (3,28x).
   Juez portado a Rust: 0 discrepancias en 230 vectores. Decision de lenguaje: Go se
   queda como nucleo por ahora; Rust/C quedan medidos como opcion de aceleracion.
 - 8 experimentos de la literatura aprobados ("toma todo lo que nos sirva"):

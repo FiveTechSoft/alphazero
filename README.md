@@ -51,7 +51,7 @@ En 5 pasos:
 | Datos sintéticos de limpieza (E10) | +10,3/700 (3/3 semillas) | ✅ |
 | Dirección explícita + dedup de acciones (E11) | +25,0/700 (3/3 semillas), k6-8 +17,7 | ✅ |
 | Juez exacto en Rust (230 vectores) | 0 discrepancias; canonización 4,2× Go; BFS empate 1,06× | ✅ |
-| Micro-bench bucle MCTS | Rust 1,96× Go, C 1,88× (no predice al juez) | ✅ |
+| Micro-bench bucle MCTS (corregido 26-oct) | Rust 3,28× Go, C 2,90× (no predice al juez) | ✅ |
 | E2 entrenamiento online | −23,3/700 (3 semillas) | ❌ descartado |
 | E4 replay priorizado | 0,0/700 (6 semillas, ruido) | ❌ descartado |
 | E8 transferencia k2-k5→k6-k8 | +2,7/700 (ruido) | ❌ descartado |
