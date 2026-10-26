@@ -57,7 +57,7 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 		// 1) METRICA del estado actual (antes de aprender mas). Shipped: sin
 		// biblioteca (E16).
 		metric, tot := evalAll(net, lv, cap)
-		if tot > bestTot {
+		if perRound > 0 && tot > bestTot {
 			bestTot = tot
 			net.Save(modelPath + ".best")
 			fmt.Printf("[ciclo %d] nuevo mejor modelo (%d/210): %s.best%s", c, tot, modelPath, "\n")
@@ -71,6 +71,10 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 			m2, t2 := evalAll(net, lv, cap)
 			LemmaLib = saved
 			fmt.Printf("[ciclo %d] ablacion top-8 (%d lemas): %s total=%d/210\n", c, len(pod.Lemmas), m2, t2)
+		}
+		if perRound <= 0 {
+			fmt.Println("[ciclo] per=0: solo evaluacion; no se entrena ni se guarda nada")
+			return
 		}
 		// 2) AUTOJUEGO + verificacion + extraccion de lemas. E9: el autojuego
 		// ve los candidatos CRUDOS para medir uso y anadir candidatos nuevos.

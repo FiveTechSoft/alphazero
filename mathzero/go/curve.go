@@ -104,6 +104,10 @@ func CurveMain(args []string) {
 			report(fmt.Sprintf("%d ablacion top-8 (%d lemas)", c, len(pod.Lemmas)), evalBlind(net, lv, cap))
 			LemmaLib = saved
 		}
+		if per <= 0 {
+			fmt.Println("[curve] per=0: solo evaluacion; no se entrena ni se guarda nada")
+			return
+		}
 		// E9: el entrenamiento ve los candidatos CRUDOS para medir que lemas
 		// se usan de verdad en caminos ganadores (y anadir candidatos nuevos).
 		LemmaLib = full
