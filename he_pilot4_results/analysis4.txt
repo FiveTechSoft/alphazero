@@ -1,0 +1,12 @@
+chunk chunk_701_712.json sha256 aac84a5ee15ab1d3619741bed5cb13c1ba4b7b71f544f42fa061b8b05c488a64
+chunk chunk_713_724.json sha256 6f1ef0fc61e13cd73ec22fbc6a1c9226c006f4819783dda5aa69a6d17f1df589
+chunk chunk_725_736.json sha256 5fe836b50c1e5a9ce7fb86022c5f908c2fd2e4dd38a7da47ec2fe1d4d5119eba
+chunk chunk_737_748.json sha256 1df433600c6410642fd9d4e9e1506d0f1ac5b2a9fb5d62b3c4a76b4d0ea26947
+arm n mean_audit rounds accepts evals lib fallback_rounds spent mean_wall_ms mean_ops   (arm order: alphabetical)
+excl_random 48 156.23 40.48 8.27 122.06 16.27 0.0 6000000.0 1241.94 744761.5
+learned_elig 48 179.5 46.02 10.58 138.75 18.58 0.0 6000000.0 1223.65 871319.5
+learned_elig_shuf 48 145.48 38.79 6.81 117.25 14.81 0.0 6000000.0 1232.83 714509.0
+PRIMARY learned_elig - excl_random: 23.27 [16.81, 29.73]
+reading: LB>0 criterion met
+secondary (descriptive) learned_elig - learned_elig_shuf: 34.02 [27.62, 40.40]
+secondary (descriptive) learned_elig_shuf - excl_random: -10.75 [-15.00, -6.94]

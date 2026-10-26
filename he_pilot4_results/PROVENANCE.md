@@ -1,0 +1,7 @@
+# Pilot 4 TEST provenance
+- Frozen source: public commit 1cc57f983a2fdc60dc6e2b1ac9fcd2792f195576 (directory he_pilot4/). Reported (not independently verified): the files used were compared with diff -r against that directory and were identical.
+- Source manifest he_pilot4/HASHES.txt sha256 ca1e1940b164f906fa1238f28c1a60d3489967b35c27aa409613a74b38bbc93b; sha256sum -c HASHES.txt passed before the run (the driver does it).
+- Environment (checked by the driver): go version go1.26.6 linux/amd64; Python 3.10.12; go.mod says go 1.21. Reported (not independently verified): one local core, no network use for the run, no server.
+- Build: go build -o he . ; binary sha256 3087d85e01e5024c026d66627b09f4cf525c6e379297ae495d9ba19a8a78c90d (recorded in he.sha256; reported, not independently verified; the binary is not in this package). go vet and go test passed in the driver.
+- Run: ./run_pilot4.sh unchanged. Real start 2026-10-26 14:59:51 CET (recorded just before launch); last chunk log written 15:03:00 and analysis4.txt 15:03:01 CET (file modification times). Four chunks 701-712, 713-724, 725-736, 737-748, each validated (3 arms x 12 seeds once each, Spent 6,000,000) before the next, then analyze4.py (output analysis4.txt). All checks passed; reported (not independently verified): a single run, no failure, no relaunch. The chunk logs are consistent with this.
+- Reproduce the analysis: python3 analyze4.py chunk_701_712.json chunk_713_724.json chunk_725_736.json chunk_737_748.json from the frozen source directory (needs HASHES.txt and the files it lists).
