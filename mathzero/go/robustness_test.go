@@ -125,6 +125,49 @@ func TestGuidedSolveYPath(t *testing.T) {
 	}
 }
 
+func TestWriteFileAtomic(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "modelo.json")
+	if err := os.WriteFile(path, []byte("viejo"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := writeFileAtomic(path, []byte("nuevo")); err != nil {
+		t.Fatal(err)
+	}
+	data, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(data) != "nuevo" {
+		t.Errorf("contenido = %q, esperado nuevo", data)
+	}
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(entries) != 1 {
+		t.Errorf("quedaron %d ficheros en el directorio, esperado 1", len(entries))
+	}
+}
+
+func TestLibrarySaveRoundTrip(t *testing.T) {
+	lib := NewLibrary()
+	a, b := EMul(V("a"), C(1)), V("a")
+	if !lib.Insert(a, b, 2) {
+		t.Fatal("Insert rechazo un lema valido")
+	}
+	lib.Lemmas[0].Uses = 3
+	path := filepath.Join(t.TempDir(), "lemas.json")
+	lib.Save(path)
+	got := LoadLibrary(path)
+	if len(got.Lemmas) != 1 {
+		t.Fatalf("cargados %d lemas, esperado 1", len(got.Lemmas))
+	}
+	if got.Lemmas[0].Uses != 3 {
+		t.Errorf("Uses = %d, esperado 3", got.Lemmas[0].Uses)
+	}
+}
+
 func TestLoadTTTNetValidaFormas(t *testing.T) {
 	data, err := os.ReadFile("ttt_model.json")
 	if err != nil {

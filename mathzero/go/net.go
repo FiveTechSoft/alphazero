@@ -138,14 +138,13 @@ func (n *MLP) TrainCE(feats [][]float64, target int, lr float64) float64 {
 }
 
 func (n *MLP) Save(path string) {
-	f, err := os.Create(path)
+	data, err := json.Marshal(n)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "aviso: no se pudo guardar %s: %v\n", path, err)
+		fmt.Fprintf(os.Stderr, "aviso: no se pudo serializar %s: %v\n", path, err)
 		return
 	}
-	defer f.Close()
-	if err := json.NewEncoder(f).Encode(n); err != nil {
-		fmt.Fprintf(os.Stderr, "aviso: no se pudo escribir %s: %v\n", path, err)
+	if err := writeFileAtomic(path, data); err != nil {
+		fmt.Fprintf(os.Stderr, "aviso: no se pudo guardar %s: %v\n", path, err)
 	}
 }
 

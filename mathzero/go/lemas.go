@@ -8,7 +8,6 @@ package main
 
 import (
 	"encoding/json"
-	"os"
 	"sort"
 )
 
@@ -132,12 +131,11 @@ func (L *Library) Save(path string) {
 		tj, _ := json.Marshal(exprJSON(l.To))
 		out = append(out, lemmaJSON{From: fj, To: tj, Saving: l.Saving, Uses: l.Uses})
 	}
-	f, err := os.Create(path)
+	data, err := json.Marshal(out)
 	if err != nil {
 		return
 	}
-	defer f.Close()
-	json.NewEncoder(f).Encode(out)
+	_ = writeFileAtomic(path, data)
 }
 
 func LoadLibrary(path string) *Library {
