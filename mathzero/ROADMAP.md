@@ -133,6 +133,34 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 5. Panel de capacidades (h18) como comando unico con 3 semillas.
 6. E3, E5, E6; luego E1, E7. Despues: laberinto (h9), sudoku (h10), descubrimiento (h15).
 
+## Siguientes pasos (revision 26-oct 2026, tras feb6f31)
+
+Ordenados por impacto/coste. Cada paso debe fijar su criterio de aceptacion
+antes de medir y, cuando aplique, reportarse sobre el conjunto ciego.
+
+1. (P0) **Blindar la reproducibilidad de las mediciones**: `curve`/`cycle`
+   escriben `model_math.json` y `lemas.json` versionados (ver AGENTS.md).
+   Anadir `-nosave`/`-datadir` y un test/CI que verifique que `evalblind` y las
+   mediciones no dejan el arbol sucio. Sin esto, cualquier tabla futura es
+   fragil.
+2. (P1) **Cerrar E13** (puerta de aceptacion por set fijo): completar el A/B
+   de 3 semillas en cadena local. Es la salvaguarda para aceptar modelos.
+3. (P1) **E12 (factorial 2x2 red x biblioteca)** multisemilla y eval-only:
+   resuelve la interaccion que E9/E10/E16 midieron por separado.
+4. (P1) **Panel de capacidades (h18)**: comando unico `panel` con 3 semillas,
+   por nivel, nodos/tiempo y JSON versionado en `resultados/`. Convierte las
+   mediciones dispersas en una tabla reproducible (Q3/Q10/h12).
+5. (P2) **Descubrimiento (h15)**: generar y validar un lema nuevo que no sea
+   instancia de las 14 reglas, con criterio de aceptacion fijado antes de medir.
+6. (P2) **Dominio nuevo (h9 laberinto) antes que h10 sudoku**: el juez BFS es
+   barato y sube h2 (genericidad de `Game`), alimentando el punto 3 de h18.
+7. (P2) **E15 (`neg(const)`)** solo con pre-registro: desbloquea el banco de
+   geometria (hoy 0/4) pero cambia NFeat e invalida `model_math.json`, por lo
+   que exige reentrenar y un A/B en el ciego de 700.
+8. (P3) **Deuda de calidad/documentacion**: Q6 (guia para bobos), Q8 (API local
+   con ejemplos `curl`), actualizar la tabla del README (sigue con cifras del
+   12-oct y no refleja E9/E10/E11) y anadir `LICENSE` (no existe).
+
 ## Vision a largo plazo (direccion/idea de Anto, 13-oct ~00:15-00:20)
 
 **Estado: direccion/idea. NO medido, NO aprobado como trabajo.** Cualquier experimento concreto necesitara aprobacion explicita y medicion en ciego como el resto.
