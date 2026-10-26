@@ -92,6 +92,19 @@ func TestTrainCEEntradasInvalidasNoPanican(t *testing.T) {
 	}
 }
 
+func TestLoadTTTNetValidaFormas(t *testing.T) {
+	data, err := os.ReadFile("ttt_model.json")
+	if err != nil {
+		t.Skip("ttt_model.json no presente")
+	}
+	if n := LoadTTTNet(data); n == nil {
+		t.Fatal("LoadTTTNet rechazo el modelo valido")
+	}
+	if n := LoadTTTNet([]byte(`{"w1":[],"b1":[],"wp":[],"bp":[],"wv":[]}`)); n != nil {
+		t.Error("LoadTTTNet acepto un modelo sin capas")
+	}
+}
+
 func TestLoadMLPRechazaFormasInvalidas(t *testing.T) {
 	dir := t.TempDir()
 

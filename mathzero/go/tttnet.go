@@ -20,10 +20,28 @@ type TTTNet struct {
 
 func LoadTTTNet(data []byte) *TTTNet {
 	n := &TTTNet{}
-	if json.Unmarshal(data, n) != nil {
+	if json.Unmarshal(data, n) != nil || !n.valid() {
 		return nil
 	}
 	return n
+}
+
+func (n *TTTNet) valid() bool {
+	if n == nil || len(n.W1) != 27 || len(n.B1) != 128 ||
+		len(n.Wp) != 128 || len(n.Bp) != 9 || len(n.Wv) != 128 {
+		return false
+	}
+	for _, row := range n.W1 {
+		if len(row) != 128 {
+			return false
+		}
+	}
+	for _, row := range n.Wp {
+		if len(row) != 9 {
+			return false
+		}
+	}
+	return true
 }
 
 func (n *TTTNet) Predict(s any, acts []any) ([]float64, float64) {

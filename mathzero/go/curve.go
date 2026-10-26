@@ -74,6 +74,10 @@ func CurveMain(args []string) {
 			return
 		}
 	}
+	if n == 0 {
+		fmt.Println("[curve] ciclos=0: nada que hacer")
+		return
+	}
 	// E11 aceptado (ver RESULTADOS_MEJORAS.md): motor con direccion
 	// explicita + dedup de sucesores. El pipeline real lo usa por defecto.
 	DirFix = true

@@ -49,7 +49,7 @@ func main() {
 	tttNet = LoadTTTNet(tttModelJSON)
 	LemmaLib = NewLibrary()
 	mathNet = &MLP{}
-	if json.Unmarshal(mathModelJSON, mathNet) != nil {
+	if json.Unmarshal(mathModelJSON, mathNet) != nil || !mathNet.valid() {
 		mathNet = nil
 	}
 	fmt.Println("[wasm] motor Go listo; red ttt:", tttNet != nil, "red math:", mathNet != nil)
