@@ -114,7 +114,7 @@ RULES = [
     ('add0', _r_add0_f, _r_add0_r), ('mul1', _r_mul1_f, _r_mul1_r),
     ('mul0', _r_mul0_f, None), ('comm+', _r_comm_a, None), ('comm*', _r_comm_m, None),
     ('assoc+', _r_assoc_a_f, _r_assoc_a_r), ('assoc*', _r_assoc_m_f, _r_assoc_m_r),
-    ('dist', _r_dist_f, _r_dist_r), ('negneg', _r_negneg, _r_add0_r and (lambda x: neg(neg(x)))),
+    ('dist', _r_dist_f, _r_dist_r), ('negneg', _r_negneg, lambda x: neg(neg(x))),
     ('neg+', _r_negadd_f, _r_negadd_r), ('+-0', _r_addneg, None),
     ('neg*', _r_negmul_f, _r_negmul_r), ('fold+', _r_fold_a, None), ('fold*', _r_fold_m, None),
 ]

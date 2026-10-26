@@ -469,14 +469,10 @@ func LoadProblems(path, k string) []MState {
 		fmt.Println("aviso: no se encuentra " + path + " (ni en disco ni embebido); se omite")
 		return nil
 	}
-	var all map[string][]struct {
-		A, B json.RawMessage `json:"-"`
-	}
 	var raw map[string][]map[string]json.RawMessage
 	if err := json.Unmarshal(data, &raw); err != nil {
 		panic(err)
 	}
-	_ = all
 	var out []MState
 	for _, pr := range raw[k] {
 		out = append(out, MState{Cur: parseExpr(pr["a"]), Target: parseExpr(pr["b"]), MaxSteps: 2 * len(k) * 4})
@@ -537,14 +533,9 @@ func BFSSolve(g MathRing, p MState, cap int) (bool, int) {
 // ---- chequeo del juez: toda regla preserva la forma canonica ----
 
 func CheckRules(g MathRing, n int) {
-	// expresiones fijas de prueba (semilla determinista simple)
+	// bateria pequena: todas las reglas aplicadas a cada nodo de un conjunto de expresiones
 	bad := 0
 	tested := 0
-	seed := C(0)
-	_ = seed
-	vars := []string{"a", "b", "c"}
-	_ = vars
-	// bateria pequena: todas las reglas aplicadas a cada nodo de un conjunto de expresiones
 	exprs := []*Expr{
 		EAdd(EMul(V("a"), EAdd(V("b"), C(2))), ENeg(EMul(C(3), V("c")))),
 		EMul(EAdd(V("a"), ENeg(V("b"))), EAdd(V("c"), C(1))),

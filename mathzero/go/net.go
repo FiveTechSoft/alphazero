@@ -44,22 +44,9 @@ func NewMLP(seed int64) *MLP {
 		for j := range n.W1[i] {
 			n.W1[i][j] = r.NormFloat64() * math.Sqrt(2.0/NFeat)
 		}
-		n.W2[i] = r.NormFloat64() * math.Sqrt(2.0/NHide2)
+		n.W2[i] = r.NormFloat64() * math.Sqrt(2.0/NHid)
 	}
 	return n
-}
-
-const NHide2 = NHid
-
-func (n *MLP) Score(x []float64) float64 {
-	for i := 0; i < NHid; i++ {
-		h := n.B1[i]
-		for j := 0; j < NFeat; j++ {
-			h += n.W1[i][j] * x[j]
-		}
-		n.B1[i] = h // reutilizamos B1 como cache? NO - bug. ver forward
-	}
-	return 0
 }
 
 // forward cache-less

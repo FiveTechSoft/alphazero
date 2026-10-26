@@ -97,14 +97,17 @@ func main() {
 				for _, n := range nvis {
 					tot += n
 				}
-				r := rng.Intn(tot + 1)
-				acc := 0
-				mv = acts[len(acts)-1].(int)
-				for j, n := range nvis {
-					acc += n
-					if r <= acc {
-						mv = acts[j].(int)
-						break
+				if tot == 0 {
+					mv = acts[rng.Intn(len(acts))].(int)
+				} else {
+					r, acc := rng.Intn(tot), 0
+					mv = acts[len(acts)-1].(int)
+					for j, n := range nvis {
+						acc += n
+						if r < acc {
+							mv = acts[j].(int)
+							break
+						}
 					}
 				}
 			} else {
