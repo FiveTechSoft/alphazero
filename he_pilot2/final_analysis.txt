@@ -1,0 +1,14 @@
+arm mean_audit mean_spent mean_wall_ms mean_ops
+freqrule 172.1 6000000 1032 918536
+learned 154.67 6000000 998 1108412
+random 154.85 6000000 1016 747259
+transfer 156.35 6000000 969 702870
+transfer_shuf 146.33 6000000 956 750703
+ucb 155.54 6000000 1006 707038
+transfer - random: 1.50 [-5.19, 7.88]
+transfer - freqrule: -15.75 [-22.42, -8.98]
+transfer - transfer_shuf: 10.02 [4.04, 16.31]
+transfer - learned: 1.69 [-4.00, 7.62]
+learned - random: -0.19 [-6.62, 6.17]
+freqrule - random: 17.25 [10.56, 24.04]
+transfer - ucb: 0.81 [-5.33, 6.52]
