@@ -471,7 +471,8 @@ func LoadProblems(path, k string) []MState {
 	}
 	var raw map[string][]map[string]json.RawMessage
 	if err := json.Unmarshal(data, &raw); err != nil {
-		panic(err)
+		fmt.Printf("aviso: %s no es JSON valido; se omite (%v)\n", path, err)
+		return nil
 	}
 	var out []MState
 	for _, pr := range raw[k] {

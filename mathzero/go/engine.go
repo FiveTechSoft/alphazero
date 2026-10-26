@@ -46,6 +46,9 @@ func expand(n *Node, s any, g Game, net Net) float64 {
 // MCTSVisits ejecuta sims simulaciones PUCT y devuelve las acciones de la
 // raiz con sus visitas (para argmax o muestreo con temperatura).
 func MCTSVisits(s any, g Game, net Net, sims int, cPuct float64) ([]any, []int) {
+	if done, _ := g.Terminal(s); done {
+		return nil, nil
+	}
 	root := &Node{}
 	expand(root, s, g, net)
 	for i := 0; i < sims; i++ {
@@ -73,6 +76,9 @@ func MCTSVisits(s any, g Game, net Net, sims int, cPuct float64) ([]any, []int) 
 					bestScore, best = q+u, j
 				}
 			}
+			if best < 0 {
+				break
+			}
 			path = append(path, step{node, best})
 			cur = g.Play(cur, node.Acts[best])
 			child, ok := node.Children[best]
@@ -98,6 +104,9 @@ func MCTSVisits(s any, g Game, net Net, sims int, cPuct float64) ([]any, []int) 
 // MCTS devuelve la accion mas visitada.
 func MCTS(s any, g Game, net Net, sims int, cPuct float64) any {
 	acts, n := MCTSVisits(s, g, net, sims, cPuct)
+	if len(acts) == 0 {
+		return nil
+	}
 	best, bestN := 0, -1
 	for j, x := range n {
 		if x > bestN {

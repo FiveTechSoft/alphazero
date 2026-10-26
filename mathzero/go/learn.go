@@ -150,6 +150,9 @@ func EvalLevel(net *MLP, probs []MState, cap int) (int, int) {
 		}
 		nodes += n
 	}
+	if len(probs) == 0 {
+		return ok, 0
+	}
 	return ok, nodes / len(probs)
 }
 

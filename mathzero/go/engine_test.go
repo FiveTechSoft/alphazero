@@ -202,6 +202,33 @@ func TestMCTSGanaForzada(t *testing.T) {
 	}
 }
 
+// En un estado terminal no se buscan ni se devuelven jugadas.
+func TestMCTSTerminalSinJugadas(t *testing.T) {
+	g := TicTacToe{}
+	done := any(TTTState{Player: 1, Board: [9]int8{1, 1, 1, -1, -1, 0, 0, 0, 0}})
+	acts, visits := MCTSVisits(done, g, nil, 10, 1.5)
+	if len(acts) != 0 || len(visits) != 0 {
+		t.Errorf("estado terminal devolvio %d acciones y %d visitas", len(acts), len(visits))
+	}
+	if mv := MCTS(done, g, nil, 10, 1.5); mv != nil {
+		t.Errorf("MCTS terminal devolvio %v, esperado nil", mv)
+	}
+}
+
+// Una red vacia (sin acciones) no debe provocar panico en la busqueda.
+func TestMCTSSinAcciones(t *testing.T) {
+	acts, visits := MCTSVisits(sinAcciones{}, sinAcciones{}, nil, 5, 1.5)
+	if len(acts) != 0 || len(visits) != 0 {
+		t.Errorf("juego sin acciones devolvio %d acciones y %d visitas", len(acts), len(visits))
+	}
+}
+
+type sinAcciones struct{}
+
+func (sinAcciones) Legal(any) []any              { return nil }
+func (sinAcciones) Play(s any, _ any) any        { return s }
+func (sinAcciones) Terminal(any) (bool, float64) { return false, 0 }
+
 // Guardar/cargar la red conserva las puntuaciones.
 func TestMLPRoundTrip(t *testing.T) {
 	n := NewMLP(7)

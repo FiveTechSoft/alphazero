@@ -24,7 +24,12 @@ type blindEval struct {
 
 func evalBlind(net *MLP, lv map[int][]MState, cap int) blindEval {
 	var r blindEval
+	niveles := 0
 	for k := 2; k <= 8; k++ {
+		if len(lv[k]) == 0 {
+			continue
+		}
+		niveles++
 		nd := 0
 		for _, p := range lv[k] {
 			ok, n, sm := GuidedSolve(net, p.Cur, p.Target, cap)
@@ -38,7 +43,10 @@ func evalBlind(net *MLP, lv map[int][]MState, cap int) blindEval {
 		}
 		r.nodes += nd / len(lv[k])
 	}
-	r.nodes /= 7
+	if niveles == 0 {
+		return r
+	}
+	r.nodes /= niveles
 	return r
 }
 

@@ -7,6 +7,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"math"
 	"math/rand"
 	"os"
@@ -129,9 +130,15 @@ func (n *MLP) TrainCE(feats [][]float64, target int, lr float64) float64 {
 }
 
 func (n *MLP) Save(path string) {
-	f, _ := os.Create(path)
+	f, err := os.Create(path)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "aviso: no se pudo guardar %s: %v\n", path, err)
+		return
+	}
 	defer f.Close()
-	json.NewEncoder(f).Encode(n)
+	if err := json.NewEncoder(f).Encode(n); err != nil {
+		fmt.Fprintf(os.Stderr, "aviso: no se pudo escribir %s: %v\n", path, err)
+	}
 }
 
 func LoadMLP(path string) *MLP {
