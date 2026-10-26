@@ -252,3 +252,29 @@ pequena (+14,4) frente al efecto de la red. Confirma E16 por la otra diagonal:
 la biblioteca no bate al vacio en ninguna celda y sin red es claramente
 perjudicial. El pipeline sigue SIN lemas por defecto.
 Comando: `./mathzero ab e12 <semilla> 8 60 1000`.
+
+## h20 - Transferencia de freqrule a MathRing: DESCARTADO (26 oct)
+
+Pregunto: el mecanismo validado hoy en he_pilot3 (ordenar candidatos por
+frecuencia en el corpus de soluciones; primario freqrule-excl_random
++10.15 [3.75,16.56] LB>0) ¿traslada al solver real de MathRing?
+
+Transferencia: corpus online de claves de expresion (clave estructural
+del hijo tras cada paso de las pruebas resueltas del ciego, secuencial);
+en GuidedSolve el coste del hijo recibe un bonus -lam*log1p(freq).
+Modelo shipped (nivel 6, ronda 12), cap 1000, lemas=0, mismo ciego 700.
+
+| lam | resueltos | nodos_med | delta vs baseline |
+|-----|-----------|-----------|-------------------|
+| -   | 554/700   | 283       | (baseline, reproduce E9/E16) |
+| 0.1 | 554/700   | 284       | 0/700             |
+| 0.5 | 553/700   | 287       | -1/700            |
+
+Veredicto: DESCARTADO a esta granularidad. En el dominio sintetico del
+piloto los candidatos (expansiones de programas) se comparten entre
+tareas del corpus; las expresiones intermedias de MathRing casi no se
+comparten entre problemas (frecuencia ~1 -> bonus ~0.07*lam, inerte).
+Un renivelamiento por (regla, firma estructural del padre) seria otro
+experimento, no esta predeclarado y no se ejecuta hoy. La leccion para
+la linea de generacion: el corpus util es el de OPERACIONES comunes,
+no el de EXPRESIONES alcanzadas.

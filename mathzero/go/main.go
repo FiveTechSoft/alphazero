@@ -20,7 +20,7 @@ Uso:
   mathzero learn [-nosave]          entrenamiento con curriculo (12 rondas)
   mathzero cycle [n] [per] [cap]    ciclo de automejora
   mathzero curve [n] [per] [cap]    curva sobre el conjunto ciego
-  mathzero evalblind [cap] [modelo] evaluacion solo-lectura en el ciego
+  mathzero evalblind [cap] [modelo] [lam] evaluacion solo-lectura en el ciego (+lam: feedback freqrule)
   mathzero panel [cap] [modelo]     panel de capacidades (ciego + TTT)
   mathzero maze [n] [sims] [lado]   laberinto MCTS vs BFS (h9)
   mathzero discover [n] [cap] [semilla]  busca lemas nuevos (h15)

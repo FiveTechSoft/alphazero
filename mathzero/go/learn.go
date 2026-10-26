@@ -54,12 +54,13 @@ func Feats(cur, target *Expr, a MAction) []float64 {
 }
 
 type item struct {
-	cost   float64
 	e      *Expr
+	cost   float64
 	parent *item
 	acts   []MAction // acciones del padre (para reconstruir)
 	aidx   int
 	feats  [][]float64
+	kx     string // clave del hijo alcanzado por la accion que creo este item
 }
 type pq []*item
 
@@ -74,9 +75,24 @@ type Sample struct {
 	Target int
 }
 
+// Mechanismo freqrule validado en he_pilot3 (TEST 601-648:
+// freqrule-excl_random = +10.15 [3.75,16.56], LB>0): ordenar candidatos
+// por frecuencia en el corpus de caminos ya resueltos. Aqui: bonus de
+// coste en el best-first por clave de expresion alcanzada.
+var FreqT map[string]int // corpus: clave de expresion -> veces aparecida en pruebas resueltas
+var FreqLam float64      // 0 = desactivado (comportamiento E16 sin cambio)
+var LastPathKeys []string
+
+func AddPathFreqs(keys []string) {
+	for _, k := range keys {
+		FreqT[k]++
+	}
+}
+
 // GuidedSolve: net==nil -> prior uniforme. Devuelve ok, nodos, muestras del camino.
 func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
 	ClearKeyCache()
+	LastPathKeys = nil
 	tk := Key(target)
 	seen := map[string]bool{Key(start): true}
 	h := &pq{}
@@ -87,8 +103,10 @@ func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
 		nodes++
 		if Key(it.e) == tk {
 			var out []Sample
+			LastPathKeys = LastPathKeys[:0]
 			for x := it; x.parent != nil; x = x.parent {
 				out = append(out, Sample{x.parent.feats, x.aidx})
+				LastPathKeys = append(LastPathKeys, x.kx)
 			}
 			// E9: se registra el uso de cada lema en el camino ganador. El
 			// contador del lema es PERSISTENTE (lo salva/carga la biblioteca);
@@ -136,7 +154,12 @@ func GuidedSolve(net *MLP, start, target *Expr, cap int) (bool, int, []Sample) {
 			}
 			seen[k] = true
 			lp := sc[i] - mx - math.Log(z)
-			heap.Push(h, &item{cost: it.cost - lp, e: nx, parent: it, aidx: i})
+			cost := it.cost - lp
+			if FreqLam > 0 && FreqT != nil {
+				// freqrule: los hijos ya vistos en pruebas resueltas cuestan menos
+				cost -= FreqLam * math.Log1p(float64(FreqT[k]))
+			}
+			heap.Push(h, &item{cost: cost, e: nx, parent: it, aidx: i, kx: k})
 		}
 	}
 	return false, nodes, nil

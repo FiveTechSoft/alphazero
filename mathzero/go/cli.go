@@ -24,3 +24,13 @@ func parseInt64Arg(name, raw string) (int64, bool) {
 	}
 	return v, true
 }
+
+// parseFloatArg valida un argumento flotante de CLI antes de usarlo.
+func parseFloatArg(name, raw string) (float64, bool) {
+	v, err := strconv.ParseFloat(raw, 64)
+	if err != nil || v < 0 || v >= 1 {
+		fmt.Fprintf(os.Stderr, "argumento invalido: %s=%q (flotante en [0,1))\n", name, raw)
+		return 0, false
+	}
+	return v, true
+}
