@@ -51,8 +51,12 @@ func evalBlind(net *MLP, lv map[int][]MState, cap int) blindEval {
 }
 
 func CurveMain(args []string) {
+	var ok bool
+	if args, ok = parseDataFlags(args); !ok {
+		return
+	}
 	if len(args) > 3 {
-		fmt.Fprintln(os.Stderr, "uso: mathzero curve [ciclos] [problemas_por_ciclo] [cap]")
+		fmt.Fprintln(os.Stderr, "uso: mathzero curve [ciclos] [problemas_por_ciclo] [cap] [-nosave] [-datadir DIR]")
 		return
 	}
 	n, per, cap := 3, 60, 1000
@@ -82,24 +86,27 @@ func CurveMain(args []string) {
 	// explicita + dedup de sucesores. El pipeline real lo usa por defecto.
 	DirFix = true
 	r := rand.New(rand.NewSource(1))
-	net := LoadMLP("model_math.json")
+	modelPath := dataPath("model_math.json")
+	libPath := dataPath("lemas.json")
+	net := LoadMLP(modelPath)
 	if net == nil {
 		net = NewMLP(1)
 		fmt.Println("[curve] red nueva")
 	} else {
-		fmt.Printf("[curve] continuando desde model_math.json (nivel %d, ronda %d)\n", net.Level, net.Round)
+		fmt.Printf("[curve] continuando desde %s (nivel %d, ronda %d)\n", modelPath, net.Level, net.Round)
 	}
-	full := LoadLibrary("lemas.json")
+	full := LoadLibrary(libPath)
 	// E16 (cierre de E9, 2026-10-17): medido en el ciego canonico con
 	// ab e9 seed=12345 (mismo net): vacio=539 > top-8=526 > cruda=520 /700.
 	// Shipped: sin biblioteca; el top-8 queda como ablacion.
 	LemmaLib = nil
-	blind := LoadBlindKeys("blind.json")
+	blindPath := dataPath("blind.json")
+	blind := LoadBlindKeys(blindPath)
 	fmt.Printf("[curve] conjunto ciego: %d problemas excluidos del entrenamiento; biblioteca: %d candidatos, 0 activos (E16)\n",
 		len(blind), len(full.Lemmas))
 	lv := map[int][]MState{}
 	for k := 2; k <= 8; k++ {
-		lv[k] = LoadProblems("blind.json", fmt.Sprint(k))
+		lv[k] = LoadProblems(blindPath, fmt.Sprint(k))
 	}
 	report := func(tag string, e blindEval) {
 		pl := 0.0
@@ -155,8 +162,12 @@ func CurveMain(args []string) {
 			net.Level++
 		}
 		fmt.Printf("[curva %d] entreno: nivel=%d resueltos=%d/%d lemas_nuevos=%d\n", c, net.Level, solved, per, nuevos)
-		net.Save("model_math.json")
-		full.Save("lemas.json")
+		saveMLP(net, modelPath)
+		saveLibrary(full, libPath)
 	}
-	fmt.Println("[curve] modelo y biblioteca guardados")
+	if NoSave {
+		fmt.Println("[curve] -nosave: modelo y biblioteca NO guardados")
+	} else {
+		fmt.Println("[curve] modelo y biblioteca guardados")
+	}
 }

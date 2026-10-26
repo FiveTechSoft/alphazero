@@ -98,7 +98,9 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
    lista todos los subcomandos.
 4. Aprendizaje de MathRing: `./mathzero learn`
    (12 rondas con currículo; guarda `model_math.json`).
-5. Ciclo de automejora: `./mathzero cycle 3 60 1000`.
+5. Ciclo de automejora: `./mathzero cycle 3 60 1000`
+   (escribe `model_math.json`/`lemas.json`; para experimentar sin tocar el
+   árbol usa `-nosave` o `-datadir DIR`, p.ej. `cycle 3 60 1000 -nosave`).
 6. Evaluación ciega solo-lectura: `./mathzero evalblind 1000`
    (no entrena ni modifica `model_math.json`/`lemas.json`).
 7. A/B de un experimento: `./mathzero ab e4 1 -json`

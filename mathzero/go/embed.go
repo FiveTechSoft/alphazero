@@ -6,6 +6,7 @@ package main
 import (
 	_ "embed"
 	"os"
+	"path/filepath"
 )
 
 //go:embed blind.json
@@ -24,13 +25,20 @@ var embeddedLemas []byte
 var embeddedProblems []byte
 
 func readDataFile(path string) []byte {
-	if data, err := os.ReadFile(path); err == nil {
+	p := path
+	if DataDir != "" && !filepath.IsAbs(path) {
+		p = filepath.Join(DataDir, path)
+	}
+	if data, err := os.ReadFile(p); err == nil {
 		return data
 	}
-	if data, err := os.ReadFile("../" + path); err == nil {
-		return data
+	if DataDir == "" {
+		if data, err := os.ReadFile("../" + path); err == nil {
+			return data
+		}
 	}
-	switch path {
+	// Con -datadir se aceptan los datos embebidos para no depender de copias.
+	switch filepath.Base(path) {
 	case "blind.json":
 		return embeddedBlind
 	case "levels.json":

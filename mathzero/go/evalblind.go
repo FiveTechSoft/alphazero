@@ -10,11 +10,15 @@ import (
 )
 
 func EvalBlindMain(args []string) {
-	if len(args) > 2 {
-		fmt.Fprintln(os.Stderr, "uso: mathzero evalblind [cap] [modelo]")
+	var ok bool
+	if args, ok = parseDataFlags(args); !ok {
 		return
 	}
-	cap, model := 1000, "model_math.json"
+	if len(args) > 2 {
+		fmt.Fprintln(os.Stderr, "uso: mathzero evalblind [cap] [modelo] [-datadir DIR]")
+		return
+	}
+	cap, model := 1000, dataPath("model_math.json")
 	if len(args) > 0 {
 		var ok bool
 		if cap, ok = parseIntArg("cap", args[0], 1); !ok {
@@ -33,7 +37,7 @@ func EvalBlindMain(args []string) {
 	LemmaLib = nil
 	lv := map[int][]MState{}
 	for k := 2; k <= 8; k++ {
-		lv[k] = LoadProblems("blind.json", fmt.Sprint(k))
+		lv[k] = LoadProblems(dataPath("blind.json"), fmt.Sprint(k))
 	}
 	e := evalBlind(net, lv, cap)
 	pl := 0.0

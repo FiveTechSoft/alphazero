@@ -63,7 +63,7 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 		metric, tot := evalAll(net, lv, cap)
 		if perRound > 0 && tot > bestTot {
 			bestTot = tot
-			net.Save(modelPath + ".best")
+			saveMLP(net, modelPath+".best")
 			fmt.Printf("[ciclo %d] nuevo mejor modelo (%d/210): %s.best%s", c, tot, modelPath, "\n")
 		}
 		fmt.Printf("[ciclo %d] shipped sin lemas: %s total=%d/210\n", c, metric, tot)
@@ -107,21 +107,29 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 		if float64(solved)/float64(perRound) >= 0.8 && net.Level < 8 {
 			net.Level++
 			nombre := fmt.Sprintf("%s.nivel%d", modelPath, net.Level)
-			net.Save(nombre)
+			saveMLP(net, nombre)
 			fmt.Printf("[ciclo %d] nivel superado: checkpoint %s%s", c, nombre, "\n")
 		}
 		fmt.Printf("[ciclo %d] entreno: nivel=%d resueltos=%d/%d lemas_nuevos=%d total_lemas=%d\n",
 			c, net.Level, solved, perRound, nuevos, len(LemmaLib.Lemmas))
 		// 4) PERSISTENCIA: todo versionado en disco tras cada ciclo
-		net.Save(modelPath)
-		full.Save(libPath)
+		saveMLP(net, modelPath)
+		saveLibrary(full, libPath)
 	}
-	fmt.Println("[cycle] modelo y biblioteca guardados:", modelPath, libPath)
+	if NoSave {
+		fmt.Println("[cycle] -nosave: modelo y biblioteca NO guardados")
+	} else {
+		fmt.Println("[cycle] modelo y biblioteca guardados:", modelPath, libPath)
+	}
 }
 
 func CycleMain(args []string) {
+	var ok bool
+	if args, ok = parseDataFlags(args); !ok {
+		return
+	}
 	if len(args) > 3 {
-		fmt.Fprintln(os.Stderr, "uso: mathzero cycle [ciclos] [problemas_por_ciclo] [cap]")
+		fmt.Fprintln(os.Stderr, "uso: mathzero cycle [ciclos] [problemas_por_ciclo] [cap] [-nosave] [-datadir DIR]")
 		return
 	}
 	n, per, cap := 6, 150, 2000
@@ -143,5 +151,5 @@ func CycleMain(args []string) {
 			return
 		}
 	}
-	Cycle(n, per, cap, "model_math.json", "lemas.json", 1)
+	Cycle(n, per, cap, dataPath("model_math.json"), dataPath("lemas.json"), 1)
 }

@@ -194,6 +194,10 @@ func armJSON(e blindEval) ABArmJSON {
 }
 
 func ABMain(args []string) {
+	var ok bool
+	if args, ok = parseDataFlags(args); !ok {
+		return
+	}
 	wantJSON := false
 	var pos []string
 	for _, a := range args {
@@ -205,7 +209,7 @@ func ABMain(args []string) {
 	}
 	args = pos
 	if len(args) < 2 || len(args) > 5 {
-		fmt.Println("uso: ./mathzero ab <e2|e4|e8|e9|e10|e11|e13> <semilla> [rondas] [por_ronda] [cap] [-json]")
+		fmt.Println("uso: ./mathzero ab <e2|e4|e8|e9|e10|e11|e13> <semilla> [rondas] [por_ronda] [cap] [-json] [-nosave] [-datadir DIR]")
 		return
 	}
 	exp := args[0]
@@ -278,9 +282,9 @@ func ABMain(args []string) {
 				Experimento: exp, Semilla: seed, Rondas: rounds, PorRonda: per, Cap: cap,
 				Baseline: armJSON(ebase9), Variante: armJSON(evari9),
 			}
-			name := fmt.Sprintf("resultados_ab_%s_seed%d.json", exp, seed)
+			name := dataPath(fmt.Sprintf("resultados_ab_%s_seed%d.json", exp, seed))
 			data, _ := json.MarshalIndent(out, "", "  ")
-			if err := writeFileAtomic(name, data); err != nil {
+			if err := saveJSON(name, data); err != nil {
 				fmt.Println("[ab] error escribiendo", name, ":", err)
 			} else {
 				fmt.Println("[ab] resultados escritos en", name)
@@ -305,9 +309,9 @@ func ABMain(args []string) {
 			Experimento: exp, Semilla: seed, Rondas: rounds, PorRonda: per, Cap: cap,
 			Baseline: armJSON(ebase), Variante: armJSON(evari),
 		}
-		name := fmt.Sprintf("resultados_ab_%s_seed%d.json", exp, seed)
+		name := dataPath(fmt.Sprintf("resultados_ab_%s_seed%d.json", exp, seed))
 		data, _ := json.MarshalIndent(out, "", "  ")
-		if err := writeFileAtomic(name, data); err != nil {
+		if err := saveJSON(name, data); err != nil {
 			fmt.Println("[ab] error escribiendo", name, ":", err)
 		} else {
 			fmt.Println("[ab] resultados escritos en", name)

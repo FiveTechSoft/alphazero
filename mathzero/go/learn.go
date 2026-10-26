@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"os"
 )
 
 func size(e *Expr) int {
@@ -188,6 +189,18 @@ func genTrain(r *rand.Rand, k int) (*Expr, *Expr) {
 
 func LoadLevels(k int) []MState { return LoadProblems("levels.json", fmt.Sprint(k)) }
 
+func LearnMain(args []string) {
+	rest, ok := parseDataFlags(args)
+	if !ok {
+		return
+	}
+	if len(rest) > 0 {
+		fmt.Fprintln(os.Stderr, "uso: mathzero learn [-nosave] [-datadir DIR]")
+		return
+	}
+	Curriculum(12, 150, 2000, dataPath("model_math.json"), 1)
+}
+
 func Curriculum(rounds, perRound, cap int, modelPath string, seed int64) {
 	// E11 aceptado (ver RESULTADOS_MEJORAS.md): motor con direccion
 	// explicita + dedup de sucesores. El pipeline real lo usa por defecto.
@@ -252,6 +265,10 @@ func Curriculum(rounds, perRound, cap int, modelPath string, seed int64) {
 			report(fmt.Sprintf("ronda %d", rd))
 		}
 	}
-	net.Save(modelPath)
-	fmt.Println("[learn] modelo guardado en", modelPath)
+	saveMLP(net, modelPath)
+	if NoSave {
+		fmt.Println("[learn] -nosave: modelo NO guardado")
+	} else {
+		fmt.Println("[learn] modelo guardado en", modelPath)
+	}
 }

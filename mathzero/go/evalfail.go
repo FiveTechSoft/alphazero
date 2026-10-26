@@ -61,8 +61,12 @@ func histStr(h map[int]int) string {
 }
 
 func EvalFail(args []string) {
+	var ok bool
+	if args, ok = parseDataFlags(args); !ok {
+		return
+	}
 	if len(args) > 6 {
-		fmt.Fprintln(os.Stderr, "uso: mathzero evalfail [datos] [modelo] [capNet] [capOr] [kmin] [kmax]")
+		fmt.Fprintln(os.Stderr, "uso: mathzero evalfail [datos] [modelo] [capNet] [capOr] [kmin] [kmax] [-datadir DIR]")
 		return
 	}
 	path, model := "levels.json", "model_math.json"

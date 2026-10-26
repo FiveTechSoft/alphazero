@@ -142,7 +142,8 @@ antes de medir y, cuando aplique, reportarse sobre el conjunto ciego.
    escriben `model_math.json` y `lemas.json` versionados (ver AGENTS.md).
    Anadir `-nosave`/`-datadir` y un test/CI que verifique que `evalblind` y las
    mediciones no dejan el arbol sucio. Sin esto, cualquier tabla futura es
-   fragil.
+   fragil. **HECHO (26-oct)**: flags en `curve`/`cycle`/`learn`/`ab`/
+   `evalblind`/`evalfail`; tests `dataflags_test.go` (nosave, datadir y no-op).
 2. (P1) **Cerrar E13** (puerta de aceptacion por set fijo): completar el A/B
    de 3 semillas en cadena local. Es la salvaguarda para aceptar modelos.
 3. (P1) **E12 (factorial 2x2 red x biblioteca)** multisemilla y eval-only:
