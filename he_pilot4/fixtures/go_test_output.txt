@@ -1,0 +1,17 @@
+=== RUN   TestChooseTieredMatchesReference
+--- PASS: TestChooseTieredMatchesReference (0.01s)
+=== RUN   TestRandomSlotComesFromIdxOrder
+--- PASS: TestRandomSlotComesFromIdxOrder (0.00s)
+=== RUN   TestPickLearnedEligRNGConsumption
+--- PASS: TestPickLearnedEligRNGConsumption (0.00s)
+=== RUN   TestEligibleEdit
+--- PASS: TestEligibleEdit (0.00s)
+=== RUN   TestRidgeMatchesCholesky
+--- PASS: TestRidgeMatchesCholesky (0.00s)
+=== RUN   TestFitEligFilterAndShuffle
+rows total 400 eligible 207
+learned_elig [0.11344952213115844 -0.035592069654242255 -0.14707262677406222 0 0.2961142185594665 -0.34934685203099003 0 -0.20079089124286242 0.2624003101681476 0.5377709718691789 -0.5883042390105369 0.2991072468086436]
+learned_elig_shuf [-0.10360372187836578 -0.0314259445986462 -0.006443009822708762 0 -0.06573476745705564 0.8303520146261638 0 0.646391544695357 -0.3904454598044136 0.3815415319640473 -0.37018331425676415 -0.6694205610187968]
+--- PASS: TestFitEligFilterAndShuffle (0.00s)
+PASS
+ok  	he	(cached)

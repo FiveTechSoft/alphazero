@@ -1,0 +1,1 @@
+[{"Seed":951,"Arm":"learned_elig","AuditSolve":111,"AuditCost":311877,"Rounds":0,"LibSize":8,"Accepts":0,"Evals":0,"Spent":20000,"WallMs":3,"Ops":0,"Fallback":0,"Ties":0},{"Seed":951,"Arm":"learned_elig_shuf","AuditSolve":111,"AuditCost":311877,"Rounds":0,"LibSize":8,"Accepts":0,"Evals":0,"Spent":20000,"WallMs":3,"Ops":0,"Fallback":0,"Ties":0}]
