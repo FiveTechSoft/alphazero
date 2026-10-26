@@ -167,6 +167,19 @@ func abReport(tag string, e blindEval) {
 		e.perLevel[6]+e.perLevel[7]+e.perLevel[8], e.nodes)
 }
 
+type ABFactorialJSON struct {
+	Experimento  string    `json:"experimento"`
+	Semilla      int64     `json:"semilla"`
+	Rondas       int       `json:"rondas"`
+	PorRonda     int       `json:"por_ronda"`
+	Cap          int       `json:"cap"`
+	Lemas        int       `json:"lemas"`
+	RedBiblio    ABArmJSON `json:"red_biblioteca"`
+	RedVacio     ABArmJSON `json:"red_vacio"`
+	SinRedBiblio ABArmJSON `json:"sin_red_biblioteca"`
+	SinRedVacio  ABArmJSON `json:"sin_red_vacio"`
+}
+
 type ABArmJSON struct {
 	PorNivel map[string]int `json:"por_nivel"`
 	Total    int            `json:"total"`
@@ -253,6 +266,49 @@ func ABMain(args []string) {
 		vari = ExpCfg{DirFix: true}
 	case "e13":
 		vari = ExpCfg{Accept: true}
+	case "e12":
+		// Ablacion factorial 2x2 (red x biblioteca) eval-only: se entrena
+		// UN modelo con la biblioteca cruda para medir uso y, con el mismo
+		// ciego, se evaluan las cuatro celdas. La celda sin-red+biblio es la
+		// que faltaba en las ablaciones de `curve`.
+		lib := LoadLibrary(dataPath("lemas.json"))
+		fmt.Printf("[ab e12 seed=%d] factorial 2x2 eval-only, rondas=%d por_ronda=%d cap=%d, biblioteca=%d lemas\n",
+			seed, rounds, per, cap, len(lib.Lemmas))
+		LemmaLib, LemmaUso = lib, map[int]int{}
+		DirFix = true
+		net12 := trainArm(ExpCfg{DirFix: true}, seed, rounds, per, cap, blind)
+		podada := lib.Pruned(LemmaUso, 8)
+		fmt.Printf("[ab e12 seed=%d] lemas con uso medido: %d de %d; top-8 queda en %d\n",
+			seed, len(LemmaUso), len(lib.Lemmas), len(podada.Lemmas))
+		savedLib, savedUso := LemmaLib, LemmaUso
+		evalArm := func(tag string, net *MLP, l *Library) blindEval {
+			LemmaLib = l
+			DirFix = true
+			e := evalBlind(net, lv, cap)
+			abReport(tag, e)
+			return e
+		}
+		eRB := evalArm(fmt.Sprintf("e12 seed=%d red+biblio (%d lemas)", seed, len(podada.Lemmas)), net12, podada)
+		eRV := evalArm(fmt.Sprintf("e12 seed=%d red+vacio (sin lemas)", seed), net12, nil)
+		eSB := evalArm(fmt.Sprintf("e12 seed=%d sin-red+biblio (%d lemas)", seed, len(podada.Lemmas)), nil, podada)
+		eSV := evalArm(fmt.Sprintf("e12 seed=%d sin-red+vacio (sin lemas)", seed), nil, nil)
+		LemmaLib, LemmaUso = savedLib, savedUso
+		if wantJSON {
+			out := ABFactorialJSON{
+				Experimento: exp, Semilla: seed, Rondas: rounds, PorRonda: per, Cap: cap,
+				Lemas:     len(podada.Lemmas),
+				RedBiblio: armJSON(eRB), RedVacio: armJSON(eRV),
+				SinRedBiblio: armJSON(eSB), SinRedVacio: armJSON(eSV),
+			}
+			name := dataPath(fmt.Sprintf("resultados_ab_%s_seed%d.json", exp, seed))
+			data, _ := json.MarshalIndent(out, "", "  ")
+			if err := saveJSON(name, data); err != nil {
+				fmt.Println("[ab] error escribiendo", name, ":", err)
+			} else {
+				fmt.Println("[ab] resultados escritos en", name)
+			}
+		}
+		return
 	case "e9":
 		// Poda de lemas-accion por uso medido: UN entrenamiento con la
 		// biblioteca cruda midiendo uso; mismo modelo evaluado con la

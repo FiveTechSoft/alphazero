@@ -147,7 +147,10 @@ antes de medir y, cuando aplique, reportarse sobre el conjunto ciego.
 2. (P1) **Cerrar E13** (puerta de aceptacion por set fijo): completar el A/B
    de 3 semillas en cadena local. Es la salvaguarda para aceptar modelos.
 3. (P1) **E12 (factorial 2x2 red x biblioteca)** multisemilla y eval-only:
-   resuelve la interaccion que E9/E10/E16 midieron por separado.
+   resuelve la interaccion que E9/E10/E16 midieron por separado. **EN CURSO
+   (26-oct)**: implementado `./mathzero ab e12 <semilla>` (entrena un modelo
+   con la biblioteca cruda para medir uso y evalua red x biblioteca top-8 en
+   el mismo ciego; JSON con las 4 celdas). Falta la tanda de 3 semillas.
 4. (P1) **Panel de capacidades (h18)**: comando unico `panel` con 3 semillas,
    por nivel, nodos/tiempo y JSON versionado en `resultados/`. Convierte las
    mediciones dispersas en una tabla reproducible (Q3/Q10/h12).

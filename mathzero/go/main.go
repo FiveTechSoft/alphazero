@@ -27,7 +27,7 @@ Uso:
   mathzero judgesv                  exporta/verifica vectores del juez
   mathzero genblind                 regenera blind.json (semilla 12345)
 
-Experimentos de "ab": e2, e4, e8, e9, e10, e11, e13.
+Experimentos de "ab": e2, e4, e8, e9, e10, e11, e12, e13.
 Los comandos cycle/curve escriben model_math.json y lemas.json.
 Flags comunes: -nosave (no escribe nada) y -datadir DIR (lee/escribe ahi).
 `)
