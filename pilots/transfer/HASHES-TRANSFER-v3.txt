@@ -1,0 +1,11 @@
+# Hashes sha256 del instrumento TRANSFER exploratorio (bytes congelados en este commit).
+# PROTOCOLO-TRANSFER-exploratorio.md incluye el ajuste D1 (n efectivo = P+N); guard.sh sin cambios desde el freeze A1C-B.
+b6e6ec01eaba8dc7c5dc6cb0cd0b09801dd94502729d54d2171ccb62b51fdf6a  PROTOCOLO-TRANSFER-exploratorio.md
+df3cb75ed11740615a4ad05ff9f72b6346c8781bb486387d1a2cd91e3d403930  mathzero/go/a1_transfer.go
+10befbc4da029b8f16501d271b8c1dbbc30a071d9148b045406ef9a9bf48f7b6  mathzero/go/a1_transfer_test.go
+f80d32903ff8abeb3bc00d70c5380597343d90d401f3f16427b6587f1feb8a54  mathzero/go/a1_transfer_confirm.go
+c5ec6dde8936a0c1ac650ff3bbce7d0afa29113736cb4ded8841f7fbbfdb65b4  mathzero/go/a1_transfer_confirm_test.go
+1919309a4adb6444a319bbd2f885439c40960e70ec60805c857abb6985835f12  scripts/transfer_run.sh
+28d958fcab9cc5918e8e9edf160af724b1b9f7ddf7eef6e36588c7dad5ff98d4  scripts/transfer_stage.sh
+4438504190c19e9a87a175bd43da9eef604cccdaaee729d3c3bdcc76e1210259  scripts/transfer_test.sh
+10c99f12008d4aad7868ab77f194af64350040cc2ed831912edfefa8861a5a8f  scripts/guard.sh
