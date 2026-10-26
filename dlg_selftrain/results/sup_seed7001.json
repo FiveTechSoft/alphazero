@@ -1,0 +1,214 @@
+{
+ "seed": 7001,
+ "arm": "sup",
+ "records": [
+  {
+   "arm": "base",
+   "seed": 7001,
+   "stage": "base_train",
+   "steps": 1500,
+   "seconds": 876.6,
+   "time": "07:31:06"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round0_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "07:34:55"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round0_gen",
+   "prompts": 800,
+   "samples_drawn": 0,
+   "kept": 800,
+   "corpus_chars": 94561,
+   "unique_answers": 13,
+   "unique_texts": 799,
+   "gen_seconds": 0.0,
+   "time": "07:34:55"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round0_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 271.8,
+   "time": "07:39:27"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round0",
+   "split": "dev_seen",
+   "acc": 0.7166666666666667,
+   "n": 300,
+   "pron_acc": 0.9658119658119658,
+   "expl_acc": 0.5573770491803278,
+   "time": "07:39:35"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round0",
+   "split": "dev_novel",
+   "acc": 0.48,
+   "n": 300,
+   "pron_acc": 0.9393939393939394,
+   "expl_acc": 0.2537313432835821,
+   "time": "07:39:42"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round1_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "07:39:42"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round1_gen",
+   "prompts": 800,
+   "samples_drawn": 0,
+   "kept": 800,
+   "corpus_chars": 96224,
+   "unique_answers": 13,
+   "unique_texts": 799,
+   "gen_seconds": 0.0,
+   "time": "07:39:42"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round1_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 286.1,
+   "time": "07:44:28"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round1",
+   "split": "dev_seen",
+   "acc": 0.76,
+   "n": 300,
+   "pron_acc": 0.9572649572649573,
+   "expl_acc": 0.6338797814207651,
+   "time": "07:44:36"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round1",
+   "split": "dev_novel",
+   "acc": 0.4866666666666667,
+   "n": 300,
+   "pron_acc": 0.8787878787878788,
+   "expl_acc": 0.2935323383084577,
+   "time": "07:44:44"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round2_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "07:44:44"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round2_gen",
+   "prompts": 800,
+   "samples_drawn": 0,
+   "kept": 800,
+   "corpus_chars": 98654,
+   "unique_answers": 13,
+   "unique_texts": 800,
+   "gen_seconds": 0.0,
+   "time": "07:44:44"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round2_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 284.5,
+   "time": "07:49:29"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round2",
+   "split": "dev_seen",
+   "acc": 0.79,
+   "n": 300,
+   "pron_acc": 0.9658119658119658,
+   "expl_acc": 0.6775956284153005,
+   "time": "07:49:36"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "round2",
+   "split": "dev_novel",
+   "acc": 0.54,
+   "n": 300,
+   "pron_acc": 0.9696969696969697,
+   "expl_acc": 0.3283582089552239,
+   "time": "07:49:44"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "TEST",
+   "split": "test_seen",
+   "acc": 0.7725,
+   "n": 400,
+   "pron_acc": 0.9533333333333334,
+   "expl_acc": 0.664,
+   "time": "07:49:54"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "TEST",
+   "split": "test_novel",
+   "acc": 0.575,
+   "n": 400,
+   "pron_acc": 0.9882352941176471,
+   "expl_acc": 0.26956521739130435,
+   "time": "07:50:05"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "TEST",
+   "split": "test_novel_long",
+   "acc": 0.5266666666666666,
+   "n": 300,
+   "pron_acc": 0.9821428571428571,
+   "expl_acc": 0.2553191489361702,
+   "time": "07:50:14"
+  },
+  {
+   "arm": "sup",
+   "seed": 7001,
+   "stage": "arm_done",
+   "seconds": 920.0,
+   "time": "07:50:14"
+  }
+ ],
+ "notes": "sup = same prompts with gold answers, same gradient budget as self. Aggregates only; raw fail examples (reserved prompt text) are not published."
+}
