@@ -1,0 +1,12 @@
+mean audit solved /300:
+  exhaustive        154.8
+  freqrule          163.5
+  learned           148.0
+  learned_shuffled  149.5
+  random            151.4
+  ucb               147.9
+learned - exhaustive        mean -6.83 CI95 [-12.08,-1.56] wins 16 losses 30 n=48
+learned - freqrule          mean -15.56 CI95 [-21.73,-9.23] wins 11 losses 35 n=48
+learned - learned_shuffled  mean -1.52 CI95 [-7.40,+4.38] wins 19 losses 29 n=48
+learned - random            mean -3.42 CI95 [-8.52,+1.25] wins 22 losses 24 n=48
+learned - ucb               mean +0.08 CI95 [-4.46,+4.46] wins 21 losses 25 n=48
