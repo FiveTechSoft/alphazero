@@ -15,7 +15,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"strconv"
+	"os"
 )
 
 func evalAll(net *MLP, lv map[int][]MState, cap int) (string, int) {
@@ -116,15 +116,28 @@ func Cycle(nCycles, perRound, cap int, modelPath, libPath string, seed int64) {
 }
 
 func CycleMain(args []string) {
+	if len(args) > 3 {
+		fmt.Fprintln(os.Stderr, "uso: mathzero cycle [ciclos] [problemas_por_ciclo] [cap]")
+		return
+	}
 	n, per, cap := 6, 150, 2000
 	if len(args) > 0 {
-		n, _ = strconv.Atoi(args[0])
+		var ok bool
+		if n, ok = parseIntArg("ciclos", args[0], 0); !ok {
+			return
+		}
 	}
 	if len(args) > 1 {
-		per, _ = strconv.Atoi(args[1])
+		var ok bool
+		if per, ok = parseIntArg("problemas_por_ciclo", args[1], 0); !ok {
+			return
+		}
 	}
 	if len(args) > 2 {
-		cap, _ = strconv.Atoi(args[2])
+		var ok bool
+		if cap, ok = parseIntArg("cap", args[2], 1); !ok {
+			return
+		}
 	}
 	Cycle(n, per, cap, "model_math.json", "lemas.json", 1)
 }

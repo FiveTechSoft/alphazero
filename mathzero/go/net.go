@@ -77,6 +77,14 @@ func (n *MLP) ScoreClean(x []float64) float64 {
 // target = indice de la accion que llevo a la solucion.
 func (n *MLP) TrainCE(feats [][]float64, target int, lr float64) float64 {
 	k := len(feats)
+	if k == 0 || target < 0 || target >= k {
+		return 0
+	}
+	for _, f := range feats {
+		if len(f) != NFeat {
+			return 0
+		}
+	}
 	hidden := make([][]float64, k)
 	scores := make([]float64, k)
 	maxs := -1e18
@@ -141,13 +149,25 @@ func (n *MLP) Save(path string) {
 	}
 }
 
+func (n *MLP) valid() bool {
+	if n == nil || len(n.W1) != NHid || len(n.B1) != NHid || len(n.W2) != NHid {
+		return false
+	}
+	for _, row := range n.W1 {
+		if len(row) != NFeat {
+			return false
+		}
+	}
+	return true
+}
+
 func LoadMLP(path string) *MLP {
 	data := readDataFile(path)
 	if data == nil {
 		return nil
 	}
 	n := &MLP{}
-	if json.Unmarshal(data, n) != nil {
+	if json.Unmarshal(data, n) != nil || !n.valid() {
 		return nil
 	}
 	n.m1 = make([][]float64, NHid)

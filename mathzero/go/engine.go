@@ -34,14 +34,50 @@ func expand(n *Node, s any, g Game, net Net) float64 {
 	n.Children = make(map[int]*Node, len(n.Acts))
 	n.Expanded = true
 	if net == nil {
-		for i := range n.P {
-			n.P[i] = 1.0 / float64(len(n.P))
-		}
+		setUniformPriors(n.P)
 		return 0.0
 	}
 	p, v := net.Predict(s, n.Acts)
-	copy(n.P, p)
+	if !setPriors(n.P, p) {
+		setUniformPriors(n.P)
+	}
+	if math.IsNaN(v) || math.IsInf(v, 0) {
+		v = 0
+	}
 	return v
+}
+
+func setUniformPriors(p []float64) {
+	if len(p) == 0 {
+		return
+	}
+	u := 1.0 / float64(len(p))
+	for i := range p {
+		p[i] = u
+	}
+}
+
+// setPriors copia y normaliza las priors de la red. Si la red devuelve
+// un vector invalido (longitud, valores negativos o no finitos, suma no
+// positiva), el llamador cae a prior uniforme.
+func setPriors(dst, src []float64) bool {
+	if len(dst) != len(src) || len(dst) == 0 {
+		return false
+	}
+	sum := 0.0
+	for _, x := range src {
+		if math.IsNaN(x) || math.IsInf(x, 0) || x < 0 {
+			return false
+		}
+		sum += x
+	}
+	if sum <= 0 {
+		return false
+	}
+	for i, x := range src {
+		dst[i] = x / sum
+	}
+	return true
 }
 
 // MCTSVisits ejecuta sims simulaciones PUCT y devuelve las acciones de la

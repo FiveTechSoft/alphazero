@@ -11,7 +11,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"strconv"
+	"os"
 )
 
 type blindEval struct {
@@ -51,19 +51,32 @@ func evalBlind(net *MLP, lv map[int][]MState, cap int) blindEval {
 }
 
 func CurveMain(args []string) {
+	if len(args) > 3 {
+		fmt.Fprintln(os.Stderr, "uso: mathzero curve [ciclos] [problemas_por_ciclo] [cap]")
+		return
+	}
+	n, per, cap := 3, 60, 1000
+	if len(args) > 0 {
+		var ok bool
+		if n, ok = parseIntArg("ciclos", args[0], 0); !ok {
+			return
+		}
+	}
+	if len(args) > 1 {
+		var ok bool
+		if per, ok = parseIntArg("problemas_por_ciclo", args[1], 0); !ok {
+			return
+		}
+	}
+	if len(args) > 2 {
+		var ok bool
+		if cap, ok = parseIntArg("cap", args[2], 1); !ok {
+			return
+		}
+	}
 	// E11 aceptado (ver RESULTADOS_MEJORAS.md): motor con direccion
 	// explicita + dedup de sucesores. El pipeline real lo usa por defecto.
 	DirFix = true
-	n, per, cap := 3, 60, 1000
-	if len(args) > 0 {
-		n, _ = strconv.Atoi(args[0])
-	}
-	if len(args) > 1 {
-		per, _ = strconv.Atoi(args[1])
-	}
-	if len(args) > 2 {
-		cap, _ = strconv.Atoi(args[2])
-	}
 	r := rand.New(rand.NewSource(1))
 	net := LoadMLP("model_math.json")
 	if net == nil {

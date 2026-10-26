@@ -7,8 +7,8 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"sort"
-	"strconv"
 )
 
 // BFSOraculo: BFS con padres; devuelve (resuelto, nodos, profundidad, reglas del camino).
@@ -61,6 +61,10 @@ func histStr(h map[int]int) string {
 }
 
 func EvalFail(args []string) {
+	if len(args) > 6 {
+		fmt.Fprintln(os.Stderr, "uso: mathzero evalfail [datos] [modelo] [capNet] [capOr] [kmin] [kmax]")
+		return
+	}
 	path, model := "levels.json", "model_math.json"
 	capNet, capOr, kmin, kmax := 2000, 50000, 2, 8
 	if len(args) > 0 {
@@ -70,16 +74,32 @@ func EvalFail(args []string) {
 		model = args[1]
 	}
 	if len(args) > 2 {
-		capNet, _ = strconv.Atoi(args[2])
+		var ok bool
+		if capNet, ok = parseIntArg("capNet", args[2], 1); !ok {
+			return
+		}
 	}
 	if len(args) > 3 {
-		capOr, _ = strconv.Atoi(args[3])
+		var ok bool
+		if capOr, ok = parseIntArg("capOr", args[3], 1); !ok {
+			return
+		}
 	}
 	if len(args) > 4 {
-		kmin, _ = strconv.Atoi(args[4])
+		var ok bool
+		if kmin, ok = parseIntArg("kmin", args[4], 0); !ok {
+			return
+		}
 	}
 	if len(args) > 5 {
-		kmax, _ = strconv.Atoi(args[5])
+		var ok bool
+		if kmax, ok = parseIntArg("kmax", args[5], 0); !ok {
+			return
+		}
+	}
+	if kmin > kmax {
+		fmt.Fprintln(os.Stderr, "argumento invalido: kmin no puede ser mayor que kmax")
+		return
 	}
 	net := LoadMLP(model)
 	if net == nil {

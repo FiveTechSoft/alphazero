@@ -13,7 +13,6 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
-	"strconv"
 )
 
 type ExpCfg struct {
@@ -205,21 +204,30 @@ func ABMain(args []string) {
 		}
 	}
 	args = pos
-	if len(args) < 2 {
+	if len(args) < 2 || len(args) > 5 {
 		fmt.Println("uso: ./mathzero ab <e2|e4|e8|e9|e10|e11|e13> <semilla> [rondas] [por_ronda] [cap] [-json]")
 		return
 	}
 	exp := args[0]
-	seed, _ := strconv.ParseInt(args[1], 10, 64)
+	seed, ok := parseInt64Arg("semilla", args[1])
+	if !ok {
+		return
+	}
 	rounds, per, cap := 8, 60, 1000
 	if len(args) > 2 {
-		rounds, _ = strconv.Atoi(args[2])
+		if rounds, ok = parseIntArg("rondas", args[2], 1); !ok {
+			return
+		}
 	}
 	if len(args) > 3 {
-		per, _ = strconv.Atoi(args[3])
+		if per, ok = parseIntArg("por_ronda", args[3], 1); !ok {
+			return
+		}
 	}
 	if len(args) > 4 {
-		cap, _ = strconv.Atoi(args[4])
+		if cap, ok = parseIntArg("cap", args[4], 1); !ok {
+			return
+		}
 	}
 	LemmaLib = nil
 	blind := LoadBlindKeys("blind.json")

@@ -1,0 +1,119 @@
+package main
+
+import (
+	"encoding/json"
+	"math"
+	"os"
+	"path/filepath"
+	"testing"
+)
+
+type fakeNet struct {
+	priors []float64
+	value  float64
+}
+
+func (f fakeNet) Predict(any, []any) ([]float64, float64) {
+	return f.priors, f.value
+}
+
+func TestExpandNormalizaPriors(t *testing.T) {
+	priors := make([]float64, 9)
+	for i := range priors {
+		priors[i] = 1
+	}
+	priors[0] = 3
+
+	n := &Node{}
+	v := expand(n, any(TTTState{Player: 1}), TicTacToe{}, fakeNet{priors: priors, value: math.NaN()})
+	if v != 0 {
+		t.Errorf("valor no finito no se neutralizo: %v", v)
+	}
+	sum := 0.0
+	for _, p := range n.P {
+		sum += p
+	}
+	if math.Abs(sum-1) > 1e-12 {
+		t.Errorf("priors no normalizadas: suma=%v", sum)
+	}
+	if math.Abs(n.P[0]-3.0/11.0) > 1e-12 {
+		t.Errorf("prior relativa mal conservada: %v", n.P[0])
+	}
+}
+
+func TestExpandPriorsInvalidasFallbackUniforme(t *testing.T) {
+	casos := []struct {
+		nombre string
+		priors []float64
+	}{
+		{"longitud", []float64{1, 2}},
+		{"negativa", func() []float64 {
+			p := make([]float64, 9)
+			p[2] = -1
+			return p
+		}()},
+		{"nan", func() []float64 {
+			p := make([]float64, 9)
+			p[3] = math.NaN()
+			return p
+		}()},
+	}
+	for _, c := range casos {
+		t.Run(c.nombre, func(t *testing.T) {
+			n := &Node{}
+			expand(n, any(TTTState{Player: 1}), TicTacToe{}, fakeNet{priors: c.priors})
+			for i, p := range n.P {
+				if math.Abs(p-1.0/9.0) > 1e-12 {
+					t.Errorf("prior %d = %v, esperado uniforme", i, p)
+				}
+			}
+		})
+	}
+}
+
+func TestTrainCEEntradasInvalidasNoPanican(t *testing.T) {
+	n := NewMLP(1)
+	if got := n.TrainCE(nil, 0, 0.003); got != 0 {
+		t.Errorf("sin acciones devolvio %v", got)
+	}
+	feats := [][]float64{make([]float64, NFeat), make([]float64, NFeat)}
+	if got := n.TrainCE(feats, -1, 0.003); got != 0 {
+		t.Errorf("target negativo devolvio %v", got)
+	}
+	if got := n.TrainCE(feats, len(feats), 0.003); got != 0 {
+		t.Errorf("target fuera de rango devolvio %v", got)
+	}
+	if got := n.TrainCE([][]float64{{1, 2}}, 0, 0.003); got != 0 {
+		t.Errorf("features cortas devolvieron %v", got)
+	}
+	loss := n.TrainCE(feats, 1, 0.003)
+	if math.IsNaN(loss) || math.IsInf(loss, 0) {
+		t.Errorf("loss no finita en entrada valida: %v", loss)
+	}
+}
+
+func TestLoadMLPRechazaFormasInvalidas(t *testing.T) {
+	dir := t.TempDir()
+
+	invalido := filepath.Join(dir, "invalido.json")
+	if err := os.WriteFile(invalido, []byte(`{"w1":[],"b1":[],"w2":[]}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if n := LoadMLP(invalido); n != nil {
+		t.Error("LoadMLP acepto una red sin capas")
+	}
+
+	n := NewMLP(1)
+	n.W1[0] = n.W1[0][:NFeat-1]
+	data, err := json.Marshal(n)
+	if err != nil {
+		t.Fatal(err)
+	}
+	malformado := filepath.Join(dir, "malformado.json")
+	if err := os.WriteFile(malformado, data, 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if got := LoadMLP(malformado); got != nil {
+		t.Error("LoadMLP acepto una fila de W1 con longitud incorrecta")
+	}
+}

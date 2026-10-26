@@ -14,17 +14,18 @@ func usage() {
 	fmt.Print(`MathZero - motor de autojuego con juez exacto
 
 Uso:
-  mathzero                     prueba rapida (bench MCTS + juez + BFS)
-  mathzero help                muestra esta ayuda
-  mathzero benchttt            bench del tres en raya (sin red)
-  mathzero learn               entrenamiento con curriculo (12 rondas)
-  mathzero cycle [n] [per] [cap]   ciclo de automejora
-  mathzero curve [n] [per] [cap]   curva sobre el conjunto ciego
+  mathzero                          prueba rapida (bench MCTS + juez + BFS)
+  mathzero help                     muestra esta ayuda
+  mathzero benchttt                 bench del tres en raya (sin red)
+  mathzero learn                    entrenamiento con curriculo (12 rondas)
+  mathzero cycle [n] [per] [cap]    ciclo de automejora
+  mathzero curve [n] [per] [cap]    curva sobre el conjunto ciego
   mathzero ab <exp> <semilla> [rondas] [per] [cap] [-json]
   mathzero evalfail [datos] [modelo] [capNet] [capOr] [kmin] [kmax]
-  mathzero judgesv             exporta/verifica vectores del juez
-  mathzero genblind            regenera blind.json (semilla 12345)
+  mathzero judgesv                  exporta/verifica vectores del juez
+  mathzero genblind                 regenera blind.json (semilla 12345)
 
+Experimentos de "ab": e2, e4, e8, e9, e10, e11, e13.
 Los comandos cycle/curve escriben model_math.json y lemas.json.
 `)
 }
