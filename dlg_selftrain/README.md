@@ -46,4 +46,10 @@ Hypotheses, reported per split (no retrospective re-specification):
   favor, novel_long -0.017 against. No stable verifier advantage is claimed.
 Open honest reading (n=1): rounds with or without verification did not improve
 explicit compositional generalization; self improved pronoun reference
-tracking in new contexts. Seed 7002 pending.
+tracking in new contexts. Seed 7002 (partial; base gate passed, dev_seen expl 0.5464 n=183):
+  arm | seen total (pron/expl) | novel total (pron/expl) | long total (pron/expl)
+  b0  | 267/400 (133/150, 134/250) | 228/400 (152/170, 76/230) | 158/300 (94/112, 64/188)
+  sup | 297/400 (147/150, 150/250) | 219/400 (158/170, 61/230) | 144/300 (106/112, 38/188)
+  Same pattern as seed 7001 for sup: better seen, WORSE explicit novel
+  (76->61/230) and explicit long (64->38/188). self/selfuf 7002 pending.
+  Details: results/base_b0_sup_seed7002.json.

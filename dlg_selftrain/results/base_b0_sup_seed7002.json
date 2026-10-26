@@ -1,0 +1,303 @@
+{
+ "seed": 7002,
+ "arms": [
+  "base",
+  "b0",
+  "sup"
+ ],
+ "records": [
+  {
+   "arm": "base",
+   "seed": 7002,
+   "stage": "base_train",
+   "steps": 1500,
+   "from_step": 0,
+   "seconds": 757.8,
+   "time": "08:42:36"
+  },
+  {
+   "arm": "base",
+   "seed": 7002,
+   "stage": "base",
+   "split": "dev_seen",
+   "acc": 0.6933333333333334,
+   "n": 300,
+   "pron_acc": 0.9230769230769231,
+   "expl_acc": 0.546448087431694,
+   "time": "08:42:43"
+  },
+  {
+   "arm": "base",
+   "seed": 7002,
+   "stage": "base",
+   "split": "dev_novel",
+   "acc": 0.5233333333333333,
+   "n": 300,
+   "pron_acc": 0.8686868686868687,
+   "expl_acc": 0.35323383084577115,
+   "time": "08:42:51"
+  },
+  {
+   "arm": "b0",
+   "seed": 7002,
+   "stage": "b0_final",
+   "split": "dev_seen",
+   "acc": 0.6933333333333334,
+   "n": 300,
+   "pron_acc": 0.9230769230769231,
+   "expl_acc": 0.546448087431694,
+   "time": "08:43:34"
+  },
+  {
+   "arm": "b0",
+   "seed": 7002,
+   "stage": "b0_final",
+   "split": "dev_novel",
+   "acc": 0.5233333333333333,
+   "n": 300,
+   "pron_acc": 0.8686868686868687,
+   "expl_acc": 0.35323383084577115,
+   "time": "08:43:41"
+  },
+  {
+   "arm": "b0",
+   "seed": 7002,
+   "stage": "TEST",
+   "split": "test_seen",
+   "acc": 0.6675,
+   "n": 400,
+   "pron_acc": 0.8866666666666667,
+   "expl_acc": 0.536,
+   "time": "08:43:52"
+  },
+  {
+   "arm": "b0",
+   "seed": 7002,
+   "stage": "TEST",
+   "split": "test_novel",
+   "acc": 0.57,
+   "n": 400,
+   "pron_acc": 0.8941176470588236,
+   "expl_acc": 0.33043478260869563,
+   "time": "08:44:02"
+  },
+  {
+   "arm": "b0",
+   "seed": 7002,
+   "stage": "TEST",
+   "split": "test_novel_long",
+   "acc": 0.5266666666666666,
+   "n": 300,
+   "pron_acc": 0.8392857142857143,
+   "expl_acc": 0.3404255319148936,
+   "time": "08:44:10"
+  },
+  {
+   "arm": "b0",
+   "seed": 7002,
+   "stage": "arm_done",
+   "seconds": 44.3,
+   "time": "08:44:10"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round0_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "08:45:31"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round0_gen",
+   "prompts": 800,
+   "samples_drawn": 0,
+   "kept": 800,
+   "corpus_chars": 94561,
+   "unique_answers": 13,
+   "unique_texts": 799,
+   "gen_seconds": 0.0,
+   "time": "08:45:31"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round0_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 266.5,
+   "time": "08:49:58"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round0",
+   "split": "dev_seen",
+   "acc": 0.7033333333333334,
+   "n": 300,
+   "pron_acc": 0.9743589743589743,
+   "expl_acc": 0.5300546448087432,
+   "time": "08:50:05"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round0",
+   "split": "dev_novel",
+   "acc": 0.46,
+   "n": 300,
+   "pron_acc": 0.9191919191919192,
+   "expl_acc": 0.23383084577114427,
+   "time": "08:50:13"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round1_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "08:50:13"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round1_gen",
+   "prompts": 800,
+   "samples_drawn": 0,
+   "kept": 800,
+   "corpus_chars": 96224,
+   "unique_answers": 13,
+   "unique_texts": 799,
+   "gen_seconds": 0.0,
+   "time": "08:50:13"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round1_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 268.6,
+   "time": "08:54:41"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round1",
+   "split": "dev_seen",
+   "acc": 0.7066666666666667,
+   "n": 300,
+   "pron_acc": 1.0,
+   "expl_acc": 0.5191256830601093,
+   "time": "08:54:48"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round1",
+   "split": "dev_novel",
+   "acc": 0.43666666666666665,
+   "n": 300,
+   "pron_acc": 0.8686868686868687,
+   "expl_acc": 0.22388059701492538,
+   "time": "08:54:56"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round2_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "08:54:56"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round2_gen",
+   "prompts": 800,
+   "samples_drawn": 0,
+   "kept": 800,
+   "corpus_chars": 98654,
+   "unique_answers": 13,
+   "unique_texts": 800,
+   "gen_seconds": 0.0,
+   "time": "08:54:56"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round2_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 268.7,
+   "time": "08:59:25"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round2",
+   "split": "dev_seen",
+   "acc": 0.73,
+   "n": 300,
+   "pron_acc": 0.9743589743589743,
+   "expl_acc": 0.5737704918032787,
+   "time": "08:59:33"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "round2",
+   "split": "dev_novel",
+   "acc": 0.5366666666666666,
+   "n": 300,
+   "pron_acc": 0.9494949494949495,
+   "expl_acc": 0.3333333333333333,
+   "time": "08:59:41"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "TEST",
+   "split": "test_seen",
+   "acc": 0.7425,
+   "n": 400,
+   "pron_acc": 0.98,
+   "expl_acc": 0.6,
+   "time": "08:59:52"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "TEST",
+   "split": "test_novel",
+   "acc": 0.5475,
+   "n": 400,
+   "pron_acc": 0.9294117647058824,
+   "expl_acc": 0.26521739130434785,
+   "time": "09:00:02"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "TEST",
+   "split": "test_novel_long",
+   "acc": 0.48,
+   "n": 300,
+   "pron_acc": 0.9464285714285714,
+   "expl_acc": 0.20212765957446807,
+   "time": "09:00:11"
+  },
+  {
+   "arm": "sup",
+   "seed": 7002,
+   "stage": "arm_done",
+   "seconds": 881.1,
+   "time": "09:00:11"
+  }
+ ],
+ "notes": "Aggregates only."
+}
