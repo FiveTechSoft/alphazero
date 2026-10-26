@@ -1,0 +1,7 @@
+semilla,etapa,estado,segundos_observados,segundos_reservados,pico_rss_mib,nota
+19,pre-g3,CENSORED_TIMEOUT,270,150,444,limite 150 s; reloj de la guardia 270 s; causa desconocida
+19,train-A..post-F,no_ejecutado,,,,
+20,pre-g3,COMPLETED,130,130,497,129.4 s internos
+20,train-A,detenido_por_decision_tecnica,53,150,,etiqueta automatica CENSORED_SIGNAL; no es timeout ni completada
+20,train-F..post-F,no_ejecutado,,,,
+21-26,todas,no_iniciadas,,,,
