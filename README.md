@@ -99,9 +99,11 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
 4. Aprendizaje de MathRing: `./mathzero learn`
    (12 rondas con currículo; guarda `model_math.json`).
 5. Ciclo de automejora: `./mathzero cycle 3 60 1000`.
-6. A/B de un experimento: `./mathzero ab e4 1 -json`
+6. Evaluación ciega solo-lectura: `./mathzero evalblind 1000`
+   (no entrena ni modifica `model_math.json`/`lemas.json`).
+7. A/B de un experimento: `./mathzero ab e4 1 -json`
    (semilla 1, deja `resultados_ab_e4_seed1.json`).
-7. Windows: descargar `mathzero.exe` de la Release v0.1.1 y seguir
+8. Windows: descargar `mathzero.exe` de la Release v0.1.1 y seguir
    `GUIA_WINDOWS.txt` (ejecutar sin argumentos = prueba rápida).
 
 ## Pruebas

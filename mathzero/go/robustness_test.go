@@ -92,6 +92,39 @@ func TestTrainCEEntradasInvalidasNoPanican(t *testing.T) {
 	}
 }
 
+func TestGuidedSolveYPath(t *testing.T) {
+	prevDir, prevLib := DirFix, LemmaLib
+	DirFix, LemmaLib = true, nil
+	defer func() { DirFix, LemmaLib = prevDir, prevLib }()
+
+	start := EMul(V("a"), EAdd(V("b"), V("c")))
+	target := EAdd(EMul(V("a"), V("b")), EMul(V("a"), V("c")))
+
+	ok, nodes, samples := GuidedSolve(nil, start, target, 200)
+	if !ok {
+		t.Fatal("GuidedSolve no encontro la identidad")
+	}
+	if nodes == 0 || len(samples) == 0 {
+		t.Errorf("GuidedSolve devolvio nodos=%d muestras=%d", nodes, len(samples))
+	}
+
+	ok, nodes, path := SolvePath(nil, start, target, 200)
+	if !ok {
+		t.Fatal("SolvePath no encontro la identidad")
+	}
+	if nodes == 0 || len(path) == 0 {
+		t.Errorf("SolvePath devolvio nodos=%d pasos=%d", nodes, len(path))
+	}
+	if got := Key(path[len(path)-1].To); got != Key(target) {
+		t.Errorf("SolvePath termina en %s, esperado %s", got, Key(target))
+	}
+	for _, paso := range path {
+		if !canonEq(Canon(paso.From), Canon(paso.To)) {
+			t.Fatalf("paso %s rompe la forma canonica", paso.Rule)
+		}
+	}
+}
+
 func TestLoadTTTNetValidaFormas(t *testing.T) {
 	data, err := os.ReadFile("ttt_model.json")
 	if err != nil {
