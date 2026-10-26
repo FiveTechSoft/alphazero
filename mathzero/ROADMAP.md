@@ -126,7 +126,7 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | Q3 | Reproducibilidad | semillas fijadas visibles en cada comando; un comando por tabla | parcial |
 | Q4 | Arquitectura limpia | interfaz Game, modulos separados, sin duplicados | parcial |
 | Q5 | Rendimiento medido | RESULTADOS_BENCH.md + bench/ repetible | hecho |
-| Q6 | Documentacion "Guia para bobos" | pasos numerados, un diagrama simple, sin humo | pendiente |
+| Q6 | Documentacion "Guia para bobos" | pasos numerados, un diagrama simple, sin humo | hecho (26-oct: "Empieza aqui" en README + pasos numerados) |
 | Q7 | CLI estable | subcomandos documentados y con tests de humo | parcial (validacion, no-op y evalblind probados) |
 | Q8 | API local documentada | endpoints + ejemplos curl | hecho (26-oct: `serve` con /health, /panel y /solve; ejemplos en README) |
 | Q9 | Empaquetado en un ejecutable | un binario sin dependencias | parcial (el CLI ya es un binario) |
@@ -184,8 +184,9 @@ antes de medir y, cuando aplique, reportarse sobre el conjunto ciego.
 8. (P3) **Deuda de calidad/documentacion**: Q6 (guia para bobos), Q8 (API local
    con ejemplos `curl`), actualizar la tabla del README (sigue con cifras del
    12-oct y no refleja E9/E10/E11) y anadir `LICENSE` (no existe). **EN CURSO
-   (26-oct)**: Q8 hecho con `./mathzero serve` y ejemplos `curl` en README.
-   Faltan Q6, refrescar la tabla del README y decidir la licencia.
+   (26-oct)**: Q8 hecho con `./mathzero serve` y ejemplos `curl` en README;
+   Q6 reforzado con "Empieza aqui" y tabla del README fechada a 26-oct. Falta
+   decidir la licencia.
 
 ## Vision a largo plazo (direccion/idea de Anto, 13-oct ~00:15-00:20)
 

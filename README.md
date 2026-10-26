@@ -7,6 +7,18 @@ exacto) que aprende solo: matemáticas, juegos y puzles.
 > un «superaprendiz» que descubra cosas «tan profundas que no podemos
 > expresarlas con las palabras que tenemos hoy»." - David Silver, FT.
 
+## Empieza aquí (2 minutos)
+
+```bash
+python train.py --games 1500 --sims 40   # tres en raya rapido (~2 min)
+cd mathzero/go
+go build -o mathzero . && ./mathzero      # bench + juez exacto
+./mathzero evalblind 1000                 # examen ciego, solo lectura
+```
+
+Si algo falla, mira `mathzero/GUIA_WINDOWS.txt` (Windows) o la sección
+"Pasos para ejecutar" de este README.
+
 ## Cómo funciona
 
 ```mermaid
@@ -41,7 +53,7 @@ En 5 pasos:
    excluidos del entrenamiento). Solo cuentan los números de ese
    examen; lo no medido no se afirma.
 
-## Medido (conjunto ciego de 700 problemas, 12 oct)
+## Medido (conjunto ciego de 700 problemas; revisión 26 oct)
 
 | Resultado | Cifra | Estado |
 |-----------|-------|--------|
