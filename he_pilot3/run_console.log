@@ -1,0 +1,173 @@
+README.md: OK
+PREREG.md: OK
+main.go: OK
+go.mod: OK
+analyze3.py: OK
+run_pilot3.sh: OK
+main_pilot2_orig.go.txt: OK
+exploratory/README.md: OK
+exploratory/diag_retro.py: OK
+exploratory/diag_retro_output.txt: OK
+fixtures/new_binary_rerun_seeds901-903.json: OK
+fixtures/new_binary_seeds901-903.json: OK
+fixtures/orig_binary_seeds901-903.json: OK
+seed 601 freqrule        audit 121/300 (base 95) rounds 35 evals 105 acc 11 lib 19 spent 6000000 wallms 1951 ops 693360
+seed 601 excl_random     audit 112/300 (base 95) rounds 33 evals  99 acc 10 lib 18 spent 6000000 wallms 1945 ops 551808
+seed 601 random          audit 115/300 (base 95) rounds 32 evals  96 acc 11 lib 19 spent 6000000 wallms 1929 ops 515184
+seed 602 freqrule        audit 238/300 (base 166) rounds 69 evals 208 acc 20 lib 28 spent 6000000 wallms 1998 ops 1605696
+seed 602 excl_random     audit 189/300 (base 166) rounds 49 evals 147 acc 15 lib 23 spent 6000000 wallms 1958 ops 1061760
+seed 602 random          audit 191/300 (base 166) rounds 49 evals 149 acc 11 lib 13 spent 6000000 wallms 1926 ops 991896
+seed 603 freqrule        audit 222/300 (base 199) rounds 67 evals 201 acc 16 lib 24 spent 6000000 wallms 2058 ops 1352688
+seed 603 excl_random     audit 219/300 (base 199) rounds 62 evals 186 acc 11 lib 19 spent 6000000 wallms 1949 ops 1171080
+seed 603 random          audit 199/300 (base 199) rounds 48 evals 146 acc  8 lib 16 spent 6000000 wallms 1915 ops 885072
+seed 604 freqrule        audit 168/300 (base 149) rounds 46 evals 138 acc  9 lib 17 spent 6000000 wallms 1972 ops 795072
+seed 604 excl_random     audit 156/300 (base 149) rounds 42 evals 128 acc  4 lib 12 spent 6000000 wallms 2014 ops 734928
+seed 604 random          audit 158/300 (base 149) rounds 42 evals 126 acc 11 lib 11 spent 6000000 wallms 1827 ops 687984
+seed 605 freqrule        audit 122/300 (base 112) rounds 35 evals 107 acc  5 lib 13 spent 6000000 wallms 1855 ops 594120
+seed 605 excl_random     audit 110/300 (base 112) rounds 33 evals 100 acc  7 lib 15 spent 6000000 wallms 1898 ops 511728
+seed 605 random          audit 134/300 (base 112) rounds 34 evals 103 acc  6 lib 10 spent 6000000 wallms 1902 ops 585048
+seed 606 freqrule        audit 173/300 (base 156) rounds 45 evals 135 acc 13 lib 21 spent 6000000 wallms 1934 ops 1105752
+seed 606 excl_random     audit 167/300 (base 156) rounds 43 evals 131 acc 10 lib 18 spent 6000000 wallms 1841 ops 779976
+seed 606 random          audit 175/300 (base 156) rounds 44 evals 132 acc 12 lib 16 spent 6000000 wallms 1948 ops 817608
+seed 607 freqrule        audit 139/300 (base 127) rounds 40 evals 120 acc 10 lib 18 spent 6000000 wallms 1865 ops 704472
+seed 607 excl_random     audit 170/300 (base 127) rounds 45 evals 137 acc  6 lib 14 spent 6000000 wallms 1932 ops 855264
+seed 607 random          audit 144/300 (base 127) rounds 39 evals 119 acc  7 lib 15 spent 6000000 wallms 1923 ops 719304
+seed 608 freqrule        audit 189/300 (base 154) rounds 44 evals 133 acc 20 lib 28 spent 6000000 wallms 1932 ops 1132056
+seed 608 excl_random     audit 172/300 (base 154) rounds 44 evals 132 acc 10 lib 18 spent 6000000 wallms 1807 ops 834792
+seed 608 random          audit 157/300 (base 154) rounds 41 evals 125 acc 13 lib 17 spent 6000000 wallms 1666 ops 752832
+seed 609 freqrule        audit 139/300 (base 115) rounds 41 evals 123 acc 13 lib 21 spent 6000000 wallms 1962 ops 837384
+seed 609 excl_random     audit 136/300 (base 115) rounds 39 evals 117 acc  9 lib 17 spent 6000000 wallms 1902 ops 754968
+seed 609 random          audit 145/300 (base 115) rounds 38 evals 114 acc 12 lib 16 spent 6000000 wallms 2103 ops 743784
+seed 610 freqrule        audit 186/300 (base 105) rounds 42 evals 128 acc 13 lib 21 spent 6000000 wallms 2067 ops 862776
+seed 610 excl_random     audit 139/300 (base 105) rounds 35 evals 105 acc  5 lib 13 spent 6000000 wallms 2001 ops 562632
+seed 610 random          audit 131/300 (base 105) rounds 32 evals  98 acc  6 lib 14 spent 6000000 wallms 1881 ops 511488
+seed 611 freqrule        audit 194/300 (base 152) rounds 51 evals 153 acc 19 lib 27 spent 6000000 wallms 1887 ops 1094568
+seed 611 excl_random     audit 170/300 (base 152) rounds 45 evals 135 acc  9 lib 17 spent 6000000 wallms 1811 ops 852696
+seed 611 random          audit 167/300 (base 152) rounds 41 evals 124 acc 10 lib 16 spent 6000000 wallms 1913 ops 884520
+seed 612 freqrule        audit 174/300 (base 129) rounds 42 evals 126 acc 15 lib 23 spent 6000000 wallms 1919 ops 864336
+seed 612 excl_random     audit 117/300 (base 129) rounds 35 evals 107 acc  4 lib 12 spent 6000000 wallms 1878 ops 607680
+seed 612 random          audit 180/300 (base 129) rounds 42 evals 128 acc 13 lib 13 spent 6000000 wallms 1999 ops 855672
+chunk ok chunk_601_612.json 36 rows
+seed 613 freqrule        audit 178/300 (base 140) rounds 41 evals 123 acc 12 lib 20 spent 6000000 wallms 1952 ops 925920
+seed 613 excl_random     audit 187/300 (base 140) rounds 40 evals 120 acc  9 lib 17 spent 6000000 wallms 1984 ops 763776
+seed 613 random          audit 197/300 (base 140) rounds 41 evals 123 acc 13 lib 17 spent 6000000 wallms 1912 ops 756168
+seed 614 freqrule        audit 127/300 (base 101) rounds 35 evals 105 acc  7 lib 15 spent 6000000 wallms 1984 ops 596376
+seed 614 excl_random     audit 137/300 (base 101) rounds 34 evals 103 acc  5 lib 13 spent 6000000 wallms 1918 ops 515016
+seed 614 random          audit 126/300 (base 101) rounds 34 evals 102 acc  6 lib 14 spent 6000000 wallms 1944 ops 516456
+seed 615 freqrule        audit 139/300 (base 138) rounds 38 evals 114 acc  8 lib 16 spent 6000000 wallms 1917 ops 696552
+seed 615 excl_random     audit 151/300 (base 138) rounds 36 evals 108 acc 11 lib 19 spent 6000000 wallms 1960 ops 672336
+seed 615 random          audit 154/300 (base 138) rounds 38 evals 116 acc  7 lib 11 spent 6000000 wallms 1898 ops 657456
+seed 616 freqrule        audit 150/300 (base 151) rounds 42 evals 126 acc 15 lib 23 spent 6000000 wallms 1902 ops 905544
+seed 616 excl_random     audit 187/300 (base 151) rounds 45 evals 135 acc 11 lib 19 spent 6000000 wallms 1932 ops 1030176
+seed 616 random          audit 159/300 (base 151) rounds 43 evals 129 acc 11 lib 15 spent 6000000 wallms 1876 ops 823272
+seed 617 freqrule        audit 158/300 (base 126) rounds 39 evals 118 acc 10 lib 18 spent 6000000 wallms 1948 ops 690216
+seed 617 excl_random     audit 175/300 (base 126) rounds 40 evals 120 acc  5 lib 13 spent 6000000 wallms 1880 ops 629496
+seed 617 random          audit 137/300 (base 126) rounds 35 evals 107 acc  8 lib 12 spent 6000000 wallms 2009 ops 618096
+seed 618 freqrule        audit 202/300 (base 160) rounds 45 evals 136 acc 18 lib 26 spent 6000000 wallms 1999 ops 1009200
+seed 618 excl_random     audit 196/300 (base 160) rounds 44 evals 133 acc 11 lib 19 spent 6000000 wallms 1956 ops 979344
+seed 618 random          audit 176/300 (base 160) rounds 45 evals 135 acc 10 lib 14 spent 6000000 wallms 1933 ops 944256
+seed 619 freqrule        audit 147/300 (base 101) rounds 38 evals 115 acc 12 lib 20 spent 6000000 wallms 1971 ops 808104
+seed 619 excl_random     audit 130/300 (base 101) rounds 35 evals 106 acc  7 lib 15 spent 6000000 wallms 1807 ops 532848
+seed 619 random          audit 127/300 (base 101) rounds 34 evals 104 acc 12 lib 16 spent 6000000 wallms 1859 ops 549288
+seed 620 freqrule        audit 122/300 (base 109) rounds 37 evals 112 acc  9 lib 17 spent 6000000 wallms 1880 ops 660336
+seed 620 excl_random     audit 139/300 (base 109) rounds 39 evals 117 acc  9 lib 17 spent 6000000 wallms 1936 ops 628752
+seed 620 random          audit 148/300 (base 109) rounds 39 evals 119 acc  9 lib 15 spent 6000000 wallms 1833 ops 671496
+seed 621 freqrule        audit 227/300 (base 159) rounds 54 evals 164 acc 18 lib 26 spent 6000000 wallms 2007 ops 1253640
+seed 621 excl_random     audit 198/300 (base 159) rounds 48 evals 146 acc 10 lib 18 spent 6000000 wallms 1866 ops 969552
+seed 621 random          audit 174/300 (base 159) rounds 44 evals 134 acc 11 lib 13 spent 6000000 wallms 1786 ops 767736
+seed 622 freqrule        audit 148/300 (base 115) rounds 40 evals 120 acc 12 lib 20 spent 6000000 wallms 1834 ops 871200
+seed 622 excl_random     audit 162/300 (base 115) rounds 43 evals 130 acc 10 lib 18 spent 6000000 wallms 1860 ops 827016
+seed 622 random          audit 154/300 (base 115) rounds 38 evals 114 acc 14 lib 12 spent 6000000 wallms 1877 ops 760848
+seed 623 freqrule        audit 201/300 (base 172) rounds 50 evals 152 acc 18 lib 26 spent 6000000 wallms 1835 ops 1100736
+seed 623 excl_random     audit 164/300 (base 172) rounds 41 evals 125 acc  7 lib 15 spent 6000000 wallms 1812 ops 717168
+seed 623 random          audit 170/300 (base 172) rounds 41 evals 124 acc 10 lib 12 spent 6000000 wallms 1762 ops 748608
+seed 624 freqrule        audit 142/300 (base 95) rounds 44 evals 132 acc 15 lib 23 spent 6000000 wallms 2011 ops 1046592
+seed 624 excl_random     audit 122/300 (base 95) rounds 35 evals 105 acc  6 lib 14 spent 6000000 wallms 1906 ops 605256
+seed 624 random          audit 126/300 (base 95) rounds 36 evals 108 acc  4 lib 10 spent 6000000 wallms 1839 ops 618552
+chunk ok chunk_613_624.json 36 rows
+seed 625 freqrule        audit 200/300 (base 140) rounds 51 evals 153 acc 16 lib 24 spent 6000000 wallms 2015 ops 1220160
+seed 625 excl_random     audit 147/300 (base 140) rounds 38 evals 114 acc  3 lib 11 spent 6000000 wallms 1865 ops 694320
+seed 625 random          audit 153/300 (base 140) rounds 39 evals 117 acc 10 lib  6 spent 6000000 wallms 1722 ops 771840
+seed 626 freqrule        audit 144/300 (base 135) rounds 36 evals 109 acc  8 lib 16 spent 6000000 wallms 1975 ops 645648
+seed 626 excl_random     audit 155/300 (base 135) rounds 37 evals 113 acc  6 lib 14 spent 6000000 wallms 1944 ops 655680
+seed 626 random          audit 138/300 (base 135) rounds 36 evals 108 acc  6 lib 10 spent 6000000 wallms 1877 ops 623184
+seed 627 freqrule        audit 152/300 (base 96) rounds 37 evals 111 acc 10 lib 18 spent 6000000 wallms 1945 ops 650304
+seed 627 excl_random     audit 128/300 (base 96) rounds 34 evals 104 acc  5 lib 13 spent 6000000 wallms 1858 ops 570336
+seed 627 random          audit 135/300 (base 96) rounds 36 evals 108 acc  8 lib 14 spent 6000000 wallms 1956 ops 599664
+seed 628 freqrule        audit 213/300 (base 181) rounds 53 evals 159 acc 16 lib 24 spent 6000000 wallms 1878 ops 1524696
+seed 628 excl_random     audit 192/300 (base 181) rounds 44 evals 132 acc 10 lib 18 spent 6000000 wallms 1916 ops 933720
+seed 628 random          audit 206/300 (base 181) rounds 49 evals 149 acc 12 lib 20 spent 6000000 wallms 1863 ops 993696
+seed 629 freqrule        audit 173/300 (base 156) rounds 48 evals 146 acc 16 lib 24 spent 6000000 wallms 1733 ops 1048776
+seed 629 excl_random     audit 159/300 (base 156) rounds 44 evals 132 acc  3 lib 11 spent 6000000 wallms 2056 ops 925536
+seed 629 random          audit 187/300 (base 156) rounds 57 evals 171 acc 10 lib 14 spent 6000000 wallms 1922 ops 1082616
+seed 630 freqrule        audit 263/300 (base 196) rounds 77 evals 233 acc 16 lib 24 spent 6000000 wallms 1970 ops 1800240
+seed 630 excl_random     audit 235/300 (base 196) rounds 61 evals 183 acc  9 lib 17 spent 6000000 wallms 1857 ops 1008936
+seed 630 random          audit 215/300 (base 196) rounds 60 evals 180 acc 17 lib 17 spent 6000000 wallms 1831 ops 1078968
+seed 631 freqrule        audit 131/300 (base 113) rounds 35 evals 105 acc  9 lib 17 spent 6000000 wallms 1798 ops 602208
+seed 631 excl_random     audit 138/300 (base 113) rounds 34 evals 102 acc  6 lib 14 spent 6000000 wallms 1888 ops 618288
+seed 631 random          audit 121/300 (base 113) rounds 33 evals  99 acc  7 lib 13 spent 6000000 wallms 1855 ops 511248
+seed 632 freqrule        audit 162/300 (base 112) rounds 42 evals 126 acc 17 lib 25 spent 6000000 wallms 1850 ops 882288
+seed 632 excl_random     audit 144/300 (base 112) rounds 37 evals 113 acc  9 lib 17 spent 6000000 wallms 1870 ops 712008
+seed 632 random          audit 125/300 (base 112) rounds 35 evals 106 acc 12 lib 16 spent 6000000 wallms 1927 ops 691752
+seed 633 freqrule        audit 142/300 (base 130) rounds 38 evals 115 acc 11 lib 19 spent 6000000 wallms 1801 ops 725040
+seed 633 excl_random     audit 158/300 (base 130) rounds 37 evals 113 acc 10 lib 18 spent 6000000 wallms 1798 ops 662352
+seed 633 random          audit 138/300 (base 130) rounds 36 evals 110 acc 11 lib 13 spent 6000000 wallms 1765 ops 727992
+seed 634 freqrule        audit 145/300 (base 111) rounds 38 evals 114 acc 13 lib 21 spent 6000000 wallms 1876 ops 766824
+seed 634 excl_random     audit 121/300 (base 111) rounds 36 evals 109 acc 10 lib 18 spent 6000000 wallms 1787 ops 673704
+seed 634 random          audit 140/300 (base 111) rounds 34 evals 102 acc  9 lib 11 spent 6000000 wallms 1756 ops 736992
+seed 635 freqrule        audit 137/300 (base 105) rounds 40 evals 120 acc 11 lib 19 spent 6000000 wallms 1783 ops 796488
+seed 635 excl_random     audit 128/300 (base 105) rounds 36 evals 109 acc  6 lib 14 spent 6000000 wallms 1732 ops 608544
+seed 635 random          audit 131/300 (base 105) rounds 40 evals 121 acc  9 lib  9 spent 6000000 wallms 1716 ops 755688
+seed 636 freqrule        audit 154/300 (base 136) rounds 43 evals 129 acc 13 lib 21 spent 6000000 wallms 1755 ops 917952
+seed 636 excl_random     audit 146/300 (base 136) rounds 42 evals 127 acc  8 lib 16 spent 6000000 wallms 1706 ops 740088
+seed 636 random          audit 154/300 (base 136) rounds 44 evals 132 acc 12 lib 14 spent 6000000 wallms 1675 ops 868968
+chunk ok chunk_625_636.json 36 rows
+seed 637 freqrule        audit 177/300 (base 99) rounds 46 evals 139 acc 12 lib 20 spent 6000000 wallms 1986 ops 979248
+seed 637 excl_random     audit 146/300 (base 99) rounds 38 evals 114 acc  7 lib 15 spent 6000000 wallms 1973 ops 608448
+seed 637 random          audit 139/300 (base 99) rounds 38 evals 115 acc  7 lib 15 spent 6000000 wallms 1934 ops 567408
+seed 638 freqrule        audit 173/300 (base 151) rounds 42 evals 126 acc 16 lib 24 spent 6000000 wallms 2044 ops 935304
+seed 638 excl_random     audit 162/300 (base 151) rounds 38 evals 116 acc  5 lib 13 spent 6000000 wallms 1849 ops 669312
+seed 638 random          audit 138/300 (base 151) rounds 37 evals 113 acc 15 lib  7 spent 6000000 wallms 1653 ops 828552
+seed 639 freqrule        audit 213/300 (base 193) rounds 63 evals 191 acc 21 lib 29 spent 6000000 wallms 1703 ops 1679784
+seed 639 excl_random     audit 234/300 (base 193) rounds 63 evals 189 acc 12 lib 20 spent 6000000 wallms 1925 ops 1276224
+seed 639 random          audit 208/300 (base 193) rounds 61 evals 183 acc 17 lib 17 spent 6000000 wallms 1822 ops 1150656
+seed 640 freqrule        audit 132/300 (base 121) rounds 38 evals 114 acc 10 lib 18 spent 6000000 wallms 1915 ops 724152
+seed 640 excl_random     audit 152/300 (base 121) rounds 38 evals 114 acc 10 lib 18 spent 6000000 wallms 1926 ops 699168
+seed 640 random          audit 169/300 (base 121) rounds 41 evals 125 acc 13 lib 13 spent 6000000 wallms 1902 ops 772584
+seed 641 freqrule        audit 216/300 (base 177) rounds 70 evals 212 acc 20 lib 28 spent 6000000 wallms 2067 ops 1632504
+seed 641 excl_random     audit 210/300 (base 177) rounds 50 evals 151 acc  5 lib 13 spent 6000000 wallms 1915 ops 1003872
+seed 641 random          audit 212/300 (base 177) rounds 54 evals 162 acc 10 lib 14 spent 6000000 wallms 1865 ops 911688
+seed 642 freqrule        audit 149/300 (base 115) rounds 38 evals 116 acc  9 lib 17 spent 6000000 wallms 1919 ops 767232
+seed 642 excl_random     audit 142/300 (base 115) rounds 36 evals 108 acc  7 lib 15 spent 6000000 wallms 1765 ops 588648
+seed 642 random          audit 140/300 (base 115) rounds 34 evals 103 acc  5 lib 11 spent 6000000 wallms 1785 ops 530904
+seed 643 freqrule        audit 232/300 (base 155) rounds 51 evals 154 acc 15 lib 23 spent 6000000 wallms 1906 ops 1056744
+seed 643 excl_random     audit 209/300 (base 155) rounds 45 evals 135 acc  6 lib 14 spent 6000000 wallms 1860 ops 912936
+seed 643 random          audit 194/300 (base 155) rounds 44 evals 132 acc 11 lib 15 spent 6000000 wallms 1899 ops 767808
+seed 644 freqrule        audit 231/300 (base 141) rounds 50 evals 152 acc 21 lib 29 spent 6000000 wallms 2071 ops 1301664
+seed 644 excl_random     audit 163/300 (base 141) rounds 42 evals 127 acc 14 lib 22 spent 6000000 wallms 1940 ops 749520
+seed 644 random          audit 167/300 (base 141) rounds 42 evals 128 acc 12 lib 12 spent 6000000 wallms 1846 ops 758976
+seed 645 freqrule        audit 217/300 (base 214) rounds 56 evals 169 acc 18 lib 26 spent 6000000 wallms 1895 ops 1092504
+seed 645 excl_random     audit 196/300 (base 214) rounds 54 evals 162 acc 11 lib 19 spent 6000000 wallms 1843 ops 1005408
+seed 645 random          audit 211/300 (base 214) rounds 55 evals 167 acc  6 lib 14 spent 6000000 wallms 1781 ops 999000
+seed 646 freqrule        audit 142/300 (base 133) rounds 35 evals 105 acc  6 lib 14 spent 6000000 wallms 1751 ops 625152
+seed 646 excl_random     audit 130/300 (base 133) rounds 34 evals 102 acc  5 lib 13 spent 6000000 wallms 1855 ops 584688
+seed 646 random          audit 146/300 (base 133) rounds 35 evals 106 acc  9 lib 13 spent 6000000 wallms 1794 ops 618816
+seed 647 freqrule        audit 196/300 (base 170) rounds 55 evals 165 acc 17 lib 25 spent 6000000 wallms 1816 ops 1045344
+seed 647 excl_random     audit 203/300 (base 170) rounds 51 evals 155 acc 17 lib 25 spent 6000000 wallms 1959 ops 1114176
+seed 647 random          audit 208/300 (base 170) rounds 49 evals 148 acc 17 lib 21 spent 6000000 wallms 1950 ops 920136
+seed 648 freqrule        audit 155/300 (base 125) rounds 46 evals 138 acc 11 lib 19 spent 6000000 wallms 1867 ops 857016
+seed 648 excl_random     audit 165/300 (base 125) rounds 43 evals 129 acc  9 lib 17 spent 6000000 wallms 1846 ops 767256
+seed 648 random          audit 174/300 (base 125) rounds 44 evals 132 acc 15 lib 15 spent 6000000 wallms 1878 ops 760128
+chunk ok chunk_637_648.json 36 rows
+chunk chunk_601_612.json sha256 d8cdd95e03df25ca4f43a94cc69c8bd62c8cad76758f2d7723a001a40003e51f
+chunk chunk_613_624.json sha256 71a2aa20062aa6c3ae8f3662f71556769b4640b13ff87e526e7d08908254d4e5
+chunk chunk_625_636.json sha256 0f74874636fdc7700aa86c73e8854fb321f7fe253d86acaccc6bcb9234a13bf2
+chunk chunk_637_648.json sha256 1c8ef6e04ad58e9e6517d8eb2196da59333d3ed92d308e86c9b4086ff1b2a7fa
+arm n mean_audit rounds accepts evals lib fallback_rounds tie_rounds spent mean_wall_ms mean_ops
+excl_random 48 161.83 41.6 8.21 125.52 16.21 0.0 0.0 6000000.0 1889.29 769442.0
+freqrule 48 171.98 45.58 13.54 137.4 21.54 0.0 24.0 6000000.0 1915.81 968416.0
+random 48 160.27 41.31 10.31 124.83 13.77 0.0 0.0 6000000.0 1863.21 758581.0
+PRIMARY freqrule - excl_random: 10.15 [3.75, 16.56]
+reading: LB>0 criterion met
+secondary (descriptive) excl_random - random: 1.56 [-3.62, 6.48]
+secondary (descriptive) freqrule - random: 11.71 [5.29, 18.12]

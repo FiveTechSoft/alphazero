@@ -1,0 +1,12 @@
+chunk chunk_601_612.json sha256 d8cdd95e03df25ca4f43a94cc69c8bd62c8cad76758f2d7723a001a40003e51f
+chunk chunk_613_624.json sha256 71a2aa20062aa6c3ae8f3662f71556769b4640b13ff87e526e7d08908254d4e5
+chunk chunk_625_636.json sha256 0f74874636fdc7700aa86c73e8854fb321f7fe253d86acaccc6bcb9234a13bf2
+chunk chunk_637_648.json sha256 1c8ef6e04ad58e9e6517d8eb2196da59333d3ed92d308e86c9b4086ff1b2a7fa
+arm n mean_audit rounds accepts evals lib fallback_rounds tie_rounds spent mean_wall_ms mean_ops
+excl_random 48 161.83 41.6 8.21 125.52 16.21 0.0 0.0 6000000.0 1889.29 769442.0
+freqrule 48 171.98 45.58 13.54 137.4 21.54 0.0 24.0 6000000.0 1915.81 968416.0
+random 48 160.27 41.31 10.31 124.83 13.77 0.0 0.0 6000000.0 1863.21 758581.0
+PRIMARY freqrule - excl_random: 10.15 [3.75, 16.56]
+reading: LB>0 criterion met
+secondary (descriptive) excl_random - random: 1.56 [-3.62, 6.48]
+secondary (descriptive) freqrule - random: 11.71 [5.29, 18.12]
