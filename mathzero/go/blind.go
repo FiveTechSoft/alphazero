@@ -8,7 +8,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/rand"
-	"os"
 )
 
 func pairKey(a, b *Expr) string { return Key(a) + "=>" + Key(b) }
@@ -38,12 +37,13 @@ func GenBlind(path string, perLevel int, seed int64) {
 			out[ks] = append(out[ks], map[string]json.RawMessage{"a": fj, "b": tj})
 		}
 	}
-	f, err := os.Create(path)
+	data, err := json.Marshal(out)
 	if err != nil {
 		panic(err)
 	}
-	defer f.Close()
-	json.NewEncoder(f).Encode(out)
+	if err := writeFileAtomic(path, data); err != nil {
+		panic(err)
+	}
 	fmt.Printf("[genblind] %d problemas/nivel x 7 niveles en %s (semilla %d, sin solape con levels.json)\n",
 		perLevel, path, seed)
 }

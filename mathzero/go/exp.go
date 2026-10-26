@@ -280,7 +280,7 @@ func ABMain(args []string) {
 			}
 			name := fmt.Sprintf("resultados_ab_%s_seed%d.json", exp, seed)
 			data, _ := json.MarshalIndent(out, "", "  ")
-			if err := os.WriteFile(name, data, 0o644); err != nil {
+			if err := writeFileAtomic(name, data); err != nil {
 				fmt.Println("[ab] error escribiendo", name, ":", err)
 			} else {
 				fmt.Println("[ab] resultados escritos en", name)
@@ -307,7 +307,7 @@ func ABMain(args []string) {
 		}
 		name := fmt.Sprintf("resultados_ab_%s_seed%d.json", exp, seed)
 		data, _ := json.MarshalIndent(out, "", "  ")
-		if err := os.WriteFile(name, data, 0o644); err != nil {
+		if err := writeFileAtomic(name, data); err != nil {
 			fmt.Println("[ab] error escribiendo", name, ":", err)
 		} else {
 			fmt.Println("[ab] resultados escritos en", name)
