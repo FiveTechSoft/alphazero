@@ -64,6 +64,9 @@ func (n *MLP) hidden(x []float64) []float64 {
 }
 
 func (n *MLP) ScoreClean(x []float64) float64 {
+	if n == nil || len(x) != NFeat {
+		return 0
+	}
 	h := n.hidden(x)
 	s := n.B2
 	for i := 0; i < NHid; i++ {

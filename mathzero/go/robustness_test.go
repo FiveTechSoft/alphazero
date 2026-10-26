@@ -206,3 +206,17 @@ func TestLoadMLPRechazaFormasInvalidas(t *testing.T) {
 		t.Error("LoadMLP acepto una fila de W1 con longitud incorrecta")
 	}
 }
+
+func TestScoreCleanLongitudInvalidaNoPanica(t *testing.T) {
+	n := NewMLP(1)
+	if got := n.ScoreClean(nil); got != 0 {
+		t.Errorf("ScoreClean(nil)=%v, queria 0", got)
+	}
+	if got := n.ScoreClean(make([]float64, NFeat-1)); got != 0 {
+		t.Errorf("ScoreClean(corto)=%v, queria 0", got)
+	}
+	var nilNet *MLP
+	if got := nilNet.ScoreClean(make([]float64, NFeat)); got != 0 {
+		t.Errorf("ScoreClean nil=%v, queria 0", got)
+	}
+}
