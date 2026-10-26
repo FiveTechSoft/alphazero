@@ -24,6 +24,8 @@ type blindEval struct {
 
 func evalBlind(net *MLP, lv map[int][]MState, cap int) blindEval {
 	var r blindEval
+	ClearKeyCache()
+	defer ClearKeyCache()
 	niveles := 0
 	for k := 2; k <= 8; k++ {
 		if len(lv[k]) == 0 {

@@ -21,6 +21,8 @@ import (
 func evalAll(net *MLP, lv map[int][]MState, cap int) (string, int) {
 	s := ""
 	tot := 0
+	ClearKeyCache()
+	defer ClearKeyCache()
 	for k := 2; k <= 8; k++ {
 		o, nd := EvalLevel(net, lv[k], cap)
 		s += fmt.Sprintf("k%d:%d/30(%d) ", k, o, nd)

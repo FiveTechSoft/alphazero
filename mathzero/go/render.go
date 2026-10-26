@@ -4,6 +4,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"strconv"
 )
 
 func Render(e *Expr) string {
@@ -48,9 +49,10 @@ func LoadProblemsBytes(data []byte, k string) []MState {
 	if json.Unmarshal(data, &raw) != nil {
 		return nil
 	}
+	lvl, _ := strconv.Atoi(k)
 	var out []MState
 	for _, pr := range raw[k] {
-		out = append(out, MState{Cur: parseExpr(pr["a"]), Target: parseExpr(pr["b"]), MaxSteps: 2 * len(k) * 4})
+		out = append(out, MState{Cur: parseExpr(pr["a"]), Target: parseExpr(pr["b"]), MaxSteps: 2 * lvl * 4})
 	}
 	return out
 }

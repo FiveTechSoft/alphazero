@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -474,9 +475,10 @@ func LoadProblems(path, k string) []MState {
 		fmt.Printf("aviso: %s no es JSON valido; se omite (%v)\n", path, err)
 		return nil
 	}
+	lvl, _ := strconv.Atoi(k)
 	var out []MState
 	for _, pr := range raw[k] {
-		out = append(out, MState{Cur: parseExpr(pr["a"]), Target: parseExpr(pr["b"]), MaxSteps: 2 * len(k) * 4})
+		out = append(out, MState{Cur: parseExpr(pr["a"]), Target: parseExpr(pr["b"]), MaxSteps: 2 * lvl * 4})
 	}
 	return out
 }
