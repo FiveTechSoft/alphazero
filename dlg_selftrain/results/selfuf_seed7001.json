@@ -1,0 +1,209 @@
+{
+ "seed": 7001,
+ "arm": "selfuf",
+ "records": [
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round0_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "08:12:38"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round0_gen",
+   "prompts": 800,
+   "samples_drawn": 800,
+   "first_sample_acc": 0.5463,
+   "kept": 800,
+   "corpus_chars": 94578,
+   "unique_answers": 24,
+   "unique_texts": 799,
+   "gen_seconds": 20.2,
+   "time": "08:12:58"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round0_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 265.1,
+   "time": "08:17:23"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round0",
+   "split": "dev_seen",
+   "acc": 0.65,
+   "n": 300,
+   "pron_acc": 0.8461538461538461,
+   "expl_acc": 0.5245901639344263,
+   "time": "08:17:30"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round0",
+   "split": "dev_novel",
+   "acc": 0.51,
+   "n": 300,
+   "pron_acc": 0.8484848484848485,
+   "expl_acc": 0.34328358208955223,
+   "time": "08:17:38"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round1_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "08:17:38"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round1_gen",
+   "prompts": 800,
+   "samples_drawn": 800,
+   "first_sample_acc": 0.455,
+   "kept": 800,
+   "corpus_chars": 96297,
+   "unique_answers": 33,
+   "unique_texts": 799,
+   "gen_seconds": 20.6,
+   "time": "08:17:59"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round1_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 268.7,
+   "time": "08:22:27"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round1",
+   "split": "dev_seen",
+   "acc": 0.7233333333333334,
+   "n": 300,
+   "pron_acc": 0.9829059829059829,
+   "expl_acc": 0.5573770491803278,
+   "time": "08:22:35"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round1",
+   "split": "dev_novel",
+   "acc": 0.5,
+   "n": 300,
+   "pron_acc": 0.9292929292929293,
+   "expl_acc": 0.2885572139303483,
+   "time": "08:22:43"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round2_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "08:22:43"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round2_gen",
+   "prompts": 800,
+   "samples_drawn": 800,
+   "first_sample_acc": 0.545,
+   "kept": 800,
+   "corpus_chars": 98858,
+   "unique_answers": 28,
+   "unique_texts": 800,
+   "gen_seconds": 21.1,
+   "time": "08:23:04"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round2_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 267.9,
+   "time": "08:27:32"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round2",
+   "split": "dev_seen",
+   "acc": 0.7333333333333333,
+   "n": 300,
+   "pron_acc": 0.9401709401709402,
+   "expl_acc": 0.6010928961748634,
+   "time": "08:27:39"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "round2",
+   "split": "dev_novel",
+   "acc": 0.5566666666666666,
+   "n": 300,
+   "pron_acc": 0.9696969696969697,
+   "expl_acc": 0.35323383084577115,
+   "time": "08:27:46"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "TEST",
+   "split": "test_seen",
+   "acc": 0.725,
+   "n": 400,
+   "pron_acc": 0.9333333333333333,
+   "expl_acc": 0.6,
+   "time": "08:27:57"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "TEST",
+   "split": "test_novel",
+   "acc": 0.5925,
+   "n": 400,
+   "pron_acc": 0.9588235294117647,
+   "expl_acc": 0.3217391304347826,
+   "time": "08:28:07"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "TEST",
+   "split": "test_novel_long",
+   "acc": 0.54,
+   "n": 300,
+   "pron_acc": 0.9196428571428571,
+   "expl_acc": 0.31382978723404253,
+   "time": "08:28:15"
+  },
+  {
+   "arm": "selfuf",
+   "seed": 7001,
+   "stage": "arm_done",
+   "seconds": 939.0,
+   "time": "08:28:15"
+  }
+ ],
+ "notes": "selfuf = control: own FIRST sample per prompt, NO verification. first_sample_acc per round: 0.546/0.455/0.545 (about half of the unfiltered training answers were wrong). Aggregates only."
+}

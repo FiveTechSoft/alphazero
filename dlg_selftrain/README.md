@@ -20,4 +20,30 @@ Details: results/base_b0_seed7001.json.
   +0.033 novel, -0.004 novel_long. One seed, no uncertainty estimate yet;
   H1 (self > b0 on test_novel on BOTH seeds) is open until seed 7002.
   Details: results/self_seed7001.json.
-Arm selfuf and seed 7002 pending.
+- selfuf (control: own samples WITHOUT verification, 3 rounds, seed 7001):
+  test_seen 0.725, test_novel 0.593, test_novel_long 0.540; unfiltered data
+  was ~45-55% wrong answers (first_sample_acc 0.546/0.455/0.545).
+  Details: results/selfuf_seed7001.json.
+Seed 7001 complete. Exact TEST counts (single seed, no uncertainty estimate):
+
+  arm    | seen total (pron/expl) | novel total (pron/expl) | long total (pron/expl)
+  b0     | 286/400 (144/150, 142/250) | 234/400 (158/170, 76/230) | 161/300 (96/112, 65/188)
+  sup    | 309/400 (143/150, 166/250) | 230/400 (168/170, 62/230) | 158/300 (110/112, 48/188)
+  self   | 320/400 (147/150, 173/250) | 243/400 (168/170, 75/230) | 157/300 (108/112, 49/188)
+  selfuf | 290/400 (140/150, 150/250) | 237/400 (163/170, 74/230) | 162/300 (103/112, 59/188)
+
+Decomposition that the aggregates hide: on test_novel every arm answers almost
+all pronoun questions correctly (158-168/170); self's net +9 over b0 comes
+from pronouns (+10) while EXPLICIT novel questions do not improve in any arm
+vs b0 (76 -> sup 62, self 75, selfuf 74 out of 230). On long dialogues the
+pattern inverts for self: better pronouns (+12) but worse explicit (-16).
+Hypotheses, reported per split (no retrospective re-specification):
+- H1 (self > b0 on test_novel, both seeds): seed 7001 in favor on the AGGREGATE
+  (+0.023), driven by pronoun questions, not by the explicit compositional
+  questions the split was built to measure. Seed 7002 pending.
+- H2 (self <= sup): against on this seed (self +0.033 novel aggregate over sup).
+- H3 (self > selfuf): split-dependent on this seed: novel aggregate +0.015 in
+  favor, novel_long -0.017 against. No stable verifier advantage is claimed.
+Open honest reading (n=1): rounds with or without verification did not improve
+explicit compositional generalization; self improved pronoun reference
+tracking in new contexts. Seed 7002 pending.
