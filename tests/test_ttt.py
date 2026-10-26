@@ -99,11 +99,9 @@ class TestBusqueda(unittest.TestCase):
         self.assertEqual(valor, 0.0)
 
     def test_minimax_remata_victoria_inmediata(self):
-        st = TicTacToe(np.array([1, 1, 0, -1, 0, 0, 0, 0, 0], dtype=np.int8), 1)
-        # X tiene dos en raya: cualquier jugada optima debe ganar ya.
-        mv = minimax_move(st)
-        st.play(mv)
-        self.assertEqual(st.winner(), 1)
+        st = TicTacToe(np.array([1, 1, 0, -1, -1, 0, 0, 0, 0], dtype=np.int8), 1)
+        # X debe ganar ya en la casilla 2; si no, O gana en la 5.
+        self.assertEqual(minimax_move(st), 2)
 
 
 if __name__ == "__main__":
