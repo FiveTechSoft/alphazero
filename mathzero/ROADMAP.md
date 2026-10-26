@@ -21,7 +21,7 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
 | 6 | Biblioteca acumulativa (lemas/macros) | problemas nuevos resueltos con menos nodos usando la biblioteca | 90% | 50% |
 | 7 | Core auto-mejorante (ciclo medido) | metrica repetible por ciclo, curva creciente (ciego: 330 -> 382 -> 450/700) | 85% | 70% |
 | 8 | Web visual (Go real compilado a WASM) + GitHub Pages | captura real del sitio publico cargando y jugando | 100% | 70% |
-| 9 | Laberinto (Game) | resuelto en el motor, medido vs BFS | 0% | 0% |
+| 9 | Laberinto (Game) | resuelto en el motor, medido vs BFS | 100% | 100% |
 | 10 | Sudoku (Game) | % resueltos vs solucionador de referencia | 0% | 0% |
 | 11 | Velocidad Go vs Python | mismo test, sims/s | 100% | 80% |
 | 12 | Medicion repetible | un comando reproduce todas las tablas | 50% | 30% |
@@ -71,6 +71,10 @@ semilla 12345, sin solape con levels.json, excluido del entrenamiento).
   k4 26/30, k5 25/30, k6 19/30, k7 16/30, k8 16/30 (BFS: 16, 15, 6, 5, 9).
   Ablacion biblioteca en ciclo 3 (fijo): 146 vs 146 (efecto marginal una vez la red
   interioriza los lemas; reportado con honestidad).
+- Laberinto (h9, 26-oct): `maze 5 200 9` -> BFS 5/5 (28 nodos medios,
+  23 pasos medios) y MCTS 5/5 (23 pasos medios, prior Manhattan, 200 sims).
+  El laberinto usa celdas no revisitadas y la extension `SinglePlayer` del
+  motor (backup sin cambio de signo). Repetible por semilla del laberinto.
 - Geometria (16-oct, revision): el soporte vive solo en la rama `research/geometry-bridge`
   (no en main). Compila y los tests pasan. Las 4 identidades del banco son validas por el
   juez exacto (4/4) pero la busqueda NO prueba ninguna (0/4; prior uniforme, cap 2000-20000).
@@ -162,6 +166,10 @@ antes de medir y, cuando aplique, reportarse sobre el conjunto ciego.
    instancia de las 14 reglas, con criterio de aceptacion fijado antes de medir.
 6. (P2) **Dominio nuevo (h9 laberinto) antes que h10 sudoku**: el juez BFS es
    barato y sube h2 (genericidad de `Game`), alimentando el punto 3 de h18.
+   **HECHO (26-oct)**: `./mathzero maze [n] [sims] [lado]`. Medido con
+   `maze 5 200 9`: BFS 5/5 (28 nodos medios, 23 pasos) y MCTS 5/5 (23 pasos,
+   cap 200 sims). Se anadio `SinglePlayer` al nucleo para que el backup de
+   MCTS no cambie de signo en juegos de un solo agente; TTT no se altera.
 7. (P2) **E15 (`neg(const)`)** solo con pre-registro: desbloquea el banco de
    geometria (hoy 0/4) pero cambia NFeat e invalida `model_math.json`, por lo
    que exige reentrenar y un A/B en el ciego de 700.

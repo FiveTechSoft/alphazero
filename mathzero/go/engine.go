@@ -17,6 +17,12 @@ type Net interface {
 	Predict(s any, acts []any) (priors []float64, value float64)
 }
 
+// SinglePlayer marca juegos de un solo agente: el valor terminal es para el
+// mismo jugador en todos los plies, asi que el backup NO cambia de signo.
+type SinglePlayer interface {
+	SinglePlayer() bool
+}
+
 type Node struct {
 	N        []int
 	W        []float64
@@ -129,8 +135,11 @@ func MCTSVisits(s any, g Game, net Net, sims int, cPuct float64) ([]any, []int) 
 		if !done {
 			v = expand(node, cur, g, net)
 		}
+		_, single := g.(SinglePlayer)
 		for k := len(path) - 1; k >= 0; k-- {
-			v = -v
+			if !single {
+				v = -v
+			}
 			path[k].nd.N[path[k].j]++
 			path[k].nd.W[path[k].j] += v
 		}
