@@ -53,3 +53,29 @@ tracking in new contexts. Seed 7002 (partial; base gate passed, dev_seen expl 0.
   Same pattern as seed 7001 for sup: better seen, WORSE explicit novel
   (76->61/230) and explicit long (64->38/188). self/selfuf 7002 pending.
   Details: results/base_b0_sup_seed7002.json.
+
+## Seed 7002 - arm `self` (TEST, single evaluation)
+
+| split | total | pronouns | explicit |
+|---|---|---|---|
+| test_seen | 292/400 | 150/150 | 142/250 |
+| test_novel | 211/400 | 167/170 | 44/230 |
+| test_novel_long | 153/300 | 112/112 | 41/188 |
+
+Acceptance (verifier pass rate per round): 0.7225 / 0.775 / 0.770; kept texts 1025 / 1127 / 1152.
+
+Comparison vs base arm b0 on the same seed (test_novel 228/400 = 152/170 pron, 76/230 expl):
+self is BELOW b0 on test_novel in seed 7002 (-17 answers). The decomposition shows the same
+directional split as seed 7001 but stronger: pronouns improve (+15: 167 vs 152) while explicit
+answers regress sharply (-32: 44 vs 76). H1 (self > b0 on test_novel in both seeds) is therefore
+NOT supported: seed 7001 was +9, seed 7002 is -17.
+
+H2 (self <= sup) had NO prespecified split, so we report it as a descriptive per-split
+comparison, not a confirmatory test. Direction differs by split and seed:
+- seed 7001: test_seen self 320 vs sup 309 (self higher); test_novel 243 vs 230 (self higher);
+  test_novel_long 157 vs 158 (sup higher by 1).
+- seed 7002: test_seen 292 vs 297 (sup higher); test_novel 211 vs 219 (sup higher);
+  test_novel_long 153 vs 144 (self higher).
+No consistent ordering between self and sup across splits or seeds.
+
+Aggregates only; raw fail examples are not published.

@@ -1,0 +1,54 @@
+{
+ "arm": "self",
+ "seed": 7002,
+ "test": {
+  "test_seen": {
+   "n": 400,
+   "correct": 292,
+   "pron_correct": 150,
+   "pron_n": 150,
+   "expl_correct": 142,
+   "expl_n": 250,
+   "pron_acc": 1.0,
+   "expl_acc": 0.568,
+   "acc": 0.73
+  },
+  "test_novel": {
+   "n": 400,
+   "correct": 211,
+   "pron_correct": 167,
+   "pron_n": 170,
+   "expl_correct": 44,
+   "expl_n": 230,
+   "pron_acc": 0.9824,
+   "expl_acc": 0.1913,
+   "acc": 0.5275
+  },
+  "test_novel_long": {
+   "n": 300,
+   "correct": 153,
+   "pron_correct": 112,
+   "pron_n": 112,
+   "expl_correct": 41,
+   "expl_n": 188,
+   "pron_acc": 1.0,
+   "expl_acc": 0.2181,
+   "acc": 0.51
+  }
+ },
+ "acceptance": {
+  "round0": {
+   "accept_frac": 0.7225,
+   "kept": 1025
+  },
+  "round1": {
+   "accept_frac": 0.775,
+   "kept": 1127
+  },
+  "round2": {
+   "accept_frac": 0.77,
+   "kept": 1152
+  }
+ },
+ "note": "single reserved TEST per arm; aggregates only; raw fail examples not published"
+}
