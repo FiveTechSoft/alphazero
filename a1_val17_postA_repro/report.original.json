@@ -1,0 +1,4017 @@
+{
+ "protocol": "A1 (new protocol; not P3/G1)",
+ "seed": 17,
+ "schedule": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "per_round": 40,
+ "train_cap": 100,
+ "eval_cap": 100,
+ "bank_seed": 20261025,
+ "bank_digest": "f58161c5133bffeb2838ee9b5da9a516f09022bbe7d94367c0b4c658d4bb67b6",
+ "prior_keys": 1739,
+ "generation_stats": [
+  {
+   "Level": 6,
+   "Attempts": 56,
+   "Accepted": 30,
+   "EqualKey": 0,
+   "StartPrior": 26,
+   "TargetPrior": 0,
+   "RepeatInBank": 0
+  },
+  {
+   "Level": 7,
+   "Attempts": 66,
+   "Accepted": 30,
+   "EqualKey": 0,
+   "StartPrior": 36,
+   "TargetPrior": 0,
+   "RepeatInBank": 0
+  },
+  {
+   "Level": 8,
+   "Attempts": 49,
+   "Accepted": 30,
+   "EqualKey": 0,
+   "StartPrior": 19,
+   "TargetPrior": 0,
+   "RepeatInBank": 0
+  }
+ ],
+ "weights_sha256_pre": "8d21fe004edddc3b862401628e24d664177cfc65b3a05984546b5b218ac0ce53",
+ "seconds_pre": 62.830635471,
+ "training_problems_identical_across_arms": true,
+ "delta_A": 25,
+ "delta_F": 11,
+ "d_delta_A_minus_delta_F": 14,
+ "arms": [
+  {
+   "arm": "A",
+   "weights_sha256_post": "bb9955ca5b01c64840c7548f255582d43ff5fc055be63e372774aabcc33e9175",
+   "train_log": {
+    "Rounds": [
+     {
+      "Round": 1,
+      "Level": 2,
+      "Solved": 40,
+      "Problems": 40,
+      "Samples": 66,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     },
+     {
+      "Round": 2,
+      "Level": 3,
+      "Solved": 40,
+      "Problems": 40,
+      "Samples": 104,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 41,
+      "KeyRejected": 1
+     },
+     {
+      "Round": 3,
+      "Level": 4,
+      "Solved": 40,
+      "Problems": 40,
+      "Samples": 116,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     },
+     {
+      "Round": 4,
+      "Level": 5,
+      "Solved": 40,
+      "Problems": 40,
+      "Samples": 150,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     },
+     {
+      "Round": 5,
+      "Level": 6,
+      "Solved": 37,
+      "Problems": 40,
+      "Samples": 160,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     },
+     {
+      "Round": 6,
+      "Level": 7,
+      "Solved": 32,
+      "Problems": 40,
+      "Samples": 135,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     }
+    ],
+    "Pairs": [
+     "vc=\u003emul(c1,c1,vc)",
+     "c-1=\u003eadd(c-1,neg(neg(c0)))",
+     "vb=\u003eneg(neg(add(c0,vb)))",
+     "mul(add(c0,c2,c3),add(c2,neg(vc)))=\u003emul(add(c0,c2,c3),c1,neg(neg(add(c2,neg(vc)))))",
+     "c2=\u003eneg(neg(add(c0,c2)))",
+     "c-2=\u003ec-2",
+     "mul(add(c-1,vc),c1)=\u003emul(c1,c1,neg(neg(add(c-1,vc))))",
+     "mul(neg(c4),neg(neg(vc)))=\u003emul(c1,neg(neg(neg(c4))),neg(neg(vc)))",
+     "mul(neg(add(vb,vb)),vb)=\u003emul(neg(mul(add(mul(c1,vb),vb),c1)),vb)",
+     "vc=\u003emul(c1,neg(neg(vc)))",
+     "va=\u003eva",
+     "va=\u003eneg(neg(add(c0,va)))",
+     "vb=\u003eadd(c0,neg(neg(vb)))",
+     "vb=\u003emul(add(c0,c1),vb)",
+     "neg(neg(add(c1,vc)))=\u003emul(c1,neg(add(neg(c1),neg(vc))))",
+     "neg(add(c-2,neg(va),vb))=\u003eadd(neg(add(c-2,neg(va),vb)),neg(c0))",
+     "neg(add(c2,va))=\u003eadd(neg(c2),neg(mul(c1,va)))",
+     "add(c0,mul(vb,vb))=\u003eadd(c0,c0,mul(c1,vb,vb))",
+     "mul(add(c0,vb),neg(c-3))=\u003eadd(c0,mul(neg(c-3),vb))",
+     "mul(c4,neg(mul(vc,vc)),neg(vb),vb)=\u003emul(neg(mul(vc,vc)),neg(neg(mul(c1,c4,neg(vb),vb))))",
+     "c-1=\u003ec-1",
+     "add(c-3,c2,neg(c2))=\u003eadd(c-3,neg(neg(c2)),neg(neg(neg(c2))))",
+     "neg(mul(va,va,vb))=\u003emul(c1,neg(mul(neg(neg(va)),va,vb)))",
+     "mul(add(c-1,c0,c3,va),vb)=\u003emul(add(c-1,c0,mul(c1,c3),va),c1,vb)",
+     "neg(c-1)=\u003eneg(c-1)",
+     "add(c0,mul(va,vc),neg(vb))=\u003eadd(c0,mul(c1,neg(neg(va)),vc),neg(vb))",
+     "mul(c4,neg(va))=\u003emul(c4,neg(neg(c1)),neg(va))",
+     "neg(vb)=\u003emul(add(c0,neg(vb)),c1)",
+     "c3=\u003emul(add(c0,c3),c1)",
+     "mul(c2,neg(mul(vb,vb)))=\u003emul(c1,c2,neg(neg(neg(mul(vb,vb)))))",
+     "c4=\u003ec4",
+     "mul(add(c-2,va),add(c-2,vc),neg(c1),neg(c2))=\u003emul(add(c-2,c0,vc),add(c-2,va),neg(c1),neg(mul(c1,c2)))",
+     "neg(add(c0,c3,va,vb))=\u003eneg(add(c0,c3,mul(c0,c1),va,vb))",
+     "c-3=\u003ec-3",
+     "va=\u003eadd(c0,neg(neg(va)))",
+     "neg(add(c-2,c3))=\u003eneg(neg(neg(add(c-2,c0,c3))))",
+     "mul(add(va,vc),neg(mul(vb,vb)),va)=\u003emul(add(va,vc),neg(neg(add(c0,neg(mul(vb,vb))))),va)",
+     "vb=\u003evb",
+     "add(c2,vc)=\u003eneg(neg(add(c0,c2,vc)))",
+     "va=\u003emul(c1,c1,va)",
+     "mul(add(c0,va,vc),add(neg(c-3),vb))=\u003emul(add(c0,mul(c1,vc),va),add(neg(c-3),vb),neg(neg(c1)))",
+     "add(mul(add(c-3,va),neg(c4)),vb)=\u003eadd(mul(neg(neg(add(c-3,neg(neg(va))))),neg(neg(neg(c4)))),vb)",
+     "add(neg(va),va,vc)=\u003eadd(neg(add(c0,mul(c1,c1,va))),va,vc)",
+     "c-1=\u003eneg(mul(c1,c1,neg(c-1)))",
+     "c3=\u003eadd(c0,c3)",
+     "mul(add(neg(c-3),vc),vb)=\u003emul(add(c0,neg(c-3),neg(neg(vc))),add(c0,vb))",
+     "va=\u003emul(add(c0,c1),c1,va)",
+     "neg(mul(c0,vb,vc))=\u003emul(neg(neg(neg(mul(neg(neg(c0)),vc)))),vb)",
+     "add(vb,vc)=\u003eneg(add(c0,neg(add(c0,vb,vc))))",
+     "neg(mul(c0,c3,neg(c-3)))=\u003emul(c1,neg(mul(c0,c1,c3,neg(neg(neg(c-3))))))",
+     "neg(c0)=\u003eadd(c0,c0)",
+     "mul(neg(add(c4,vb)),neg(mul(vc,vc)))=\u003eneg(neg(mul(add(c0,neg(mul(vc,vc))),neg(mul(add(c4,vb),c1)))))",
+     "c-3=\u003eadd(c0,mul(c-3,neg(neg(c1))))",
+     "vc=\u003eadd(c0,mul(neg(neg(c1)),vc))",
+     "add(neg(c3),va)=\u003eadd(mul(c1,neg(neg(neg(add(c0,c3))))),va)",
+     "neg(neg(vc))=\u003eneg(neg(mul(neg(add(c0,neg(c1))),vc)))",
+     "add(c-1,c0)=\u003eadd(c0,mul(c-1,c1))",
+     "vc=\u003emul(c1,neg(neg(neg(neg(vc)))))",
+     "add(c0,va)=\u003eadd(mul(add(c0,va),c1),mul(c0,c1))",
+     "mul(neg(c-1),neg(vb))=\u003emul(neg(add(c0,neg(neg(c-1)))),neg(neg(neg(vb))))",
+     "va=\u003eadd(c0,mul(c0,c1),va)",
+     "c0=\u003emul(add(c0,c0),c1,c1)",
+     "va=\u003eadd(c0,mul(c1,neg(neg(va))))",
+     "c-3=\u003emul(c1,c1,neg(neg(c-3)))",
+     "neg(mul(c-1,c2))=\u003eadd(c0,neg(neg(neg(mul(c-1,neg(neg(c2)))))))",
+     "c-1=\u003eneg(neg(c-1))",
+     "c-2=\u003eadd(c-2,c0)",
+     "mul(add(c0,mul(c-2,vc)),neg(neg(va)))=\u003emul(add(c0,mul(c-2,vc)),neg(add(c0,neg(va))))",
+     "mul(c-2,neg(vb),vb)=\u003eneg(neg(mul(c-2,neg(vb),vb)))",
+     "mul(neg(add(c-2,vc)),va,va,vb,vc)=\u003eneg(neg(mul(add(neg(c-2),neg(vc)),c1,va,va,vb,vc)))",
+     "vc=\u003eneg(neg(vc))",
+     "neg(add(vb,vb))=\u003eadd(neg(mul(c1,vb)),neg(mul(c1,vb)))",
+     "mul(add(c2,va),c-2)=\u003eadd(c0,mul(add(c2,mul(c0,c1),va),c-2))",
+     "add(mul(c4,vb),va)=\u003eadd(mul(c1,va),mul(neg(mul(c1,neg(c4))),vb))",
+     "vb=\u003eneg(neg(vb))",
+     "neg(c2)=\u003eadd(c0,mul(c1,c1,neg(c2)))",
+     "add(vb,vc,vc,vc)=\u003eadd(c0,neg(mul(c1,neg(vc))),vb,vc,vc)",
+     "neg(va)=\u003emul(neg(mul(c1,neg(c1))),neg(va))",
+     "va=\u003eneg(neg(neg(neg(mul(c1,va)))))",
+     "add(neg(c4),va)=\u003eneg(neg(add(c0,neg(mul(c1,c4)),va)))",
+     "vb=\u003eneg(neg(neg(neg(vb))))",
+     "add(mul(c-3,va),neg(c2))=\u003eadd(c0,mul(add(mul(c-3,neg(neg(c1)),va),neg(c2)),c1))",
+     "va=\u003eneg(neg(add(c0,va)))",
+     "neg(va)=\u003eneg(va)",
+     "neg(add(c3,mul(va,vb)))=\u003eneg(neg(neg(mul(c1,neg(neg(add(c3,mul(add(c0,vb),va))))))))",
+     "mul(c0,neg(c2))=\u003eadd(c0,mul(c0,neg(mul(c1,c2))))",
+     "va=\u003eadd(neg(neg(neg(add(c0,neg(c0))))),va)",
+     "add(mul(c3,va),neg(vc))=\u003eadd(mul(add(c0,c3),va),neg(neg(c0)),neg(neg(neg(vc))))",
+     "c4=\u003eadd(c4,neg(neg(c0)))",
+     "vb=\u003evb",
+     "add(mul(c4,va),va)=\u003eadd(mul(c4,va),va)",
+     "neg(add(c-3,va))=\u003eneg(neg(add(neg(neg(neg(add(c-3,c0)))),neg(va))))",
+     "add(mul(va,vb),va)=\u003emul(add(mul(add(c0,mul(c1,c1)),va,vb),va),c1)",
+     "add(va,va,va,vb)=\u003eadd(neg(neg(add(mul(c1,va),mul(c1,va)))),neg(neg(vb)),va)",
+     "mul(neg(neg(va)),vb)=\u003emul(add(c0,c0,vb),c1,neg(neg(mul(c1,va))))",
+     "vc=\u003eneg(add(c0,c0,neg(neg(neg(vc)))))",
+     "vb=\u003eadd(c0,c0,neg(neg(mul(c1,vb))))",
+     "neg(mul(va,vc))=\u003eneg(mul(add(mul(c0,c1),va),c1,c1,vc))",
+     "add(mul(va,vb),vb,vb)=\u003eadd(neg(mul(neg(neg(c1)),neg(va),vb)),vb,vb)",
+     "neg(neg(vb))=\u003eneg(add(c0,neg(mul(c1,vb))))",
+     "vc=\u003eadd(mul(c0,c1),vc)",
+     "neg(c4)=\u003eneg(add(c0,mul(add(c4,mul(c0,c1)),c1)))",
+     "mul(add(c2,vc),vc)=\u003emul(add(c0,mul(add(c2,vc),neg(neg(c1)))),neg(neg(vc)))",
+     "add(neg(neg(c-3)),vb)=\u003eadd(mul(c-3,c1),vb)",
+     "add(c0,mul(add(vb,vc),vb))=\u003eadd(c0,c0,mul(add(neg(neg(vb)),vc),vb))",
+     "mul(c2,va)=\u003eneg(neg(add(c0,mul(add(c2,neg(neg(c0))),va))))",
+     "add(neg(mul(c0,c4)),neg(vb))=\u003eneg(add(neg(neg(neg(neg(mul(c0,c1,c4))))),vb))",
+     "neg(c2)=\u003eneg(c2)",
+     "neg(c3)=\u003emul(c1,c1,neg(c3))",
+     "vb=\u003emul(add(c1,mul(c0,c1)),c1,vb)",
+     "mul(c-3,vc)=\u003emul(c-3,vc)",
+     "vb=\u003eneg(mul(c1,neg(neg(neg(add(c0,vb))))))",
+     "neg(mul(add(va,vb),c2,vc))=\u003emul(c1,neg(add(c0,mul(neg(neg(add(va,vb))),neg(neg(mul(c2,vc)))))))",
+     "vc=\u003eadd(c0,c0,c0,neg(neg(vc)))",
+     "mul(add(mul(va,va),va),vb)=\u003emul(add(mul(add(c0,va),c1,va),neg(neg(neg(neg(va))))),vb)",
+     "c-1=\u003eneg(add(c0,neg(c-1)))",
+     "c-1=\u003eadd(c-1,c0,mul(c0,neg(neg(c1))))",
+     "add(va,va)=\u003emul(add(c0,va,va),c1,c1,c1)",
+     "add(c0,neg(vb),va)=\u003emul(add(c0,c0,neg(vb),va),c1)",
+     "neg(vb)=\u003eadd(neg(neg(c0)),neg(vb))",
+     "add(mul(neg(vb),va,vc),va)=\u003eadd(c0,mul(add(c0,mul(add(c0,vc),va)),neg(vb)),neg(neg(add(c0,va))))",
+     "add(c0,mul(neg(c0),vc),neg(vc))=\u003eadd(mul(add(c0,neg(vc)),c1),neg(neg(mul(c1,neg(c0),vc))))",
+     "add(c1,va,vb)=\u003eadd(c0,mul(add(c1,neg(neg(c0)),neg(neg(va)),vb),c1))",
+     "mul(c-2,neg(c4),vc)=\u003eneg(mul(c1,neg(mul(neg(add(c0,c4)),neg(mul(c1,neg(c-2))),vc))))",
+     "c3=\u003emul(add(c0,neg(neg(c3))),c1)",
+     "mul(c-1,c4,c4,vc)=\u003emul(c-1,c1,c4,neg(mul(c1,neg(mul(c4,vc)))))",
+     "mul(c0,neg(c4),vb)=\u003eadd(c0,neg(neg(mul(c0,c1,neg(add(c0,c4))))))",
+     "mul(add(c2,neg(va),va),add(c3,va),c-1,vb)=\u003emul(add(c3,va),c-1,neg(neg(mul(add(neg(neg(add(c2,va))),neg(va)),c1))),vb)",
+     "mul(c4,vc)=\u003emul(add(c0,mul(c1,c1)),c4,vc)",
+     "mul(add(neg(c-2),vb),c0,vc,vc)=\u003emul(add(neg(mul(c1,neg(add(c0,neg(c-2))))),vb),c0,vc,vc)",
+     "neg(va)=\u003emul(add(c0,neg(va)),c1,c1)",
+     "c0=\u003eadd(c0,neg(neg(add(c0,c0))))",
+     "add(c-3,neg(va))=\u003emul(c1,neg(neg(add(c-3,c0,c0,c0,neg(va)))))",
+     "neg(neg(vb))=\u003emul(c1,c1,vb)",
+     "neg(add(c-2,va))=\u003eadd(mul(c0,c1),neg(add(c-2,c0,va)))",
+     "mul(add(neg(c-1),vb),vc)=\u003emul(add(c0,vc),add(neg(neg(neg(c-1))),vb),c1,neg(neg(c1)))",
+     "mul(add(c-3,vb),va,vc)=\u003emul(add(c-3,c0,neg(neg(add(c0,vb)))),va,vc)",
+     "c2=\u003eadd(c0,c2,mul(c0,c1))",
+     "vc=\u003eadd(c0,c0,mul(c0,c1),mul(c1,vc))",
+     "neg(c2)=\u003eneg(neg(neg(c2)))",
+     "mul(neg(vc),vc)=\u003emul(add(c0,neg(neg(neg(neg(add(c0,vc)))))),c1,neg(vc))",
+     "vb=\u003eadd(c0,vb)",
+     "va=\u003eneg(neg(neg(add(c0,neg(add(neg(neg(c0)),va))))))",
+     "neg(add(mul(va,vc),neg(c1)))=\u003eneg(add(mul(add(c0,neg(neg(neg(neg(va))))),vc),neg(c1)))",
+     "c-1=\u003eadd(c0,neg(mul(c1,neg(c-1))))",
+     "c3=\u003eneg(neg(add(c0,mul(c1,c3))))",
+     "mul(add(c-3,vb,vb,vc),vc)=\u003emul(add(c0,mul(add(c0,c1),c1,vb),neg(neg(c-3)),vb,vc),vc)",
+     "neg(neg(c-1))=\u003eneg(neg(neg(neg(neg(neg(add(c-1,c0)))))))",
+     "add(c-3,mul(c4,va))=\u003eadd(c-3,c0,c0,c0,c0,mul(c1,c4,va))",
+     "add(neg(c-1),neg(va),neg(vb))=\u003eneg(neg(add(mul(c1,neg(mul(c-1,c1))),mul(c1,neg(mul(c1,vb))),neg(va))))",
+     "c-3=\u003eadd(c-3,mul(add(c0,c1),neg(neg(mul(c0,c1)))))",
+     "va=\u003eadd(c0,c0,c0,va)",
+     "neg(neg(mul(c-3,vc)))=\u003eadd(c0,neg(mul(add(c0,vc),neg(c-3))))",
+     "neg(add(c-2,c-3))=\u003eadd(neg(c-3),neg(mul(c1,neg(add(c0,neg(neg(neg(c-2))))))))",
+     "mul(c4,vb)=\u003eneg(neg(mul(c4,vb)))",
+     "add(mul(add(va,va),va),neg(neg(vb)))=\u003eadd(neg(add(c0,neg(vb))),neg(neg(mul(add(va,va),neg(neg(add(c0,c0,va)))))))",
+     "neg(mul(va,vb))=\u003emul(c1,neg(mul(c1,c1,va,vb)))",
+     "neg(add(neg(vc),vb))=\u003eadd(c0,neg(add(c0,neg(neg(add(c0,neg(add(c0,vc))))),vb)))",
+     "add(mul(add(c-1,c2),vc,vc),vb)=\u003eadd(mul(add(c-1,c0,c0,c2),c1,neg(neg(c1)),vc,vc),vb)",
+     "add(neg(c1),neg(mul(vb,vc)),vb)=\u003eadd(c0,mul(add(mul(c1,neg(mul(c1,c1))),vb),c1),neg(mul(add(c0,vc),vb)))",
+     "c-1=\u003eadd(c0,mul(c-1,c1))",
+     "neg(add(mul(va,vc),mul(vb,vc)))=\u003eneg(add(mul(add(c0,c0,vc),vb),neg(neg(neg(mul(add(c0,va),neg(vc)))))))",
+     "va=\u003emul(add(neg(c0),neg(mul(c1,neg(c1)))),c1,va)",
+     "mul(neg(c3),vc,vc)=\u003emul(add(c0,c0,neg(mul(c1,c3))),add(c0,vc),vc)",
+     "neg(vc)=\u003eneg(neg(neg(mul(add(c0,mul(c1,c1)),c1,vc))))",
+     "add(c2,neg(va),vc)=\u003emul(add(c0,c2,neg(add(c0,va)),neg(neg(vc))),c1,c1,c1)",
+     "mul(add(c0,vb),add(mul(vb,vb),va,va),vb)=\u003emul(add(c0,c0,mul(vb,vb),va,va),c1,vb,vb)",
+     "c-3=\u003emul(c1,c1,neg(add(c0,neg(add(c-3,mul(c0,c1))))))",
+     "neg(add(vb,vb))=\u003emul(add(c0,c1),c1,neg(neg(neg(add(vb,vb)))))",
+     "mul(c-2,neg(c0))=\u003emul(neg(mul(c1,neg(neg(add(c0,neg(add(c-2,c0))))))),neg(neg(neg(c0))))",
+     "mul(c0,c4)=\u003emul(c0,c1,neg(neg(c4)))",
+     "mul(add(mul(c3,vb),va),add(mul(c4,vb),mul(va,vc)))=\u003emul(add(c0,mul(c1,va,vc),mul(c4,vb)),add(mul(add(neg(add(c0,neg(add(c0,c0)))),vb),c3),va))",
+     "add(mul(add(c-2,va),va,va),neg(c-3),vb,vc)=\u003eneg(mul(c1,neg(add(mul(add(c-2,mul(c1,va)),neg(neg(mul(va,va)))),mul(add(mul(c1,vb),vc),c1),neg(c-3)))))",
+     "c-2=\u003eadd(mul(add(c-2,c0,c0),c1),neg(neg(add(c0,c0))))",
+     "mul(c-1,va)=\u003emul(add(c0,c1),c1,neg(add(neg(c-1),neg(neg(c0)))),va)",
+     "add(c2,vc,vc)=\u003eadd(c0,c2,mul(c0,neg(neg(c1))),vc,vc)",
+     "vc=\u003eadd(mul(c0,c1),neg(neg(c0)),vc)",
+     "mul(c3,va)=\u003emul(neg(mul(c1,neg(mul(c3,va)))),neg(neg(c1)))",
+     "va=\u003emul(c1,neg(neg(add(c0,c1))),va)",
+     "c-1=\u003eneg(neg(mul(add(c0,neg(neg(c-1))),c1)))",
+     "va=\u003eneg(neg(mul(c1,va)))",
+     "va=\u003emul(add(c0,c1),neg(neg(c1)),neg(neg(mul(c1,va))))",
+     "neg(add(neg(vb),va))=\u003eneg(neg(mul(add(neg(neg(neg(va))),neg(neg(vb))),c1)))",
+     "add(c1,c2,c4,vb)=\u003eadd(c2,c4,neg(add(c0,neg(add(neg(neg(mul(c1,c1))),vb)))))",
+     "mul(c0,neg(c4),vb)=\u003emul(add(c0,c0,neg(c4)),add(c0,c1),c1,neg(neg(mul(c0,vb))))",
+     "vc=\u003eadd(neg(neg(add(c0,mul(c0,c1)))),vc)",
+     "mul(vb,vb,vc)=\u003emul(add(c0,mul(c1,neg(neg(add(c0,vc))),vb)),c1,c1,vb)",
+     "vb=\u003eadd(c0,mul(c1,vb))",
+     "neg(vc)=\u003eadd(c0,neg(mul(c1,neg(neg(neg(neg(vc)))))))",
+     "mul(add(c4,va),neg(c4),va,vc)=\u003eneg(neg(mul(add(c0,c0,c0,neg(neg(c4)),va),c1,neg(c4),va,vc)))",
+     "add(va,vb,vc)=\u003eadd(mul(c1,c1,vb),va,vc)",
+     "add(neg(va),neg(vc))=\u003eadd(c0,c0,neg(add(c0,va)),neg(mul(c1,neg(neg(vc)))))",
+     "vb=\u003eneg(neg(mul(c1,vb)))",
+     "neg(mul(va,va))=\u003eneg(add(c0,neg(neg(mul(c1,neg(neg(neg(neg(neg(neg(va)))))),va)))))",
+     "add(c-2,mul(va,vb),va)=\u003eadd(mul(add(c0,vb),va),mul(c1,neg(neg(add(c-2,c0)))),va)",
+     "neg(mul(c-2,va))=\u003eadd(c0,neg(neg(mul(c-2,c1,neg(va)))))",
+     "add(mul(add(c3,va),c-2),mul(va,vb),neg(c4))=\u003eadd(mul(add(c0,va),vb),mul(add(c3,neg(neg(va))),c-2),neg(add(c4,neg(neg(c0)))))",
+     "add(neg(c-1),neg(vc))=\u003eadd(mul(c1,neg(mul(c1,vc))),neg(add(c0,mul(c-1,c1))))",
+     "mul(c-2,c-2,c3)=\u003eadd(c0,mul(add(c0,c4),c1,c3))",
+     "neg(vb)=\u003eneg(mul(add(c0,mul(c0,c1),vb),c1))",
+     "mul(c2,neg(add(va,vb)))=\u003emul(neg(add(c0,mul(c1,va),vb)),neg(neg(c2)))",
+     "neg(mul(va,vb))=\u003eneg(mul(add(c0,va),c1,c1,vb))",
+     "vb=\u003eneg(neg(add(mul(c1,neg(neg(neg(mul(c1,neg(mul(c0,c1))))))),vb)))",
+     "add(mul(c-1,c-2,va),neg(c1),vc)=\u003emul(add(c0,mul(c-1,c-2,va),neg(c1),neg(neg(neg(c0))),vc),c1)",
+     "mul(neg(c-1),neg(vb))=\u003eadd(c0,c0,neg(mul(neg(mul(add(c0,c1),c-1)),vb)))",
+     "va=\u003eadd(c0,mul(c0,c1),mul(c1,neg(neg(va))))",
+     "add(c0,neg(c0),va)=\u003eneg(neg(add(c0,c0,mul(add(c0,neg(neg(va))),c1),mul(c0,c1),neg(c0))))",
+     "add(c-1,neg(c-2),vb)=\u003eadd(c0,neg(c-2),neg(neg(add(mul(c-1,c1),mul(c0,c1),vb))))",
+     "add(mul(c-2,vc,vc),neg(mul(vc,vc)))=\u003eadd(mul(c1,neg(neg(mul(c-2,vc))),vc),neg(mul(vc,vc)))",
+     "add(neg(c-2),neg(va))=\u003eadd(mul(c1,neg(mul(c-2,c1))),neg(neg(add(c0,neg(add(c0,va))))))",
+     "mul(add(c3,vc),add(vb,vb),c1)=\u003emul(add(c0,mul(c1,vb),neg(neg(vb))),add(c0,neg(neg(neg(neg(add(c0,c3,vc)))))),c1)",
+     "mul(c-3,neg(c0))=\u003emul(add(c-3,c0,c0),add(c0,neg(add(c0,neg(neg(c0))))))",
+     "c-2=\u003emul(c-2,c1)",
+     "vc=\u003eadd(c0,neg(neg(mul(c1,c1,vc))))",
+     "neg(neg(vb))=\u003eadd(c0,neg(neg(vb)))",
+     "mul(add(c4,va),c-3,c1,vb)=\u003emul(add(c0,neg(neg(c1))),add(c4,mul(c1,va)),c1,c1,c1,neg(neg(c-3)),vb)",
+     "neg(c0)=\u003eneg(mul(add(c0,c1),c1,neg(neg(c0))))",
+     "mul(add(c3,vb),neg(va))=\u003emul(add(c0,neg(va)),c1,neg(neg(neg(neg(add(c0,neg(add(neg(c3),neg(vb)))))))))",
+     "mul(c-1,neg(c-2))=\u003emul(add(c-1,c0),add(c0,neg(neg(add(c0,neg(c-2),neg(c0))))),c1)",
+     "mul(vb,vc)=\u003emul(add(c0,mul(add(c0,neg(neg(c0)),vb),vc)),c1)",
+     "add(c2,c4,mul(va,va))=\u003eneg(neg(add(c2,neg(add(c0,neg(neg(neg(mul(va,va)))))),neg(neg(c0)),neg(neg(c4)))))",
+     "add(neg(mul(c1,vc)),vb)=\u003eadd(c0,mul(c1,vb),neg(mul(c1,c1,vc)))",
+     "neg(add(c-3,neg(c0)))=\u003eneg(neg(neg(add(c0,mul(add(c-3,c0,c0,neg(c0)),c1)))))",
+     "add(va,vb,vc)=\u003eadd(c0,mul(c1,vb),neg(neg(neg(mul(c1,neg(add(c0,c0,va,vc)))))))",
+     "va=\u003eneg(mul(c1,neg(va)))",
+     "neg(neg(c-2))=\u003emul(add(c0,c1),neg(add(c0,neg(c-2))))",
+     "c-2=\u003eneg(neg(add(c-2,c0,c0)))",
+     "add(c0,c0,va,vc)=\u003eadd(c0,c0,mul(add(c0,c0,c0,mul(c1,va)),c1),vc)",
+     "add(c1,va)=\u003eneg(mul(c1,neg(add(c1,va))))",
+     "c-2=\u003eneg(neg(neg(add(c0,neg(neg(neg(mul(c-2,c1))))))))",
+     "vc=\u003eadd(c0,neg(add(c0,c0,neg(mul(c1,vc)))))",
+     "add(neg(mul(c4,va)),neg(va),vb,vc)=\u003emul(add(c0,c0,neg(neg(add(mul(add(c0,vb,vc),c1,c1),neg(mul(c4,va)),neg(va))))),c1)",
+     "va=\u003emul(add(c0,mul(c0,c1,c1),va),c1)",
+     "neg(add(c3,neg(c-1)))=\u003eadd(c0,neg(add(c3,neg(neg(mul(add(c0,mul(c1,c1)),neg(c-1)))))))",
+     "neg(mul(c-2,vc,vc))=\u003eneg(mul(c1,neg(neg(mul(add(c0,vc),c-2,c1,vc)))))",
+     "c-2=\u003eadd(c0,neg(mul(add(neg(c0),neg(neg(neg(c-2)))),neg(neg(c1)))))",
+     "c0=\u003eadd(neg(neg(c0)),neg(neg(neg(neg(c0)))))",
+     "mul(add(c4,vb),add(va,vb),c1)=\u003eadd(mul(add(c4,vb),c1,va),mul(add(c4,vb),vb))",
+     "mul(va,vb,vb)=\u003eadd(c0,mul(c1,neg(mul(c1,neg(add(c0,mul(neg(neg(vb)),vb))))),va))",
+     "neg(add(vc,vc))=\u003emul(add(mul(c1,neg(vc)),mul(c1,neg(vc))),c1,c1)"
+    ],
+    "Starts": [
+     "vc",
+     "c-1",
+     "vb",
+     "mul(add(c0,c2,c3),add(c2,neg(vc)))",
+     "c2",
+     "c-2",
+     "mul(add(c-1,vc),c1)",
+     "mul(neg(c4),neg(neg(vc)))",
+     "mul(neg(add(vb,vb)),vb)",
+     "vc",
+     "va",
+     "va",
+     "vb",
+     "vb",
+     "neg(neg(add(c1,vc)))",
+     "neg(add(c-2,neg(va),vb))",
+     "neg(add(c2,va))",
+     "add(c0,mul(vb,vb))",
+     "mul(add(c0,vb),neg(c-3))",
+     "mul(c4,neg(mul(vc,vc)),neg(vb),vb)",
+     "c-1",
+     "add(c-3,c2,neg(c2))",
+     "neg(mul(va,va,vb))",
+     "mul(add(c-1,c0,c3,va),vb)",
+     "neg(c-1)",
+     "add(c0,mul(va,vc),neg(vb))",
+     "mul(c4,neg(va))",
+     "neg(vb)",
+     "c3",
+     "mul(c2,neg(mul(vb,vb)))",
+     "c4",
+     "mul(add(c-2,va),add(c-2,vc),neg(c1),neg(c2))",
+     "neg(add(c0,c3,va,vb))",
+     "c-3",
+     "va",
+     "neg(add(c-2,c3))",
+     "mul(add(va,vc),neg(mul(vb,vb)),va)",
+     "vb",
+     "add(c2,vc)",
+     "va",
+     "mul(add(c0,va,vc),add(neg(c-3),vb))",
+     "add(mul(add(c-3,va),neg(c4)),vb)",
+     "add(neg(va),va,vc)",
+     "c-1",
+     "c3",
+     "mul(add(neg(c-3),vc),vb)",
+     "va",
+     "neg(mul(c0,vb,vc))",
+     "add(vb,vc)",
+     "neg(mul(c0,c3,neg(c-3)))",
+     "neg(c0)",
+     "mul(neg(add(c4,vb)),neg(mul(vc,vc)))",
+     "c-3",
+     "vc",
+     "add(neg(c3),va)",
+     "neg(neg(vc))",
+     "add(c-1,c0)",
+     "vc",
+     "add(c0,va)",
+     "mul(neg(c-1),neg(vb))",
+     "va",
+     "c0",
+     "va",
+     "c-3",
+     "neg(mul(c-1,c2))",
+     "c-1",
+     "c-2",
+     "mul(add(c0,mul(c-2,vc)),neg(neg(va)))",
+     "mul(c-2,neg(vb),vb)",
+     "mul(neg(add(c-2,vc)),va,va,vb,vc)",
+     "vc",
+     "neg(add(vb,vb))",
+     "mul(add(c2,va),c-2)",
+     "add(mul(c4,vb),va)",
+     "vb",
+     "neg(c2)",
+     "add(vb,vc,vc,vc)",
+     "neg(va)",
+     "va",
+     "add(neg(c4),va)",
+     "vb",
+     "add(mul(c-3,va),neg(c2))",
+     "va",
+     "neg(va)",
+     "neg(add(c3,mul(va,vb)))",
+     "mul(c0,neg(c2))",
+     "va",
+     "add(mul(c3,va),neg(vc))",
+     "c4",
+     "vb",
+     "add(mul(c4,va),va)",
+     "neg(add(c-3,va))",
+     "add(mul(va,vb),va)",
+     "add(va,va,va,vb)",
+     "mul(neg(neg(va)),vb)",
+     "vc",
+     "vb",
+     "neg(mul(va,vc))",
+     "add(mul(va,vb),vb,vb)",
+     "neg(neg(vb))",
+     "vc",
+     "neg(c4)",
+     "mul(add(c2,vc),vc)",
+     "add(neg(neg(c-3)),vb)",
+     "add(c0,mul(add(vb,vc),vb))",
+     "mul(c2,va)",
+     "add(neg(mul(c0,c4)),neg(vb))",
+     "neg(c2)",
+     "neg(c3)",
+     "vb",
+     "mul(c-3,vc)",
+     "vb",
+     "neg(mul(add(va,vb),c2,vc))",
+     "vc",
+     "mul(add(mul(va,va),va),vb)",
+     "c-1",
+     "c-1",
+     "add(va,va)",
+     "add(c0,neg(vb),va)",
+     "neg(vb)",
+     "add(mul(neg(vb),va,vc),va)",
+     "add(c0,mul(neg(c0),vc),neg(vc))",
+     "add(c1,va,vb)",
+     "mul(c-2,neg(c4),vc)",
+     "c3",
+     "mul(c-1,c4,c4,vc)",
+     "mul(c0,neg(c4),vb)",
+     "mul(add(c2,neg(va),va),add(c3,va),c-1,vb)",
+     "mul(c4,vc)",
+     "mul(add(neg(c-2),vb),c0,vc,vc)",
+     "neg(va)",
+     "c0",
+     "add(c-3,neg(va))",
+     "neg(neg(vb))",
+     "neg(add(c-2,va))",
+     "mul(add(neg(c-1),vb),vc)",
+     "mul(add(c-3,vb),va,vc)",
+     "c2",
+     "vc",
+     "neg(c2)",
+     "mul(neg(vc),vc)",
+     "vb",
+     "va",
+     "neg(add(mul(va,vc),neg(c1)))",
+     "c-1",
+     "c3",
+     "mul(add(c-3,vb,vb,vc),vc)",
+     "neg(neg(c-1))",
+     "add(c-3,mul(c4,va))",
+     "add(neg(c-1),neg(va),neg(vb))",
+     "c-3",
+     "va",
+     "neg(neg(mul(c-3,vc)))",
+     "neg(add(c-2,c-3))",
+     "mul(c4,vb)",
+     "add(mul(add(va,va),va),neg(neg(vb)))",
+     "neg(mul(va,vb))",
+     "neg(add(neg(vc),vb))",
+     "add(mul(add(c-1,c2),vc,vc),vb)",
+     "add(neg(c1),neg(mul(vb,vc)),vb)",
+     "c-1",
+     "neg(add(mul(va,vc),mul(vb,vc)))",
+     "va",
+     "mul(neg(c3),vc,vc)",
+     "neg(vc)",
+     "add(c2,neg(va),vc)",
+     "mul(add(c0,vb),add(mul(vb,vb),va,va),vb)",
+     "c-3",
+     "neg(add(vb,vb))",
+     "mul(c-2,neg(c0))",
+     "mul(c0,c4)",
+     "mul(add(mul(c3,vb),va),add(mul(c4,vb),mul(va,vc)))",
+     "add(mul(add(c-2,va),va,va),neg(c-3),vb,vc)",
+     "c-2",
+     "mul(c-1,va)",
+     "add(c2,vc,vc)",
+     "vc",
+     "mul(c3,va)",
+     "va",
+     "c-1",
+     "va",
+     "va",
+     "neg(add(neg(vb),va))",
+     "add(c1,c2,c4,vb)",
+     "mul(c0,neg(c4),vb)",
+     "vc",
+     "mul(vb,vb,vc)",
+     "vb",
+     "neg(vc)",
+     "mul(add(c4,va),neg(c4),va,vc)",
+     "add(va,vb,vc)",
+     "add(neg(va),neg(vc))",
+     "vb",
+     "neg(mul(va,va))",
+     "add(c-2,mul(va,vb),va)",
+     "neg(mul(c-2,va))",
+     "add(mul(add(c3,va),c-2),mul(va,vb),neg(c4))",
+     "add(neg(c-1),neg(vc))",
+     "mul(c-2,c-2,c3)",
+     "neg(vb)",
+     "mul(c2,neg(add(va,vb)))",
+     "neg(mul(va,vb))",
+     "vb",
+     "add(mul(c-1,c-2,va),neg(c1),vc)",
+     "mul(neg(c-1),neg(vb))",
+     "va",
+     "add(c0,neg(c0),va)",
+     "add(c-1,neg(c-2),vb)",
+     "add(mul(c-2,vc,vc),neg(mul(vc,vc)))",
+     "add(neg(c-2),neg(va))",
+     "mul(add(c3,vc),add(vb,vb),c1)",
+     "mul(c-3,neg(c0))",
+     "c-2",
+     "vc",
+     "neg(neg(vb))",
+     "mul(add(c4,va),c-3,c1,vb)",
+     "neg(c0)",
+     "mul(add(c3,vb),neg(va))",
+     "mul(c-1,neg(c-2))",
+     "mul(vb,vc)",
+     "add(c2,c4,mul(va,va))",
+     "add(neg(mul(c1,vc)),vb)",
+     "neg(add(c-3,neg(c0)))",
+     "add(va,vb,vc)",
+     "va",
+     "neg(neg(c-2))",
+     "c-2",
+     "add(c0,c0,va,vc)",
+     "add(c1,va)",
+     "c-2",
+     "vc",
+     "add(neg(mul(c4,va)),neg(va),vb,vc)",
+     "va",
+     "neg(add(c3,neg(c-1)))",
+     "neg(mul(c-2,vc,vc))",
+     "c-2",
+     "c0",
+     "mul(add(c4,vb),add(va,vb),c1)",
+     "mul(va,vb,vb)",
+     "neg(add(vc,vc))"
+    ],
+    "Targets": [
+     "mul(c1,c1,vc)",
+     "add(c-1,neg(neg(c0)))",
+     "neg(neg(add(c0,vb)))",
+     "mul(add(c0,c2,c3),c1,neg(neg(add(c2,neg(vc)))))",
+     "neg(neg(add(c0,c2)))",
+     "c-2",
+     "mul(c1,c1,neg(neg(add(c-1,vc))))",
+     "mul(c1,neg(neg(neg(c4))),neg(neg(vc)))",
+     "mul(neg(mul(add(mul(c1,vb),vb),c1)),vb)",
+     "mul(c1,neg(neg(vc)))",
+     "va",
+     "neg(neg(add(c0,va)))",
+     "add(c0,neg(neg(vb)))",
+     "mul(add(c0,c1),vb)",
+     "mul(c1,neg(add(neg(c1),neg(vc))))",
+     "add(neg(add(c-2,neg(va),vb)),neg(c0))",
+     "add(neg(c2),neg(mul(c1,va)))",
+     "add(c0,c0,mul(c1,vb,vb))",
+     "add(c0,mul(neg(c-3),vb))",
+     "mul(neg(mul(vc,vc)),neg(neg(mul(c1,c4,neg(vb),vb))))",
+     "c-1",
+     "add(c-3,neg(neg(c2)),neg(neg(neg(c2))))",
+     "mul(c1,neg(mul(neg(neg(va)),va,vb)))",
+     "mul(add(c-1,c0,mul(c1,c3),va),c1,vb)",
+     "neg(c-1)",
+     "add(c0,mul(c1,neg(neg(va)),vc),neg(vb))",
+     "mul(c4,neg(neg(c1)),neg(va))",
+     "mul(add(c0,neg(vb)),c1)",
+     "mul(add(c0,c3),c1)",
+     "mul(c1,c2,neg(neg(neg(mul(vb,vb)))))",
+     "c4",
+     "mul(add(c-2,c0,vc),add(c-2,va),neg(c1),neg(mul(c1,c2)))",
+     "neg(add(c0,c3,mul(c0,c1),va,vb))",
+     "c-3",
+     "add(c0,neg(neg(va)))",
+     "neg(neg(neg(add(c-2,c0,c3))))",
+     "mul(add(va,vc),neg(neg(add(c0,neg(mul(vb,vb))))),va)",
+     "vb",
+     "neg(neg(add(c0,c2,vc)))",
+     "mul(c1,c1,va)",
+     "mul(add(c0,mul(c1,vc),va),add(neg(c-3),vb),neg(neg(c1)))",
+     "add(mul(neg(neg(add(c-3,neg(neg(va))))),neg(neg(neg(c4)))),vb)",
+     "add(neg(add(c0,mul(c1,c1,va))),va,vc)",
+     "neg(mul(c1,c1,neg(c-1)))",
+     "add(c0,c3)",
+     "mul(add(c0,neg(c-3),neg(neg(vc))),add(c0,vb))",
+     "mul(add(c0,c1),c1,va)",
+     "mul(neg(neg(neg(mul(neg(neg(c0)),vc)))),vb)",
+     "neg(add(c0,neg(add(c0,vb,vc))))",
+     "mul(c1,neg(mul(c0,c1,c3,neg(neg(neg(c-3))))))",
+     "add(c0,c0)",
+     "neg(neg(mul(add(c0,neg(mul(vc,vc))),neg(mul(add(c4,vb),c1)))))",
+     "add(c0,mul(c-3,neg(neg(c1))))",
+     "add(c0,mul(neg(neg(c1)),vc))",
+     "add(mul(c1,neg(neg(neg(add(c0,c3))))),va)",
+     "neg(neg(mul(neg(add(c0,neg(c1))),vc)))",
+     "add(c0,mul(c-1,c1))",
+     "mul(c1,neg(neg(neg(neg(vc)))))",
+     "add(mul(add(c0,va),c1),mul(c0,c1))",
+     "mul(neg(add(c0,neg(neg(c-1)))),neg(neg(neg(vb))))",
+     "add(c0,mul(c0,c1),va)",
+     "mul(add(c0,c0),c1,c1)",
+     "add(c0,mul(c1,neg(neg(va))))",
+     "mul(c1,c1,neg(neg(c-3)))",
+     "add(c0,neg(neg(neg(mul(c-1,neg(neg(c2)))))))",
+     "neg(neg(c-1))",
+     "add(c-2,c0)",
+     "mul(add(c0,mul(c-2,vc)),neg(add(c0,neg(va))))",
+     "neg(neg(mul(c-2,neg(vb),vb)))",
+     "neg(neg(mul(add(neg(c-2),neg(vc)),c1,va,va,vb,vc)))",
+     "neg(neg(vc))",
+     "add(neg(mul(c1,vb)),neg(mul(c1,vb)))",
+     "add(c0,mul(add(c2,mul(c0,c1),va),c-2))",
+     "add(mul(c1,va),mul(neg(mul(c1,neg(c4))),vb))",
+     "neg(neg(vb))",
+     "add(c0,mul(c1,c1,neg(c2)))",
+     "add(c0,neg(mul(c1,neg(vc))),vb,vc,vc)",
+     "mul(neg(mul(c1,neg(c1))),neg(va))",
+     "neg(neg(neg(neg(mul(c1,va)))))",
+     "neg(neg(add(c0,neg(mul(c1,c4)),va)))",
+     "neg(neg(neg(neg(vb))))",
+     "add(c0,mul(add(mul(c-3,neg(neg(c1)),va),neg(c2)),c1))",
+     "neg(neg(add(c0,va)))",
+     "neg(va)",
+     "neg(neg(neg(mul(c1,neg(neg(add(c3,mul(add(c0,vb),va))))))))",
+     "add(c0,mul(c0,neg(mul(c1,c2))))",
+     "add(neg(neg(neg(add(c0,neg(c0))))),va)",
+     "add(mul(add(c0,c3),va),neg(neg(c0)),neg(neg(neg(vc))))",
+     "add(c4,neg(neg(c0)))",
+     "vb",
+     "add(mul(c4,va),va)",
+     "neg(neg(add(neg(neg(neg(add(c-3,c0)))),neg(va))))",
+     "mul(add(mul(add(c0,mul(c1,c1)),va,vb),va),c1)",
+     "add(neg(neg(add(mul(c1,va),mul(c1,va)))),neg(neg(vb)),va)",
+     "mul(add(c0,c0,vb),c1,neg(neg(mul(c1,va))))",
+     "neg(add(c0,c0,neg(neg(neg(vc)))))",
+     "add(c0,c0,neg(neg(mul(c1,vb))))",
+     "neg(mul(add(mul(c0,c1),va),c1,c1,vc))",
+     "add(neg(mul(neg(neg(c1)),neg(va),vb)),vb,vb)",
+     "neg(add(c0,neg(mul(c1,vb))))",
+     "add(mul(c0,c1),vc)",
+     "neg(add(c0,mul(add(c4,mul(c0,c1)),c1)))",
+     "mul(add(c0,mul(add(c2,vc),neg(neg(c1)))),neg(neg(vc)))",
+     "add(mul(c-3,c1),vb)",
+     "add(c0,c0,mul(add(neg(neg(vb)),vc),vb))",
+     "neg(neg(add(c0,mul(add(c2,neg(neg(c0))),va))))",
+     "neg(add(neg(neg(neg(neg(mul(c0,c1,c4))))),vb))",
+     "neg(c2)",
+     "mul(c1,c1,neg(c3))",
+     "mul(add(c1,mul(c0,c1)),c1,vb)",
+     "mul(c-3,vc)",
+     "neg(mul(c1,neg(neg(neg(add(c0,vb))))))",
+     "mul(c1,neg(add(c0,mul(neg(neg(add(va,vb))),neg(neg(mul(c2,vc)))))))",
+     "add(c0,c0,c0,neg(neg(vc)))",
+     "mul(add(mul(add(c0,va),c1,va),neg(neg(neg(neg(va))))),vb)",
+     "neg(add(c0,neg(c-1)))",
+     "add(c-1,c0,mul(c0,neg(neg(c1))))",
+     "mul(add(c0,va,va),c1,c1,c1)",
+     "mul(add(c0,c0,neg(vb),va),c1)",
+     "add(neg(neg(c0)),neg(vb))",
+     "add(c0,mul(add(c0,mul(add(c0,vc),va)),neg(vb)),neg(neg(add(c0,va))))",
+     "add(mul(add(c0,neg(vc)),c1),neg(neg(mul(c1,neg(c0),vc))))",
+     "add(c0,mul(add(c1,neg(neg(c0)),neg(neg(va)),vb),c1))",
+     "neg(mul(c1,neg(mul(neg(add(c0,c4)),neg(mul(c1,neg(c-2))),vc))))",
+     "mul(add(c0,neg(neg(c3))),c1)",
+     "mul(c-1,c1,c4,neg(mul(c1,neg(mul(c4,vc)))))",
+     "add(c0,neg(neg(mul(c0,c1,neg(add(c0,c4))))))",
+     "mul(add(c3,va),c-1,neg(neg(mul(add(neg(neg(add(c2,va))),neg(va)),c1))),vb)",
+     "mul(add(c0,mul(c1,c1)),c4,vc)",
+     "mul(add(neg(mul(c1,neg(add(c0,neg(c-2))))),vb),c0,vc,vc)",
+     "mul(add(c0,neg(va)),c1,c1)",
+     "add(c0,neg(neg(add(c0,c0))))",
+     "mul(c1,neg(neg(add(c-3,c0,c0,c0,neg(va)))))",
+     "mul(c1,c1,vb)",
+     "add(mul(c0,c1),neg(add(c-2,c0,va)))",
+     "mul(add(c0,vc),add(neg(neg(neg(c-1))),vb),c1,neg(neg(c1)))",
+     "mul(add(c-3,c0,neg(neg(add(c0,vb)))),va,vc)",
+     "add(c0,c2,mul(c0,c1))",
+     "add(c0,c0,mul(c0,c1),mul(c1,vc))",
+     "neg(neg(neg(c2)))",
+     "mul(add(c0,neg(neg(neg(neg(add(c0,vc)))))),c1,neg(vc))",
+     "add(c0,vb)",
+     "neg(neg(neg(add(c0,neg(add(neg(neg(c0)),va))))))",
+     "neg(add(mul(add(c0,neg(neg(neg(neg(va))))),vc),neg(c1)))",
+     "add(c0,neg(mul(c1,neg(c-1))))",
+     "neg(neg(add(c0,mul(c1,c3))))",
+     "mul(add(c0,mul(add(c0,c1),c1,vb),neg(neg(c-3)),vb,vc),vc)",
+     "neg(neg(neg(neg(neg(neg(add(c-1,c0)))))))",
+     "add(c-3,c0,c0,c0,c0,mul(c1,c4,va))",
+     "neg(neg(add(mul(c1,neg(mul(c-1,c1))),mul(c1,neg(mul(c1,vb))),neg(va))))",
+     "add(c-3,mul(add(c0,c1),neg(neg(mul(c0,c1)))))",
+     "add(c0,c0,c0,va)",
+     "add(c0,neg(mul(add(c0,vc),neg(c-3))))",
+     "add(neg(c-3),neg(mul(c1,neg(add(c0,neg(neg(neg(c-2))))))))",
+     "neg(neg(mul(c4,vb)))",
+     "add(neg(add(c0,neg(vb))),neg(neg(mul(add(va,va),neg(neg(add(c0,c0,va)))))))",
+     "mul(c1,neg(mul(c1,c1,va,vb)))",
+     "add(c0,neg(add(c0,neg(neg(add(c0,neg(add(c0,vc))))),vb)))",
+     "add(mul(add(c-1,c0,c0,c2),c1,neg(neg(c1)),vc,vc),vb)",
+     "add(c0,mul(add(mul(c1,neg(mul(c1,c1))),vb),c1),neg(mul(add(c0,vc),vb)))",
+     "add(c0,mul(c-1,c1))",
+     "neg(add(mul(add(c0,c0,vc),vb),neg(neg(neg(mul(add(c0,va),neg(vc)))))))",
+     "mul(add(neg(c0),neg(mul(c1,neg(c1)))),c1,va)",
+     "mul(add(c0,c0,neg(mul(c1,c3))),add(c0,vc),vc)",
+     "neg(neg(neg(mul(add(c0,mul(c1,c1)),c1,vc))))",
+     "mul(add(c0,c2,neg(add(c0,va)),neg(neg(vc))),c1,c1,c1)",
+     "mul(add(c0,c0,mul(vb,vb),va,va),c1,vb,vb)",
+     "mul(c1,c1,neg(add(c0,neg(add(c-3,mul(c0,c1))))))",
+     "mul(add(c0,c1),c1,neg(neg(neg(add(vb,vb)))))",
+     "mul(neg(mul(c1,neg(neg(add(c0,neg(add(c-2,c0))))))),neg(neg(neg(c0))))",
+     "mul(c0,c1,neg(neg(c4)))",
+     "mul(add(c0,mul(c1,va,vc),mul(c4,vb)),add(mul(add(neg(add(c0,neg(add(c0,c0)))),vb),c3),va))",
+     "neg(mul(c1,neg(add(mul(add(c-2,mul(c1,va)),neg(neg(mul(va,va)))),mul(add(mul(c1,vb),vc),c1),neg(c-3)))))",
+     "add(mul(add(c-2,c0,c0),c1),neg(neg(add(c0,c0))))",
+     "mul(add(c0,c1),c1,neg(add(neg(c-1),neg(neg(c0)))),va)",
+     "add(c0,c2,mul(c0,neg(neg(c1))),vc,vc)",
+     "add(mul(c0,c1),neg(neg(c0)),vc)",
+     "mul(neg(mul(c1,neg(mul(c3,va)))),neg(neg(c1)))",
+     "mul(c1,neg(neg(add(c0,c1))),va)",
+     "neg(neg(mul(add(c0,neg(neg(c-1))),c1)))",
+     "neg(neg(mul(c1,va)))",
+     "mul(add(c0,c1),neg(neg(c1)),neg(neg(mul(c1,va))))",
+     "neg(neg(mul(add(neg(neg(neg(va))),neg(neg(vb))),c1)))",
+     "add(c2,c4,neg(add(c0,neg(add(neg(neg(mul(c1,c1))),vb)))))",
+     "mul(add(c0,c0,neg(c4)),add(c0,c1),c1,neg(neg(mul(c0,vb))))",
+     "add(neg(neg(add(c0,mul(c0,c1)))),vc)",
+     "mul(add(c0,mul(c1,neg(neg(add(c0,vc))),vb)),c1,c1,vb)",
+     "add(c0,mul(c1,vb))",
+     "add(c0,neg(mul(c1,neg(neg(neg(neg(vc)))))))",
+     "neg(neg(mul(add(c0,c0,c0,neg(neg(c4)),va),c1,neg(c4),va,vc)))",
+     "add(mul(c1,c1,vb),va,vc)",
+     "add(c0,c0,neg(add(c0,va)),neg(mul(c1,neg(neg(vc)))))",
+     "neg(neg(mul(c1,vb)))",
+     "neg(add(c0,neg(neg(mul(c1,neg(neg(neg(neg(neg(neg(va)))))),va)))))",
+     "add(mul(add(c0,vb),va),mul(c1,neg(neg(add(c-2,c0)))),va)",
+     "add(c0,neg(neg(mul(c-2,c1,neg(va)))))",
+     "add(mul(add(c0,va),vb),mul(add(c3,neg(neg(va))),c-2),neg(add(c4,neg(neg(c0)))))",
+     "add(mul(c1,neg(mul(c1,vc))),neg(add(c0,mul(c-1,c1))))",
+     "add(c0,mul(add(c0,c4),c1,c3))",
+     "neg(mul(add(c0,mul(c0,c1),vb),c1))",
+     "mul(neg(add(c0,mul(c1,va),vb)),neg(neg(c2)))",
+     "neg(mul(add(c0,va),c1,c1,vb))",
+     "neg(neg(add(mul(c1,neg(neg(neg(mul(c1,neg(mul(c0,c1))))))),vb)))",
+     "mul(add(c0,mul(c-1,c-2,va),neg(c1),neg(neg(neg(c0))),vc),c1)",
+     "add(c0,c0,neg(mul(neg(mul(add(c0,c1),c-1)),vb)))",
+     "add(c0,mul(c0,c1),mul(c1,neg(neg(va))))",
+     "neg(neg(add(c0,c0,mul(add(c0,neg(neg(va))),c1),mul(c0,c1),neg(c0))))",
+     "add(c0,neg(c-2),neg(neg(add(mul(c-1,c1),mul(c0,c1),vb))))",
+     "add(mul(c1,neg(neg(mul(c-2,vc))),vc),neg(mul(vc,vc)))",
+     "add(mul(c1,neg(mul(c-2,c1))),neg(neg(add(c0,neg(add(c0,va))))))",
+     "mul(add(c0,mul(c1,vb),neg(neg(vb))),add(c0,neg(neg(neg(neg(add(c0,c3,vc)))))),c1)",
+     "mul(add(c-3,c0,c0),add(c0,neg(add(c0,neg(neg(c0))))))",
+     "mul(c-2,c1)",
+     "add(c0,neg(neg(mul(c1,c1,vc))))",
+     "add(c0,neg(neg(vb)))",
+     "mul(add(c0,neg(neg(c1))),add(c4,mul(c1,va)),c1,c1,c1,neg(neg(c-3)),vb)",
+     "neg(mul(add(c0,c1),c1,neg(neg(c0))))",
+     "mul(add(c0,neg(va)),c1,neg(neg(neg(neg(add(c0,neg(add(neg(c3),neg(vb)))))))))",
+     "mul(add(c-1,c0),add(c0,neg(neg(add(c0,neg(c-2),neg(c0))))),c1)",
+     "mul(add(c0,mul(add(c0,neg(neg(c0)),vb),vc)),c1)",
+     "neg(neg(add(c2,neg(add(c0,neg(neg(neg(mul(va,va)))))),neg(neg(c0)),neg(neg(c4)))))",
+     "add(c0,mul(c1,vb),neg(mul(c1,c1,vc)))",
+     "neg(neg(neg(add(c0,mul(add(c-3,c0,c0,neg(c0)),c1)))))",
+     "add(c0,mul(c1,vb),neg(neg(neg(mul(c1,neg(add(c0,c0,va,vc)))))))",
+     "neg(mul(c1,neg(va)))",
+     "mul(add(c0,c1),neg(add(c0,neg(c-2))))",
+     "neg(neg(add(c-2,c0,c0)))",
+     "add(c0,c0,mul(add(c0,c0,c0,mul(c1,va)),c1),vc)",
+     "neg(mul(c1,neg(add(c1,va))))",
+     "neg(neg(neg(add(c0,neg(neg(neg(mul(c-2,c1))))))))",
+     "add(c0,neg(add(c0,c0,neg(mul(c1,vc)))))",
+     "mul(add(c0,c0,neg(neg(add(mul(add(c0,vb,vc),c1,c1),neg(mul(c4,va)),neg(va))))),c1)",
+     "mul(add(c0,mul(c0,c1,c1),va),c1)",
+     "add(c0,neg(add(c3,neg(neg(mul(add(c0,mul(c1,c1)),neg(c-1)))))))",
+     "neg(mul(c1,neg(neg(mul(add(c0,vc),c-2,c1,vc)))))",
+     "add(c0,neg(mul(add(neg(c0),neg(neg(neg(c-2)))),neg(neg(c1)))))",
+     "add(neg(neg(c0)),neg(neg(neg(neg(c0)))))",
+     "add(mul(add(c4,vb),c1,va),mul(add(c4,vb),vb))",
+     "add(c0,mul(c1,neg(mul(c1,neg(add(c0,mul(neg(neg(vb)),vb))))),va))",
+     "mul(add(mul(c1,neg(vc)),mul(c1,neg(vc))),c1,c1)"
+    ],
+    "RenderedProblems": [
+     "vc|mul(vc,mul(c1,c1))",
+     "c-1|add(c-1,neg(neg(c0)))",
+     "vb|neg(neg(add(vb,c0)))",
+     "mul(add(add(c2,c0),c3),add(neg(vc),c2))|mul(mul(add(add(c2,c0),c3),neg(neg(add(neg(vc),c2)))),c1)",
+     "c2|neg(neg(add(c2,c0)))",
+     "c-2|c-2",
+     "mul(c1,add(c-1,vc))|mul(c1,mul(neg(neg(add(c-1,vc))),c1))",
+     "mul(neg(c4),neg(neg(vc)))|mul(mul(neg(neg(neg(c4))),neg(neg(vc))),c1)",
+     "mul(vb,neg(add(vb,vb)))|mul(vb,neg(mul(add(mul(vb,c1),vb),c1)))",
+     "vc|mul(neg(neg(vc)),c1)",
+     "va|va",
+     "va|neg(neg(add(va,c0)))",
+     "vb|add(neg(neg(vb)),c0)",
+     "vb|mul(vb,add(c1,c0))",
+     "neg(neg(add(vc,c1)))|mul(neg(add(neg(vc),neg(c1))),c1)",
+     "neg(add(neg(va),add(c-2,vb)))|add(neg(add(neg(va),add(c-2,vb))),neg(c0))",
+     "neg(add(va,c2))|add(neg(mul(va,c1)),neg(c2))",
+     "add(c0,mul(vb,vb))|add(add(c0,c0),mul(vb,mul(vb,c1)))",
+     "mul(add(c0,vb),neg(c-3))|add(mul(vb,neg(c-3)),c0)",
+     "mul(mul(neg(vb),mul(vb,c4)),neg(mul(vc,vc)))|mul(neg(neg(mul(mul(neg(vb),mul(vb,c4)),c1))),neg(mul(vc,vc)))",
+     "c-1|c-1",
+     "add(neg(c2),add(c-3,c2))|add(neg(neg(neg(c2))),add(c-3,neg(neg(c2))))",
+     "neg(mul(vb,mul(va,va)))|mul(neg(mul(vb,mul(neg(neg(va)),va))),c1)",
+     "mul(vb,add(add(c-1,va),add(c3,c0)))|mul(mul(vb,add(add(c-1,va),add(mul(c3,c1),c0))),c1)",
+     "neg(c-1)|neg(c-1)",
+     "add(neg(vb),add(mul(va,vc),c0))|add(neg(vb),add(mul(neg(neg(va)),mul(vc,c1)),c0))",
+     "mul(neg(va),c4)|mul(mul(neg(va),c4),neg(neg(c1)))",
+     "neg(vb)|mul(add(neg(vb),c0),c1)",
+     "c3|mul(add(c3,c0),c1)",
+     "mul(neg(mul(vb,vb)),c2)|mul(mul(neg(neg(neg(mul(vb,vb)))),c2),c1)",
+     "c4|c4",
+     "mul(mul(add(vc,c-2),neg(c1)),mul(neg(c2),add(c-2,va)))|mul(mul(add(add(vc,c0),c-2),neg(c1)),mul(neg(mul(c2,c1)),add(c-2,va)))",
+     "neg(add(add(vb,c0),add(c3,va)))|neg(add(add(vb,c0),add(add(c3,va),mul(c0,c1))))",
+     "c-3|c-3",
+     "va|add(neg(neg(va)),c0)",
+     "neg(add(c3,c-2))|neg(neg(neg(add(add(c3,c-2),c0))))",
+     "mul(neg(mul(vb,vb)),mul(add(vc,va),va))|mul(neg(neg(add(neg(mul(vb,vb)),c0))),mul(add(vc,va),va))",
+     "vb|vb",
+     "add(c2,vc)|neg(neg(add(add(c2,vc),c0)))",
+     "va|mul(mul(va,c1),c1)",
+     "mul(add(neg(c-3),vb),add(va,add(vc,c0)))|mul(mul(add(neg(c-3),vb),add(va,add(mul(vc,c1),c0))),neg(neg(c1)))",
+     "add(mul(neg(c4),add(va,c-3)),vb)|add(mul(neg(neg(neg(c4))),neg(neg(add(neg(neg(va)),c-3)))),vb)",
+     "add(neg(va),add(vc,va))|add(neg(add(mul(mul(va,c1),c1),c0)),add(vc,va))",
+     "c-1|neg(mul(neg(c-1),mul(c1,c1)))",
+     "c3|add(c3,c0)",
+     "mul(add(vc,neg(c-3)),vb)|mul(add(neg(neg(vc)),add(neg(c-3),c0)),add(vb,c0))",
+     "va|mul(mul(va,c1),add(c1,c0))",
+     "neg(mul(mul(c0,vc),vb))|mul(neg(neg(neg(mul(neg(neg(c0)),vc)))),vb)",
+     "add(vc,vb)|neg(add(neg(add(vc,add(vb,c0))),c0))",
+     "neg(mul(mul(c0,c3),neg(c-3)))|mul(neg(mul(mul(mul(c0,c1),c3),neg(neg(neg(c-3))))),c1)",
+     "neg(c0)|add(c0,c0)",
+     "mul(neg(mul(vc,vc)),neg(add(c4,vb)))|neg(neg(mul(add(neg(mul(vc,vc)),c0),neg(mul(add(c4,vb),c1)))))",
+     "c-3|add(mul(c-3,neg(neg(c1))),c0)",
+     "vc|add(mul(vc,neg(neg(c1))),c0)",
+     "add(va,neg(c3))|add(va,mul(neg(neg(neg(add(c3,c0)))),c1))",
+     "neg(neg(vc))|neg(neg(mul(vc,neg(add(neg(c1),c0)))))",
+     "add(c-1,c0)|add(mul(c-1,c1),c0)",
+     "vc|mul(neg(neg(neg(neg(vc)))),c1)",
+     "add(va,c0)|add(mul(add(va,c0),c1),mul(c0,c1))",
+     "mul(neg(vb),neg(c-1))|mul(neg(neg(neg(vb))),neg(add(neg(neg(c-1)),c0)))",
+     "va|add(va,add(mul(c0,c1),c0))",
+     "c0|mul(add(c0,c0),mul(c1,c1))",
+     "va|add(mul(neg(neg(va)),c1),c0)",
+     "c-3|mul(neg(neg(c-3)),mul(c1,c1))",
+     "neg(mul(c2,c-1))|add(neg(neg(neg(mul(neg(neg(c2)),c-1)))),c0)",
+     "c-1|neg(neg(c-1))",
+     "c-2|add(c-2,c0)",
+     "mul(neg(neg(va)),add(mul(c-2,vc),c0))|mul(neg(add(neg(va),c0)),add(mul(c-2,vc),c0))",
+     "mul(c-2,mul(vb,neg(vb)))|neg(neg(mul(c-2,mul(vb,neg(vb)))))",
+     "mul(mul(mul(va,va),mul(vc,vb)),neg(add(c-2,vc)))|neg(neg(mul(mul(mul(va,va),mul(mul(vc,vb),c1)),add(neg(c-2),neg(vc)))))",
+     "vc|neg(neg(vc))",
+     "neg(add(vb,vb))|add(neg(mul(vb,c1)),neg(mul(vb,c1)))",
+     "mul(add(c2,va),c-2)|add(mul(add(c2,add(va,mul(c0,c1))),c-2),c0)",
+     "add(mul(c4,vb),va)|add(mul(neg(mul(neg(c4),c1)),vb),mul(va,c1))",
+     "vb|neg(neg(vb))",
+     "neg(c2)|add(mul(mul(neg(c2),c1),c1),c0)",
+     "add(add(vc,vc),add(vc,vb))|add(add(neg(mul(neg(vc),c1)),vc),add(vc,add(vb,c0)))",
+     "neg(va)|mul(neg(va),neg(mul(neg(c1),c1)))",
+     "va|neg(neg(neg(neg(mul(va,c1)))))",
+     "add(neg(c4),va)|neg(neg(add(add(neg(mul(c4,c1)),c0),va)))",
+     "vb|neg(neg(neg(neg(vb))))",
+     "add(neg(c2),mul(c-3,va))|add(mul(add(neg(c2),mul(mul(c-3,va),neg(neg(c1)))),c1),c0)",
+     "va|neg(neg(add(va,c0)))",
+     "neg(va)|neg(va)",
+     "neg(add(mul(vb,va),c3))|neg(neg(neg(mul(neg(neg(add(mul(add(vb,c0),va),c3))),c1))))",
+     "mul(neg(c2),c0)|add(mul(neg(mul(c2,c1)),c0),c0)",
+     "va|add(va,neg(neg(neg(add(neg(c0),c0)))))",
+     "add(mul(c3,va),neg(vc))|add(mul(add(c3,c0),va),add(neg(neg(neg(vc))),neg(neg(c0))))",
+     "c4|add(c4,neg(neg(c0)))",
+     "vb|vb",
+     "add(mul(c4,va),va)|add(mul(c4,va),va)",
+     "neg(add(va,c-3))|neg(neg(add(neg(va),neg(neg(neg(add(c-3,c0)))))))",
+     "add(mul(va,vb),va)|mul(add(mul(mul(va,vb),add(mul(c1,c1),c0)),va),c1)",
+     "add(add(va,add(va,va)),vb)|add(add(va,neg(neg(add(mul(va,c1),mul(va,c1))))),neg(neg(vb)))",
+     "mul(neg(neg(va)),vb)|mul(mul(neg(neg(mul(va,c1))),c1),add(add(vb,c0),c0))",
+     "vc|neg(add(neg(neg(neg(vc))),add(c0,c0)))",
+     "vb|add(add(neg(neg(mul(vb,c1))),c0),c0)",
+     "neg(mul(vc,va))|neg(mul(mul(mul(vc,c1),c1),add(va,mul(c0,c1))))",
+     "add(mul(va,vb),add(vb,vb))|add(neg(mul(neg(va),mul(vb,neg(neg(c1))))),add(vb,vb))",
+     "neg(neg(vb))|neg(add(neg(mul(vb,c1)),c0))",
+     "vc|add(vc,mul(c0,c1))",
+     "neg(c4)|neg(add(mul(add(c4,mul(c0,c1)),c1),c0))",
+     "mul(add(c2,vc),vc)|mul(add(mul(add(c2,vc),neg(neg(c1))),c0),neg(neg(vc)))",
+     "add(vb,neg(neg(c-3)))|add(vb,mul(c-3,c1))",
+     "add(mul(add(vb,vc),vb),c0)|add(mul(add(neg(neg(vb)),vc),vb),add(c0,c0))",
+     "mul(va,c2)|neg(neg(add(mul(va,add(c2,neg(neg(c0)))),c0)))",
+     "add(neg(mul(c0,c4)),neg(vb))|neg(add(neg(neg(neg(neg(mul(mul(c0,c4),c1))))),vb))",
+     "neg(c2)|neg(c2)",
+     "neg(c3)|mul(neg(c3),mul(c1,c1))",
+     "vb|mul(mul(vb,c1),add(c1,mul(c0,c1)))",
+     "mul(c-3,vc)|mul(c-3,vc)",
+     "vb|neg(mul(neg(neg(neg(add(vb,c0)))),c1))",
+     "neg(mul(add(vb,va),mul(vc,c2)))|mul(neg(add(mul(neg(neg(add(vb,va))),neg(neg(mul(vc,c2)))),c0)),c1)",
+     "vc|add(neg(neg(vc)),add(add(c0,c0),c0))",
+     "mul(vb,add(va,mul(va,va)))|mul(vb,add(neg(neg(neg(neg(va)))),mul(mul(va,add(va,c0)),c1)))",
+     "c-1|neg(add(neg(c-1),c0))",
+     "c-1|add(add(c-1,mul(c0,neg(neg(c1)))),c0)",
+     "add(va,va)|mul(mul(mul(add(add(va,va),c0),c1),c1),c1)",
+     "add(neg(vb),add(c0,va))|mul(add(neg(vb),add(c0,add(va,c0))),c1)",
+     "neg(vb)|add(neg(vb),neg(neg(c0)))",
+     "add(va,mul(neg(vb),mul(vc,va)))|add(add(neg(neg(add(va,c0))),mul(neg(vb),add(mul(add(vc,c0),va),c0))),c0)",
+     "add(mul(vc,neg(c0)),add(c0,neg(vc)))|add(neg(neg(mul(vc,mul(neg(c0),c1)))),mul(add(c0,neg(vc)),c1))",
+     "add(add(c1,va),vb)|add(mul(add(add(add(c1,neg(neg(c0))),neg(neg(va))),vb),c1),c0)",
+     "mul(neg(c4),mul(c-2,vc))|neg(mul(neg(mul(neg(add(c4,c0)),mul(neg(mul(neg(c-2),c1)),vc))),c1))",
+     "c3|mul(add(neg(neg(c3)),c0),c1)",
+     "mul(mul(c4,c-1),mul(vc,c4))|mul(mul(c4,mul(c-1,c1)),neg(mul(neg(mul(vc,c4)),c1)))",
+     "mul(mul(vb,c0),neg(c4))|add(neg(neg(mul(mul(c0,neg(add(c4,c0))),c1))),c0)",
+     "mul(add(add(va,c2),neg(va)),mul(add(va,c3),mul(c-1,vb)))|mul(neg(neg(mul(add(neg(neg(add(va,c2))),neg(va)),c1))),mul(add(va,c3),mul(c-1,vb)))",
+     "mul(vc,c4)|mul(vc,mul(c4,add(mul(c1,c1),c0)))",
+     "mul(add(vb,neg(c-2)),mul(mul(c0,vc),vc))|mul(add(vb,neg(mul(neg(add(neg(c-2),c0)),c1))),mul(mul(c0,vc),vc))",
+     "neg(va)|mul(mul(add(neg(va),c0),c1),c1)",
+     "c0|add(neg(neg(add(c0,c0))),c0)",
+     "add(neg(va),c-3)|mul(neg(neg(add(neg(va),add(add(add(c-3,c0),c0),c0)))),c1)",
+     "neg(neg(vb))|mul(vb,mul(c1,c1))",
+     "neg(add(c-2,va))|add(neg(add(c-2,add(va,c0))),mul(c0,c1))",
+     "mul(vc,add(neg(c-1),vb))|mul(add(vc,c0),mul(mul(add(neg(neg(neg(c-1))),vb),c1),neg(neg(c1))))",
+     "mul(add(vb,c-3),mul(va,vc))|mul(add(add(neg(neg(add(vb,c0))),c0),c-3),mul(va,vc))",
+     "c2|add(add(c2,c0),mul(c0,c1))",
+     "vc|add(add(add(mul(vc,c1),c0),mul(c0,c1)),c0)",
+     "neg(c2)|neg(neg(neg(c2)))",
+     "mul(vc,neg(vc))|mul(add(neg(neg(neg(neg(add(vc,c0))))),c0),mul(neg(vc),c1))",
+     "vb|add(vb,c0)",
+     "va|neg(neg(neg(add(neg(add(va,neg(neg(c0)))),c0))))",
+     "neg(add(neg(c1),mul(va,vc)))|neg(add(neg(c1),mul(add(neg(neg(neg(neg(va)))),c0),vc)))",
+     "c-1|add(neg(mul(neg(c-1),c1)),c0)",
+     "c3|neg(neg(add(mul(c3,c1),c0)))",
+     "mul(vc,add(add(vb,c-3),add(vc,vb)))|mul(vc,add(add(add(mul(mul(vb,add(c1,c0)),c1),c0),neg(neg(c-3))),add(vc,vb)))",
+     "neg(neg(c-1))|neg(neg(neg(neg(neg(neg(add(c-1,c0)))))))",
+     "add(c-3,mul(va,c4))|add(c-3,add(add(mul(mul(va,c4),c1),c0),add(c0,add(c0,c0))))",
+     "add(neg(vb),add(neg(c-1),neg(va)))|neg(neg(add(mul(neg(mul(vb,c1)),c1),add(mul(neg(mul(c-1,c1)),c1),neg(va)))))",
+     "c-3|add(c-3,mul(neg(neg(mul(c0,c1))),add(c1,c0)))",
+     "va|add(va,add(add(c0,c0),c0))",
+     "neg(neg(mul(c-3,vc)))|add(neg(mul(neg(c-3),add(vc,c0))),c0)",
+     "neg(add(c-3,c-2))|add(neg(c-3),neg(mul(neg(add(neg(neg(neg(c-2))),c0)),c1)))",
+     "mul(vb,c4)|neg(neg(mul(vb,c4)))",
+     "add(neg(neg(vb)),mul(add(va,va),va))|add(neg(add(neg(vb),c0)),neg(neg(mul(add(va,va),neg(neg(add(add(va,c0),c0)))))))",
+     "neg(mul(va,vb))|mul(neg(mul(mul(mul(va,c1),c1),vb)),c1)",
+     "neg(add(vb,neg(vc)))|add(neg(add(vb,add(neg(neg(add(neg(add(vc,c0)),c0))),c0))),c0)",
+     "add(vb,mul(mul(vc,vc),add(c-1,c2)))|add(vb,mul(mul(mul(vc,vc),mul(add(add(c-1,add(c2,c0)),c0),c1)),neg(neg(c1))))",
+     "add(neg(mul(vb,vc)),add(neg(c1),vb))|add(add(neg(mul(vb,add(vc,c0))),c0),mul(add(mul(neg(mul(c1,c1)),c1),vb),c1))",
+     "c-1|add(mul(c-1,c1),c0)",
+     "neg(add(mul(vc,va),mul(vb,vc)))|neg(add(neg(neg(neg(mul(neg(vc),add(va,c0))))),mul(vb,add(vc,add(c0,c0)))))",
+     "va|mul(mul(va,c1),add(neg(mul(neg(c1),c1)),neg(c0)))",
+     "mul(neg(c3),mul(vc,vc))|mul(add(neg(mul(c3,c1)),add(c0,c0)),mul(vc,add(vc,c0)))",
+     "neg(vc)|neg(neg(neg(mul(mul(vc,add(mul(c1,c1),c0)),c1))))",
+     "add(add(c2,vc),neg(va))|mul(mul(mul(add(add(c2,neg(neg(vc))),add(neg(add(va,c0)),c0)),c1),c1),c1)",
+     "mul(add(add(va,va),mul(vb,vb)),mul(vb,add(c0,vb)))|mul(mul(add(add(add(va,va),c0),add(mul(vb,vb),c0)),c1),mul(vb,vb))",
+     "c-3|mul(neg(add(neg(add(c-3,mul(c0,c1))),c0)),mul(c1,c1))",
+     "neg(add(vb,vb))|mul(mul(neg(neg(neg(add(vb,vb)))),c1),add(c1,c0))",
+     "mul(c-2,neg(c0))|mul(neg(mul(neg(neg(add(neg(add(c-2,c0)),c0))),c1)),neg(neg(neg(c0))))",
+     "mul(c0,c4)|mul(mul(c0,neg(neg(c4))),c1)",
+     "mul(add(mul(c4,vb),mul(va,vc)),add(mul(c3,vb),va))|mul(add(add(mul(c4,vb),mul(va,mul(vc,c1))),c0),add(mul(c3,add(vb,neg(add(neg(add(c0,c0)),c0)))),va))",
+     "add(mul(add(c-2,va),mul(va,va)),add(add(vb,vc),neg(c-3)))|neg(mul(neg(add(mul(add(c-2,mul(va,c1)),neg(neg(mul(va,va)))),add(mul(add(mul(vb,c1),vc),c1),neg(c-3)))),c1))",
+     "c-2|add(mul(add(c-2,add(c0,c0)),c1),neg(neg(add(c0,c0))))",
+     "mul(c-1,va)|mul(mul(mul(neg(add(neg(c-1),neg(neg(c0)))),c1),add(c1,c0)),va)",
+     "add(add(c2,vc),vc)|add(add(add(add(c2,vc),c0),vc),mul(c0,neg(neg(c1))))",
+     "vc|add(add(vc,mul(c0,c1)),neg(neg(c0)))",
+     "mul(va,c3)|mul(neg(mul(neg(mul(va,c3)),c1)),neg(neg(c1)))",
+     "va|mul(mul(va,c1),neg(neg(add(c1,c0))))",
+     "c-1|neg(neg(mul(add(neg(neg(c-1)),c0),c1)))",
+     "va|neg(neg(mul(va,c1)))",
+     "va|mul(mul(neg(neg(mul(va,c1))),add(c1,c0)),neg(neg(c1)))",
+     "neg(add(va,neg(vb)))|neg(neg(mul(add(neg(neg(neg(va))),neg(neg(vb))),c1)))",
+     "add(add(c2,c4),add(c1,vb))|add(add(c2,c4),neg(add(neg(add(neg(neg(mul(c1,c1))),vb)),c0)))",
+     "mul(neg(c4),mul(c0,vb))|mul(mul(add(neg(c4),add(c0,c0)),add(c1,c0)),mul(neg(neg(mul(c0,vb))),c1))",
+     "vc|add(vc,neg(neg(add(mul(c0,c1),c0))))",
+     "mul(mul(vc,vb),vb)|mul(mul(add(mul(neg(neg(add(vc,c0))),mul(vb,c1)),c0),mul(vb,c1)),c1)",
+     "vb|add(mul(vb,c1),c0)",
+     "neg(vc)|add(neg(mul(neg(neg(neg(neg(vc)))),c1)),c0)",
+     "mul(neg(c4),mul(mul(vc,va),add(c4,va)))|neg(neg(mul(mul(neg(c4),mul(mul(vc,va),add(add(add(neg(neg(c4)),c0),add(va,c0)),c0))),c1)))",
+     "add(add(va,vc),vb)|add(add(va,vc),mul(mul(vb,c1),c1))",
+     "add(neg(vc),neg(va))|add(add(neg(mul(neg(neg(vc)),c1)),neg(add(va,c0))),add(c0,c0))",
+     "vb|neg(neg(mul(vb,c1)))",
+     "neg(mul(va,va))|neg(add(neg(neg(mul(mul(neg(neg(neg(neg(neg(neg(va)))))),va),c1))),c0))",
+     "add(add(c-2,va),mul(va,vb))|add(add(mul(neg(neg(add(c-2,c0))),c1),va),mul(va,add(vb,c0)))",
+     "neg(mul(va,c-2))|add(neg(neg(mul(mul(neg(va),c-2),c1))),c0)",
+     "add(mul(add(c3,va),c-2),add(mul(va,vb),neg(c4)))|add(mul(add(c3,neg(neg(va))),c-2),add(mul(add(va,c0),vb),neg(add(c4,neg(neg(c0))))))",
+     "add(neg(c-1),neg(vc))|add(neg(add(mul(c-1,c1),c0)),mul(neg(mul(vc,c1)),c1))",
+     "mul(mul(c-2,c-2),c3)|add(mul(add(c4,c0),mul(c3,c1)),c0)",
+     "neg(vb)|neg(mul(add(vb,add(mul(c0,c1),c0)),c1))",
+     "mul(c2,neg(add(va,vb)))|mul(neg(neg(c2)),neg(add(mul(va,c1),add(vb,c0))))",
+     "neg(mul(vb,va))|neg(mul(mul(mul(vb,c1),add(va,c0)),c1))",
+     "vb|neg(neg(add(vb,mul(neg(neg(neg(mul(neg(mul(c0,c1)),c1)))),c1))))",
+     "add(mul(mul(va,c-2),c-1),add(vc,neg(c1)))|mul(add(mul(mul(va,c-2),c-1),add(vc,add(add(neg(c1),c0),neg(neg(neg(c0)))))),c1)",
+     "mul(neg(vb),neg(c-1))|add(add(neg(mul(vb,neg(mul(c-1,add(c1,c0))))),c0),c0)",
+     "va|add(mul(neg(neg(va)),c1),add(mul(c0,c1),c0))",
+     "add(add(c0,va),neg(c0))|neg(neg(add(add(add(add(mul(c0,c1),c0),c0),mul(add(neg(neg(va)),c0),c1)),neg(c0))))",
+     "add(add(c-1,vb),neg(c-2))|add(add(neg(neg(add(add(mul(c-1,c1),mul(c0,c1)),vb))),neg(c-2)),c0)",
+     "add(neg(mul(vc,vc)),mul(mul(vc,c-2),vc))|add(neg(mul(vc,vc)),mul(neg(neg(mul(vc,c-2))),mul(vc,c1)))",
+     "add(neg(c-2),neg(va))|add(mul(neg(mul(c-2,c1)),c1),neg(neg(add(neg(add(va,c0)),c0))))",
+     "mul(mul(add(c3,vc),add(vb,vb)),c1)|mul(mul(add(neg(neg(neg(neg(add(add(c3,c0),vc))))),c0),add(neg(neg(vb)),add(mul(vb,c1),c0))),c1)",
+     "mul(c-3,neg(c0))|mul(add(c-3,add(c0,c0)),add(neg(add(c0,neg(neg(c0)))),c0))",
+     "c-2|mul(c-2,c1)",
+     "vc|add(neg(neg(mul(mul(vc,c1),c1))),c0)",
+     "neg(neg(vb))|add(neg(neg(vb)),c0)",
+     "mul(vb,mul(mul(c1,c-3),add(va,c4)))|mul(mul(vb,c1),mul(mul(add(neg(neg(c1)),c0),mul(mul(neg(neg(c-3)),c1),c1)),add(mul(va,c1),c4)))",
+     "neg(c0)|neg(mul(mul(neg(neg(c0)),c1),add(c1,c0)))",
+     "mul(add(vb,c3),neg(va))|mul(mul(neg(neg(neg(neg(add(neg(add(neg(vb),neg(c3))),c0))))),c1),add(neg(va),c0))",
+     "mul(neg(c-2),c-1)|mul(mul(add(neg(neg(add(add(neg(c-2),neg(c0)),c0))),c0),add(c-1,c0)),c1)",
+     "mul(vb,vc)|mul(add(mul(add(add(vb,c0),neg(neg(c0))),vc),c0),c1)",
+     "add(mul(va,va),add(c4,c2))|neg(neg(add(neg(add(neg(neg(neg(mul(va,va)))),c0)),add(add(neg(neg(c4)),c2),neg(neg(c0))))))",
+     "add(vb,neg(mul(vc,c1)))|add(add(mul(vb,c1),neg(mul(mul(vc,c1),c1))),c0)",
+     "neg(add(neg(c0),c-3))|neg(neg(neg(add(mul(add(add(neg(c0),add(c0,c0)),c-3),c1),c0))))",
+     "add(vb,add(vc,va))|add(add(mul(vb,c1),c0),neg(neg(neg(mul(neg(add(vc,add(add(va,c0),c0))),c1)))))",
+     "va|neg(mul(neg(va),c1))",
+     "neg(neg(c-2))|mul(neg(add(neg(c-2),c0)),add(c1,c0))",
+     "c-2|neg(neg(add(c-2,add(c0,c0))))",
+     "add(add(c0,va),add(c0,vc))|add(add(mul(add(c0,add(add(mul(va,c1),c0),c0)),c1),vc),add(c0,c0))",
+     "add(va,c1)|neg(mul(neg(add(va,c1)),c1))",
+     "c-2|neg(neg(neg(add(neg(neg(neg(mul(c-2,c1)))),c0))))",
+     "vc|add(neg(add(add(neg(mul(vc,c1)),c0),c0)),c0)",
+     "add(add(add(vb,vc),neg(va)),neg(mul(va,c4)))|mul(add(add(neg(neg(add(add(mul(add(vb,add(vc,c0)),mul(c1,c1)),neg(va)),neg(mul(va,c4))))),c0),c0),c1)",
+     "va|mul(add(va,add(mul(c0,mul(c1,c1)),c0)),c1)",
+     "neg(add(neg(c-1),c3))|add(neg(add(neg(neg(mul(neg(c-1),add(mul(c1,c1),c0)))),c3)),c0)",
+     "neg(mul(c-2,mul(vc,vc)))|neg(mul(neg(neg(mul(mul(c-2,mul(add(vc,c0),vc)),c1))),c1))",
+     "c-2|add(neg(mul(add(neg(neg(neg(c-2))),neg(c0)),neg(neg(c1)))),c0)",
+     "c0|add(neg(neg(c0)),neg(neg(neg(neg(c0)))))",
+     "mul(c1,mul(add(c4,vb),add(va,vb)))|add(mul(add(c4,vb),mul(va,c1)),mul(add(c4,vb),vb))",
+     "mul(mul(vb,vb),va)|add(mul(neg(mul(neg(add(mul(neg(neg(vb)),vb),c0)),c1)),mul(va,c1)),c0)",
+     "neg(add(vc,vc))|mul(mul(add(mul(neg(vc),c1),mul(neg(vc),c1)),c1),c1)"
+    ]
+   },
+   "train_eval_overlap": {
+    "TrainProblems": 240,
+    "StartInEval": 0,
+    "TargetInEval": 0,
+    "PairInEval": 0
+   },
+   "bank": {
+    "name": "g2-A",
+    "bank_digest": "f58161c5133bffeb2838ee9b5da9a516f09022bbe7d94367c0b4c658d4bb67b6",
+    "bank_digest_algo": "sha256 over lines level\\0start\\0target\\n in case order; start/target = RenderPrefix; ids excluded",
+    "cases": 90,
+    "pre": [
+     {
+      "id": "g1-20261025-L6-0",
+      "solved": true,
+      "nodes": 71
+     },
+     {
+      "id": "g1-20261025-L6-1",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-2",
+      "solved": true,
+      "nodes": 48
+     },
+     {
+      "id": "g1-20261025-L6-3",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-4",
+      "solved": true,
+      "nodes": 51
+     },
+     {
+      "id": "g1-20261025-L6-5",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-6",
+      "solved": true,
+      "nodes": 31
+     },
+     {
+      "id": "g1-20261025-L6-7",
+      "solved": true,
+      "nodes": 70
+     },
+     {
+      "id": "g1-20261025-L6-8",
+      "solved": true,
+      "nodes": 50
+     },
+     {
+      "id": "g1-20261025-L6-9",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-10",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-11",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-12",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-13",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-14",
+      "solved": true,
+      "nodes": 46
+     },
+     {
+      "id": "g1-20261025-L6-15",
+      "solved": true,
+      "nodes": 50
+     },
+     {
+      "id": "g1-20261025-L6-16",
+      "solved": true,
+      "nodes": 44
+     },
+     {
+      "id": "g1-20261025-L6-17",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-19",
+      "solved": true,
+      "nodes": 82
+     },
+     {
+      "id": "g1-20261025-L6-20",
+      "solved": true,
+      "nodes": 60
+     },
+     {
+      "id": "g1-20261025-L6-21",
+      "solved": true,
+      "nodes": 20
+     },
+     {
+      "id": "g1-20261025-L6-22",
+      "solved": true,
+      "nodes": 79
+     },
+     {
+      "id": "g1-20261025-L6-23",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-24",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L6-25",
+      "solved": true,
+      "nodes": 42
+     },
+     {
+      "id": "g1-20261025-L6-26",
+      "solved": true,
+      "nodes": 91
+     },
+     {
+      "id": "g1-20261025-L6-27",
+      "solved": true,
+      "nodes": 36
+     },
+     {
+      "id": "g1-20261025-L6-28",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-29",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L7-0",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-1",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-2",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-3",
+      "solved": true,
+      "nodes": 5
+     },
+     {
+      "id": "g1-20261025-L7-4",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-5",
+      "solved": true,
+      "nodes": 54
+     },
+     {
+      "id": "g1-20261025-L7-6",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-7",
+      "solved": true,
+      "nodes": 95
+     },
+     {
+      "id": "g1-20261025-L7-8",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-9",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-10",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-11",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-12",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-13",
+      "solved": true,
+      "nodes": 49
+     },
+     {
+      "id": "g1-20261025-L7-14",
+      "solved": true,
+      "nodes": 63
+     },
+     {
+      "id": "g1-20261025-L7-15",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L7-16",
+      "solved": true,
+      "nodes": 63
+     },
+     {
+      "id": "g1-20261025-L7-17",
+      "solved": true,
+      "nodes": 32
+     },
+     {
+      "id": "g1-20261025-L7-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-19",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-20",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-21",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-22",
+      "solved": true,
+      "nodes": 47
+     },
+     {
+      "id": "g1-20261025-L7-23",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-24",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L7-25",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-26",
+      "solved": true,
+      "nodes": 17
+     },
+     {
+      "id": "g1-20261025-L7-27",
+      "solved": true,
+      "nodes": 17
+     },
+     {
+      "id": "g1-20261025-L7-28",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-29",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-0",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-1",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-2",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-3",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-4",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-5",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-6",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-7",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-8",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-9",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-10",
+      "solved": true,
+      "nodes": 58
+     },
+     {
+      "id": "g1-20261025-L8-11",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-12",
+      "solved": true,
+      "nodes": 61
+     },
+     {
+      "id": "g1-20261025-L8-13",
+      "solved": true,
+      "nodes": 35
+     },
+     {
+      "id": "g1-20261025-L8-14",
+      "solved": true,
+      "nodes": 56
+     },
+     {
+      "id": "g1-20261025-L8-15",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-16",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-17",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-19",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-20",
+      "solved": true,
+      "nodes": 22
+     },
+     {
+      "id": "g1-20261025-L8-21",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-22",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-23",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-24",
+      "solved": true,
+      "nodes": 34
+     },
+     {
+      "id": "g1-20261025-L8-25",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-26",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-27",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-28",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-29",
+      "solved": true,
+      "nodes": 44
+     }
+    ],
+    "post": [
+     {
+      "id": "g1-20261025-L6-0",
+      "solved": true,
+      "nodes": 16
+     },
+     {
+      "id": "g1-20261025-L6-1",
+      "solved": true,
+      "nodes": 64
+     },
+     {
+      "id": "g1-20261025-L6-2",
+      "solved": true,
+      "nodes": 8
+     },
+     {
+      "id": "g1-20261025-L6-3",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-4",
+      "solved": true,
+      "nodes": 8
+     },
+     {
+      "id": "g1-20261025-L6-5",
+      "solved": true,
+      "nodes": 51
+     },
+     {
+      "id": "g1-20261025-L6-6",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L6-7",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L6-8",
+      "solved": true,
+      "nodes": 5
+     },
+     {
+      "id": "g1-20261025-L6-9",
+      "solved": true,
+      "nodes": 47
+     },
+     {
+      "id": "g1-20261025-L6-10",
+      "solved": true,
+      "nodes": 53
+     },
+     {
+      "id": "g1-20261025-L6-11",
+      "solved": true,
+      "nodes": 71
+     },
+     {
+      "id": "g1-20261025-L6-12",
+      "solved": true,
+      "nodes": 22
+     },
+     {
+      "id": "g1-20261025-L6-13",
+      "solved": true,
+      "nodes": 95
+     },
+     {
+      "id": "g1-20261025-L6-14",
+      "solved": true,
+      "nodes": 6
+     },
+     {
+      "id": "g1-20261025-L6-15",
+      "solved": true,
+      "nodes": 8
+     },
+     {
+      "id": "g1-20261025-L6-16",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L6-17",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-18",
+      "solved": true,
+      "nodes": 50
+     },
+     {
+      "id": "g1-20261025-L6-19",
+      "solved": true,
+      "nodes": 6
+     },
+     {
+      "id": "g1-20261025-L6-20",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L6-21",
+      "solved": true,
+      "nodes": 6
+     },
+     {
+      "id": "g1-20261025-L6-22",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L6-23",
+      "solved": true,
+      "nodes": 48
+     },
+     {
+      "id": "g1-20261025-L6-24",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L6-25",
+      "solved": true,
+      "nodes": 23
+     },
+     {
+      "id": "g1-20261025-L6-26",
+      "solved": true,
+      "nodes": 34
+     },
+     {
+      "id": "g1-20261025-L6-27",
+      "solved": true,
+      "nodes": 5
+     },
+     {
+      "id": "g1-20261025-L6-28",
+      "solved": true,
+      "nodes": 59
+     },
+     {
+      "id": "g1-20261025-L6-29",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L7-0",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-1",
+      "solved": true,
+      "nodes": 41
+     },
+     {
+      "id": "g1-20261025-L7-2",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-3",
+      "solved": true,
+      "nodes": 5
+     },
+     {
+      "id": "g1-20261025-L7-4",
+      "solved": true,
+      "nodes": 51
+     },
+     {
+      "id": "g1-20261025-L7-5",
+      "solved": true,
+      "nodes": 6
+     },
+     {
+      "id": "g1-20261025-L7-6",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-7",
+      "solved": true,
+      "nodes": 79
+     },
+     {
+      "id": "g1-20261025-L7-8",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-9",
+      "solved": true,
+      "nodes": 44
+     },
+     {
+      "id": "g1-20261025-L7-10",
+      "solved": true,
+      "nodes": 39
+     },
+     {
+      "id": "g1-20261025-L7-11",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-12",
+      "solved": true,
+      "nodes": 27
+     },
+     {
+      "id": "g1-20261025-L7-13",
+      "solved": true,
+      "nodes": 27
+     },
+     {
+      "id": "g1-20261025-L7-14",
+      "solved": true,
+      "nodes": 44
+     },
+     {
+      "id": "g1-20261025-L7-15",
+      "solved": true,
+      "nodes": 5
+     },
+     {
+      "id": "g1-20261025-L7-16",
+      "solved": true,
+      "nodes": 44
+     },
+     {
+      "id": "g1-20261025-L7-17",
+      "solved": true,
+      "nodes": 6
+     },
+     {
+      "id": "g1-20261025-L7-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-19",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-20",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-21",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-22",
+      "solved": true,
+      "nodes": 13
+     },
+     {
+      "id": "g1-20261025-L7-23",
+      "solved": true,
+      "nodes": 13
+     },
+     {
+      "id": "g1-20261025-L7-24",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L7-25",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-26",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L7-27",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L7-28",
+      "solved": true,
+      "nodes": 52
+     },
+     {
+      "id": "g1-20261025-L7-29",
+      "solved": true,
+      "nodes": 27
+     },
+     {
+      "id": "g1-20261025-L8-0",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-1",
+      "solved": true,
+      "nodes": 50
+     },
+     {
+      "id": "g1-20261025-L8-2",
+      "solved": true,
+      "nodes": 85
+     },
+     {
+      "id": "g1-20261025-L8-3",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-4",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-5",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-6",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-7",
+      "solved": true,
+      "nodes": 74
+     },
+     {
+      "id": "g1-20261025-L8-8",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-9",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-10",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L8-11",
+      "solved": true,
+      "nodes": 85
+     },
+     {
+      "id": "g1-20261025-L8-12",
+      "solved": true,
+      "nodes": 20
+     },
+     {
+      "id": "g1-20261025-L8-13",
+      "solved": true,
+      "nodes": 6
+     },
+     {
+      "id": "g1-20261025-L8-14",
+      "solved": true,
+      "nodes": 34
+     },
+     {
+      "id": "g1-20261025-L8-15",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-16",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-17",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-19",
+      "solved": true,
+      "nodes": 91
+     },
+     {
+      "id": "g1-20261025-L8-20",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L8-21",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-22",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-23",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-24",
+      "solved": true,
+      "nodes": 13
+     },
+     {
+      "id": "g1-20261025-L8-25",
+      "solved": true,
+      "nodes": 34
+     },
+     {
+      "id": "g1-20261025-L8-26",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-27",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-28",
+      "solved": true,
+      "nodes": 80
+     },
+     {
+      "id": "g1-20261025-L8-29",
+      "solved": true,
+      "nodes": 6
+     }
+    ],
+    "pre_solved": 40,
+    "post_solved": 65,
+    "delta": 25,
+    "solved_to_unsolved": 0,
+    "unsolved_to_solved": 25,
+    "per_level_pre_post_n": {
+     "6": [
+      18,
+      28,
+      30
+     ],
+     "7": [
+      12,
+      20,
+      30
+     ],
+     "8": [
+      10,
+      17,
+      30
+     ]
+    }
+   },
+   "seconds_train": 29.821593772,
+   "seconds_post": 38.581711818
+  },
+  {
+   "arm": "F",
+   "weights_sha256_post": "836672618fde1bb80a621a075a0ed2bb4fef61386ab89326f18a5c3c7ed70f4c",
+   "guide_sha_pre": "8d21fe004edddc3b862401628e24d664177cfc65b3a05984546b5b218ac0ce53",
+   "guide_sha_post": "8d21fe004edddc3b862401628e24d664177cfc65b3a05984546b5b218ac0ce53",
+   "train_log": {
+    "Rounds": [
+     {
+      "Round": 1,
+      "Level": 2,
+      "Solved": 40,
+      "Problems": 40,
+      "Samples": 66,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     },
+     {
+      "Round": 2,
+      "Level": 3,
+      "Solved": 40,
+      "Problems": 40,
+      "Samples": 105,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 41,
+      "KeyRejected": 1
+     },
+     {
+      "Round": 3,
+      "Level": 4,
+      "Solved": 40,
+      "Problems": 40,
+      "Samples": 116,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     },
+     {
+      "Round": 4,
+      "Level": 5,
+      "Solved": 30,
+      "Problems": 40,
+      "Samples": 100,
+      "HindsightKept": 0,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     },
+     {
+      "Round": 5,
+      "Level": 6,
+      "Solved": 29,
+      "Problems": 40,
+      "Samples": 117,
+      "HindsightKept": 1,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     },
+     {
+      "Round": 6,
+      "Level": 7,
+      "Solved": 25,
+      "Problems": 40,
+      "Samples": 99,
+      "HindsightKept": 2,
+      "HindsightDropped": 0,
+      "Attempts": 40
+     }
+    ],
+    "Pairs": [
+     "vc=\u003emul(c1,c1,vc)",
+     "c-1=\u003eadd(c-1,neg(neg(c0)))",
+     "vb=\u003eneg(neg(add(c0,vb)))",
+     "mul(add(c0,c2,c3),add(c2,neg(vc)))=\u003emul(add(c0,c2,c3),c1,neg(neg(add(c2,neg(vc)))))",
+     "c2=\u003eneg(neg(add(c0,c2)))",
+     "c-2=\u003ec-2",
+     "mul(add(c-1,vc),c1)=\u003emul(c1,c1,neg(neg(add(c-1,vc))))",
+     "mul(neg(c4),neg(neg(vc)))=\u003emul(c1,neg(neg(neg(c4))),neg(neg(vc)))",
+     "mul(neg(add(vb,vb)),vb)=\u003emul(neg(mul(add(mul(c1,vb),vb),c1)),vb)",
+     "vc=\u003emul(c1,neg(neg(vc)))",
+     "va=\u003eva",
+     "va=\u003eneg(neg(add(c0,va)))",
+     "vb=\u003eadd(c0,neg(neg(vb)))",
+     "vb=\u003emul(add(c0,c1),vb)",
+     "neg(neg(add(c1,vc)))=\u003emul(c1,neg(add(neg(c1),neg(vc))))",
+     "neg(add(c-2,neg(va),vb))=\u003eadd(neg(add(c-2,neg(va),vb)),neg(c0))",
+     "neg(add(c2,va))=\u003eadd(neg(c2),neg(mul(c1,va)))",
+     "add(c0,mul(vb,vb))=\u003eadd(c0,c0,mul(c1,vb,vb))",
+     "mul(add(c0,vb),neg(c-3))=\u003eadd(c0,mul(neg(c-3),vb))",
+     "mul(c4,neg(mul(vc,vc)),neg(vb),vb)=\u003emul(neg(mul(vc,vc)),neg(neg(mul(c1,c4,neg(vb),vb))))",
+     "c-1=\u003ec-1",
+     "add(c-3,c2,neg(c2))=\u003eadd(c-3,neg(neg(c2)),neg(neg(neg(c2))))",
+     "neg(mul(va,va,vb))=\u003emul(c1,neg(mul(neg(neg(va)),va,vb)))",
+     "mul(add(c-1,c0,c3,va),vb)=\u003emul(add(c-1,c0,mul(c1,c3),va),c1,vb)",
+     "neg(c-1)=\u003eneg(c-1)",
+     "add(c0,mul(va,vc),neg(vb))=\u003eadd(c0,mul(c1,neg(neg(va)),vc),neg(vb))",
+     "mul(c4,neg(va))=\u003emul(c4,neg(neg(c1)),neg(va))",
+     "neg(vb)=\u003emul(add(c0,neg(vb)),c1)",
+     "c3=\u003emul(add(c0,c3),c1)",
+     "mul(c2,neg(mul(vb,vb)))=\u003emul(c1,c2,neg(neg(neg(mul(vb,vb)))))",
+     "c4=\u003ec4",
+     "mul(add(c-2,va),add(c-2,vc),neg(c1),neg(c2))=\u003emul(add(c-2,c0,vc),add(c-2,va),neg(c1),neg(mul(c1,c2)))",
+     "neg(add(c0,c3,va,vb))=\u003eneg(add(c0,c3,mul(c0,c1),va,vb))",
+     "c-3=\u003ec-3",
+     "va=\u003eadd(c0,neg(neg(va)))",
+     "neg(add(c-2,c3))=\u003eneg(neg(neg(add(c-2,c0,c3))))",
+     "mul(add(va,vc),neg(mul(vb,vb)),va)=\u003emul(add(va,vc),neg(neg(add(c0,neg(mul(vb,vb))))),va)",
+     "vb=\u003evb",
+     "add(c2,vc)=\u003eneg(neg(add(c0,c2,vc)))",
+     "va=\u003emul(c1,c1,va)",
+     "mul(add(c0,va,vc),add(neg(c-3),vb))=\u003emul(add(c0,mul(c1,vc),va),add(neg(c-3),vb),neg(neg(c1)))",
+     "add(mul(add(c-3,va),neg(c4)),vb)=\u003eadd(mul(neg(neg(add(c-3,neg(neg(va))))),neg(neg(neg(c4)))),vb)",
+     "add(neg(va),va,vc)=\u003eadd(neg(add(c0,mul(c1,c1,va))),va,vc)",
+     "c-1=\u003eneg(mul(c1,c1,neg(c-1)))",
+     "c3=\u003eadd(c0,c3)",
+     "mul(add(neg(c-3),vc),vb)=\u003emul(add(c0,neg(c-3),neg(neg(vc))),add(c0,vb))",
+     "va=\u003emul(add(c0,c1),c1,va)",
+     "neg(mul(c0,vb,vc))=\u003emul(neg(neg(neg(mul(neg(neg(c0)),vc)))),vb)",
+     "add(vb,vc)=\u003eneg(add(c0,neg(add(c0,vb,vc))))",
+     "neg(mul(c0,c3,neg(c-3)))=\u003emul(c1,neg(mul(c0,c1,c3,neg(neg(neg(c-3))))))",
+     "neg(c0)=\u003eadd(c0,c0)",
+     "mul(neg(add(c4,vb)),neg(mul(vc,vc)))=\u003eneg(neg(mul(add(c0,neg(mul(vc,vc))),neg(mul(add(c4,vb),c1)))))",
+     "c-3=\u003eadd(c0,mul(c-3,neg(neg(c1))))",
+     "vc=\u003eadd(c0,mul(neg(neg(c1)),vc))",
+     "add(neg(c3),va)=\u003eadd(mul(c1,neg(neg(neg(add(c0,c3))))),va)",
+     "neg(neg(vc))=\u003eneg(neg(mul(neg(add(c0,neg(c1))),vc)))",
+     "add(c-1,c0)=\u003eadd(c0,mul(c-1,c1))",
+     "vc=\u003emul(c1,neg(neg(neg(neg(vc)))))",
+     "add(c0,va)=\u003eadd(mul(add(c0,va),c1),mul(c0,c1))",
+     "mul(neg(c-1),neg(vb))=\u003emul(neg(add(c0,neg(neg(c-1)))),neg(neg(neg(vb))))",
+     "va=\u003eadd(c0,mul(c0,c1),va)",
+     "c0=\u003emul(add(c0,c0),c1,c1)",
+     "va=\u003eadd(c0,mul(c1,neg(neg(va))))",
+     "c-3=\u003emul(c1,c1,neg(neg(c-3)))",
+     "neg(mul(c-1,c2))=\u003eadd(c0,neg(neg(neg(mul(c-1,neg(neg(c2)))))))",
+     "c-1=\u003eneg(neg(c-1))",
+     "c-2=\u003eadd(c-2,c0)",
+     "mul(add(c0,mul(c-2,vc)),neg(neg(va)))=\u003emul(add(c0,mul(c-2,vc)),neg(add(c0,neg(va))))",
+     "mul(c-2,neg(vb),vb)=\u003eneg(neg(mul(c-2,neg(vb),vb)))",
+     "mul(neg(add(c-2,vc)),va,va,vb,vc)=\u003eneg(neg(mul(add(neg(c-2),neg(vc)),c1,va,va,vb,vc)))",
+     "vc=\u003eneg(neg(vc))",
+     "neg(add(vb,vb))=\u003eadd(neg(mul(c1,vb)),neg(mul(c1,vb)))",
+     "mul(add(c2,va),c-2)=\u003eadd(c0,mul(add(c2,mul(c0,c1),va),c-2))",
+     "add(mul(c4,vb),va)=\u003eadd(mul(c1,va),mul(neg(mul(c1,neg(c4))),vb))",
+     "vb=\u003eneg(neg(vb))",
+     "neg(c2)=\u003eadd(c0,mul(c1,c1,neg(c2)))",
+     "add(vb,vc,vc,vc)=\u003eadd(c0,neg(mul(c1,neg(vc))),vb,vc,vc)",
+     "neg(va)=\u003emul(neg(mul(c1,neg(c1))),neg(va))",
+     "va=\u003eneg(neg(neg(neg(mul(c1,va)))))",
+     "add(neg(c4),va)=\u003eneg(neg(add(c0,neg(mul(c1,c4)),va)))",
+     "vb=\u003eneg(neg(neg(neg(vb))))",
+     "add(mul(c-3,va),neg(c2))=\u003eadd(c0,mul(add(mul(c-3,neg(neg(c1)),va),neg(c2)),c1))",
+     "va=\u003eneg(neg(add(c0,va)))",
+     "neg(va)=\u003eneg(va)",
+     "neg(add(c3,mul(va,vb)))=\u003eneg(neg(neg(mul(c1,neg(neg(add(c3,mul(add(c0,vb),va))))))))",
+     "mul(c0,neg(c2))=\u003eadd(c0,mul(c0,neg(mul(c1,c2))))",
+     "va=\u003eadd(neg(neg(neg(add(c0,neg(c0))))),va)",
+     "add(mul(c3,va),neg(vc))=\u003eadd(mul(add(c0,c3),va),neg(neg(c0)),neg(neg(neg(vc))))",
+     "c4=\u003eadd(c4,neg(neg(c0)))",
+     "vb=\u003evb",
+     "add(mul(c4,va),va)=\u003eadd(mul(c4,va),va)",
+     "neg(add(c-3,va))=\u003eneg(neg(add(neg(neg(neg(add(c-3,c0)))),neg(va))))",
+     "add(mul(va,vb),va)=\u003emul(add(mul(add(c0,mul(c1,c1)),va,vb),va),c1)",
+     "add(va,va,va,vb)=\u003eadd(neg(neg(add(mul(c1,va),mul(c1,va)))),neg(neg(vb)),va)",
+     "mul(neg(neg(va)),vb)=\u003emul(add(c0,c0,vb),c1,neg(neg(mul(c1,va))))",
+     "vc=\u003eneg(add(c0,c0,neg(neg(neg(vc)))))",
+     "vb=\u003eadd(c0,c0,neg(neg(mul(c1,vb))))",
+     "neg(mul(va,vc))=\u003eneg(mul(add(mul(c0,c1),va),c1,c1,vc))",
+     "add(mul(va,vb),vb,vb)=\u003eadd(neg(mul(neg(neg(c1)),neg(va),vb)),vb,vb)",
+     "neg(neg(vb))=\u003eneg(add(c0,neg(mul(c1,vb))))",
+     "vc=\u003eadd(mul(c0,c1),vc)",
+     "neg(c4)=\u003eneg(add(c0,mul(add(c4,mul(c0,c1)),c1)))",
+     "mul(add(c2,vc),vc)=\u003emul(add(c0,mul(add(c2,vc),neg(neg(c1)))),neg(neg(vc)))",
+     "add(neg(neg(c-3)),vb)=\u003eadd(mul(c-3,c1),vb)",
+     "add(c0,mul(add(vb,vc),vb))=\u003eadd(c0,c0,mul(add(neg(neg(vb)),vc),vb))",
+     "mul(c2,va)=\u003eneg(neg(add(c0,mul(add(c2,neg(neg(c0))),va))))",
+     "add(neg(mul(c0,c4)),neg(vb))=\u003eneg(add(neg(neg(neg(neg(mul(c0,c1,c4))))),vb))",
+     "neg(c2)=\u003eneg(c2)",
+     "neg(c3)=\u003emul(c1,c1,neg(c3))",
+     "vb=\u003emul(add(c1,mul(c0,c1)),c1,vb)",
+     "mul(c-3,vc)=\u003emul(c-3,vc)",
+     "vb=\u003eneg(mul(c1,neg(neg(neg(add(c0,vb))))))",
+     "neg(mul(add(va,vb),c2,vc))=\u003emul(c1,neg(add(c0,mul(neg(neg(add(va,vb))),neg(neg(mul(c2,vc)))))))",
+     "vc=\u003eadd(c0,c0,c0,neg(neg(vc)))",
+     "mul(add(mul(va,va),va),vb)=\u003emul(add(mul(add(c0,va),c1,va),neg(neg(neg(neg(va))))),vb)",
+     "c-1=\u003eneg(add(c0,neg(c-1)))",
+     "c-1=\u003eadd(c-1,c0,mul(c0,neg(neg(c1))))",
+     "add(va,va)=\u003emul(add(c0,va,va),c1,c1,c1)",
+     "add(c0,neg(vb),va)=\u003emul(add(c0,c0,neg(vb),va),c1)",
+     "neg(vb)=\u003eadd(neg(neg(c0)),neg(vb))",
+     "add(mul(neg(vb),va,vc),va)=\u003eadd(c0,mul(add(c0,mul(add(c0,vc),va)),neg(vb)),neg(neg(add(c0,va))))",
+     "add(c0,mul(neg(c0),vc),neg(vc))=\u003eadd(mul(add(c0,neg(vc)),c1),neg(neg(mul(c1,neg(c0),vc))))",
+     "add(c1,va,vb)=\u003eadd(c0,mul(add(c1,neg(neg(c0)),neg(neg(va)),vb),c1))",
+     "mul(c-2,neg(c4),vc)=\u003eneg(mul(c1,neg(mul(neg(add(c0,c4)),neg(mul(c1,neg(c-2))),vc))))",
+     "c3=\u003emul(add(c0,neg(neg(c3))),c1)",
+     "mul(c-1,c4,c4,vc)=\u003emul(c-1,c1,c4,neg(mul(c1,neg(mul(c4,vc)))))",
+     "mul(c0,neg(c4),vb)=\u003eadd(c0,neg(neg(mul(c0,c1,neg(add(c0,c4))))))",
+     "mul(add(c2,neg(va),va),add(c3,va),c-1,vb)=\u003emul(add(c3,va),c-1,neg(neg(mul(add(neg(neg(add(c2,va))),neg(va)),c1))),vb)",
+     "mul(c4,vc)=\u003emul(add(c0,mul(c1,c1)),c4,vc)",
+     "mul(add(neg(c-2),vb),c0,vc,vc)=\u003emul(add(neg(mul(c1,neg(add(c0,neg(c-2))))),vb),c0,vc,vc)",
+     "neg(va)=\u003emul(add(c0,neg(va)),c1,c1)",
+     "c0=\u003eadd(c0,neg(neg(add(c0,c0))))",
+     "add(c-3,neg(va))=\u003emul(c1,neg(neg(add(c-3,c0,c0,c0,neg(va)))))",
+     "neg(neg(vb))=\u003emul(c1,c1,vb)",
+     "neg(add(c-2,va))=\u003eadd(mul(c0,c1),neg(add(c-2,c0,va)))",
+     "mul(add(neg(c-1),vb),vc)=\u003emul(add(c0,vc),add(neg(neg(neg(c-1))),vb),c1,neg(neg(c1)))",
+     "mul(add(c-3,vb),va,vc)=\u003emul(add(c-3,c0,neg(neg(add(c0,vb)))),va,vc)",
+     "c2=\u003eadd(c0,c2,mul(c0,c1))",
+     "vc=\u003eadd(c0,c0,mul(c0,c1),mul(c1,vc))",
+     "neg(c2)=\u003eneg(neg(neg(c2)))",
+     "mul(neg(vc),vc)=\u003emul(add(c0,neg(neg(neg(neg(add(c0,vc)))))),c1,neg(vc))",
+     "vb=\u003eadd(c0,vb)",
+     "va=\u003eneg(neg(neg(add(c0,neg(add(neg(neg(c0)),va))))))",
+     "neg(add(mul(va,vc),neg(c1)))=\u003eneg(add(mul(add(c0,neg(neg(neg(neg(va))))),vc),neg(c1)))",
+     "c-1=\u003eadd(c0,neg(mul(c1,neg(c-1))))",
+     "c3=\u003eneg(neg(add(c0,mul(c1,c3))))",
+     "mul(add(c-3,vb,vb,vc),vc)=\u003emul(add(c0,mul(add(c0,c1),c1,vb),neg(neg(c-3)),vb,vc),vc)",
+     "neg(neg(c-1))=\u003eneg(neg(neg(neg(neg(neg(add(c-1,c0)))))))",
+     "add(c-3,mul(c4,va))=\u003eadd(c-3,c0,c0,c0,c0,mul(c1,c4,va))",
+     "add(neg(c-1),neg(va),neg(vb))=\u003eneg(neg(add(mul(c1,neg(mul(c-1,c1))),mul(c1,neg(mul(c1,vb))),neg(va))))",
+     "c-3=\u003eadd(c-3,mul(add(c0,c1),neg(neg(mul(c0,c1)))))",
+     "va=\u003eadd(c0,c0,c0,va)",
+     "neg(neg(mul(c-3,vc)))=\u003eadd(c0,neg(mul(add(c0,vc),neg(c-3))))",
+     "neg(add(c-2,c-3))=\u003eadd(neg(c-3),neg(mul(c1,neg(add(c0,neg(neg(neg(c-2))))))))",
+     "mul(c4,vb)=\u003eneg(neg(mul(c4,vb)))",
+     "add(mul(add(va,va),va),neg(neg(vb)))=\u003eadd(neg(add(c0,neg(vb))),neg(neg(mul(add(va,va),neg(neg(add(c0,c0,va)))))))",
+     "neg(mul(va,vb))=\u003emul(c1,neg(mul(c1,c1,va,vb)))",
+     "neg(add(neg(vc),vb))=\u003eadd(c0,neg(add(c0,neg(neg(add(c0,neg(add(c0,vc))))),vb)))",
+     "add(mul(add(c-1,c2),vc,vc),vb)=\u003eadd(mul(add(c-1,c0,c0,c2),c1,neg(neg(c1)),vc,vc),vb)",
+     "add(neg(c1),neg(mul(vb,vc)),vb)=\u003eadd(c0,mul(add(mul(c1,neg(mul(c1,c1))),vb),c1),neg(mul(add(c0,vc),vb)))",
+     "c-1=\u003eadd(c0,mul(c-1,c1))",
+     "neg(add(mul(va,vc),mul(vb,vc)))=\u003eneg(add(mul(add(c0,c0,vc),vb),neg(neg(neg(mul(add(c0,va),neg(vc)))))))",
+     "va=\u003emul(add(neg(c0),neg(mul(c1,neg(c1)))),c1,va)",
+     "mul(neg(c3),vc,vc)=\u003emul(add(c0,c0,neg(mul(c1,c3))),add(c0,vc),vc)",
+     "neg(vc)=\u003eneg(neg(neg(mul(add(c0,mul(c1,c1)),c1,vc))))",
+     "add(c2,neg(va),vc)=\u003emul(add(c0,c2,neg(add(c0,va)),neg(neg(vc))),c1,c1,c1)",
+     "mul(add(c0,vb),add(mul(vb,vb),va,va),vb)=\u003emul(add(c0,c0,mul(vb,vb),va,va),c1,vb,vb)",
+     "c-3=\u003emul(c1,c1,neg(add(c0,neg(add(c-3,mul(c0,c1))))))",
+     "neg(add(vb,vb))=\u003emul(add(c0,c1),c1,neg(neg(neg(add(vb,vb)))))",
+     "mul(c-2,neg(c0))=\u003emul(neg(mul(c1,neg(neg(add(c0,neg(add(c-2,c0))))))),neg(neg(neg(c0))))",
+     "mul(c0,c4)=\u003emul(c0,c1,neg(neg(c4)))",
+     "mul(add(mul(c3,vb),va),add(mul(c4,vb),mul(va,vc)))=\u003emul(add(c0,mul(c1,va,vc),mul(c4,vb)),add(mul(add(neg(add(c0,neg(add(c0,c0)))),vb),c3),va))",
+     "add(mul(add(c-2,va),va,va),neg(c-3),vb,vc)=\u003eneg(mul(c1,neg(add(mul(add(c-2,mul(c1,va)),neg(neg(mul(va,va)))),mul(add(mul(c1,vb),vc),c1),neg(c-3)))))",
+     "c-2=\u003eadd(mul(add(c-2,c0,c0),c1),neg(neg(add(c0,c0))))",
+     "mul(c-1,va)=\u003emul(add(c0,c1),c1,neg(add(neg(c-1),neg(neg(c0)))),va)",
+     "add(c2,vc,vc)=\u003eadd(c0,c2,mul(c0,neg(neg(c1))),vc,vc)",
+     "vc=\u003eadd(mul(c0,c1),neg(neg(c0)),vc)",
+     "mul(c3,va)=\u003emul(neg(mul(c1,neg(mul(c3,va)))),neg(neg(c1)))",
+     "va=\u003emul(c1,neg(neg(add(c0,c1))),va)",
+     "c-1=\u003eneg(neg(mul(add(c0,neg(neg(c-1))),c1)))",
+     "va=\u003eneg(neg(mul(c1,va)))",
+     "va=\u003emul(add(c0,c1),neg(neg(c1)),neg(neg(mul(c1,va))))",
+     "neg(add(neg(vb),va))=\u003eneg(neg(mul(add(neg(neg(neg(va))),neg(neg(vb))),c1)))",
+     "add(c1,c2,c4,vb)=\u003eadd(c2,c4,neg(add(c0,neg(add(neg(neg(mul(c1,c1))),vb)))))",
+     "mul(c0,neg(c4),vb)=\u003emul(add(c0,c0,neg(c4)),add(c0,c1),c1,neg(neg(mul(c0,vb))))",
+     "vc=\u003eadd(neg(neg(add(c0,mul(c0,c1)))),vc)",
+     "mul(vb,vb,vc)=\u003emul(add(c0,mul(c1,neg(neg(add(c0,vc))),vb)),c1,c1,vb)",
+     "vb=\u003eadd(c0,mul(c1,vb))",
+     "neg(vc)=\u003eadd(c0,neg(mul(c1,neg(neg(neg(neg(vc)))))))",
+     "mul(add(c4,va),neg(c4),va,vc)=\u003eneg(neg(mul(add(c0,c0,c0,neg(neg(c4)),va),c1,neg(c4),va,vc)))",
+     "add(va,vb,vc)=\u003eadd(mul(c1,c1,vb),va,vc)",
+     "add(neg(va),neg(vc))=\u003eadd(c0,c0,neg(add(c0,va)),neg(mul(c1,neg(neg(vc)))))",
+     "vb=\u003eneg(neg(mul(c1,vb)))",
+     "neg(mul(va,va))=\u003eneg(add(c0,neg(neg(mul(c1,neg(neg(neg(neg(neg(neg(va)))))),va)))))",
+     "add(c-2,mul(va,vb),va)=\u003eadd(mul(add(c0,vb),va),mul(c1,neg(neg(add(c-2,c0)))),va)",
+     "neg(mul(c-2,va))=\u003eadd(c0,neg(neg(mul(c-2,c1,neg(va)))))",
+     "add(mul(add(c3,va),c-2),mul(va,vb),neg(c4))=\u003eadd(mul(add(c0,va),vb),mul(add(c3,neg(neg(va))),c-2),neg(add(c4,neg(neg(c0)))))",
+     "add(neg(c-1),neg(vc))=\u003eadd(mul(c1,neg(mul(c1,vc))),neg(add(c0,mul(c-1,c1))))",
+     "mul(c-2,c-2,c3)=\u003eadd(c0,mul(add(c0,c4),c1,c3))",
+     "neg(vb)=\u003eneg(mul(add(c0,mul(c0,c1),vb),c1))",
+     "mul(c2,neg(add(va,vb)))=\u003emul(neg(add(c0,mul(c1,va),vb)),neg(neg(c2)))",
+     "neg(mul(va,vb))=\u003eneg(mul(add(c0,va),c1,c1,vb))",
+     "vb=\u003eneg(neg(add(mul(c1,neg(neg(neg(mul(c1,neg(mul(c0,c1))))))),vb)))",
+     "add(mul(c-1,c-2,va),neg(c1),vc)=\u003emul(add(c0,mul(c-1,c-2,va),neg(c1),neg(neg(neg(c0))),vc),c1)",
+     "mul(neg(c-1),neg(vb))=\u003eadd(c0,c0,neg(mul(neg(mul(add(c0,c1),c-1)),vb)))",
+     "va=\u003eadd(c0,mul(c0,c1),mul(c1,neg(neg(va))))",
+     "add(c0,neg(c0),va)=\u003eneg(neg(add(c0,c0,mul(add(c0,neg(neg(va))),c1),mul(c0,c1),neg(c0))))",
+     "add(c-1,neg(c-2),vb)=\u003eadd(c0,neg(c-2),neg(neg(add(mul(c-1,c1),mul(c0,c1),vb))))",
+     "add(mul(c-2,vc,vc),neg(mul(vc,vc)))=\u003eadd(mul(c1,neg(neg(mul(c-2,vc))),vc),neg(mul(vc,vc)))",
+     "add(neg(c-2),neg(va))=\u003eadd(mul(c1,neg(mul(c-2,c1))),neg(neg(add(c0,neg(add(c0,va))))))",
+     "mul(add(c3,vc),add(vb,vb),c1)=\u003emul(add(c0,mul(c1,vb),neg(neg(vb))),add(c0,neg(neg(neg(neg(add(c0,c3,vc)))))),c1)",
+     "mul(c-3,neg(c0))=\u003emul(add(c-3,c0,c0),add(c0,neg(add(c0,neg(neg(c0))))))",
+     "c-2=\u003emul(c-2,c1)",
+     "vc=\u003eadd(c0,neg(neg(mul(c1,c1,vc))))",
+     "neg(neg(vb))=\u003eadd(c0,neg(neg(vb)))",
+     "mul(add(c4,va),c-3,c1,vb)=\u003emul(add(c0,neg(neg(c1))),add(c4,mul(c1,va)),c1,c1,c1,neg(neg(c-3)),vb)",
+     "neg(c0)=\u003eneg(mul(add(c0,c1),c1,neg(neg(c0))))",
+     "mul(add(c3,vb),neg(va))=\u003emul(add(c0,neg(va)),c1,neg(neg(neg(neg(add(c0,neg(add(neg(c3),neg(vb)))))))))",
+     "mul(c-1,neg(c-2))=\u003emul(add(c-1,c0),add(c0,neg(neg(add(c0,neg(c-2),neg(c0))))),c1)",
+     "mul(vb,vc)=\u003emul(add(c0,mul(add(c0,neg(neg(c0)),vb),vc)),c1)",
+     "add(c2,c4,mul(va,va))=\u003eneg(neg(add(c2,neg(add(c0,neg(neg(neg(mul(va,va)))))),neg(neg(c0)),neg(neg(c4)))))",
+     "add(neg(mul(c1,vc)),vb)=\u003eadd(c0,mul(c1,vb),neg(mul(c1,c1,vc)))",
+     "neg(add(c-3,neg(c0)))=\u003eneg(neg(neg(add(c0,mul(add(c-3,c0,c0,neg(c0)),c1)))))",
+     "add(va,vb,vc)=\u003eadd(c0,mul(c1,vb),neg(neg(neg(mul(c1,neg(add(c0,c0,va,vc)))))))",
+     "va=\u003eneg(mul(c1,neg(va)))",
+     "neg(neg(c-2))=\u003emul(add(c0,c1),neg(add(c0,neg(c-2))))",
+     "c-2=\u003eneg(neg(add(c-2,c0,c0)))",
+     "add(c0,c0,va,vc)=\u003eadd(c0,c0,mul(add(c0,c0,c0,mul(c1,va)),c1),vc)",
+     "add(c1,va)=\u003eneg(mul(c1,neg(add(c1,va))))",
+     "c-2=\u003eneg(neg(neg(add(c0,neg(neg(neg(mul(c-2,c1))))))))",
+     "vc=\u003eadd(c0,neg(add(c0,c0,neg(mul(c1,vc)))))",
+     "add(neg(mul(c4,va)),neg(va),vb,vc)=\u003emul(add(c0,c0,neg(neg(add(mul(add(c0,vb,vc),c1,c1),neg(mul(c4,va)),neg(va))))),c1)",
+     "va=\u003emul(add(c0,mul(c0,c1,c1),va),c1)",
+     "neg(add(c3,neg(c-1)))=\u003eadd(c0,neg(add(c3,neg(neg(mul(add(c0,mul(c1,c1)),neg(c-1)))))))",
+     "neg(mul(c-2,vc,vc))=\u003eneg(mul(c1,neg(neg(mul(add(c0,vc),c-2,c1,vc)))))",
+     "c-2=\u003eadd(c0,neg(mul(add(neg(c0),neg(neg(neg(c-2)))),neg(neg(c1)))))",
+     "c0=\u003eadd(neg(neg(c0)),neg(neg(neg(neg(c0)))))",
+     "mul(add(c4,vb),add(va,vb),c1)=\u003eadd(mul(add(c4,vb),c1,va),mul(add(c4,vb),vb))",
+     "mul(va,vb,vb)=\u003eadd(c0,mul(c1,neg(mul(c1,neg(add(c0,mul(neg(neg(vb)),vb))))),va))",
+     "neg(add(vc,vc))=\u003emul(add(mul(c1,neg(vc)),mul(c1,neg(vc))),c1,c1)"
+    ],
+    "Starts": [
+     "vc",
+     "c-1",
+     "vb",
+     "mul(add(c0,c2,c3),add(c2,neg(vc)))",
+     "c2",
+     "c-2",
+     "mul(add(c-1,vc),c1)",
+     "mul(neg(c4),neg(neg(vc)))",
+     "mul(neg(add(vb,vb)),vb)",
+     "vc",
+     "va",
+     "va",
+     "vb",
+     "vb",
+     "neg(neg(add(c1,vc)))",
+     "neg(add(c-2,neg(va),vb))",
+     "neg(add(c2,va))",
+     "add(c0,mul(vb,vb))",
+     "mul(add(c0,vb),neg(c-3))",
+     "mul(c4,neg(mul(vc,vc)),neg(vb),vb)",
+     "c-1",
+     "add(c-3,c2,neg(c2))",
+     "neg(mul(va,va,vb))",
+     "mul(add(c-1,c0,c3,va),vb)",
+     "neg(c-1)",
+     "add(c0,mul(va,vc),neg(vb))",
+     "mul(c4,neg(va))",
+     "neg(vb)",
+     "c3",
+     "mul(c2,neg(mul(vb,vb)))",
+     "c4",
+     "mul(add(c-2,va),add(c-2,vc),neg(c1),neg(c2))",
+     "neg(add(c0,c3,va,vb))",
+     "c-3",
+     "va",
+     "neg(add(c-2,c3))",
+     "mul(add(va,vc),neg(mul(vb,vb)),va)",
+     "vb",
+     "add(c2,vc)",
+     "va",
+     "mul(add(c0,va,vc),add(neg(c-3),vb))",
+     "add(mul(add(c-3,va),neg(c4)),vb)",
+     "add(neg(va),va,vc)",
+     "c-1",
+     "c3",
+     "mul(add(neg(c-3),vc),vb)",
+     "va",
+     "neg(mul(c0,vb,vc))",
+     "add(vb,vc)",
+     "neg(mul(c0,c3,neg(c-3)))",
+     "neg(c0)",
+     "mul(neg(add(c4,vb)),neg(mul(vc,vc)))",
+     "c-3",
+     "vc",
+     "add(neg(c3),va)",
+     "neg(neg(vc))",
+     "add(c-1,c0)",
+     "vc",
+     "add(c0,va)",
+     "mul(neg(c-1),neg(vb))",
+     "va",
+     "c0",
+     "va",
+     "c-3",
+     "neg(mul(c-1,c2))",
+     "c-1",
+     "c-2",
+     "mul(add(c0,mul(c-2,vc)),neg(neg(va)))",
+     "mul(c-2,neg(vb),vb)",
+     "mul(neg(add(c-2,vc)),va,va,vb,vc)",
+     "vc",
+     "neg(add(vb,vb))",
+     "mul(add(c2,va),c-2)",
+     "add(mul(c4,vb),va)",
+     "vb",
+     "neg(c2)",
+     "add(vb,vc,vc,vc)",
+     "neg(va)",
+     "va",
+     "add(neg(c4),va)",
+     "vb",
+     "add(mul(c-3,va),neg(c2))",
+     "va",
+     "neg(va)",
+     "neg(add(c3,mul(va,vb)))",
+     "mul(c0,neg(c2))",
+     "va",
+     "add(mul(c3,va),neg(vc))",
+     "c4",
+     "vb",
+     "add(mul(c4,va),va)",
+     "neg(add(c-3,va))",
+     "add(mul(va,vb),va)",
+     "add(va,va,va,vb)",
+     "mul(neg(neg(va)),vb)",
+     "vc",
+     "vb",
+     "neg(mul(va,vc))",
+     "add(mul(va,vb),vb,vb)",
+     "neg(neg(vb))",
+     "vc",
+     "neg(c4)",
+     "mul(add(c2,vc),vc)",
+     "add(neg(neg(c-3)),vb)",
+     "add(c0,mul(add(vb,vc),vb))",
+     "mul(c2,va)",
+     "add(neg(mul(c0,c4)),neg(vb))",
+     "neg(c2)",
+     "neg(c3)",
+     "vb",
+     "mul(c-3,vc)",
+     "vb",
+     "neg(mul(add(va,vb),c2,vc))",
+     "vc",
+     "mul(add(mul(va,va),va),vb)",
+     "c-1",
+     "c-1",
+     "add(va,va)",
+     "add(c0,neg(vb),va)",
+     "neg(vb)",
+     "add(mul(neg(vb),va,vc),va)",
+     "add(c0,mul(neg(c0),vc),neg(vc))",
+     "add(c1,va,vb)",
+     "mul(c-2,neg(c4),vc)",
+     "c3",
+     "mul(c-1,c4,c4,vc)",
+     "mul(c0,neg(c4),vb)",
+     "mul(add(c2,neg(va),va),add(c3,va),c-1,vb)",
+     "mul(c4,vc)",
+     "mul(add(neg(c-2),vb),c0,vc,vc)",
+     "neg(va)",
+     "c0",
+     "add(c-3,neg(va))",
+     "neg(neg(vb))",
+     "neg(add(c-2,va))",
+     "mul(add(neg(c-1),vb),vc)",
+     "mul(add(c-3,vb),va,vc)",
+     "c2",
+     "vc",
+     "neg(c2)",
+     "mul(neg(vc),vc)",
+     "vb",
+     "va",
+     "neg(add(mul(va,vc),neg(c1)))",
+     "c-1",
+     "c3",
+     "mul(add(c-3,vb,vb,vc),vc)",
+     "neg(neg(c-1))",
+     "add(c-3,mul(c4,va))",
+     "add(neg(c-1),neg(va),neg(vb))",
+     "c-3",
+     "va",
+     "neg(neg(mul(c-3,vc)))",
+     "neg(add(c-2,c-3))",
+     "mul(c4,vb)",
+     "add(mul(add(va,va),va),neg(neg(vb)))",
+     "neg(mul(va,vb))",
+     "neg(add(neg(vc),vb))",
+     "add(mul(add(c-1,c2),vc,vc),vb)",
+     "add(neg(c1),neg(mul(vb,vc)),vb)",
+     "c-1",
+     "neg(add(mul(va,vc),mul(vb,vc)))",
+     "va",
+     "mul(neg(c3),vc,vc)",
+     "neg(vc)",
+     "add(c2,neg(va),vc)",
+     "mul(add(c0,vb),add(mul(vb,vb),va,va),vb)",
+     "c-3",
+     "neg(add(vb,vb))",
+     "mul(c-2,neg(c0))",
+     "mul(c0,c4)",
+     "mul(add(mul(c3,vb),va),add(mul(c4,vb),mul(va,vc)))",
+     "add(mul(add(c-2,va),va,va),neg(c-3),vb,vc)",
+     "c-2",
+     "mul(c-1,va)",
+     "add(c2,vc,vc)",
+     "vc",
+     "mul(c3,va)",
+     "va",
+     "c-1",
+     "va",
+     "va",
+     "neg(add(neg(vb),va))",
+     "add(c1,c2,c4,vb)",
+     "mul(c0,neg(c4),vb)",
+     "vc",
+     "mul(vb,vb,vc)",
+     "vb",
+     "neg(vc)",
+     "mul(add(c4,va),neg(c4),va,vc)",
+     "add(va,vb,vc)",
+     "add(neg(va),neg(vc))",
+     "vb",
+     "neg(mul(va,va))",
+     "add(c-2,mul(va,vb),va)",
+     "neg(mul(c-2,va))",
+     "add(mul(add(c3,va),c-2),mul(va,vb),neg(c4))",
+     "add(neg(c-1),neg(vc))",
+     "mul(c-2,c-2,c3)",
+     "neg(vb)",
+     "mul(c2,neg(add(va,vb)))",
+     "neg(mul(va,vb))",
+     "vb",
+     "add(mul(c-1,c-2,va),neg(c1),vc)",
+     "mul(neg(c-1),neg(vb))",
+     "va",
+     "add(c0,neg(c0),va)",
+     "add(c-1,neg(c-2),vb)",
+     "add(mul(c-2,vc,vc),neg(mul(vc,vc)))",
+     "add(neg(c-2),neg(va))",
+     "mul(add(c3,vc),add(vb,vb),c1)",
+     "mul(c-3,neg(c0))",
+     "c-2",
+     "vc",
+     "neg(neg(vb))",
+     "mul(add(c4,va),c-3,c1,vb)",
+     "neg(c0)",
+     "mul(add(c3,vb),neg(va))",
+     "mul(c-1,neg(c-2))",
+     "mul(vb,vc)",
+     "add(c2,c4,mul(va,va))",
+     "add(neg(mul(c1,vc)),vb)",
+     "neg(add(c-3,neg(c0)))",
+     "add(va,vb,vc)",
+     "va",
+     "neg(neg(c-2))",
+     "c-2",
+     "add(c0,c0,va,vc)",
+     "add(c1,va)",
+     "c-2",
+     "vc",
+     "add(neg(mul(c4,va)),neg(va),vb,vc)",
+     "va",
+     "neg(add(c3,neg(c-1)))",
+     "neg(mul(c-2,vc,vc))",
+     "c-2",
+     "c0",
+     "mul(add(c4,vb),add(va,vb),c1)",
+     "mul(va,vb,vb)",
+     "neg(add(vc,vc))"
+    ],
+    "Targets": [
+     "mul(c1,c1,vc)",
+     "add(c-1,neg(neg(c0)))",
+     "neg(neg(add(c0,vb)))",
+     "mul(add(c0,c2,c3),c1,neg(neg(add(c2,neg(vc)))))",
+     "neg(neg(add(c0,c2)))",
+     "c-2",
+     "mul(c1,c1,neg(neg(add(c-1,vc))))",
+     "mul(c1,neg(neg(neg(c4))),neg(neg(vc)))",
+     "mul(neg(mul(add(mul(c1,vb),vb),c1)),vb)",
+     "mul(c1,neg(neg(vc)))",
+     "va",
+     "neg(neg(add(c0,va)))",
+     "add(c0,neg(neg(vb)))",
+     "mul(add(c0,c1),vb)",
+     "mul(c1,neg(add(neg(c1),neg(vc))))",
+     "add(neg(add(c-2,neg(va),vb)),neg(c0))",
+     "add(neg(c2),neg(mul(c1,va)))",
+     "add(c0,c0,mul(c1,vb,vb))",
+     "add(c0,mul(neg(c-3),vb))",
+     "mul(neg(mul(vc,vc)),neg(neg(mul(c1,c4,neg(vb),vb))))",
+     "c-1",
+     "add(c-3,neg(neg(c2)),neg(neg(neg(c2))))",
+     "mul(c1,neg(mul(neg(neg(va)),va,vb)))",
+     "mul(add(c-1,c0,mul(c1,c3),va),c1,vb)",
+     "neg(c-1)",
+     "add(c0,mul(c1,neg(neg(va)),vc),neg(vb))",
+     "mul(c4,neg(neg(c1)),neg(va))",
+     "mul(add(c0,neg(vb)),c1)",
+     "mul(add(c0,c3),c1)",
+     "mul(c1,c2,neg(neg(neg(mul(vb,vb)))))",
+     "c4",
+     "mul(add(c-2,c0,vc),add(c-2,va),neg(c1),neg(mul(c1,c2)))",
+     "neg(add(c0,c3,mul(c0,c1),va,vb))",
+     "c-3",
+     "add(c0,neg(neg(va)))",
+     "neg(neg(neg(add(c-2,c0,c3))))",
+     "mul(add(va,vc),neg(neg(add(c0,neg(mul(vb,vb))))),va)",
+     "vb",
+     "neg(neg(add(c0,c2,vc)))",
+     "mul(c1,c1,va)",
+     "mul(add(c0,mul(c1,vc),va),add(neg(c-3),vb),neg(neg(c1)))",
+     "add(mul(neg(neg(add(c-3,neg(neg(va))))),neg(neg(neg(c4)))),vb)",
+     "add(neg(add(c0,mul(c1,c1,va))),va,vc)",
+     "neg(mul(c1,c1,neg(c-1)))",
+     "add(c0,c3)",
+     "mul(add(c0,neg(c-3),neg(neg(vc))),add(c0,vb))",
+     "mul(add(c0,c1),c1,va)",
+     "mul(neg(neg(neg(mul(neg(neg(c0)),vc)))),vb)",
+     "neg(add(c0,neg(add(c0,vb,vc))))",
+     "mul(c1,neg(mul(c0,c1,c3,neg(neg(neg(c-3))))))",
+     "add(c0,c0)",
+     "neg(neg(mul(add(c0,neg(mul(vc,vc))),neg(mul(add(c4,vb),c1)))))",
+     "add(c0,mul(c-3,neg(neg(c1))))",
+     "add(c0,mul(neg(neg(c1)),vc))",
+     "add(mul(c1,neg(neg(neg(add(c0,c3))))),va)",
+     "neg(neg(mul(neg(add(c0,neg(c1))),vc)))",
+     "add(c0,mul(c-1,c1))",
+     "mul(c1,neg(neg(neg(neg(vc)))))",
+     "add(mul(add(c0,va),c1),mul(c0,c1))",
+     "mul(neg(add(c0,neg(neg(c-1)))),neg(neg(neg(vb))))",
+     "add(c0,mul(c0,c1),va)",
+     "mul(add(c0,c0),c1,c1)",
+     "add(c0,mul(c1,neg(neg(va))))",
+     "mul(c1,c1,neg(neg(c-3)))",
+     "add(c0,neg(neg(neg(mul(c-1,neg(neg(c2)))))))",
+     "neg(neg(c-1))",
+     "add(c-2,c0)",
+     "mul(add(c0,mul(c-2,vc)),neg(add(c0,neg(va))))",
+     "neg(neg(mul(c-2,neg(vb),vb)))",
+     "neg(neg(mul(add(neg(c-2),neg(vc)),c1,va,va,vb,vc)))",
+     "neg(neg(vc))",
+     "add(neg(mul(c1,vb)),neg(mul(c1,vb)))",
+     "add(c0,mul(add(c2,mul(c0,c1),va),c-2))",
+     "add(mul(c1,va),mul(neg(mul(c1,neg(c4))),vb))",
+     "neg(neg(vb))",
+     "add(c0,mul(c1,c1,neg(c2)))",
+     "add(c0,neg(mul(c1,neg(vc))),vb,vc,vc)",
+     "mul(neg(mul(c1,neg(c1))),neg(va))",
+     "neg(neg(neg(neg(mul(c1,va)))))",
+     "neg(neg(add(c0,neg(mul(c1,c4)),va)))",
+     "neg(neg(neg(neg(vb))))",
+     "add(c0,mul(add(mul(c-3,neg(neg(c1)),va),neg(c2)),c1))",
+     "neg(neg(add(c0,va)))",
+     "neg(va)",
+     "neg(neg(neg(mul(c1,neg(neg(add(c3,mul(add(c0,vb),va))))))))",
+     "add(c0,mul(c0,neg(mul(c1,c2))))",
+     "add(neg(neg(neg(add(c0,neg(c0))))),va)",
+     "add(mul(add(c0,c3),va),neg(neg(c0)),neg(neg(neg(vc))))",
+     "add(c4,neg(neg(c0)))",
+     "vb",
+     "add(mul(c4,va),va)",
+     "neg(neg(add(neg(neg(neg(add(c-3,c0)))),neg(va))))",
+     "mul(add(mul(add(c0,mul(c1,c1)),va,vb),va),c1)",
+     "add(neg(neg(add(mul(c1,va),mul(c1,va)))),neg(neg(vb)),va)",
+     "mul(add(c0,c0,vb),c1,neg(neg(mul(c1,va))))",
+     "neg(add(c0,c0,neg(neg(neg(vc)))))",
+     "add(c0,c0,neg(neg(mul(c1,vb))))",
+     "neg(mul(add(mul(c0,c1),va),c1,c1,vc))",
+     "add(neg(mul(neg(neg(c1)),neg(va),vb)),vb,vb)",
+     "neg(add(c0,neg(mul(c1,vb))))",
+     "add(mul(c0,c1),vc)",
+     "neg(add(c0,mul(add(c4,mul(c0,c1)),c1)))",
+     "mul(add(c0,mul(add(c2,vc),neg(neg(c1)))),neg(neg(vc)))",
+     "add(mul(c-3,c1),vb)",
+     "add(c0,c0,mul(add(neg(neg(vb)),vc),vb))",
+     "neg(neg(add(c0,mul(add(c2,neg(neg(c0))),va))))",
+     "neg(add(neg(neg(neg(neg(mul(c0,c1,c4))))),vb))",
+     "neg(c2)",
+     "mul(c1,c1,neg(c3))",
+     "mul(add(c1,mul(c0,c1)),c1,vb)",
+     "mul(c-3,vc)",
+     "neg(mul(c1,neg(neg(neg(add(c0,vb))))))",
+     "mul(c1,neg(add(c0,mul(neg(neg(add(va,vb))),neg(neg(mul(c2,vc)))))))",
+     "add(c0,c0,c0,neg(neg(vc)))",
+     "mul(add(mul(add(c0,va),c1,va),neg(neg(neg(neg(va))))),vb)",
+     "neg(add(c0,neg(c-1)))",
+     "add(c-1,c0,mul(c0,neg(neg(c1))))",
+     "mul(add(c0,va,va),c1,c1,c1)",
+     "mul(add(c0,c0,neg(vb),va),c1)",
+     "add(neg(neg(c0)),neg(vb))",
+     "add(c0,mul(add(c0,mul(add(c0,vc),va)),neg(vb)),neg(neg(add(c0,va))))",
+     "add(mul(add(c0,neg(vc)),c1),neg(neg(mul(c1,neg(c0),vc))))",
+     "add(c0,mul(add(c1,neg(neg(c0)),neg(neg(va)),vb),c1))",
+     "neg(mul(c1,neg(mul(neg(add(c0,c4)),neg(mul(c1,neg(c-2))),vc))))",
+     "mul(add(c0,neg(neg(c3))),c1)",
+     "mul(c-1,c1,c4,neg(mul(c1,neg(mul(c4,vc)))))",
+     "add(c0,neg(neg(mul(c0,c1,neg(add(c0,c4))))))",
+     "mul(add(c3,va),c-1,neg(neg(mul(add(neg(neg(add(c2,va))),neg(va)),c1))),vb)",
+     "mul(add(c0,mul(c1,c1)),c4,vc)",
+     "mul(add(neg(mul(c1,neg(add(c0,neg(c-2))))),vb),c0,vc,vc)",
+     "mul(add(c0,neg(va)),c1,c1)",
+     "add(c0,neg(neg(add(c0,c0))))",
+     "mul(c1,neg(neg(add(c-3,c0,c0,c0,neg(va)))))",
+     "mul(c1,c1,vb)",
+     "add(mul(c0,c1),neg(add(c-2,c0,va)))",
+     "mul(add(c0,vc),add(neg(neg(neg(c-1))),vb),c1,neg(neg(c1)))",
+     "mul(add(c-3,c0,neg(neg(add(c0,vb)))),va,vc)",
+     "add(c0,c2,mul(c0,c1))",
+     "add(c0,c0,mul(c0,c1),mul(c1,vc))",
+     "neg(neg(neg(c2)))",
+     "mul(add(c0,neg(neg(neg(neg(add(c0,vc)))))),c1,neg(vc))",
+     "add(c0,vb)",
+     "neg(neg(neg(add(c0,neg(add(neg(neg(c0)),va))))))",
+     "neg(add(mul(add(c0,neg(neg(neg(neg(va))))),vc),neg(c1)))",
+     "add(c0,neg(mul(c1,neg(c-1))))",
+     "neg(neg(add(c0,mul(c1,c3))))",
+     "mul(add(c0,mul(add(c0,c1),c1,vb),neg(neg(c-3)),vb,vc),vc)",
+     "neg(neg(neg(neg(neg(neg(add(c-1,c0)))))))",
+     "add(c-3,c0,c0,c0,c0,mul(c1,c4,va))",
+     "neg(neg(add(mul(c1,neg(mul(c-1,c1))),mul(c1,neg(mul(c1,vb))),neg(va))))",
+     "add(c-3,mul(add(c0,c1),neg(neg(mul(c0,c1)))))",
+     "add(c0,c0,c0,va)",
+     "add(c0,neg(mul(add(c0,vc),neg(c-3))))",
+     "add(neg(c-3),neg(mul(c1,neg(add(c0,neg(neg(neg(c-2))))))))",
+     "neg(neg(mul(c4,vb)))",
+     "add(neg(add(c0,neg(vb))),neg(neg(mul(add(va,va),neg(neg(add(c0,c0,va)))))))",
+     "mul(c1,neg(mul(c1,c1,va,vb)))",
+     "add(c0,neg(add(c0,neg(neg(add(c0,neg(add(c0,vc))))),vb)))",
+     "add(mul(add(c-1,c0,c0,c2),c1,neg(neg(c1)),vc,vc),vb)",
+     "add(c0,mul(add(mul(c1,neg(mul(c1,c1))),vb),c1),neg(mul(add(c0,vc),vb)))",
+     "add(c0,mul(c-1,c1))",
+     "neg(add(mul(add(c0,c0,vc),vb),neg(neg(neg(mul(add(c0,va),neg(vc)))))))",
+     "mul(add(neg(c0),neg(mul(c1,neg(c1)))),c1,va)",
+     "mul(add(c0,c0,neg(mul(c1,c3))),add(c0,vc),vc)",
+     "neg(neg(neg(mul(add(c0,mul(c1,c1)),c1,vc))))",
+     "mul(add(c0,c2,neg(add(c0,va)),neg(neg(vc))),c1,c1,c1)",
+     "mul(add(c0,c0,mul(vb,vb),va,va),c1,vb,vb)",
+     "mul(c1,c1,neg(add(c0,neg(add(c-3,mul(c0,c1))))))",
+     "mul(add(c0,c1),c1,neg(neg(neg(add(vb,vb)))))",
+     "mul(neg(mul(c1,neg(neg(add(c0,neg(add(c-2,c0))))))),neg(neg(neg(c0))))",
+     "mul(c0,c1,neg(neg(c4)))",
+     "mul(add(c0,mul(c1,va,vc),mul(c4,vb)),add(mul(add(neg(add(c0,neg(add(c0,c0)))),vb),c3),va))",
+     "neg(mul(c1,neg(add(mul(add(c-2,mul(c1,va)),neg(neg(mul(va,va)))),mul(add(mul(c1,vb),vc),c1),neg(c-3)))))",
+     "add(mul(add(c-2,c0,c0),c1),neg(neg(add(c0,c0))))",
+     "mul(add(c0,c1),c1,neg(add(neg(c-1),neg(neg(c0)))),va)",
+     "add(c0,c2,mul(c0,neg(neg(c1))),vc,vc)",
+     "add(mul(c0,c1),neg(neg(c0)),vc)",
+     "mul(neg(mul(c1,neg(mul(c3,va)))),neg(neg(c1)))",
+     "mul(c1,neg(neg(add(c0,c1))),va)",
+     "neg(neg(mul(add(c0,neg(neg(c-1))),c1)))",
+     "neg(neg(mul(c1,va)))",
+     "mul(add(c0,c1),neg(neg(c1)),neg(neg(mul(c1,va))))",
+     "neg(neg(mul(add(neg(neg(neg(va))),neg(neg(vb))),c1)))",
+     "add(c2,c4,neg(add(c0,neg(add(neg(neg(mul(c1,c1))),vb)))))",
+     "mul(add(c0,c0,neg(c4)),add(c0,c1),c1,neg(neg(mul(c0,vb))))",
+     "add(neg(neg(add(c0,mul(c0,c1)))),vc)",
+     "mul(add(c0,mul(c1,neg(neg(add(c0,vc))),vb)),c1,c1,vb)",
+     "add(c0,mul(c1,vb))",
+     "add(c0,neg(mul(c1,neg(neg(neg(neg(vc)))))))",
+     "neg(neg(mul(add(c0,c0,c0,neg(neg(c4)),va),c1,neg(c4),va,vc)))",
+     "add(mul(c1,c1,vb),va,vc)",
+     "add(c0,c0,neg(add(c0,va)),neg(mul(c1,neg(neg(vc)))))",
+     "neg(neg(mul(c1,vb)))",
+     "neg(add(c0,neg(neg(mul(c1,neg(neg(neg(neg(neg(neg(va)))))),va)))))",
+     "add(mul(add(c0,vb),va),mul(c1,neg(neg(add(c-2,c0)))),va)",
+     "add(c0,neg(neg(mul(c-2,c1,neg(va)))))",
+     "add(mul(add(c0,va),vb),mul(add(c3,neg(neg(va))),c-2),neg(add(c4,neg(neg(c0)))))",
+     "add(mul(c1,neg(mul(c1,vc))),neg(add(c0,mul(c-1,c1))))",
+     "add(c0,mul(add(c0,c4),c1,c3))",
+     "neg(mul(add(c0,mul(c0,c1),vb),c1))",
+     "mul(neg(add(c0,mul(c1,va),vb)),neg(neg(c2)))",
+     "neg(mul(add(c0,va),c1,c1,vb))",
+     "neg(neg(add(mul(c1,neg(neg(neg(mul(c1,neg(mul(c0,c1))))))),vb)))",
+     "mul(add(c0,mul(c-1,c-2,va),neg(c1),neg(neg(neg(c0))),vc),c1)",
+     "add(c0,c0,neg(mul(neg(mul(add(c0,c1),c-1)),vb)))",
+     "add(c0,mul(c0,c1),mul(c1,neg(neg(va))))",
+     "neg(neg(add(c0,c0,mul(add(c0,neg(neg(va))),c1),mul(c0,c1),neg(c0))))",
+     "add(c0,neg(c-2),neg(neg(add(mul(c-1,c1),mul(c0,c1),vb))))",
+     "add(mul(c1,neg(neg(mul(c-2,vc))),vc),neg(mul(vc,vc)))",
+     "add(mul(c1,neg(mul(c-2,c1))),neg(neg(add(c0,neg(add(c0,va))))))",
+     "mul(add(c0,mul(c1,vb),neg(neg(vb))),add(c0,neg(neg(neg(neg(add(c0,c3,vc)))))),c1)",
+     "mul(add(c-3,c0,c0),add(c0,neg(add(c0,neg(neg(c0))))))",
+     "mul(c-2,c1)",
+     "add(c0,neg(neg(mul(c1,c1,vc))))",
+     "add(c0,neg(neg(vb)))",
+     "mul(add(c0,neg(neg(c1))),add(c4,mul(c1,va)),c1,c1,c1,neg(neg(c-3)),vb)",
+     "neg(mul(add(c0,c1),c1,neg(neg(c0))))",
+     "mul(add(c0,neg(va)),c1,neg(neg(neg(neg(add(c0,neg(add(neg(c3),neg(vb)))))))))",
+     "mul(add(c-1,c0),add(c0,neg(neg(add(c0,neg(c-2),neg(c0))))),c1)",
+     "mul(add(c0,mul(add(c0,neg(neg(c0)),vb),vc)),c1)",
+     "neg(neg(add(c2,neg(add(c0,neg(neg(neg(mul(va,va)))))),neg(neg(c0)),neg(neg(c4)))))",
+     "add(c0,mul(c1,vb),neg(mul(c1,c1,vc)))",
+     "neg(neg(neg(add(c0,mul(add(c-3,c0,c0,neg(c0)),c1)))))",
+     "add(c0,mul(c1,vb),neg(neg(neg(mul(c1,neg(add(c0,c0,va,vc)))))))",
+     "neg(mul(c1,neg(va)))",
+     "mul(add(c0,c1),neg(add(c0,neg(c-2))))",
+     "neg(neg(add(c-2,c0,c0)))",
+     "add(c0,c0,mul(add(c0,c0,c0,mul(c1,va)),c1),vc)",
+     "neg(mul(c1,neg(add(c1,va))))",
+     "neg(neg(neg(add(c0,neg(neg(neg(mul(c-2,c1))))))))",
+     "add(c0,neg(add(c0,c0,neg(mul(c1,vc)))))",
+     "mul(add(c0,c0,neg(neg(add(mul(add(c0,vb,vc),c1,c1),neg(mul(c4,va)),neg(va))))),c1)",
+     "mul(add(c0,mul(c0,c1,c1),va),c1)",
+     "add(c0,neg(add(c3,neg(neg(mul(add(c0,mul(c1,c1)),neg(c-1)))))))",
+     "neg(mul(c1,neg(neg(mul(add(c0,vc),c-2,c1,vc)))))",
+     "add(c0,neg(mul(add(neg(c0),neg(neg(neg(c-2)))),neg(neg(c1)))))",
+     "add(neg(neg(c0)),neg(neg(neg(neg(c0)))))",
+     "add(mul(add(c4,vb),c1,va),mul(add(c4,vb),vb))",
+     "add(c0,mul(c1,neg(mul(c1,neg(add(c0,mul(neg(neg(vb)),vb))))),va))",
+     "mul(add(mul(c1,neg(vc)),mul(c1,neg(vc))),c1,c1)"
+    ],
+    "RenderedProblems": [
+     "vc|mul(vc,mul(c1,c1))",
+     "c-1|add(c-1,neg(neg(c0)))",
+     "vb|neg(neg(add(vb,c0)))",
+     "mul(add(add(c2,c0),c3),add(neg(vc),c2))|mul(mul(add(add(c2,c0),c3),neg(neg(add(neg(vc),c2)))),c1)",
+     "c2|neg(neg(add(c2,c0)))",
+     "c-2|c-2",
+     "mul(c1,add(c-1,vc))|mul(c1,mul(neg(neg(add(c-1,vc))),c1))",
+     "mul(neg(c4),neg(neg(vc)))|mul(mul(neg(neg(neg(c4))),neg(neg(vc))),c1)",
+     "mul(vb,neg(add(vb,vb)))|mul(vb,neg(mul(add(mul(vb,c1),vb),c1)))",
+     "vc|mul(neg(neg(vc)),c1)",
+     "va|va",
+     "va|neg(neg(add(va,c0)))",
+     "vb|add(neg(neg(vb)),c0)",
+     "vb|mul(vb,add(c1,c0))",
+     "neg(neg(add(vc,c1)))|mul(neg(add(neg(vc),neg(c1))),c1)",
+     "neg(add(neg(va),add(c-2,vb)))|add(neg(add(neg(va),add(c-2,vb))),neg(c0))",
+     "neg(add(va,c2))|add(neg(mul(va,c1)),neg(c2))",
+     "add(c0,mul(vb,vb))|add(add(c0,c0),mul(vb,mul(vb,c1)))",
+     "mul(add(c0,vb),neg(c-3))|add(mul(vb,neg(c-3)),c0)",
+     "mul(mul(neg(vb),mul(vb,c4)),neg(mul(vc,vc)))|mul(neg(neg(mul(mul(neg(vb),mul(vb,c4)),c1))),neg(mul(vc,vc)))",
+     "c-1|c-1",
+     "add(neg(c2),add(c-3,c2))|add(neg(neg(neg(c2))),add(c-3,neg(neg(c2))))",
+     "neg(mul(vb,mul(va,va)))|mul(neg(mul(vb,mul(neg(neg(va)),va))),c1)",
+     "mul(vb,add(add(c-1,va),add(c3,c0)))|mul(mul(vb,add(add(c-1,va),add(mul(c3,c1),c0))),c1)",
+     "neg(c-1)|neg(c-1)",
+     "add(neg(vb),add(mul(va,vc),c0))|add(neg(vb),add(mul(neg(neg(va)),mul(vc,c1)),c0))",
+     "mul(neg(va),c4)|mul(mul(neg(va),c4),neg(neg(c1)))",
+     "neg(vb)|mul(add(neg(vb),c0),c1)",
+     "c3|mul(add(c3,c0),c1)",
+     "mul(neg(mul(vb,vb)),c2)|mul(mul(neg(neg(neg(mul(vb,vb)))),c2),c1)",
+     "c4|c4",
+     "mul(mul(add(vc,c-2),neg(c1)),mul(neg(c2),add(c-2,va)))|mul(mul(add(add(vc,c0),c-2),neg(c1)),mul(neg(mul(c2,c1)),add(c-2,va)))",
+     "neg(add(add(vb,c0),add(c3,va)))|neg(add(add(vb,c0),add(add(c3,va),mul(c0,c1))))",
+     "c-3|c-3",
+     "va|add(neg(neg(va)),c0)",
+     "neg(add(c3,c-2))|neg(neg(neg(add(add(c3,c-2),c0))))",
+     "mul(neg(mul(vb,vb)),mul(add(vc,va),va))|mul(neg(neg(add(neg(mul(vb,vb)),c0))),mul(add(vc,va),va))",
+     "vb|vb",
+     "add(c2,vc)|neg(neg(add(add(c2,vc),c0)))",
+     "va|mul(mul(va,c1),c1)",
+     "mul(add(neg(c-3),vb),add(va,add(vc,c0)))|mul(mul(add(neg(c-3),vb),add(va,add(mul(vc,c1),c0))),neg(neg(c1)))",
+     "add(mul(neg(c4),add(va,c-3)),vb)|add(mul(neg(neg(neg(c4))),neg(neg(add(neg(neg(va)),c-3)))),vb)",
+     "add(neg(va),add(vc,va))|add(neg(add(mul(mul(va,c1),c1),c0)),add(vc,va))",
+     "c-1|neg(mul(neg(c-1),mul(c1,c1)))",
+     "c3|add(c3,c0)",
+     "mul(add(vc,neg(c-3)),vb)|mul(add(neg(neg(vc)),add(neg(c-3),c0)),add(vb,c0))",
+     "va|mul(mul(va,c1),add(c1,c0))",
+     "neg(mul(mul(c0,vc),vb))|mul(neg(neg(neg(mul(neg(neg(c0)),vc)))),vb)",
+     "add(vc,vb)|neg(add(neg(add(vc,add(vb,c0))),c0))",
+     "neg(mul(mul(c0,c3),neg(c-3)))|mul(neg(mul(mul(mul(c0,c1),c3),neg(neg(neg(c-3))))),c1)",
+     "neg(c0)|add(c0,c0)",
+     "mul(neg(mul(vc,vc)),neg(add(c4,vb)))|neg(neg(mul(add(neg(mul(vc,vc)),c0),neg(mul(add(c4,vb),c1)))))",
+     "c-3|add(mul(c-3,neg(neg(c1))),c0)",
+     "vc|add(mul(vc,neg(neg(c1))),c0)",
+     "add(va,neg(c3))|add(va,mul(neg(neg(neg(add(c3,c0)))),c1))",
+     "neg(neg(vc))|neg(neg(mul(vc,neg(add(neg(c1),c0)))))",
+     "add(c-1,c0)|add(mul(c-1,c1),c0)",
+     "vc|mul(neg(neg(neg(neg(vc)))),c1)",
+     "add(va,c0)|add(mul(add(va,c0),c1),mul(c0,c1))",
+     "mul(neg(vb),neg(c-1))|mul(neg(neg(neg(vb))),neg(add(neg(neg(c-1)),c0)))",
+     "va|add(va,add(mul(c0,c1),c0))",
+     "c0|mul(add(c0,c0),mul(c1,c1))",
+     "va|add(mul(neg(neg(va)),c1),c0)",
+     "c-3|mul(neg(neg(c-3)),mul(c1,c1))",
+     "neg(mul(c2,c-1))|add(neg(neg(neg(mul(neg(neg(c2)),c-1)))),c0)",
+     "c-1|neg(neg(c-1))",
+     "c-2|add(c-2,c0)",
+     "mul(neg(neg(va)),add(mul(c-2,vc),c0))|mul(neg(add(neg(va),c0)),add(mul(c-2,vc),c0))",
+     "mul(c-2,mul(vb,neg(vb)))|neg(neg(mul(c-2,mul(vb,neg(vb)))))",
+     "mul(mul(mul(va,va),mul(vc,vb)),neg(add(c-2,vc)))|neg(neg(mul(mul(mul(va,va),mul(mul(vc,vb),c1)),add(neg(c-2),neg(vc)))))",
+     "vc|neg(neg(vc))",
+     "neg(add(vb,vb))|add(neg(mul(vb,c1)),neg(mul(vb,c1)))",
+     "mul(add(c2,va),c-2)|add(mul(add(c2,add(va,mul(c0,c1))),c-2),c0)",
+     "add(mul(c4,vb),va)|add(mul(neg(mul(neg(c4),c1)),vb),mul(va,c1))",
+     "vb|neg(neg(vb))",
+     "neg(c2)|add(mul(mul(neg(c2),c1),c1),c0)",
+     "add(add(vc,vc),add(vc,vb))|add(add(neg(mul(neg(vc),c1)),vc),add(vc,add(vb,c0)))",
+     "neg(va)|mul(neg(va),neg(mul(neg(c1),c1)))",
+     "va|neg(neg(neg(neg(mul(va,c1)))))",
+     "add(neg(c4),va)|neg(neg(add(add(neg(mul(c4,c1)),c0),va)))",
+     "vb|neg(neg(neg(neg(vb))))",
+     "add(neg(c2),mul(c-3,va))|add(mul(add(neg(c2),mul(mul(c-3,va),neg(neg(c1)))),c1),c0)",
+     "va|neg(neg(add(va,c0)))",
+     "neg(va)|neg(va)",
+     "neg(add(mul(vb,va),c3))|neg(neg(neg(mul(neg(neg(add(mul(add(vb,c0),va),c3))),c1))))",
+     "mul(neg(c2),c0)|add(mul(neg(mul(c2,c1)),c0),c0)",
+     "va|add(va,neg(neg(neg(add(neg(c0),c0)))))",
+     "add(mul(c3,va),neg(vc))|add(mul(add(c3,c0),va),add(neg(neg(neg(vc))),neg(neg(c0))))",
+     "c4|add(c4,neg(neg(c0)))",
+     "vb|vb",
+     "add(mul(c4,va),va)|add(mul(c4,va),va)",
+     "neg(add(va,c-3))|neg(neg(add(neg(va),neg(neg(neg(add(c-3,c0)))))))",
+     "add(mul(va,vb),va)|mul(add(mul(mul(va,vb),add(mul(c1,c1),c0)),va),c1)",
+     "add(add(va,add(va,va)),vb)|add(add(va,neg(neg(add(mul(va,c1),mul(va,c1))))),neg(neg(vb)))",
+     "mul(neg(neg(va)),vb)|mul(mul(neg(neg(mul(va,c1))),c1),add(add(vb,c0),c0))",
+     "vc|neg(add(neg(neg(neg(vc))),add(c0,c0)))",
+     "vb|add(add(neg(neg(mul(vb,c1))),c0),c0)",
+     "neg(mul(vc,va))|neg(mul(mul(mul(vc,c1),c1),add(va,mul(c0,c1))))",
+     "add(mul(va,vb),add(vb,vb))|add(neg(mul(neg(va),mul(vb,neg(neg(c1))))),add(vb,vb))",
+     "neg(neg(vb))|neg(add(neg(mul(vb,c1)),c0))",
+     "vc|add(vc,mul(c0,c1))",
+     "neg(c4)|neg(add(mul(add(c4,mul(c0,c1)),c1),c0))",
+     "mul(add(c2,vc),vc)|mul(add(mul(add(c2,vc),neg(neg(c1))),c0),neg(neg(vc)))",
+     "add(vb,neg(neg(c-3)))|add(vb,mul(c-3,c1))",
+     "add(mul(add(vb,vc),vb),c0)|add(mul(add(neg(neg(vb)),vc),vb),add(c0,c0))",
+     "mul(va,c2)|neg(neg(add(mul(va,add(c2,neg(neg(c0)))),c0)))",
+     "add(neg(mul(c0,c4)),neg(vb))|neg(add(neg(neg(neg(neg(mul(mul(c0,c4),c1))))),vb))",
+     "neg(c2)|neg(c2)",
+     "neg(c3)|mul(neg(c3),mul(c1,c1))",
+     "vb|mul(mul(vb,c1),add(c1,mul(c0,c1)))",
+     "mul(c-3,vc)|mul(c-3,vc)",
+     "vb|neg(mul(neg(neg(neg(add(vb,c0)))),c1))",
+     "neg(mul(add(vb,va),mul(vc,c2)))|mul(neg(add(mul(neg(neg(add(vb,va))),neg(neg(mul(vc,c2)))),c0)),c1)",
+     "vc|add(neg(neg(vc)),add(add(c0,c0),c0))",
+     "mul(vb,add(va,mul(va,va)))|mul(vb,add(neg(neg(neg(neg(va)))),mul(mul(va,add(va,c0)),c1)))",
+     "c-1|neg(add(neg(c-1),c0))",
+     "c-1|add(add(c-1,mul(c0,neg(neg(c1)))),c0)",
+     "add(va,va)|mul(mul(mul(add(add(va,va),c0),c1),c1),c1)",
+     "add(neg(vb),add(c0,va))|mul(add(neg(vb),add(c0,add(va,c0))),c1)",
+     "neg(vb)|add(neg(vb),neg(neg(c0)))",
+     "add(va,mul(neg(vb),mul(vc,va)))|add(add(neg(neg(add(va,c0))),mul(neg(vb),add(mul(add(vc,c0),va),c0))),c0)",
+     "add(mul(vc,neg(c0)),add(c0,neg(vc)))|add(neg(neg(mul(vc,mul(neg(c0),c1)))),mul(add(c0,neg(vc)),c1))",
+     "add(add(c1,va),vb)|add(mul(add(add(add(c1,neg(neg(c0))),neg(neg(va))),vb),c1),c0)",
+     "mul(neg(c4),mul(c-2,vc))|neg(mul(neg(mul(neg(add(c4,c0)),mul(neg(mul(neg(c-2),c1)),vc))),c1))",
+     "c3|mul(add(neg(neg(c3)),c0),c1)",
+     "mul(mul(c4,c-1),mul(vc,c4))|mul(mul(c4,mul(c-1,c1)),neg(mul(neg(mul(vc,c4)),c1)))",
+     "mul(mul(vb,c0),neg(c4))|add(neg(neg(mul(mul(c0,neg(add(c4,c0))),c1))),c0)",
+     "mul(add(add(va,c2),neg(va)),mul(add(va,c3),mul(c-1,vb)))|mul(neg(neg(mul(add(neg(neg(add(va,c2))),neg(va)),c1))),mul(add(va,c3),mul(c-1,vb)))",
+     "mul(vc,c4)|mul(vc,mul(c4,add(mul(c1,c1),c0)))",
+     "mul(add(vb,neg(c-2)),mul(mul(c0,vc),vc))|mul(add(vb,neg(mul(neg(add(neg(c-2),c0)),c1))),mul(mul(c0,vc),vc))",
+     "neg(va)|mul(mul(add(neg(va),c0),c1),c1)",
+     "c0|add(neg(neg(add(c0,c0))),c0)",
+     "add(neg(va),c-3)|mul(neg(neg(add(neg(va),add(add(add(c-3,c0),c0),c0)))),c1)",
+     "neg(neg(vb))|mul(vb,mul(c1,c1))",
+     "neg(add(c-2,va))|add(neg(add(c-2,add(va,c0))),mul(c0,c1))",
+     "mul(vc,add(neg(c-1),vb))|mul(add(vc,c0),mul(mul(add(neg(neg(neg(c-1))),vb),c1),neg(neg(c1))))",
+     "mul(add(vb,c-3),mul(va,vc))|mul(add(add(neg(neg(add(vb,c0))),c0),c-3),mul(va,vc))",
+     "c2|add(add(c2,c0),mul(c0,c1))",
+     "vc|add(add(add(mul(vc,c1),c0),mul(c0,c1)),c0)",
+     "neg(c2)|neg(neg(neg(c2)))",
+     "mul(vc,neg(vc))|mul(add(neg(neg(neg(neg(add(vc,c0))))),c0),mul(neg(vc),c1))",
+     "vb|add(vb,c0)",
+     "va|neg(neg(neg(add(neg(add(va,neg(neg(c0)))),c0))))",
+     "neg(add(neg(c1),mul(va,vc)))|neg(add(neg(c1),mul(add(neg(neg(neg(neg(va)))),c0),vc)))",
+     "c-1|add(neg(mul(neg(c-1),c1)),c0)",
+     "c3|neg(neg(add(mul(c3,c1),c0)))",
+     "mul(vc,add(add(vb,c-3),add(vc,vb)))|mul(vc,add(add(add(mul(mul(vb,add(c1,c0)),c1),c0),neg(neg(c-3))),add(vc,vb)))",
+     "neg(neg(c-1))|neg(neg(neg(neg(neg(neg(add(c-1,c0)))))))",
+     "add(c-3,mul(va,c4))|add(c-3,add(add(mul(mul(va,c4),c1),c0),add(c0,add(c0,c0))))",
+     "add(neg(vb),add(neg(c-1),neg(va)))|neg(neg(add(mul(neg(mul(vb,c1)),c1),add(mul(neg(mul(c-1,c1)),c1),neg(va)))))",
+     "c-3|add(c-3,mul(neg(neg(mul(c0,c1))),add(c1,c0)))",
+     "va|add(va,add(add(c0,c0),c0))",
+     "neg(neg(mul(c-3,vc)))|add(neg(mul(neg(c-3),add(vc,c0))),c0)",
+     "neg(add(c-3,c-2))|add(neg(c-3),neg(mul(neg(add(neg(neg(neg(c-2))),c0)),c1)))",
+     "mul(vb,c4)|neg(neg(mul(vb,c4)))",
+     "add(neg(neg(vb)),mul(add(va,va),va))|add(neg(add(neg(vb),c0)),neg(neg(mul(add(va,va),neg(neg(add(add(va,c0),c0)))))))",
+     "neg(mul(va,vb))|mul(neg(mul(mul(mul(va,c1),c1),vb)),c1)",
+     "neg(add(vb,neg(vc)))|add(neg(add(vb,add(neg(neg(add(neg(add(vc,c0)),c0))),c0))),c0)",
+     "add(vb,mul(mul(vc,vc),add(c-1,c2)))|add(vb,mul(mul(mul(vc,vc),mul(add(add(c-1,add(c2,c0)),c0),c1)),neg(neg(c1))))",
+     "add(neg(mul(vb,vc)),add(neg(c1),vb))|add(add(neg(mul(vb,add(vc,c0))),c0),mul(add(mul(neg(mul(c1,c1)),c1),vb),c1))",
+     "c-1|add(mul(c-1,c1),c0)",
+     "neg(add(mul(vc,va),mul(vb,vc)))|neg(add(neg(neg(neg(mul(neg(vc),add(va,c0))))),mul(vb,add(vc,add(c0,c0)))))",
+     "va|mul(mul(va,c1),add(neg(mul(neg(c1),c1)),neg(c0)))",
+     "mul(neg(c3),mul(vc,vc))|mul(add(neg(mul(c3,c1)),add(c0,c0)),mul(vc,add(vc,c0)))",
+     "neg(vc)|neg(neg(neg(mul(mul(vc,add(mul(c1,c1),c0)),c1))))",
+     "add(add(c2,vc),neg(va))|mul(mul(mul(add(add(c2,neg(neg(vc))),add(neg(add(va,c0)),c0)),c1),c1),c1)",
+     "mul(add(add(va,va),mul(vb,vb)),mul(vb,add(c0,vb)))|mul(mul(add(add(add(va,va),c0),add(mul(vb,vb),c0)),c1),mul(vb,vb))",
+     "c-3|mul(neg(add(neg(add(c-3,mul(c0,c1))),c0)),mul(c1,c1))",
+     "neg(add(vb,vb))|mul(mul(neg(neg(neg(add(vb,vb)))),c1),add(c1,c0))",
+     "mul(c-2,neg(c0))|mul(neg(mul(neg(neg(add(neg(add(c-2,c0)),c0))),c1)),neg(neg(neg(c0))))",
+     "mul(c0,c4)|mul(mul(c0,neg(neg(c4))),c1)",
+     "mul(add(mul(c4,vb),mul(va,vc)),add(mul(c3,vb),va))|mul(add(add(mul(c4,vb),mul(va,mul(vc,c1))),c0),add(mul(c3,add(vb,neg(add(neg(add(c0,c0)),c0)))),va))",
+     "add(mul(add(c-2,va),mul(va,va)),add(add(vb,vc),neg(c-3)))|neg(mul(neg(add(mul(add(c-2,mul(va,c1)),neg(neg(mul(va,va)))),add(mul(add(mul(vb,c1),vc),c1),neg(c-3)))),c1))",
+     "c-2|add(mul(add(c-2,add(c0,c0)),c1),neg(neg(add(c0,c0))))",
+     "mul(c-1,va)|mul(mul(mul(neg(add(neg(c-1),neg(neg(c0)))),c1),add(c1,c0)),va)",
+     "add(add(c2,vc),vc)|add(add(add(add(c2,vc),c0),vc),mul(c0,neg(neg(c1))))",
+     "vc|add(add(vc,mul(c0,c1)),neg(neg(c0)))",
+     "mul(va,c3)|mul(neg(mul(neg(mul(va,c3)),c1)),neg(neg(c1)))",
+     "va|mul(mul(va,c1),neg(neg(add(c1,c0))))",
+     "c-1|neg(neg(mul(add(neg(neg(c-1)),c0),c1)))",
+     "va|neg(neg(mul(va,c1)))",
+     "va|mul(mul(neg(neg(mul(va,c1))),add(c1,c0)),neg(neg(c1)))",
+     "neg(add(va,neg(vb)))|neg(neg(mul(add(neg(neg(neg(va))),neg(neg(vb))),c1)))",
+     "add(add(c2,c4),add(c1,vb))|add(add(c2,c4),neg(add(neg(add(neg(neg(mul(c1,c1))),vb)),c0)))",
+     "mul(neg(c4),mul(c0,vb))|mul(mul(add(neg(c4),add(c0,c0)),add(c1,c0)),mul(neg(neg(mul(c0,vb))),c1))",
+     "vc|add(vc,neg(neg(add(mul(c0,c1),c0))))",
+     "mul(mul(vc,vb),vb)|mul(mul(add(mul(neg(neg(add(vc,c0))),mul(vb,c1)),c0),mul(vb,c1)),c1)",
+     "vb|add(mul(vb,c1),c0)",
+     "neg(vc)|add(neg(mul(neg(neg(neg(neg(vc)))),c1)),c0)",
+     "mul(neg(c4),mul(mul(vc,va),add(c4,va)))|neg(neg(mul(mul(neg(c4),mul(mul(vc,va),add(add(add(neg(neg(c4)),c0),add(va,c0)),c0))),c1)))",
+     "add(add(va,vc),vb)|add(add(va,vc),mul(mul(vb,c1),c1))",
+     "add(neg(vc),neg(va))|add(add(neg(mul(neg(neg(vc)),c1)),neg(add(va,c0))),add(c0,c0))",
+     "vb|neg(neg(mul(vb,c1)))",
+     "neg(mul(va,va))|neg(add(neg(neg(mul(mul(neg(neg(neg(neg(neg(neg(va)))))),va),c1))),c0))",
+     "add(add(c-2,va),mul(va,vb))|add(add(mul(neg(neg(add(c-2,c0))),c1),va),mul(va,add(vb,c0)))",
+     "neg(mul(va,c-2))|add(neg(neg(mul(mul(neg(va),c-2),c1))),c0)",
+     "add(mul(add(c3,va),c-2),add(mul(va,vb),neg(c4)))|add(mul(add(c3,neg(neg(va))),c-2),add(mul(add(va,c0),vb),neg(add(c4,neg(neg(c0))))))",
+     "add(neg(c-1),neg(vc))|add(neg(add(mul(c-1,c1),c0)),mul(neg(mul(vc,c1)),c1))",
+     "mul(mul(c-2,c-2),c3)|add(mul(add(c4,c0),mul(c3,c1)),c0)",
+     "neg(vb)|neg(mul(add(vb,add(mul(c0,c1),c0)),c1))",
+     "mul(c2,neg(add(va,vb)))|mul(neg(neg(c2)),neg(add(mul(va,c1),add(vb,c0))))",
+     "neg(mul(vb,va))|neg(mul(mul(mul(vb,c1),add(va,c0)),c1))",
+     "vb|neg(neg(add(vb,mul(neg(neg(neg(mul(neg(mul(c0,c1)),c1)))),c1))))",
+     "add(mul(mul(va,c-2),c-1),add(vc,neg(c1)))|mul(add(mul(mul(va,c-2),c-1),add(vc,add(add(neg(c1),c0),neg(neg(neg(c0)))))),c1)",
+     "mul(neg(vb),neg(c-1))|add(add(neg(mul(vb,neg(mul(c-1,add(c1,c0))))),c0),c0)",
+     "va|add(mul(neg(neg(va)),c1),add(mul(c0,c1),c0))",
+     "add(add(c0,va),neg(c0))|neg(neg(add(add(add(add(mul(c0,c1),c0),c0),mul(add(neg(neg(va)),c0),c1)),neg(c0))))",
+     "add(add(c-1,vb),neg(c-2))|add(add(neg(neg(add(add(mul(c-1,c1),mul(c0,c1)),vb))),neg(c-2)),c0)",
+     "add(neg(mul(vc,vc)),mul(mul(vc,c-2),vc))|add(neg(mul(vc,vc)),mul(neg(neg(mul(vc,c-2))),mul(vc,c1)))",
+     "add(neg(c-2),neg(va))|add(mul(neg(mul(c-2,c1)),c1),neg(neg(add(neg(add(va,c0)),c0))))",
+     "mul(mul(add(c3,vc),add(vb,vb)),c1)|mul(mul(add(neg(neg(neg(neg(add(add(c3,c0),vc))))),c0),add(neg(neg(vb)),add(mul(vb,c1),c0))),c1)",
+     "mul(c-3,neg(c0))|mul(add(c-3,add(c0,c0)),add(neg(add(c0,neg(neg(c0)))),c0))",
+     "c-2|mul(c-2,c1)",
+     "vc|add(neg(neg(mul(mul(vc,c1),c1))),c0)",
+     "neg(neg(vb))|add(neg(neg(vb)),c0)",
+     "mul(vb,mul(mul(c1,c-3),add(va,c4)))|mul(mul(vb,c1),mul(mul(add(neg(neg(c1)),c0),mul(mul(neg(neg(c-3)),c1),c1)),add(mul(va,c1),c4)))",
+     "neg(c0)|neg(mul(mul(neg(neg(c0)),c1),add(c1,c0)))",
+     "mul(add(vb,c3),neg(va))|mul(mul(neg(neg(neg(neg(add(neg(add(neg(vb),neg(c3))),c0))))),c1),add(neg(va),c0))",
+     "mul(neg(c-2),c-1)|mul(mul(add(neg(neg(add(add(neg(c-2),neg(c0)),c0))),c0),add(c-1,c0)),c1)",
+     "mul(vb,vc)|mul(add(mul(add(add(vb,c0),neg(neg(c0))),vc),c0),c1)",
+     "add(mul(va,va),add(c4,c2))|neg(neg(add(neg(add(neg(neg(neg(mul(va,va)))),c0)),add(add(neg(neg(c4)),c2),neg(neg(c0))))))",
+     "add(vb,neg(mul(vc,c1)))|add(add(mul(vb,c1),neg(mul(mul(vc,c1),c1))),c0)",
+     "neg(add(neg(c0),c-3))|neg(neg(neg(add(mul(add(add(neg(c0),add(c0,c0)),c-3),c1),c0))))",
+     "add(vb,add(vc,va))|add(add(mul(vb,c1),c0),neg(neg(neg(mul(neg(add(vc,add(add(va,c0),c0))),c1)))))",
+     "va|neg(mul(neg(va),c1))",
+     "neg(neg(c-2))|mul(neg(add(neg(c-2),c0)),add(c1,c0))",
+     "c-2|neg(neg(add(c-2,add(c0,c0))))",
+     "add(add(c0,va),add(c0,vc))|add(add(mul(add(c0,add(add(mul(va,c1),c0),c0)),c1),vc),add(c0,c0))",
+     "add(va,c1)|neg(mul(neg(add(va,c1)),c1))",
+     "c-2|neg(neg(neg(add(neg(neg(neg(mul(c-2,c1)))),c0))))",
+     "vc|add(neg(add(add(neg(mul(vc,c1)),c0),c0)),c0)",
+     "add(add(add(vb,vc),neg(va)),neg(mul(va,c4)))|mul(add(add(neg(neg(add(add(mul(add(vb,add(vc,c0)),mul(c1,c1)),neg(va)),neg(mul(va,c4))))),c0),c0),c1)",
+     "va|mul(add(va,add(mul(c0,mul(c1,c1)),c0)),c1)",
+     "neg(add(neg(c-1),c3))|add(neg(add(neg(neg(mul(neg(c-1),add(mul(c1,c1),c0)))),c3)),c0)",
+     "neg(mul(c-2,mul(vc,vc)))|neg(mul(neg(neg(mul(mul(c-2,mul(add(vc,c0),vc)),c1))),c1))",
+     "c-2|add(neg(mul(add(neg(neg(neg(c-2))),neg(c0)),neg(neg(c1)))),c0)",
+     "c0|add(neg(neg(c0)),neg(neg(neg(neg(c0)))))",
+     "mul(c1,mul(add(c4,vb),add(va,vb)))|add(mul(add(c4,vb),mul(va,c1)),mul(add(c4,vb),vb))",
+     "mul(mul(vb,vb),va)|add(mul(neg(mul(neg(add(mul(neg(neg(vb)),vb),c0)),c1)),mul(va,c1)),c0)",
+     "neg(add(vc,vc))|mul(mul(add(mul(neg(vc),c1),mul(neg(vc),c1)),c1),c1)"
+    ],
+    "HindsightKeptRendered": [
+     "va|add(neg(neg(va)),neg(c0))",
+     "vb|add(neg(neg(vb)),neg(c0))",
+     "c-2|add(neg(neg(c-2)),neg(c0))"
+    ]
+   },
+   "train_eval_overlap": {
+    "TrainProblems": 240,
+    "StartInEval": 0,
+    "TargetInEval": 0,
+    "PairInEval": 0
+   },
+   "bank": {
+    "name": "g2-F",
+    "bank_digest": "f58161c5133bffeb2838ee9b5da9a516f09022bbe7d94367c0b4c658d4bb67b6",
+    "bank_digest_algo": "sha256 over lines level\\0start\\0target\\n in case order; start/target = RenderPrefix; ids excluded",
+    "cases": 90,
+    "pre": [
+     {
+      "id": "g1-20261025-L6-0",
+      "solved": true,
+      "nodes": 71
+     },
+     {
+      "id": "g1-20261025-L6-1",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-2",
+      "solved": true,
+      "nodes": 48
+     },
+     {
+      "id": "g1-20261025-L6-3",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-4",
+      "solved": true,
+      "nodes": 51
+     },
+     {
+      "id": "g1-20261025-L6-5",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-6",
+      "solved": true,
+      "nodes": 31
+     },
+     {
+      "id": "g1-20261025-L6-7",
+      "solved": true,
+      "nodes": 70
+     },
+     {
+      "id": "g1-20261025-L6-8",
+      "solved": true,
+      "nodes": 50
+     },
+     {
+      "id": "g1-20261025-L6-9",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-10",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-11",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-12",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-13",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-14",
+      "solved": true,
+      "nodes": 46
+     },
+     {
+      "id": "g1-20261025-L6-15",
+      "solved": true,
+      "nodes": 50
+     },
+     {
+      "id": "g1-20261025-L6-16",
+      "solved": true,
+      "nodes": 44
+     },
+     {
+      "id": "g1-20261025-L6-17",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-19",
+      "solved": true,
+      "nodes": 82
+     },
+     {
+      "id": "g1-20261025-L6-20",
+      "solved": true,
+      "nodes": 60
+     },
+     {
+      "id": "g1-20261025-L6-21",
+      "solved": true,
+      "nodes": 20
+     },
+     {
+      "id": "g1-20261025-L6-22",
+      "solved": true,
+      "nodes": 79
+     },
+     {
+      "id": "g1-20261025-L6-23",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-24",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L6-25",
+      "solved": true,
+      "nodes": 42
+     },
+     {
+      "id": "g1-20261025-L6-26",
+      "solved": true,
+      "nodes": 91
+     },
+     {
+      "id": "g1-20261025-L6-27",
+      "solved": true,
+      "nodes": 36
+     },
+     {
+      "id": "g1-20261025-L6-28",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-29",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L7-0",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-1",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-2",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-3",
+      "solved": true,
+      "nodes": 5
+     },
+     {
+      "id": "g1-20261025-L7-4",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-5",
+      "solved": true,
+      "nodes": 54
+     },
+     {
+      "id": "g1-20261025-L7-6",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-7",
+      "solved": true,
+      "nodes": 95
+     },
+     {
+      "id": "g1-20261025-L7-8",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-9",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-10",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-11",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-12",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-13",
+      "solved": true,
+      "nodes": 49
+     },
+     {
+      "id": "g1-20261025-L7-14",
+      "solved": true,
+      "nodes": 63
+     },
+     {
+      "id": "g1-20261025-L7-15",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L7-16",
+      "solved": true,
+      "nodes": 63
+     },
+     {
+      "id": "g1-20261025-L7-17",
+      "solved": true,
+      "nodes": 32
+     },
+     {
+      "id": "g1-20261025-L7-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-19",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-20",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-21",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-22",
+      "solved": true,
+      "nodes": 47
+     },
+     {
+      "id": "g1-20261025-L7-23",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-24",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L7-25",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-26",
+      "solved": true,
+      "nodes": 17
+     },
+     {
+      "id": "g1-20261025-L7-27",
+      "solved": true,
+      "nodes": 17
+     },
+     {
+      "id": "g1-20261025-L7-28",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-29",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-0",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-1",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-2",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-3",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-4",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-5",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-6",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-7",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-8",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-9",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-10",
+      "solved": true,
+      "nodes": 58
+     },
+     {
+      "id": "g1-20261025-L8-11",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-12",
+      "solved": true,
+      "nodes": 61
+     },
+     {
+      "id": "g1-20261025-L8-13",
+      "solved": true,
+      "nodes": 35
+     },
+     {
+      "id": "g1-20261025-L8-14",
+      "solved": true,
+      "nodes": 56
+     },
+     {
+      "id": "g1-20261025-L8-15",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-16",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-17",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-19",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-20",
+      "solved": true,
+      "nodes": 22
+     },
+     {
+      "id": "g1-20261025-L8-21",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-22",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-23",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-24",
+      "solved": true,
+      "nodes": 34
+     },
+     {
+      "id": "g1-20261025-L8-25",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-26",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-27",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-28",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-29",
+      "solved": true,
+      "nodes": 44
+     }
+    ],
+    "post": [
+     {
+      "id": "g1-20261025-L6-0",
+      "solved": true,
+      "nodes": 37
+     },
+     {
+      "id": "g1-20261025-L6-1",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-2",
+      "solved": true,
+      "nodes": 8
+     },
+     {
+      "id": "g1-20261025-L6-3",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-4",
+      "solved": true,
+      "nodes": 8
+     },
+     {
+      "id": "g1-20261025-L6-5",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-6",
+      "solved": true,
+      "nodes": 8
+     },
+     {
+      "id": "g1-20261025-L6-7",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L6-8",
+      "solved": true,
+      "nodes": 5
+     },
+     {
+      "id": "g1-20261025-L6-9",
+      "solved": true,
+      "nodes": 39
+     },
+     {
+      "id": "g1-20261025-L6-10",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-11",
+      "solved": true,
+      "nodes": 94
+     },
+     {
+      "id": "g1-20261025-L6-12",
+      "solved": true,
+      "nodes": 99
+     },
+     {
+      "id": "g1-20261025-L6-13",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-14",
+      "solved": true,
+      "nodes": 9
+     },
+     {
+      "id": "g1-20261025-L6-15",
+      "solved": true,
+      "nodes": 14
+     },
+     {
+      "id": "g1-20261025-L6-16",
+      "solved": true,
+      "nodes": 22
+     },
+     {
+      "id": "g1-20261025-L6-17",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-18",
+      "solved": true,
+      "nodes": 53
+     },
+     {
+      "id": "g1-20261025-L6-19",
+      "solved": true,
+      "nodes": 11
+     },
+     {
+      "id": "g1-20261025-L6-20",
+      "solved": true,
+      "nodes": 8
+     },
+     {
+      "id": "g1-20261025-L6-21",
+      "solved": true,
+      "nodes": 10
+     },
+     {
+      "id": "g1-20261025-L6-22",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L6-23",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-24",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L6-25",
+      "solved": true,
+      "nodes": 23
+     },
+     {
+      "id": "g1-20261025-L6-26",
+      "solved": true,
+      "nodes": 17
+     },
+     {
+      "id": "g1-20261025-L6-27",
+      "solved": true,
+      "nodes": 5
+     },
+     {
+      "id": "g1-20261025-L6-28",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L6-29",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L7-0",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-1",
+      "solved": true,
+      "nodes": 88
+     },
+     {
+      "id": "g1-20261025-L7-2",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-3",
+      "solved": true,
+      "nodes": 5
+     },
+     {
+      "id": "g1-20261025-L7-4",
+      "solved": true,
+      "nodes": 37
+     },
+     {
+      "id": "g1-20261025-L7-5",
+      "solved": true,
+      "nodes": 25
+     },
+     {
+      "id": "g1-20261025-L7-6",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-7",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-8",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-9",
+      "solved": true,
+      "nodes": 40
+     },
+     {
+      "id": "g1-20261025-L7-10",
+      "solved": true,
+      "nodes": 40
+     },
+     {
+      "id": "g1-20261025-L7-11",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-12",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-13",
+      "solved": true,
+      "nodes": 30
+     },
+     {
+      "id": "g1-20261025-L7-14",
+      "solved": true,
+      "nodes": 47
+     },
+     {
+      "id": "g1-20261025-L7-15",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L7-16",
+      "solved": true,
+      "nodes": 37
+     },
+     {
+      "id": "g1-20261025-L7-17",
+      "solved": true,
+      "nodes": 14
+     },
+     {
+      "id": "g1-20261025-L7-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-19",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-20",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-21",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-22",
+      "solved": true,
+      "nodes": 21
+     },
+     {
+      "id": "g1-20261025-L7-23",
+      "solved": true,
+      "nodes": 51
+     },
+     {
+      "id": "g1-20261025-L7-24",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L7-25",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-26",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L7-27",
+      "solved": true,
+      "nodes": 4
+     },
+     {
+      "id": "g1-20261025-L7-28",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L7-29",
+      "solved": true,
+      "nodes": 27
+     },
+     {
+      "id": "g1-20261025-L8-0",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-1",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-2",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-3",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-4",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-5",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-6",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-7",
+      "solved": true,
+      "nodes": 67
+     },
+     {
+      "id": "g1-20261025-L8-8",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-9",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-10",
+      "solved": true,
+      "nodes": 7
+     },
+     {
+      "id": "g1-20261025-L8-11",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-12",
+      "solved": true,
+      "nodes": 24
+     },
+     {
+      "id": "g1-20261025-L8-13",
+      "solved": true,
+      "nodes": 18
+     },
+     {
+      "id": "g1-20261025-L8-14",
+      "solved": true,
+      "nodes": 34
+     },
+     {
+      "id": "g1-20261025-L8-15",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-16",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-17",
+      "solved": true,
+      "nodes": 2
+     },
+     {
+      "id": "g1-20261025-L8-18",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-19",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-20",
+      "solved": true,
+      "nodes": 11
+     },
+     {
+      "id": "g1-20261025-L8-21",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-22",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-23",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-24",
+      "solved": true,
+      "nodes": 13
+     },
+     {
+      "id": "g1-20261025-L8-25",
+      "solved": true,
+      "nodes": 71
+     },
+     {
+      "id": "g1-20261025-L8-26",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-27",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-28",
+      "solved": false,
+      "nodes": 100
+     },
+     {
+      "id": "g1-20261025-L8-29",
+      "solved": true,
+      "nodes": 8
+     }
+    ],
+    "pre_solved": 40,
+    "post_solved": 51,
+    "delta": 11,
+    "solved_to_unsolved": 1,
+    "unsolved_to_solved": 12,
+    "per_level_pre_post_n": {
+     "6": [
+      18,
+      22,
+      30
+     ],
+     "7": [
+      12,
+      17,
+      30
+     ],
+     "8": [
+      10,
+      12,
+      30
+     ]
+    }
+   },
+   "seconds_train": 51.887159147,
+   "seconds_post": 53.382336224
+  }
+ ],
+ "note": "total effect of an adaptive guide vs a frozen initial guide; includes mediators (solved, samples, hindsight); not autojuego-vs-SGD; disjointness modulo Key"
+}
