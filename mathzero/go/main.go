@@ -24,6 +24,7 @@ Uso:
   mathzero panel [cap] [modelo]     panel de capacidades (ciego + TTT)
   mathzero maze [n] [sims] [lado]   laberinto MCTS vs BFS (h9)
   mathzero discover [n] [cap] [semilla]  busca lemas nuevos (h15)
+  mathzero serve [addr]             API HTTP local (Q8)
   mathzero ab <exp> <semilla> ...   A/B con el mismo ciego
   mathzero ab <exp> <semilla> [rondas] [per] [cap] [-json]
   mathzero evalfail [datos] [modelo] [capNet] [capOr] [kmin] [kmax]
@@ -88,6 +89,10 @@ func main() {
 	}
 	if len(os.Args) > 1 && os.Args[1] == "evalblind" {
 		EvalBlindMain(os.Args[2:])
+		return
+	}
+	if len(os.Args) > 1 && os.Args[1] == "serve" {
+		ServeMain(os.Args[2:])
 		return
 	}
 	if len(os.Args) > 1 && os.Args[1] == "discover" {

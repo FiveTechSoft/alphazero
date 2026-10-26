@@ -115,6 +115,17 @@ Detalle: `mathzero/RESULTADOS_MEJORAS.md` y `mathzero/ROADMAP.md`.
 11. Windows: descargar `mathzero.exe` de la Release v0.1.1 y seguir
    `GUIA_WINDOWS.txt` (ejecutar sin argumentos = prueba rápida).
 
+## API local
+
+```bash
+./mathzero serve                    # 127.0.0.1:8080
+curl localhost:8080/health
+curl 'localhost:8080/panel?cap=100'
+curl -X POST localhost:8080/solve -H 'Content-Type: application/json' \
+  -d '{"a":{"op":"add","a":{"op":"var","s":"a"},"b":{"op":"const","n":0}},
+       "b":{"op":"var","s":"a"},"cap":1000}'
+```
+
 ## Pruebas
 
 ```bash

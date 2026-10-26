@@ -128,7 +128,7 @@ Resultados: RESULTADOS_MEJORAS.md. Estado: pendiente = no empezado. Dominio nuev
 | Q5 | Rendimiento medido | RESULTADOS_BENCH.md + bench/ repetible | hecho |
 | Q6 | Documentacion "Guia para bobos" | pasos numerados, un diagrama simple, sin humo | pendiente |
 | Q7 | CLI estable | subcomandos documentados y con tests de humo | parcial (validacion, no-op y evalblind probados) |
-| Q8 | API local documentada | endpoints + ejemplos curl | pendiente |
+| Q8 | API local documentada | endpoints + ejemplos curl | hecho (26-oct: `serve` con /health, /panel y /solve; ejemplos en README) |
 | Q9 | Empaquetado en un ejecutable | un binario sin dependencias | parcial (el CLI ya es un binario) |
 | Q10 | Metricas, logs y evaluacion rigurosa | logs por corrida + ciego + varias semillas con intervalos | parcial |
 
@@ -183,7 +183,9 @@ antes de medir y, cuando aplique, reportarse sobre el conjunto ciego.
    que exige reentrenar y un A/B en el ciego de 700.
 8. (P3) **Deuda de calidad/documentacion**: Q6 (guia para bobos), Q8 (API local
    con ejemplos `curl`), actualizar la tabla del README (sigue con cifras del
-   12-oct y no refleja E9/E10/E11) y anadir `LICENSE` (no existe).
+   12-oct y no refleja E9/E10/E11) y anadir `LICENSE` (no existe). **EN CURSO
+   (26-oct)**: Q8 hecho con `./mathzero serve` y ejemplos `curl` en README.
+   Faltan Q6, refrescar la tabla del README y decidir la licencia.
 
 ## Vision a largo plazo (direccion/idea de Anto, 13-oct ~00:15-00:20)
 
