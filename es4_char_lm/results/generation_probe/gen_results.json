@@ -1,0 +1,67 @@
+{
+ "model_sha_before": "1dd8d510dea6399504b955ba53341467c151dfc770a119d1a2d74347e0f2744d",
+ "model_sha_after": "1dd8d510dea6399504b955ba53341467c151dfc770a119d1a2d74347e0f2744d",
+ "vocab_sha": {
+  "vocab.json": "cba242c6bb1ee7f4105febc2f59eae0f77486f8b4c3c79456c847b02c14571ae"
+ },
+ "unk_chars_in_prompts": [],
+ "ctx": 256,
+ "rows": [
+  {
+   "id": "P1",
+   "prefix": "Hola, buenos días. ",
+   "greedy": "El propio de la construcción de la construcción de la construcción de la construcción de la construcción de la construcc",
+   "sample": "El grupo mírico como cuerpos proletas multiples contrados (arbóteses). Cuando tras latinas, el basto solo t. Los sistema",
+   "sample_seed": 26102601,
+   "n_new": 120,
+   "temperature": 1.0
+  },
+  {
+   "id": "P2",
+   "prefix": "Hola, ¿cómo estás? ",
+   "greedy": "en la construcción de la construcción de la constructura de la construcción de la construcción de la construcción de la ",
+   "sample": "podió a la mayoría de que se genera hasta Escocia en toda entre los «E algunos descubridos», un médico \"tres de oro apar",
+   "sample_seed": 26102602,
+   "n_new": 120,
+   "temperature": 1.0
+  },
+  {
+   "id": "P3",
+   "prefix": "¿Cuál es la capital de España? ",
+   "greedy": "en la construcción de la construcción de la construcción de la construcción de la construcción de la construcción de la ",
+   "sample": "la ideología decir luz, las orgánicas de conservaciones, eran muy tanto que también conoce en parte dos rendiciones se l",
+   "sample_seed": 26102603,
+   "n_new": 120,
+   "temperature": 1.0
+  },
+  {
+   "id": "P4",
+   "prefix": "Pregunta: ¿Qué es un perro? Respuesta: ",
+   "greedy": "en el contrario de la construcción de la construcción de la construcción de la construcción de la construcción de la con",
+   "sample": "resisteta \"neceso pudo sesús madrillas de gran verdad, a frase (esta para seculosinar que más implementarias), los calon",
+   "sample_seed": 26102604,
+   "n_new": 120,
+   "temperature": 1.0
+  },
+  {
+   "id": "P5",
+   "prefix": "Pregunta: ¿Cuánto es dos más dos? Respuesta: ",
+   "greedy": "en el contrado de la construcción de la construcción de la construcción de la construcción de la constructura de la cons",
+   "sample": ".). Al mismo suponer la presencia de relación que se aviden a personas. Perl es un nutrinario en realidad y la datajena,",
+   "sample_seed": 26102605,
+   "n_new": 120,
+   "temperature": 1.0
+  },
+  {
+   "id": "P6",
+   "prefix": "Pregunta: ¿Qué es un perro? Respuesta: en el contrario de la construcción de la construcción de la construcción de la construcción de la construcción de la con Pregunta: ¿Y un gato? Respuesta: ",
+   "greedy": "la construcción de la construcción de la construcción de la construcción de la construcción de la construcción de la con",
+   "sample": "de Todone Madro y diciembre, el núcleo tipo de quedar el hester proyector, histórico o reproductionalmente al literantis",
+   "sample_seed": 26102606,
+   "n_new": 120,
+   "temperature": 1.0
+  }
+ ],
+ "rss_mib": 347.5625,
+ "wall": 30.420625207
+}

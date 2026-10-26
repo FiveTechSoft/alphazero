@@ -1,0 +1,605 @@
+{
+ "description": "Checksums of the 75 saved training checkpoints (every 300 steps, g001-g075). Derived from the original append-only manifest by keeping only the checksum fields; the original hash chain (prev) and timestamps are not reproduced, so it cannot be re-verified from this file. Only g075 model/Adam files are in this package; sha_state is the checksum of the original training-state file, which is replaced here by train_state_g075.json/npz.",
+ "generations": [
+  {
+   "n": 1,
+   "gen": "g001",
+   "step": 300,
+   "sha_model": "2ed2ac2039071b31c2f60a18bcba32f9221f1fcac9b3e8c4cb04f4e75da10012",
+   "sha_adam": "f0fb102226036c815de38ab29a7ab3f21bc53c02a7fe90dabb7a60ed42f509d6",
+   "sha_state": "ca04317d2c064aececbf2bca56e979175d2bb120087fe3d872f49a9f8af1bad4"
+  },
+  {
+   "n": 2,
+   "gen": "g002",
+   "step": 600,
+   "sha_model": "f78c6cb8719270d6c11d4b954f6e0a235ce6087871a56bd2f3e0048f05503b15",
+   "sha_adam": "10d3d24a8788c6dcdc78504d65e101f9e839b99a867f82c993de5f179d14efdd",
+   "sha_state": "c43c79049fb7e8852d229a840e6cd98045ad22b2f0a9cc988886baf4f1d462b5"
+  },
+  {
+   "n": 3,
+   "gen": "g003",
+   "step": 900,
+   "sha_model": "4a9ee7d6f1aad275621f517dd7366a15233414cf626098ab06135c05ec70b705",
+   "sha_adam": "0ce0164a4043ed3a5430ebaf56c60435db439d63dca31850d31ae34b226d8c6a",
+   "sha_state": "651e8eee3204b0f3ad19198d25db4c5dfe9d772327554b4bab9df30eff281570"
+  },
+  {
+   "n": 4,
+   "gen": "g004",
+   "step": 1200,
+   "sha_model": "c57601f167df45f832cf462affd0f619dae99333416ba1b8716394113b76f68f",
+   "sha_adam": "349e3d5565561356ba42ef915e553cb85e1bc8f071b7cca8696d46fb5610b11f",
+   "sha_state": "02d96d059b24f32123b3b4297b38dfcd3ba8ee48833bf3857addbee1910a601c"
+  },
+  {
+   "n": 5,
+   "gen": "g005",
+   "step": 1500,
+   "sha_model": "7eabc94a7e306aa2be30aab315477ea29cf91e35322c6b006b671952fff47314",
+   "sha_adam": "49962b87dafb0c2fd9cd57ea7e5c224c3e960bbcb19fde53bb92b04ea8d07d15",
+   "sha_state": "3ac3b6024772c406ed64bfe600d0be5eedaa0a367d490a87d4347885dd77f6e5"
+  },
+  {
+   "n": 6,
+   "gen": "g006",
+   "step": 1800,
+   "sha_model": "ffa43ab5df956b330e026232db3dcb9f56767e811552dfbce16d7828d33687a0",
+   "sha_adam": "3d0f30f2d6efebb46ce798c96802375d1d8174ef16102bc4f80b7eaf37e5df40",
+   "sha_state": "c94a672d20fa7598d2497d80613666d18b34e59a267211a68714e08aa61311df"
+  },
+  {
+   "n": 7,
+   "gen": "g007",
+   "step": 2100,
+   "sha_model": "1c190381c48b4b96586ddd3d1e25cc8a5b531cd98c53ae7781b8e6ddd27f58c2",
+   "sha_adam": "29d22ff8445e35ca0d3653fb2e3ad435ec57964f01f3474dc05cf52ca8dbd190",
+   "sha_state": "e5258258e0d91bf5a6a442374edb8debb5f571b0bcead3a5018cb9dab0d9d924"
+  },
+  {
+   "n": 8,
+   "gen": "g008",
+   "step": 2400,
+   "sha_model": "0ccaa69b41ad0bdee7c561a01c8baf47441da60b51bef25f10d1e6f47ff3377b",
+   "sha_adam": "f20590aa2f27ea834ccbcfba1250591fc0845add25923def6d3fb1817466fb18",
+   "sha_state": "61f464d541f3cdb6a6b326e1e9567abfc3759a6d5a44cfd0efb2dc80cf04cf46"
+  },
+  {
+   "n": 9,
+   "gen": "g009",
+   "step": 2700,
+   "sha_model": "7902b61fa8c12187e32d8f64c0eec224f2552be053b61c2d29f06a7ef6fcd981",
+   "sha_adam": "6781c06cca1d6ed332c84be4623fd96e433d41aa414cc7ee09868efd1f07c1e6",
+   "sha_state": "aa61fd2424d85abccb9f0cd98cdd6ddb3992b63d1793e95555f227e00fe6937c"
+  },
+  {
+   "n": 10,
+   "gen": "g010",
+   "step": 3000,
+   "sha_model": "c62ca3f42f5cbe5d960bdee7ed6a2f6d7b29dd63a1b1f16be04787934c660251",
+   "sha_adam": "4ca72c7a0b02f901c994d448f0cb69f7dd7dfdc354fdf053712dec5bd2ef26c1",
+   "sha_state": "6f2f592caac657c3bb046f63086d01b4261b9a9107ba8c9dc8a39f7f33f47c62"
+  },
+  {
+   "n": 11,
+   "gen": "g011",
+   "step": 3300,
+   "sha_model": "8a5f5102b539f597649f40d81d54c47f611dc8a8501cc1a8e81db808c900ee12",
+   "sha_adam": "67450bc6990599f9cddd57fdd2c4c82433a73a4fcc81cf8b13267aa332285323",
+   "sha_state": "dc9ffd03d8a69ac8655f7a75e54b05c649f6b4a9111a9c88227569fa4a8d26bd"
+  },
+  {
+   "n": 12,
+   "gen": "g012",
+   "step": 3600,
+   "sha_model": "b5af2b5ab533d49250f6e577edd6b54da40c2821cc454044ef9e54677e1f9048",
+   "sha_adam": "011d8938f1bb2611918479cd14ea792b78ef5c3d3ac80699f385cc68e7ecb9df",
+   "sha_state": "d45a065d554266a4971c97ffe012beba90a4885499ced1d24ff845c43d967de9"
+  },
+  {
+   "n": 13,
+   "gen": "g013",
+   "step": 3900,
+   "sha_model": "3e8b4de5e0c94223dda037b3bca5c77beb7c52597b6e893475c06396b3724411",
+   "sha_adam": "6e535df0bf61d2aaa86113e3b36788788831c940f55d4ac1ac7edbe2f9e95be0",
+   "sha_state": "50c7eb33fb61a4e26c927c8aa388a26a67cc683a79397772ebbd1b559d3ab538"
+  },
+  {
+   "n": 14,
+   "gen": "g014",
+   "step": 4200,
+   "sha_model": "c35b51f6070c27610eec68965300da6dc1706444e0ad8ee4d6e77ac53ecd4cd2",
+   "sha_adam": "957b6a2fecb2ebc6883e7c182c71d6ad34b96c985e764210b72841aa1b408d24",
+   "sha_state": "ce427a443e9695f3999ae70b3b38096d6e7118fae54c72f6ed2dc436f598bd2f"
+  },
+  {
+   "n": 15,
+   "gen": "g015",
+   "step": 4500,
+   "sha_model": "672f3ab00b7edcc7f5bcb5dc86c7ef57de998a004869235d419a1b223f5ad0c1",
+   "sha_adam": "f364f3e4d16411684028b4ce286a13622d432315cc195ce80204724671099f4e",
+   "sha_state": "45ea3c7409ab48145b401069260753f0b943b029fa86a7c12ae27e26f915110a"
+  },
+  {
+   "n": 16,
+   "gen": "g016",
+   "step": 4800,
+   "sha_model": "f0c17d9b530122d5dec9df697570a270a216263263b4390592a4d46bad844431",
+   "sha_adam": "7cf0450449e395dbb99c4f8736eb492c48931da201bd5b4728938034a38739c2",
+   "sha_state": "2462f547326bbfb99bc286f00c99d3ae68e98c9db43c6786b5784564fe95f813"
+  },
+  {
+   "n": 17,
+   "gen": "g017",
+   "step": 5100,
+   "sha_model": "e7c7cee6daec3a7c695b39010d87f4a0fdd2a231d691b2d648c7f1885edf5371",
+   "sha_adam": "7d547eeac6beb6fc32226ec927b1fa89ab86be2a5f53fe5517744c789ca06b48",
+   "sha_state": "8372d42748f62c20735c947695740464220b98864dae9a274a0637df15a44657"
+  },
+  {
+   "n": 18,
+   "gen": "g018",
+   "step": 5400,
+   "sha_model": "1195a4e7f13e0c05e6945a25fe7030ddc0f67457e319f1212901185f75349677",
+   "sha_adam": "b9f4cfd3d56f3f93237857ee696e468befb3b57843a258c1a437e1d00718cfad",
+   "sha_state": "26a89cc46b3f58cbe91747c2a99aa17b48f92629752356cfbe9847487ad50098"
+  },
+  {
+   "n": 19,
+   "gen": "g019",
+   "step": 5700,
+   "sha_model": "83e6eff008555516c8c0aa4bf945e61843cc7a4028e82f21a14b0dc327f33ad6",
+   "sha_adam": "3175f7c804392471b99022f883f8b22be7a460d94018ce013b6337230f2206fa",
+   "sha_state": "a33aeb5693ac4351fc87a90c826f14f4896faa2da06506743300a0af687c08a3"
+  },
+  {
+   "n": 20,
+   "gen": "g020",
+   "step": 6000,
+   "sha_model": "9cbbafdf57f262db7264a09da9bc606b87e404097ffc55b155b886f53777e0cf",
+   "sha_adam": "c552e4a6b59642655617fee9c5568006d3b3327ef2aa33a46a3cab8bfe7617d0",
+   "sha_state": "1239fdfaf09eb4918c9c4cc10648fbbaecbab048f00ffeb5c16dd16598f30693"
+  },
+  {
+   "n": 21,
+   "gen": "g021",
+   "step": 6300,
+   "sha_model": "e57f4a6785023b8f0fab25f9b7c0c1b1c2569a046d1de6e6cc2efba7a52a4e45",
+   "sha_adam": "31f37323778784fa5b0c75d6bd952af4d1f3f7cf8806763f845cd07dcefebfa1",
+   "sha_state": "596fb389ed4b8db6764f761c6dfcc1a8a738ad991c1aa68b435de0397f53b351"
+  },
+  {
+   "n": 22,
+   "gen": "g022",
+   "step": 6600,
+   "sha_model": "b639ad329d28746cb94c83e3b46fe8fdca44baee24d2bfc2d1255e19386840cd",
+   "sha_adam": "fb9be981467766d23ed13e6f4d7240c96c534024e99ff0e6dac62a093777e497",
+   "sha_state": "1d90914fa9ad685f57da34dcb9e3a8874d0306b5140136ca312cc8d6168c3536"
+  },
+  {
+   "n": 23,
+   "gen": "g023",
+   "step": 6900,
+   "sha_model": "30bcbbdaf986dcdc63afb65a17f061e376e4d98bdac887f87961f1032f0e1d50",
+   "sha_adam": "0ece34bb9a4a9bb367dbc03c5526e5daf2c79866c5ef726d9feb60fc664bf7f3",
+   "sha_state": "99703373061d0396b8ecf32cb9ff95d27aef3744cdbc5fe0f5c4236417e53841"
+  },
+  {
+   "n": 24,
+   "gen": "g024",
+   "step": 7200,
+   "sha_model": "ea6217f053c4b6143c9be347941270c06b9e57928b8d0d2e2f68bd6ec2e1a575",
+   "sha_adam": "2d097ad40cba3c898b3a512dfe08420eb227f7f4fbc89f607908d2606db25548",
+   "sha_state": "e11bcfb26a15a9236561c4d9d6648cd69a004add28b9115d11d97506e226dc25"
+  },
+  {
+   "n": 25,
+   "gen": "g025",
+   "step": 7500,
+   "sha_model": "29ed0df827d215a5967f2c7b2a1e92d9a733f69695425ea06253598a49651de1",
+   "sha_adam": "98bc7606cb765b73d0bd7e71f2937e5bb96b04b54a5933276961737492a8c659",
+   "sha_state": "5be81508c6a07a10cbadf1f6eab721e49875911121d07b6a0878e6425861ae0d"
+  },
+  {
+   "n": 26,
+   "gen": "g026",
+   "step": 7800,
+   "sha_model": "13ab9aa9fb6a5854d05bb22e6c451a017f6cf8a05e63e82d0f91598cc63c3510",
+   "sha_adam": "0f31221a37234c3d4591def2f310bd45f80a72b52411e23a5cfe26a2ec1798c6",
+   "sha_state": "6d35553bc1d1f1918c81f88cd4ebb913e6df8b2ab271958fad37ffbfb099f60a"
+  },
+  {
+   "n": 27,
+   "gen": "g027",
+   "step": 8100,
+   "sha_model": "35702b3d0a89feeaa6c5f809e5ac87c32cfd0c5ffab7ce00948f0cb15d66efef",
+   "sha_adam": "0349c78bc5b8f34a2907cf6a7ff2de8c533eaca58f09e70a3c48b3541e6b1b53",
+   "sha_state": "9580e64c7591f4770965d89c2c33e0601aa857cdd044661a1c68da00cdfd7296"
+  },
+  {
+   "n": 28,
+   "gen": "g028",
+   "step": 8400,
+   "sha_model": "36129d800624a44a83b036dddbbb148e4b4b88f37ffd2972a921843172e3ce65",
+   "sha_adam": "56360c7e09d4daccda2f57772cb12157baa7f264cdb716ae85f8c0af9d0c9840",
+   "sha_state": "e9851c16a41c5ebd2e11024daf8b0b9979fc55150080ca504ba3756daa0bb181"
+  },
+  {
+   "n": 29,
+   "gen": "g029",
+   "step": 8700,
+   "sha_model": "08fdd3eb4761195166bdc929e63b085a8bb31a72c6b3804d7a82cbc45c8a70dd",
+   "sha_adam": "2980203564aad5315e4caedb1b8ad013b518464c63e2b0997921a289a7c60e57",
+   "sha_state": "d9b5e41e62741fb26852d452dc15cdfcfa076d5ddbce38d87d465de3cc894813"
+  },
+  {
+   "n": 30,
+   "gen": "g030",
+   "step": 9000,
+   "sha_model": "30cfc8323a1ccd17e1f80bc7fae533eebbea21a8c73188f36cd6e0bfa11e03c5",
+   "sha_adam": "061338e6a5336fab9c0387c5506fce7bdce38ecbc55003590a43d41f93181c72",
+   "sha_state": "a4a0e505bb49492f75b1311a929475d8afdd561efe82394b2c8841de97ba68e1"
+  },
+  {
+   "n": 31,
+   "gen": "g031",
+   "step": 9300,
+   "sha_model": "f1063ae2150b548836e70f50d90a5d3009573a98c0f7e79bfaadf4b3c28b1d5f",
+   "sha_adam": "4bde1bb07e0ce468faaf8c5ec6e028dfc8756403914602ac8687eb356498c16d",
+   "sha_state": "9be2b1fa09cb196f024e00334f5b6a9a57790c16ee039dd7ec4fb9fd82f29838"
+  },
+  {
+   "n": 32,
+   "gen": "g032",
+   "step": 9600,
+   "sha_model": "4c7c7aed543c4ef6fb1fb03ff29ef48b91f9aa7903933e9114b4c4e1c4554809",
+   "sha_adam": "54c6af75a6c4d716cf6717febd0b66793b28656f8c369d285cdee3281c397a07",
+   "sha_state": "27e83d8abd788f573c822f73dc1961a79172770c61eda2494a84e37f30ec5eef"
+  },
+  {
+   "n": 33,
+   "gen": "g033",
+   "step": 9900,
+   "sha_model": "48f2934760621a2ccb839745dedf78450358cc1702478437bc5bd05da3d459eb",
+   "sha_adam": "526c71b52efcbeb2e2b65d3e55caae9f070c4214a21a5268d74527720e25c23b",
+   "sha_state": "1c11d51a16a96c08be301335c8cb68a911cb5c180a841480d443037a66a9fecb"
+  },
+  {
+   "n": 34,
+   "gen": "g034",
+   "step": 10200,
+   "sha_model": "36891805da4eb52d4a9274f08fbe70b107a2f181552ef7f7d75fc096c169318c",
+   "sha_adam": "2f8f21f0aab5dcc9a5166efda9da2bcd638b0db5886ed4a7a0cf827ddca2a77e",
+   "sha_state": "96cc486ff38017188d5fe30e730c7e276a881c865ace4d40debae4c83c0d4248"
+  },
+  {
+   "n": 35,
+   "gen": "g035",
+   "step": 10500,
+   "sha_model": "a02649bd36cbeb69a3d7a870f00931bd1725e2a144efb1dc46125331dd56df52",
+   "sha_adam": "c783b9827950d597ea6523d3215f66b97ab25d78acca46760a5efbb71145d07a",
+   "sha_state": "bd81ddf0da0c5a29a59b6680a38e084535c02b4ca63901029c82b139175c8858"
+  },
+  {
+   "n": 36,
+   "gen": "g036",
+   "step": 10800,
+   "sha_model": "e3850bef1512facb02221f037657f420bede52f11c239930638333387443644e",
+   "sha_adam": "52d23be1f18827c707372debc3fd9166722c3ac52f434f54ce1dbccf5e596f70",
+   "sha_state": "a5e3f0c38b9ef8d7d81a7af8358978abeaedaaade410cc6eb8ea865230efe933"
+  },
+  {
+   "n": 37,
+   "gen": "g037",
+   "step": 11100,
+   "sha_model": "a568593bf965a9240bad9ab3cc723fca1642ea9312793e514c0559022e8e2239",
+   "sha_adam": "cb0fea7f2809099ce86b2d2b12007ff638587056e573a0c696b7a07672b64c98",
+   "sha_state": "02e7c463e7abefc21ff6fb34462ae5f2be050d246cec668b8f4c8c68e41187c7"
+  },
+  {
+   "n": 38,
+   "gen": "g038",
+   "step": 11400,
+   "sha_model": "3ace6813eeafdcc0aef41dbbe8f653dc7e3e268ab461684c10138714e269f7ac",
+   "sha_adam": "cc870727b232448d4095d594151af997f23d98af2adde388ca0bef63006b5f12",
+   "sha_state": "0a87c686d1a65e52481543832b78eeb5d183660c975198c3b322ed54e4d27666"
+  },
+  {
+   "n": 39,
+   "gen": "g039",
+   "step": 11700,
+   "sha_model": "28fa449eba41c05d261cdd1b3be0151e08ce091a715361eba92f738c2b7b7e7b",
+   "sha_adam": "2e3460684d005a5de64a9ccd8275446bf8fcdc348a62d454d04832c42e2135e4",
+   "sha_state": "e98bf5ecf90429f4efcdb87d2e1999da039f27094762768bf7bc8b7f30a2aa14"
+  },
+  {
+   "n": 40,
+   "gen": "g040",
+   "step": 12000,
+   "sha_model": "de6453415ec42c0412efb3531864a1d70b20aa199798dc3bcc57189ee71ea039",
+   "sha_adam": "2af074fe0e71e0b914f0e7427d713289bab0923627f8e9a0cf90da98dcbd0687",
+   "sha_state": "a352d8b60ac910be7459f65cf14bdc75a1a2887707c47222d3ecc21bbb07329e"
+  },
+  {
+   "n": 41,
+   "gen": "g041",
+   "step": 12300,
+   "sha_model": "7990e4ae2982140475d070ce5ffe83299f0374e1371ef3e881b3a365324b89e8",
+   "sha_adam": "2810300f524b93cad91cb8d3c7372c26439d3278195358b9560b61718e674775",
+   "sha_state": "a84d28bb1db707db9a75602b83f61e8cfa71cbcea26aeed8c643f01f4bbc4efa"
+  },
+  {
+   "n": 42,
+   "gen": "g042",
+   "step": 12600,
+   "sha_model": "b8718c4f449c0dc9c69f829c605b7cc2bd3a8b1899b4656613b3389c459a85f9",
+   "sha_adam": "ff816243720df7841eaff89e98c12688b5fc569f0bafabb26a400534b5298f96",
+   "sha_state": "cc9394f21e5148639eeb8cf5d5d85d1ec195e93570d86f842d458ca7c22afd42"
+  },
+  {
+   "n": 43,
+   "gen": "g043",
+   "step": 12900,
+   "sha_model": "2ab8cebbe7cc32de3df11c6348e0902a1fea3edb6caf3b53cb1efe9a46e9de72",
+   "sha_adam": "965b0b5d5d3b0984ac48c05bc7236718aa3e759b7f51b30754af56ce9d53a82d",
+   "sha_state": "85a37aded5fa26a5c22ebbee4853dd6dd435fe0f01cae1a411a7fc5c5652b357"
+  },
+  {
+   "n": 44,
+   "gen": "g044",
+   "step": 13200,
+   "sha_model": "e2f359b9fcb2f52f769b9246081880d1838c6259df517a06b94da5fa6566a854",
+   "sha_adam": "d11a64ecdecc824c0f51418109f3fdb9aa0aa702e2ef7371c3539e2e11ce44ba",
+   "sha_state": "040d469c34351bd2306d22b36bb0097d870cae9ca0d999f81a8b05ff86681701"
+  },
+  {
+   "n": 45,
+   "gen": "g045",
+   "step": 13500,
+   "sha_model": "9c40923a083d806ece2ea8bae9f98614bdb693541c632ea88e8a6596654e9a70",
+   "sha_adam": "27da0414a5d1f1907d499b112ab22a9390b362ad96da82d9fda2ef19633d102b",
+   "sha_state": "08bb1aa3b65c76902ec3799690d80b505ac7df473082bf6495cb135a224c323c"
+  },
+  {
+   "n": 46,
+   "gen": "g046",
+   "step": 13800,
+   "sha_model": "46bffa147a3b652432e6519db3deafb95a4c7232775f73bcb0e0fcafb365fd08",
+   "sha_adam": "f17963baa728427d3b85cfed05763e27a2b08e8374d266ac1f6f283ecbcd6874",
+   "sha_state": "7a76f2e32888978bf594f57b24e6601ad1a8bcc65f1af01e17fe9c7536344761"
+  },
+  {
+   "n": 47,
+   "gen": "g047",
+   "step": 14100,
+   "sha_model": "eb0da4e5e729da8cf3a834b54b0a89ee78fa6292c79516423b4cd80874214aaa",
+   "sha_adam": "1a06f7c8282f2951865feeacfc32674b0bafe75d02ece527bcb4fc6c2f6df9dd",
+   "sha_state": "0967fda48a832a7d6cdd8cc53e62ba180ecfbf0ed0af01c44602c70e32b73c97"
+  },
+  {
+   "n": 48,
+   "gen": "g048",
+   "step": 14400,
+   "sha_model": "cf37c68a1347449e60a24d269691874addb30fc15fff1ea568981082e526b011",
+   "sha_adam": "be5843339273fb96bd03f446191a58bd8d1a52c83ea0b9925ed6eb15ea76e50b",
+   "sha_state": "fca8b91a32be7998eb566e1726805d9271b5c73d6a99075c35898b650cb167b0"
+  },
+  {
+   "n": 49,
+   "gen": "g049",
+   "step": 14700,
+   "sha_model": "3b23344334b0046c5d7fb7deb1fee9a2832748f3ec04e8087a6e8e26ad7ed0ac",
+   "sha_adam": "756ed7e258d8f05e12965160141098fc2a7979ae138c4be610051122fb33c29e",
+   "sha_state": "9565160009413374ae20f3bbe20929855421707eed168b7e974e619994f35cb4"
+  },
+  {
+   "n": 50,
+   "gen": "g050",
+   "step": 15000,
+   "sha_model": "e590cf23be443845bd2609d075ab2c0083440698367d404f2963731c54c76ae0",
+   "sha_adam": "bfc085ebb81d3bb34d27b096ffc32f18992bae8210a3869387e7c98ba014bf7d",
+   "sha_state": "7e918c2c9f7af1ea52160c8fa5274969f06b3189d7540ef1854e3bfd5776df9d"
+  },
+  {
+   "n": 51,
+   "gen": "g051",
+   "step": 15300,
+   "sha_model": "8e7b81915633504b6759d441bfde56723dbc9831a35fcc6ac4b0bec14bc174ad",
+   "sha_adam": "c7a125472222e78096956a7d355243d5127e39fc6e703d3c95af9aad85260a78",
+   "sha_state": "9032811b720b747750f386d3f8254d9f9a91608acc6f01d688910917d509ce81"
+  },
+  {
+   "n": 52,
+   "gen": "g052",
+   "step": 15600,
+   "sha_model": "373b3825c8a06b1c160092dfae564f70271c5c976f71bdf2557ce5c7213bcdca",
+   "sha_adam": "f330d4f8c4d90480dcb28737d3e12f9836fafc897641ea7d3edd9fe5d2b28437",
+   "sha_state": "6b79f769987fd1ba84a68213c41bf7ae982f9464d4accc81323c034a9149fc01"
+  },
+  {
+   "n": 53,
+   "gen": "g053",
+   "step": 15900,
+   "sha_model": "2d0504a964f9b576f11404a9b0454d41a8ad393899b89b44e06efe8c3cab32f0",
+   "sha_adam": "6c8307e1d005eeea42baad682ea46a33f728851663fc545305edbfe43f787f91",
+   "sha_state": "db043a72b772a05fd7de6e33e6416dd13ad8dcfe21fb26fd40c6009bf1978f76"
+  },
+  {
+   "n": 54,
+   "gen": "g054",
+   "step": 16200,
+   "sha_model": "5fe1e87ff2e8a6d858ad099e159c572e69e3f2dd3ea6e463167459525f552b90",
+   "sha_adam": "2ffbaf88c78135df3c7671ec83d25c939f2bed4ced620aeddbb7ada1d036e04b",
+   "sha_state": "e2fc083b5d9ee6301b6fafb2c8cad760b30b82f632b859ab87f4b6ba943f434f"
+  },
+  {
+   "n": 55,
+   "gen": "g055",
+   "step": 16500,
+   "sha_model": "2e1b4eaa043404a78297866ec234d616dff8169dd9f748c1a977d0d7b5cc52b4",
+   "sha_adam": "f48888ff608566281fb8217ad30cc4b4e585b66d33087bf2a424556a3a85ca55",
+   "sha_state": "eb5d29a5a679f514c5aab648d8acb42063fbd1b6958f89ee1a190d72bc484ad2"
+  },
+  {
+   "n": 56,
+   "gen": "g056",
+   "step": 16800,
+   "sha_model": "633e1f70dbe9e12180241ef33a9a697c0f767eeff6fb40ea55b361645c959d3a",
+   "sha_adam": "805b22578cd33d24925dc175b2669d82f771dfa101f3e108e72e4a2dbfd32461",
+   "sha_state": "daae086e3cbba6f4aae00a0a9a93978714eda7c47f121d49a94bb87e9613c360"
+  },
+  {
+   "n": 57,
+   "gen": "g057",
+   "step": 17100,
+   "sha_model": "3a28943011ee1014dda383ca0ff39dad86de8115ee82614c05d59eabb554f7dd",
+   "sha_adam": "07d6bfd64cfa0960d6e115bf47231ad26788ad064be43755baa2f7e03afa259b",
+   "sha_state": "386981810a9c6c406a4be3dc8f6b9490aed69dfc7760162e5907e0a61c6a54f0"
+  },
+  {
+   "n": 58,
+   "gen": "g058",
+   "step": 17400,
+   "sha_model": "9c4b179c23149c77a7ae6688e645ce27063c56a53228dc9a8d0f557fb23d8e95",
+   "sha_adam": "2f1ebee4743ff16d226ebcdf1d2795f08aa9c03a76ff52a402fc59261264fa8b",
+   "sha_state": "284b15c3374bee7db6716583a0662f334c3b76d629ea84c9058f2a0e1ea6d42a"
+  },
+  {
+   "n": 59,
+   "gen": "g059",
+   "step": 17700,
+   "sha_model": "7adb147582a714e1b3c2515a273095b568523ca75fc2efc60cbe3e23aed23de8",
+   "sha_adam": "e4745926e9efb972b102474881d6db4ec01dc41c63567e8bef4a0ed4a4b2aa02",
+   "sha_state": "6eea9c4369591ba39fd3cef29d0108e9233d65beeb49e9f64206da059664153a"
+  },
+  {
+   "n": 60,
+   "gen": "g060",
+   "step": 18000,
+   "sha_model": "0fa10b0a3f097175992828dc8e3192e7a06aa445473202d1e2b83db93f074a9d",
+   "sha_adam": "3e45e261d9f21f9309058c7b3eb20099faba37e8361894569ea87cb12be18018",
+   "sha_state": "5c18891a2e33144cf55591f15ba098fb6edb9f73cdb7096b84dd05212c3c2228"
+  },
+  {
+   "n": 61,
+   "gen": "g061",
+   "step": 18300,
+   "sha_model": "54242cbf36357964baf7008b5e0332dc8dff00c079d917f13f4be0486aefa752",
+   "sha_adam": "67ff94b7f2e517bb9235c8b03b301de5956f8cff06df3d9e9aad173abc072210",
+   "sha_state": "992d8634ece04508244c732bc35da1dec72e7564977f081ecde9975ed74278d5"
+  },
+  {
+   "n": 62,
+   "gen": "g062",
+   "step": 18600,
+   "sha_model": "3c5025337b9ef84e1534c743412864dfc2f0cde2e5b8a32efc12f69a15ed00ac",
+   "sha_adam": "a7a3809a1469bc09ba7ca1f46e36fe01c5df7ed2a06b808306d3e70688b9d8cf",
+   "sha_state": "ec67282355141bc193519cc85e14cdefb57c7817806f3648e8fd8232662594a3"
+  },
+  {
+   "n": 63,
+   "gen": "g063",
+   "step": 18900,
+   "sha_model": "aaf0ba0e0518bcc2ffe6be2f976d2297e79f50cd69239862e27d7db58db7ddae",
+   "sha_adam": "7293a8e08e53b18aea391e6a3d4b3e96472343caeb512dda4fb0db8c69494392",
+   "sha_state": "fefb784827d85674142206ccf2cde5221f85cae8694ef8a734596bf22e1c0cf2"
+  },
+  {
+   "n": 64,
+   "gen": "g064",
+   "step": 19200,
+   "sha_model": "d07aabd327a06434a86585236916bf84528188207ebf51640d5e468f89833dd6",
+   "sha_adam": "bcbedfc0c224ceb4db8b85e705b363f26a0ee883a42673e250a433343306cdec",
+   "sha_state": "b0c22a6a38784e1fc1b7e903d3c7c3056a73871392c872d0d9e2c75040e11a71"
+  },
+  {
+   "n": 65,
+   "gen": "g065",
+   "step": 19500,
+   "sha_model": "649312d59934c1087f7db209c385e98e965235081093159d2a7faf9baa0efe7a",
+   "sha_adam": "0452b8417471b2d15072e40b54416c9d53690b56389d8d7513995026d4f42517",
+   "sha_state": "d5158caae4a72097d8e22154b6438163a930f21c629c2a8156e6a94173abaf22"
+  },
+  {
+   "n": 66,
+   "gen": "g066",
+   "step": 19800,
+   "sha_model": "7b5f38e65dc8dd9c7d74f00a06147c5d93001edeb12224c79be065d3a778ce35",
+   "sha_adam": "a681685101525dff3332da169c200aedb54c914ac6deca8c0d2bfb1813e515d4",
+   "sha_state": "1a8bfd92189127e519b27c1669bf6b3ea6f629e1dc6e3f9a76731ce5a6851386"
+  },
+  {
+   "n": 67,
+   "gen": "g067",
+   "step": 20100,
+   "sha_model": "6f467414894283acdd5bb6bbb87338f871d4502fdb0bab27c3ea8faac0cd5ced",
+   "sha_adam": "67ca0db3019dce19a584d5077bf78e47a9c6f1a09ff8c432f6323e842bd4bfe3",
+   "sha_state": "b47438ddc796026eacc495e1f888ca06b2071043b6f576f3bd0eb4eb94f8fb88"
+  },
+  {
+   "n": 68,
+   "gen": "g068",
+   "step": 20400,
+   "sha_model": "bbb15c1cc8a0c3d06a0832a6f5863aff28ab197b9d7a40aa09e3031b51ad867a",
+   "sha_adam": "dce07b9269c538f60cf78223de7ba64c70e5042c80ac856c4f61b8f4aeb5323d",
+   "sha_state": "e7cb84363805920fb9ad583d575bc1040c778577521d44c59bfa3c0a8ae625f7"
+  },
+  {
+   "n": 69,
+   "gen": "g069",
+   "step": 20700,
+   "sha_model": "7bdd9a0f3cb8fc7263a9711034af6b4c5dfc6e0e3c3b003df8343f2871f3e01e",
+   "sha_adam": "99a69d053b75c455f9e94017c10824ca001e5852ab3097a30f858781acfe576d",
+   "sha_state": "be7cc7abbe0386c1203fd851fe9331adb4fb2ae6328c51fbc3f8bec8636e723c"
+  },
+  {
+   "n": 70,
+   "gen": "g070",
+   "step": 21000,
+   "sha_model": "8705a92d9d5936b6419f8f6ded5018a324d3857b328e4646720ac91c40303a8b",
+   "sha_adam": "32169de23acd186f68cb92d6e4d32863223738b47ed26745b9150551df63a08d",
+   "sha_state": "65d9bb8507d41dcea37a01b33a1d86a809f3051e901f63f4899f5435176bc594"
+  },
+  {
+   "n": 71,
+   "gen": "g071",
+   "step": 21300,
+   "sha_model": "a33d420a21d36ee0056cc89d2af03a580c1604a89b5a552a4b5a402932181da1",
+   "sha_adam": "a2a00b0ca98ce1bcf4b33a86c4bc1421c729c8a991e6db3b6cbb0ff06dcfc663",
+   "sha_state": "b109e5958857a4b06e8932d0ce01a873b3ef99ff5861c51695c1498220db9aa2"
+  },
+  {
+   "n": 72,
+   "gen": "g072",
+   "step": 21600,
+   "sha_model": "c7ee331c34d0d072a50c6ce06b16dcccae3dea235c1ed0f136b539e04ce27c54",
+   "sha_adam": "7409302cea0e23dd760451529f2c73ea888c62146f03347cd9dc0682c27b2734",
+   "sha_state": "4b43aa611c1273e041772631718de90ca4698362252d521bcc0ff5633c130d3a"
+  },
+  {
+   "n": 73,
+   "gen": "g073",
+   "step": 21900,
+   "sha_model": "44b3a964061132c1ba1ec24b5e89ba7cae7f1d59823e6915d96b0cebc8e6eb19",
+   "sha_adam": "65745be0373047002de89b053a18b683746c9c5875546fa569a88134f0373d0b",
+   "sha_state": "bf5c827688983b32b896f835e666c27b76859ae7c6271c243d401c99a7c61e6e"
+  },
+  {
+   "n": 74,
+   "gen": "g074",
+   "step": 22200,
+   "sha_model": "ef21b587541e1e0b06d46f5add063f9f6b0d1b70afa7ddffdb602d8302d3d534",
+   "sha_adam": "e772621ebbb76fb89646d8cafb60255bf17342b46df70a8c2111f2aab2292acd",
+   "sha_state": "1484562303c886d13a1f71cd01e76e1465ed4e9e17d74756cc2567a68bbd8a85"
+  },
+  {
+   "n": 75,
+   "gen": "g075",
+   "step": 22500,
+   "sha_model": "1dd8d510dea6399504b955ba53341467c151dfc770a119d1a2d74347e0f2744d",
+   "sha_adam": "4890d6d7ac83fb6032b66605560f0bc8760df0a2f4aaa98f53875862bfcbb742",
+   "sha_state": "8be4eaaff14aa335478a7850d879f0df07885d8a3eb5dcc8f0a700ec34d69a23"
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+PUBLIC RESTATEMENT, written after the run (the design below was fixed before any text was generated; this wording is not the original text, which stays in the authors' working records).
+
+Generation probe of a frozen character-level language model
+
+Model: character-level GPT, 6 layers, width 256, 4 heads, context 256, vocabulary of 148 symbols (4,842,496 parameters, output matrix tied to the input embedding), trained only to predict the next character of Spanish Wikipedia text. It was not trained as a chat or instruction model. Weights are frozen (evaluation mode, no gradients). The weight file's sha256 is checked before and after generation and must equal 1dd8d510dea6399504b955ba53341467c151dfc770a119d1a2d74347e0f2744d.
+
+Prompts: six plain-text prefixes on one line (the vocabulary has no newline, so a space separates the parts). The "Pregunta: ... Respuesta:" form is a label format chosen by the authors; the model was not trained on it, so a sensible answer is not expected.
+ P1 "Hola, buenos días. "
+ P2 "Hola, ¿cómo estás? "
+ P3 "¿Cuál es la capital de España? "
+ P4 "Pregunta: ¿Qué es un perro? Respuesta: "
+ P5 "Pregunta: ¿Cuánto es dos más dos? Respuesta: "
+ P6 (follow-up) = P4 + the model's own greedy continuation of P4 (all 120 characters, as generated) + " Pregunta: ¿Y un gato? Respuesta: "
+
+Decoding, for each prompt in both modes, 120 new characters, no stopping rule, no filtering:
+ greedy: most probable next character at each step.
+ sample: temperature 1.0, full softmax (no top-k, no top-p), numpy RandomState(26102600 + k) for prompt k = 1..6. One sample per prompt, and that sample is the result. For P6 the sampling mode uses the same fixed P6 prefix and seed 26102606.
+Context at each step: the last 256 characters of prompt plus generated text. Characters outside the vocabulary map to the unknown symbol (none occurred in the prompts); a generated unknown symbol is written <UNK>.
+
+Procedure: one run; no changes of seeds or prompts and no repeats based on output quality. All outputs are saved and reported, including incoherent ones. No training, no held-out test data, no external model or service.
+(An earlier draft used 200 new characters; it was changed to 120 before any generation was run.)
+
+How to read the outputs: they are samples from a Wikipedia character model for six out-of-distribution prefixes. They say nothing about conversation, understanding or learned chat behavior, and six prompts with one sampling seed each are illustrative, not a measurement.
