@@ -1,0 +1,212 @@
+{
+ "seed": 7001,
+ "arm": "self",
+ "records": [
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round0_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "07:51:51"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round0_gen",
+   "prompts": 800,
+   "samples_drawn": 3200,
+   "prompts_with_correct": 614,
+   "accept_frac": 0.7675,
+   "kept": 1125,
+   "corpus_chars": 129851,
+   "unique_answers": 13,
+   "unique_texts": 613,
+   "gen_seconds": 80.5,
+   "time": "07:53:11"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round0_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 276.6,
+   "time": "07:57:48"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round0",
+   "split": "dev_seen",
+   "acc": 0.7066666666666667,
+   "n": 300,
+   "pron_acc": 0.9829059829059829,
+   "expl_acc": 0.5300546448087432,
+   "time": "07:57:55"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round0",
+   "split": "dev_novel",
+   "acc": 0.5233333333333333,
+   "n": 300,
+   "pron_acc": 0.9696969696969697,
+   "expl_acc": 0.3034825870646766,
+   "time": "07:58:03"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round1_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "07:58:03"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round1_gen",
+   "prompts": 800,
+   "samples_drawn": 3200,
+   "prompts_with_correct": 625,
+   "accept_frac": 0.7812,
+   "kept": 1173,
+   "corpus_chars": 138908,
+   "unique_answers": 13,
+   "unique_texts": 624,
+   "gen_seconds": 80.2,
+   "time": "07:59:23"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round1_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 272.4,
+   "time": "08:03:56"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round1",
+   "split": "dev_seen",
+   "acc": 0.75,
+   "n": 300,
+   "pron_acc": 0.9743589743589743,
+   "expl_acc": 0.6065573770491803,
+   "time": "08:04:03"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round1",
+   "split": "dev_novel",
+   "acc": 0.48333333333333334,
+   "n": 300,
+   "pron_acc": 1.0,
+   "expl_acc": 0.22885572139303484,
+   "time": "08:04:11"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round2_check",
+   "prompts": 800,
+   "parse_ok": 800,
+   "mismatches": 0,
+   "time": "08:04:11"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round2_gen",
+   "prompts": 800,
+   "samples_drawn": 3200,
+   "prompts_with_correct": 640,
+   "accept_frac": 0.8,
+   "kept": 1197,
+   "corpus_chars": 144788,
+   "unique_answers": 13,
+   "unique_texts": 640,
+   "gen_seconds": 85.7,
+   "time": "08:05:36"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round2_train",
+   "steps": 500,
+   "from_step": 0,
+   "seconds": 274.6,
+   "time": "08:10:11"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round2",
+   "split": "dev_seen",
+   "acc": 0.7733333333333333,
+   "n": 300,
+   "pron_acc": 1.0,
+   "expl_acc": 0.6284153005464481,
+   "time": "08:10:19"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "round2",
+   "split": "dev_novel",
+   "acc": 0.5166666666666667,
+   "n": 300,
+   "pron_acc": 0.9696969696969697,
+   "expl_acc": 0.2935323383084577,
+   "time": "08:10:26"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "TEST",
+   "split": "test_seen",
+   "acc": 0.8,
+   "n": 400,
+   "pron_acc": 0.98,
+   "expl_acc": 0.692,
+   "time": "08:10:37"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "TEST",
+   "split": "test_novel",
+   "acc": 0.6075,
+   "n": 400,
+   "pron_acc": 0.9882352941176471,
+   "expl_acc": 0.32608695652173914,
+   "time": "08:10:48"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "TEST",
+   "split": "test_novel_long",
+   "acc": 0.5233333333333333,
+   "n": 300,
+   "pron_acc": 0.9642857142857143,
+   "expl_acc": 0.26063829787234044,
+   "time": "08:10:56"
+  },
+  {
+   "arm": "self",
+   "seed": 7001,
+   "stage": "arm_done",
+   "seconds": 1146.6,
+   "time": "08:10:56"
+  }
+ ],
+ "notes": "self = STaR-style: own sampled answers, parser-verified only. Aggregates only; raw fail examples (reserved prompt text) not published."
+}
