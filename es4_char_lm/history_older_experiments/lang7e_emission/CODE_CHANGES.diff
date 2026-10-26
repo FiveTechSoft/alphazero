@@ -1,0 +1,50 @@
+# Only change vs the original scripts (besides removed comments): absolute working-directory paths replaced by EXP_ROOT + relative path (EXP_ROOT env var, default "."). Header added: 2 lines.
+--- a/lang7e_emission/code/phase0.py
++++ b/lang7e_emission/code/phase0.py
+@@ -1,6 +1,8 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import numpy as np,time,json,hashlib
+ import lang7 as L, lang7e as M
+-T0=time.perf_counter(); res={}; OUT='<WORKDIR>/lang7e/out'
++T0=time.perf_counter(); res={}; OUT=(EXP_ROOT+'/lang7e/out')
+ res['code_sha']={f:hashlib.sha256(open(f,'rb').read()).hexdigest() for f in ['lang7.py','lang7e.py']}
+ res['gradcheck']={}
+ for up in (True,False):
+@@ -13,7 +15,7 @@
+                  k+'_lay':np.stack([e['lay'] for e in eps]),k+'_gold':np.array([e['gold'] for e in eps]),k+'_grp':np.array([e['grp'] for e in eps])})
+ np.savez(OUT+'/eval_frozen.npz',**flat)
+ res['eval_sha']=hashlib.sha256(open(OUT+'/eval_frozen.npz','rb').read()).hexdigest()
+-_o=np.load('<WORKDIR>/lang7/out/eval_frozen.npz'); res['eval_content_equals_lang7']=bool(set(_o.files)==set(flat) and all((_o[k]==flat[k]).all() for k in flat))
++_o=np.load((EXP_ROOT+'/lang7/out/eval_frozen.npz')); res['eval_content_equals_lang7']=bool(set(_o.files)==set(flat) and all((_o[k]==flat[k]).all() for k in flat))
+ res['counts']={k:len(v) for k,v in EV.items()}; res['groups']={k:len(set(e['grp'] for e in v)) for k,v in EV.items()}
+ res['noctx_bound']={k:L.noctx_bound((L.SPECS[k][0],L.SPECS[k][1],L.SPECS[k][2],L.SPECS[k][5])) for k in L.SPECS}
+ res['baselines_perfect_binding']={k:L.baselines(v) for k,v in EV.items()}
+--- a/lang7e_emission/code/phase1.py
++++ b/lang7e_emission/code/phase1.py
+@@ -1,9 +1,11 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import numpy as np,time,json,os,pickle,hashlib
+ import lang7 as L, lang7e as M
+ T0=time.perf_counter()
+ def guard():
+     if time.perf_counter()-T0>128: raise RuntimeError('internal wall guard')
+-OUT='<WORKDIR>/lang7e/out'
++OUT=(EXP_ROOT+'/lang7e/out')
+ STEPS=int(open('steps.txt').read().strip()); LR=3e-3; BS=32; SEEDS=[21,22]; ARMS=['full','nocue','noprev']
+ EV=L.build_eval(3101)
+ cur=hashlib.sha256(open(OUT+'/eval_frozen.npz','rb').read()).hexdigest()
+
+# Additional change (explicit, not path-only):
+--- a/lang7e_emission/code/phase1.py
++++ b/lang7e_emission/code/phase1.py
+@@ -62,7 +62,7 @@
+     if arm=='full':
+         r['ood_empty_support']=evaluate(P,arm,useprev,'empty',['TR','E3'])[0]; r['ood_perm_support']=evaluate(P,arm,useprev,'perm',['TR','E3'])[0]
+     return r
+-R=dict(eval_sha=cur,steps=STEPS,prereg_sha=hashlib.sha256(open('PREREG7E.txt','rb').read()).hexdigest(),baselines=BASE,noctx=NOC,results={})
++R=dict(eval_sha=cur,steps=STEPS,baselines=BASE,noctx=NOC,results={})
+ for s in SEEDS:
+     for a in ARMS:
+         R['results']['%s_s%d'%(a,s)]=run(s,a); guard()

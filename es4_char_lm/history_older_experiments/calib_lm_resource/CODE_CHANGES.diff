@@ -1,0 +1,21 @@
+# Only change vs the original scripts (besides removed comments): absolute working-directory paths replaced by EXP_ROOT + relative path (EXP_ROOT env var, default "."). Header added: 2 lines.
+--- a/calib_lm_resource/code/calib.py
++++ b/calib_lm_resource/code/calib.py
+@@ -1,8 +1,10 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import time,json,sys,os,numpy as np
+ T0=time.perf_counter()
+ import torch,torch.nn as nn,torch.nn.functional as F
+ torch.set_num_threads(1)
+-sys.path.insert(0,'<WORKDIR>/lang9'); import memguard
++sys.path.insert(0,(EXP_ROOT+'/lang9')); import memguard
+ memguard.check('start'); t_imp=time.perf_counter()-T0
+ V,CTX,D,L,H,B=8192,256,256,6,4,8
+ class Blk(nn.Module):
+@@ -34,4 +36,4 @@
+ r=dict(config=dict(vocab=V,ctx=CTX,d=D,layers=L,heads=H,batch=B,tokens_per_step=B*CTX,params=npar,tied=True,dtype='fp32',threads=1),t_import_s=t_imp,t_build_opt_init_s=t_init,warmup_step_s=tw,
+  n_timed=len(ts),step_median_s=float(np.median(a)),step_min_s=float(a.min()),step_max_s=float(a.max()),step_p90_s=float(np.percentile(a,90)),timed_total_s=tot,
+  tok_per_s_median=float(B*CTX/np.median(a)),tok_per_s_total=float(len(ts)*B*CTX/tot),loss_first_warm=lw,loss_last=last,rss_mib=_hwm,rss_now_mib=_rss,wall=time.perf_counter()-T0,torch=torch.__version__)
+-os.makedirs('<WORKDIR>/calib_lm/out',exist_ok=True); json.dump(r,open('<WORKDIR>/calib_lm/out/res.json','w'),indent=1); print(json.dumps(r))
++os.makedirs((EXP_ROOT+'/calib_lm/out'),exist_ok=True); json.dump(r,open((EXP_ROOT+'/calib_lm/out/res.json'),'w'),indent=1); print(json.dumps(r))

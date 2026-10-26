@@ -1,0 +1,46 @@
+# Only change vs the original scripts (besides removed comments): absolute working-directory paths replaced by EXP_ROOT + relative path (EXP_ROOT env var, default "."). Header added: 2 lines.
+--- a/lang5_binding_numpy/code/inv/inv.py
++++ b/lang5_binding_numpy/code/inv/inv.py
+@@ -1,10 +1,12 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import numpy as np,time,json,os,hashlib,pickle
+ from collections import Counter
+ import diag5 as D
+ T0=time.perf_counter(); CAP=170
+ def guard():
+     if time.perf_counter()-T0>CAP: raise RuntimeError('internal wall guard')
+-OUT='<WORKDIR>/lang5/inv/out'; os.makedirs(OUT,exist_ok=True)
++OUT=(EXP_ROOT+'/lang5/inv/out'); os.makedirs(OUT,exist_ok=True)
+ PAD=12; BS=32; LR=3e-3
+ def mk_P(seed):
+     rng=np.random.RandomState(seed); P=D.init(rng,16,64,np.float32)
+--- a/lang5_binding_numpy/code/pilot/pilot.py
++++ b/lang5_binding_numpy/code/pilot/pilot.py
+@@ -1,10 +1,12 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import numpy as np, time, json, sys, os, hashlib, pickle
+ from collections import Counter
+ import diag5 as D
+ T0=time.perf_counter()
+ def guard():
+     if time.perf_counter()-T0>105: raise RuntimeError('internal wall guard')
+-OUT='<WORKDIR>/lang5/pilot/out'; os.makedirs(OUT,exist_ok=True)
++OUT=(EXP_ROOT+'/lang5/pilot/out'); os.makedirs(OUT,exist_ok=True)
+ SEEDS=[21,22]; ARMS=['full','empty','perm']; STEPS=2500; LR=3e-3; B=32; PAD=12
+ CFG=dict(seeds=SEEDS,arms=ARMS,steps=STEPS,lr=LR,batch=B,d=16,H=64,ns=D.NS,eval_seed=777,
+          train_bindings=D.TRB,new_bindings=D.NEWB,seen=D.SEEN,reserved=D.RES)
+--- a/lang5_binding_numpy/code/step1/step1.py
++++ b/lang5_binding_numpy/code/step1/step1.py
+@@ -1,7 +1,9 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import numpy as np, time, json, os, hashlib, pickle
+ import diag5 as D
+ T0=time.perf_counter()
+-OUT='<WORKDIR>/lang5/step1/out'; os.makedirs(OUT,exist_ok=True)
++OUT=(EXP_ROOT+'/lang5/step1/out'); os.makedirs(OUT,exist_ok=True)
+ STEPS=2500; LR=3e-3
+ rng=np.random.RandomState(31337); eps=[]
+ for _ in range(32):

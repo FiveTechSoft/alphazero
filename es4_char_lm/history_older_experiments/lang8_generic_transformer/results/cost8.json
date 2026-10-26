@@ -1,0 +1,68 @@
+{
+ "code_sha": {
+  "lang7.py": "bf5d4d1c7c473165a676b130576a647222762220b27c5b63bd6b2fd2bc36c62d",
+  "gt.py": "45ff482e8cf6a19d5017b237912d80cadb97b7445fbe307cf847f0d3697610b0",
+  "gi.py": "78265ed80570aa506a4b7491611b37a73474e9ac54a3dd427b8d5dde00230f50",
+  "phase0c.py": "c81a516cb9e1ce25a967e641a9ee2e43a23d7c8c596e6e706fd7d743747ec077"
+ },
+ "baselines": {
+  "TR": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 1.0
+  },
+  "E1": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 1.0
+  },
+  "E2": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  },
+  "E3": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  },
+  "E4": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 1.0
+  },
+  "E5": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  },
+  "SW": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  }
+ },
+ "noctx": {
+  "TR": 0.1111111111111108,
+  "E1": 0.3055555555555556,
+  "E2": 0.11111111111111092,
+  "E3": 0.3055555555555556,
+  "E4": 0.3055555555555556,
+  "E5": 0.3055555555555556,
+  "SW": 0.3055555555555556
+ },
+ "eval_ser_sha": "0224c4ace31d4390788a1c89b1fca118ed6b9b3aa4cd1ce2b35fe134cc13ab1e",
+ "init_check": {
+  "init_loss": 2.9510746002197266,
+  "ln20": 2.995732273553991
+ },
+ "step_full_loop_s": {
+  "median": 0.011176044500018634,
+  "mean": 0.011172457090912179,
+  "max": 0.015458497000054194,
+  "n": 110
+ },
+ "eval_pass_all_splits_s": 1.1737300710000227,
+ "wall": 3.068457760000001,
+ "rss_mib": 403.44140625
+}

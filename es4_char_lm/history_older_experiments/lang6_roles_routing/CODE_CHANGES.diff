@@ -1,0 +1,16 @@
+# Only change vs the original scripts (besides removed comments): absolute working-directory paths replaced by EXP_ROOT + relative path (EXP_ROOT env var, default "."). Header added: 2 lines.
+--- a/lang6_roles_routing/code/phase1.py
++++ b/lang6_roles_routing/code/phase1.py
+@@ -1,9 +1,11 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import numpy as np,time,json,os,pickle,hashlib
+ import lang6 as M
+ T0=time.perf_counter()
+ def guard():
+     if time.perf_counter()-T0>150: raise RuntimeError('internal wall guard')
+-OUT='<WORKDIR>/lang6/out'; os.makedirs(OUT,exist_ok=True)
++OUT=(EXP_ROOT+'/lang6/out'); os.makedirs(OUT,exist_ok=True)
+ STEPS=10000; LR=3e-3; BS=32; SEEDS=[21,22]; ARMS=['full','empty','perm']
+ EV=M.build_eval(3001)
+ np.savez(OUT+'/eval_frozen.npz',**{k+'_'+f:v for k,eps in EV.items() for f,v in dict(

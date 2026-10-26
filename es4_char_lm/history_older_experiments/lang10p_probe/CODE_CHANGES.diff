@@ -1,0 +1,47 @@
+# Only change vs the original scripts (besides removed comments): absolute working-directory paths replaced by EXP_ROOT + relative path (EXP_ROOT env var, default "."). Header added: 2 lines.
+--- a/lang10p_probe/code/mkprobe10.py
++++ b/lang10p_probe/code/mkprobe10.py
+@@ -1,6 +1,8 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ 
+ import sys,itertools,json,hashlib,numpy as np
+-sys.path.insert(0,'<WORKDIR>/lang10'); sys.path.insert(0,'<WORKDIR>/lang8')
++sys.path.insert(0,(EXP_ROOT+'/lang10')); sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import lang7 as L, gt as G, data10 as D
+ PM=np.array(L.PERMS); TR=set(L.TRB)
+ rows=[]
+@@ -23,6 +25,6 @@
+ kind=np.array([''.join(sorted(('S' if a in TR else 'H')+('S' if b in TR else 'H'))) for a,b in R[:,:2]])
+ strat={k:int(len({(a,b) for (a,b),kk in zip(R[:,:2].tolist(),kind) if kk==k})) for k in ('SS','HS','HH')}
+ unit=np.array([a*24+b for a,b in R[:,:2]]); heldfirst=np.array([a not in TR for a in R[:,0]])
+-np.savez('<WORKDIR>/lang10p/probe10.npz',x1=x1,x2=x2,gold=g1,R=R,kind=kind,unit=unit,s_in_TRS=np.array([(s,d) in {(a,b) for a,b,o in L.TRS} for s,d in R[:,2:4]]))
++np.savez((EXP_ROOT+'/lang10p/probe10.npz'),x1=x1,x2=x2,gold=g1,R=R,kind=kind,unit=unit,s_in_TRS=np.array([(s,d) in {(a,b) for a,b,o in L.TRS} for s,d in R[:,2:4]]))
+ print('n prompts per context',n,'strata (binding pairs)',strat,'ordered queries per pair 2, support orders 24')
+-print(hashlib.sha256(open('<WORKDIR>/lang10p/probe10.npz','rb').read()).hexdigest()[:16])
++print(hashlib.sha256(open((EXP_ROOT+'/lang10p/probe10.npz'),'rb').read()).hexdigest()[:16])
+--- a/lang10p_probe/code/probe10.py
++++ b/lang10p_probe/code/probe10.py
+@@ -1,15 +1,17 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import sys,os,time,json,hashlib,numpy as np,torch
+ torch.set_num_threads(1)
+-sys.path.insert(0,'<WORKDIR>/lang10'); sys.path.insert(0,'<WORKDIR>/lang9'); sys.path.insert(0,'<WORKDIR>/lang8')
++sys.path.insert(0,(EXP_ROOT+'/lang10')); sys.path.insert(0,(EXP_ROOT+'/lang9')); sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import gt as G, gi, memguard, evalb
+-T0=time.perf_counter(); runid=sys.argv[1]; OUT='<WORKDIR>/lang10p/'+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
++T0=time.perf_counter(); runid=sys.argv[1]; OUT=(EXP_ROOT+'/lang10p/')+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
+ sha=lambda f:hashlib.sha256(open(f,'rb').read()).hexdigest()
+-Z=np.load('<WORKDIR>/lang10p/probe10.npz'); x1,x2,gold,kind,unit,R=Z['x1'],Z['x2'],Z['gold'],Z['kind'],Z['unit'],Z['R']
++Z=np.load((EXP_ROOT+'/lang10p/probe10.npz')); x1,x2,gold,kind,unit,R=Z['x1'],Z['x2'],Z['gold'],Z['kind'],Z['unit'],Z['R']
+ tgt=np.concatenate([gold+G.C0,np.full((len(gold),1),G.STOP)],1)
+ from lang7 import TRB
+-TR=set(TRB); res=dict(prompts_sha=sha('<WORKDIR>/lang10p/probe10.npz')[:16],seeds={})
++TR=set(TRB); res=dict(prompts_sha=sha((EXP_ROOT+'/lang10p/probe10.npz'))[:16],seeds={})
+ for s in (21,22):
+-    f='<WORKDIR>/lang10/runs/c10_ctx_s%d/final_ctx_s%d.pt'%(s,s); h0=sha(f); exp=json.load(open('<WORKDIR>/lang10/runs/c10_ctx_s%d/res.json'%s))['final_sha']
++    f=(EXP_ROOT+'/lang10/runs/c10_ctx_s%d/final_ctx_s%d.pt')%(s,s); h0=sha(f); exp=json.load(open((EXP_ROOT+'/lang10/runs/c10_ctx_s%d/res.json')%s))['final_sha']
+     if h0!=exp: raise RuntimeError('final weights hash mismatch')
+     m=gi.make(0); m.load_state_dict(torch.load(f)); m.eval()
+     p1=evalb.greedy_batched(m,x1,128); p2=evalb.greedy_batched(m,x2,128); guard=time.perf_counter()-T0

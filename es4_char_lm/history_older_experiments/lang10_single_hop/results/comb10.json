@@ -1,0 +1,82 @@
+{
+ "per_q": {
+  "(0, 1)": {
+   "HS": 4,
+   "SS": 7,
+   "HH": 1
+  },
+  "(0, 2)": {
+   "SS": 7,
+   "HS": 4,
+   "HH": 1
+  },
+  "(0, 3)": {
+   "SS": 6,
+   "HS": 6
+  },
+  "(1, 2)": {
+   "SS": 7,
+   "HS": 4,
+   "HH": 1
+  },
+  "(1, 3)": {
+   "HS": 4,
+   "HH": 1,
+   "SS": 7
+  },
+  "(2, 3)": {
+   "SS": 7,
+   "HS": 4,
+   "HH": 1
+  }
+ },
+ "total": {
+  "HS": 26,
+  "SS": 41,
+  "HH": 5
+ },
+ "baselines": {
+  "HH|modal": {
+   "same_pred": 1.0,
+   "both_correct": 0.0,
+   "one_correct": 0.0,
+   "both_wrong": 1.0,
+   "n_ordered_query_pairs": 10
+  },
+  "HH|nearest_binding": {
+   "same_pred": 0.2,
+   "both_correct": 0.0,
+   "one_correct": 0.0,
+   "both_wrong": 1.0,
+   "n_ordered_query_pairs": 10
+  },
+  "HS|modal": {
+   "same_pred": 1.0,
+   "both_correct": 0.0,
+   "one_correct": 0.0,
+   "both_wrong": 1.0,
+   "n_ordered_query_pairs": 52
+  },
+  "HS|nearest_binding": {
+   "same_pred": 0.231,
+   "both_correct": 0.231,
+   "one_correct": 0.769,
+   "both_wrong": 0.0,
+   "n_ordered_query_pairs": 52
+  },
+  "SS|modal": {
+   "same_pred": 1.0,
+   "both_correct": 0.146,
+   "one_correct": 0.0,
+   "both_wrong": 0.854,
+   "n_ordered_query_pairs": 82
+  },
+  "SS|nearest_binding": {
+   "same_pred": 1.0,
+   "both_correct": 1.0,
+   "one_correct": 0.0,
+   "both_wrong": 0.0,
+   "n_ordered_query_pairs": 82
+  }
+ }
+}

@@ -1,0 +1,73 @@
+import os as _os
+EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+
+
+import sys,time,json,os,pickle,hashlib,numpy as np,torch
+torch.set_num_threads(1)
+sys.path.insert(0,(EXP_ROOT+'/lang9')); sys.path.insert(0,(EXP_ROOT+'/lang8'))
+import lang7 as L, gt as G, gi, dtasks as D, memguard, evalb
+T0=time.perf_counter(); arm=sys.argv[1]; seed=int(sys.argv[2]); STEPS=int(sys.argv[3]); SWITCH=int(sys.argv[4]); runid=sys.argv[5]
+assert arm in ('cur','ctl') and 0<SWITCH<STEPS
+tag='%s_s%d'%(arm,seed); OUT=(EXP_ROOT+'/lang9/runs/')+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
+def guard():
+    if time.perf_counter()-T0>85: raise RuntimeError('internal wall guard')
+ES=np.load((EXP_ROOT+'/lang8/out/eval_d.npz')); SPL=['TR','E_b','E_l','E_bl']
+def greedy(model,x): return evalb.greedy_batched(model,x,128)
+def evaluate(task,model):
+    out={};preds={}
+    for k in SPL:
+        x=ES[task+'_'+k+'_x']; gold=ES['gold_'+k]; grp=ES['grp_'+k]; fr=greedy(model,x); tgt=G.target(gold); ok=(fr==tgt).all(1)
+        inv=~((fr[:,0]>=G.K0)&(fr[:,0]<G.K0+4)&(fr[:,1]>=G.K0)&(fr[:,1]<G.K0+4)&(fr[:,2]==G.STOP)); ga=[float(ok[grp==u].mean()) for u in np.unique(grp)]
+        out[k]=dict(free_exact=float(ok.mean()),invalid=float(inv.mean()),step_acc=[float((fr[:,i]==tgt[:,i]).mean()) for i in range(3)],groups=len(ga),min_group=min(ga),groups_ge80=int(sum(a>=.8 for a in ga)),n=int(len(ok)))
+        preds[k]=fr
+    return out,preds
+def cf(task,model,preds):
+    out={};cp={}
+    for kind,lab in (('cfL','layout'),('cfS','support')):
+        for k in ('TR','E_bl'):
+            x2=ES[kind+'_'+task+'_'+k+'_x']; g2=ES[kind+'_'+task+'_'+k+'_gold']; g0=ES['gold_'+k]; p0=preds[k]; p2=greedy(model,x2)
+            c0=G.K0+g0; c2=G.K0+g2; same_gold=bool((g2==g0).all())
+            r=dict(n=int(len(x2)),exact_new=float((p2[:,:2]==c2).all(1).mean()),member_new=[float((p2[:,i]==c2[:,i]).mean()) for i in range(2)],pred_equals_old_gold=float((p2[:,:2]==c0).all(1).mean()),
+                   orig_exact_old=float((p0[:,:2]==c0).all(1).mean()),pred_changed=float((p2!=p0).any(1).mean()),gold_unchanged_by_construction=same_gold)
+            if not same_gold: r['correct_change']=float((((p2!=p0).any(1))&((p2[:,:2]==c2).all(1))).mean())
+            out[lab+'_'+k]=r; cp[lab+'_'+k]=p2
+    return out,cp
+m=gi.make(seed); torch.save(m.state_dict(),OUT+'/init_'+tag+'.pt')
+opt=torch.optim.AdamW(m.parameters(),lr=1e-3,betas=(0.9,0.999),weight_decay=0.0)
+rng=np.random.RandomState(1000+seed); acc=0.0; curve=[]; first=None; hs_all=hashlib.sha256(); hs_seg=hashlib.sha256(); task_log=[]; sw_res=None
+for step in range(STEPS):
+    eps=[L.gen(rng,L.TRB,L.TRS,L.TRL,'train',None) for _ in range(32)]
+    for e in eps:
+        if L.validate(e,L.TRB,L.TRS,L.TRL): raise RuntimeError('train validation')
+    A=D.arrays(eps); task='d1' if (arm=='cur' and step<SWITCH) else 'd2'
+    for key in ('sw','sc','lay','s','d','b','l','gold'):
+        hs_all.update(np.ascontiguousarray(A[key]).tobytes())
+        if step>=SWITCH: hs_seg.update(np.ascontiguousarray(A[key]).tobytes())
+    if step==0 or (arm=='cur' and step==SWITCH): task_log.append(dict(from_step=step,task=task))
+    x=D.prompts(task,A)
+    if not (D.oracle(x,task)==A['gold']).all(): raise RuntimeError('train gold mismatch')
+    assert x.shape==(32,25) and int(x.max())<G.NV
+    xt=torch.from_numpy(x); tg=torch.from_numpy(G.target(A['gold']))
+    for g in opt.param_groups: g['lr']=1e-3*min(1,(step+1)/200)
+    lo=G.loss_tf(m,xt,tg)
+    if not torch.isfinite(lo): raise RuntimeError('nonfinite')
+    opt.zero_grad(set_to_none=True); lo.backward(); torch.nn.utils.clip_grad_norm_(m.parameters(),1.0); opt.step(); memguard.check('train step %d'%step)
+    v=float(lo.detach()); acc+=v; first=v if first is None else first
+    if (step+1)%500==0: curve.append(acc/500); acc=0.0; guard()
+    if step+1==SWITCH:
+        torch.save(m.state_dict(),OUT+'/ckpt_switch_'+tag+'.pt'); torch.save(opt.state_dict(),OUT+'/ckpt_switch_adam_'+tag+'.pt'); pickle.dump(dict(rng=rng.get_state()),open(OUT+'/ckpt_switch_rng_'+tag+'.pkl','wb'))
+        if arm=='cur': m.eval(); sw_res,_=evaluate('d1',m); m.train(); guard()
+torch.save(m.state_dict(),OUT+'/final_'+tag+'.pt'); torch.save(opt.state_dict(),OUT+'/adam_'+tag+'.pt')
+pickle.dump(dict(rng=rng.get_state(),torch_rng=torch.get_rng_state().numpy()),open(OUT+'/rng_'+tag+'.pkl','wb'))
+m.eval(); res,preds=evaluate('d2',m); cres,cpreds=cf('d2',m,preds); allp={'d2_'+k:v for k,v in preds.items()}; allp.update({'cf_'+k:v for k,v in cpreds.items()}); ret=None
+if arm=='cur':
+    ret,p1=evaluate('d1',m); allp.update({'d1_'+k:v for k,v in p1.items()})
+np.savez(OUT+'/pred_'+tag+'.npz',**allp)
+m2=gi.make(0); m2.load_state_dict(torch.load(OUT+'/final_'+tag+'.pt')); m2.eval(); _,q2=evaluate('d2',m2); parity=bool(all((preds[k]==q2[k]).all() for k in preds))
+if arm=='cur': _,q1=evaluate('d1',m2); parity=parity and bool(all((p1[k]==q1[k]).all() for k in p1))
+memguard.check('after last eval/parity batch'); _rss,_hwm=memguard.usage()
+sha=lambda f:hashlib.sha256(open(f,'rb').read()).hexdigest()
+r=dict(tag=tag,runid=runid,arm=arm,steps=STEPS,switch=SWITCH,task_log=task_log,stream_hash_all=hs_all.hexdigest(),stream_hash_from_switch=hs_seg.hexdigest(),final_d2=res,counterfactual_d2=cres,d1_at_switch=sw_res,d1_retention_final=ret,
+       loss_first=first,loss_curve=curve,parity=parity,wall=time.perf_counter()-T0,rss_mib=_hwm,rss_now_mib=_rss,eval_batch=128,
+       imports_sha256={f:sha(f) for f in [(EXP_ROOT+'/lang8/lang7.py'),(EXP_ROOT+'/lang8/gt.py'),(EXP_ROOT+'/lang8/gi.py'),(EXP_ROOT+'/lang8/dtasks.py'),(EXP_ROOT+'/lang9/memguard.py'),(EXP_ROOT+'/lang9/evalb.py'),os.path.abspath(__file__)]},eval_sha256=sha((EXP_ROOT+'/lang8/out/eval_d.npz')))
+json.dump(r,open(OUT+'/res.json','w'),indent=1); print('done',tag,runid,{k:round(v['free_exact'],3) for k,v in res.items()},round(curve[-1],4))

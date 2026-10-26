@@ -1,0 +1,136 @@
+{
+ "tag": "ctl_s21",
+ "runid": "c10_ctl_s21",
+ "arm": "ctl",
+ "steps": 5000,
+ "selftest": false,
+ "stream_hash": "0db3aff5deff88800823c057a626ae305085b1d3b47c8dbe511565a3c520f231",
+ "final": {
+  "TR": {
+   "ctx": {
+    "exact": 0.11388888888888889,
+    "invalid": 0.0,
+    "first_tok": 0.2638888888888889,
+    "groups": 18,
+    "min_group": 0.0,
+    "groups_ge80": 0
+   },
+   "nocontext": {
+    "exact": 0.12083333333333333,
+    "invalid": 0.0,
+    "first_tok": 0.2638888888888889,
+    "groups": 18,
+    "min_group": 0.0,
+    "groups_ge80": 0
+   },
+   "cf_support": {
+    "exact_new": 0.12222222222222222,
+    "pred_equals_old_gold": 0.11388888888888889,
+    "pred_changed": 0.0,
+    "correct_change": 0.0
+   }
+  },
+  "E_b": {
+   "ctx": {
+    "exact": 0.0,
+    "invalid": 0.0,
+    "first_tok": 0.14027777777777778,
+    "groups": 6,
+    "min_group": 0.0,
+    "groups_ge80": 0
+   },
+   "nocontext": {
+    "exact": 0.0,
+    "invalid": 0.0,
+    "first_tok": 0.14027777777777778,
+    "groups": 6,
+    "min_group": 0.0,
+    "groups_ge80": 0
+   },
+   "cf_support": {
+    "exact_new": 0.0,
+    "pred_equals_old_gold": 0.0,
+    "pred_changed": 0.0,
+    "correct_change": 0.0
+   }
+  },
+  "E_s": {
+   "ctx": {
+    "exact": 0.10833333333333334,
+    "invalid": 0.0,
+    "first_tok": 0.2916666666666667,
+    "groups": 18,
+    "min_group": 0.0,
+    "groups_ge80": 0
+   },
+   "nocontext": {
+    "exact": 0.11527777777777778,
+    "invalid": 0.0,
+    "first_tok": 0.2916666666666667,
+    "groups": 18,
+    "min_group": 0.0,
+    "groups_ge80": 0
+   },
+   "cf_support": {
+    "exact_new": 0.12916666666666668,
+    "pred_equals_old_gold": 0.10833333333333334,
+    "pred_changed": 0.0,
+    "correct_change": 0.0
+   }
+  },
+  "E_bs": {
+   "ctx": {
+    "exact": 0.0,
+    "invalid": 0.0,
+    "first_tok": 0.11388888888888889,
+    "groups": 6,
+    "min_group": 0.0,
+    "groups_ge80": 0
+   },
+   "nocontext": {
+    "exact": 0.0,
+    "invalid": 0.0,
+    "first_tok": 0.11388888888888889,
+    "groups": 6,
+    "min_group": 0.0,
+    "groups_ge80": 0
+   },
+   "cf_support": {
+    "exact_new": 0.0,
+    "pred_equals_old_gold": 0.0,
+    "pred_changed": 0.0,
+    "correct_change": 0.0
+   }
+  }
+ },
+ "loss_first": 3.040369987487793,
+ "loss_curve": [
+  1.0924307103157043,
+  0.8413722819089889,
+  0.8374834226369858,
+  0.8246167681217194,
+  0.8182463067770004,
+  0.8160441406965255,
+  0.811790847659111,
+  0.8096318870782853,
+  0.8078151112794876,
+  0.8017842919826508
+ ],
+ "parity": true,
+ "wall": 57.10215026900005,
+ "rss_mib": 319.60546875,
+ "rss_now_mib": 309.5546875,
+ "eval_batch": 128,
+ "sha256": {
+  "lang8/lang7.py": "bf5d4d1c7c473165a676b130576a647222762220b27c5b63bd6b2fd2bc36c62d",
+  "lang8/gt.py": "45ff482e8cf6a19d5017b237912d80cadb97b7445fbe307cf847f0d3697610b0",
+  "lang8/gi.py": "78265ed80570aa506a4b7491611b37a73474e9ac54a3dd427b8d5dde00230f50",
+  "lang9/memguard.py": "3838c0d6fc0e7891b051256bc44ec26aaf178ad0e04ab1af55f672e21f5d0a4d",
+  "lang9/evalb.py": "611d00592012f56b1fa648994f7c5974aa60bb1c5703d5d93aec571700b926d6",
+  "lang10/data10.py": "548dd7a827bd65d7923fc91f4ea6914734a396cb02ce9c263ada775f3000261f",
+  "lang10/eval10.npz": "47592b29fdf91d3d2946d58ebe9379759cc6511be8987d8d8b1cfba59f72b4de",
+  "lang10/train10.py": "713eedccb9c1d99ae84638ed7d7b8fe6f8c3d0906715142cb88b6e19dd578887"
+ },
+ "init_sha": "2c05abc518eef1b4eefbb487044ff9ca129aff63cbb64c8e6d28de3f9019e0f4",
+ "final_sha": "b0d39ed82161259f1147460c43ce27d6098a40b7d1e4049e2df83ce47075b2f3"
+}

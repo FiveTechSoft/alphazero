@@ -1,0 +1,30 @@
+{
+ "seed_part": 20261025,
+ "rule": "pool: no withheld pair-of-associations; val: >=1 in Xv and none in Xt; test: >=1 in Xt and none in Xv; Xv,Xt = 45+45 of 450 pairs-of-associations chosen by seed",
+ "checks": {
+  "n_contexts": 5400,
+  "n_pairs_of_assoc": 450,
+  "n_withheld_Xv": 45,
+  "n_withheld_Xt": 45,
+  "pool": 1351,
+  "val": 1482,
+  "test": 1500,
+  "pool_min_context_count_per_association": 81,
+  "val_min_context_count_per_association": 79,
+  "test_min_context_count_per_association": 58,
+  "pool_covers_all_individual_associations": true,
+  "pool_pairs_of_assoc_covered": 360,
+  "pairs_of_assoc_not_in_pool": 90,
+  "pool_contains_no_withheld": true,
+  "val_all_contain_Xv_none_Xt": true,
+  "test_all_contain_Xt_none_Xv": true
+ },
+ "hashes": {
+  "pool": "22e5d2e6727171224b031226f7d073315b489ff7e02582bb4b0b354a048b1e70",
+  "val": "8909415a31ab0a5535e6637c3da7dadc57ed829a317aa1c6fa6b27df155b2c0a",
+  "test_sealed": "fc82ea031528e80f131a6c857bf2e07d7ef32fb7a62496a8fed33631fd95e03d",
+  "Xv": "d2ee71dff4f1d074dc7ddf84eeb31b1d14b4ace02decdd11155c282f102cba0f",
+  "Xt": "0c8ee372a2f4f40f06917251b0f879ba45432b4bbe8a6f17ef3d6638e38b9a73",
+  "constructor": "ca1f483b23487e3d6c03f2a5653b40297d72a5cb4311dd230f3902b9379fdad3"
+ }
+}

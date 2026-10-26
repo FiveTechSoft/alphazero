@@ -1,0 +1,79 @@
+# Only change vs the original scripts (besides removed comments): absolute working-directory paths replaced by EXP_ROOT + relative path (EXP_ROOT env var, default "."). Header added: 2 lines.
+--- a/lang9_curriculum/code/aggc.py
++++ b/lang9_curriculum/code/aggc.py
+@@ -1,7 +1,9 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import json
+ R={}
+ for s in (21,22):
+-    for a in ('cur','ctl'): R[(a,s)]=json.load(open('<WORKDIR>/lang9/runs/c9_%s_s%d/res.json'%(a,s)))
++    for a in ('cur','ctl'): R[(a,s)]=json.load(open((EXP_ROOT+'/lang9/runs/c9_%s_s%d/res.json')%(a,s)))
+ out={'seeds':{}}; ben=True; strong=True
+ for s in (21,22):
+     c=R[('cur',s)]; k=R[('ctl',s)]; fc=c['final_d2']; fk=k['final_d2']
+@@ -12,4 +14,4 @@
+     b=d['E_bl_diff']>=.20 and fc['TR']['free_exact']>=.90; st=all(fc[x]['free_exact']>=.99 and fc[x]['min_group']>=.80 for x in ('TR','E_bl'))
+     d['benefit']=bool(b); d['strong']=bool(st); ben=ben and b; strong=strong and st; out['seeds'][s]=d
+ out['benefit_both']=bool(ben); out['strong_both']=bool(strong); out['walls']={'%s_s%d'%k:v['wall'] for k,v in R.items()}; out['hwm']={'%s_s%d'%k:v['rss_mib'] for k,v in R.items()}; out['parity']={'%s_s%d'%k:v['parity'] for k,v in R.items()}
+-json.dump(out,open('<WORKDIR>/lang9/runs/result_c9.json','w'),indent=1); print(json.dumps({s:(d['benefit'],d['strong'],round(d['E_bl_diff'],3),d['same_stream_from_switch']) for s,d in out['seeds'].items()}),out['benefit_both'],out['strong_both'])
++json.dump(out,open((EXP_ROOT+'/lang9/runs/result_c9.json'),'w'),indent=1); print(json.dumps({s:(d['benefit'],d['strong'],round(d['E_bl_diff'],3),d['same_stream_from_switch']) for s,d in out['seeds'].items()}),out['benefit_both'],out['strong_both'])
+--- a/lang9_curriculum/code/traind2.py
++++ b/lang9_curriculum/code/traind2.py
+@@ -1,14 +1,16 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import sys,time,json,os,pickle,hashlib,numpy as np,torch
+ torch.set_num_threads(1)
+-sys.path.insert(0,'<WORKDIR>/lang9'); sys.path.insert(0,'<WORKDIR>/lang8')
++sys.path.insert(0,(EXP_ROOT+'/lang9')); sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import lang7 as L, gt as G, gi, dtasks as D, memguard, evalb
+ T0=time.perf_counter(); task=sys.argv[1]; seed=int(sys.argv[2]); STEPS=int(sys.argv[3]); runid=sys.argv[4]; tag='%s_s%d'%(task,seed)
+-OUT='<WORKDIR>/lang9/runs/'+runid; os.makedirs(OUT,exist_ok=False)
++OUT=(EXP_ROOT+'/lang9/runs/')+runid; os.makedirs(OUT,exist_ok=False)
+ memguard.check('start')
+ assert task in ('d1','d2')
+ def guard():
+     if time.perf_counter()-T0>90: raise RuntimeError('internal wall guard')
+-ES=np.load('<WORKDIR>/lang8/out/eval_d.npz'); SPL=['TR','E_b','E_l','E_bl']
++ES=np.load((EXP_ROOT+'/lang8/out/eval_d.npz')); SPL=['TR','E_b','E_l','E_bl']
+ m=gi.make(seed); torch.save(m.state_dict(),OUT+'/init_'+tag+'.pt')
+ opt=torch.optim.AdamW(m.parameters(),lr=1e-3,betas=(0.9,0.999),weight_decay=0.0)
+ rng=np.random.RandomState(1000+seed); acc=0.0; curve=[]; first=None
+@@ -53,5 +55,5 @@
+ memguard.check('after last eval/parity batch'); _rss,_hwm=memguard.usage()
+ sha=lambda f:hashlib.sha256(open(f,'rb').read()).hexdigest()
+ r=dict(tag=tag,runid=runid,steps=STEPS,final=res,counterfactual=cres,loss_first=first,loss_curve=curve,parity=parity,wall=time.perf_counter()-T0,rss_mib=_hwm,rss_now_mib=_rss,
+-       imports_sha256={f:sha(f) for f in ['<WORKDIR>/lang8/lang7.py','<WORKDIR>/lang8/gt.py','<WORKDIR>/lang8/gi.py','<WORKDIR>/lang8/dtasks.py','<WORKDIR>/lang9/memguard.py','<WORKDIR>/lang9/evalb.py',os.path.abspath(__file__)]},eval_sha256=sha('<WORKDIR>/lang8/out/eval_d.npz'),eval_batch=128)
++       imports_sha256={f:sha(f) for f in [(EXP_ROOT+'/lang8/lang7.py'),(EXP_ROOT+'/lang8/gt.py'),(EXP_ROOT+'/lang8/gi.py'),(EXP_ROOT+'/lang8/dtasks.py'),(EXP_ROOT+'/lang9/memguard.py'),(EXP_ROOT+'/lang9/evalb.py'),os.path.abspath(__file__)]},eval_sha256=sha((EXP_ROOT+'/lang8/out/eval_d.npz')),eval_batch=128)
+ json.dump(r,open(OUT+'/res.json','w'),indent=1); print('done',tag,runid,{k:round(v['free_exact'],3) for k,v in res.items()},round(curve[-1],4))
+--- a/lang9_curriculum/code/traind3.py
++++ b/lang9_curriculum/code/traind3.py
+@@ -1,15 +1,17 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ 
+ 
+ import sys,time,json,os,pickle,hashlib,numpy as np,torch
+ torch.set_num_threads(1)
+-sys.path.insert(0,'<WORKDIR>/lang9'); sys.path.insert(0,'<WORKDIR>/lang8')
++sys.path.insert(0,(EXP_ROOT+'/lang9')); sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import lang7 as L, gt as G, gi, dtasks as D, memguard, evalb
+ T0=time.perf_counter(); arm=sys.argv[1]; seed=int(sys.argv[2]); STEPS=int(sys.argv[3]); SWITCH=int(sys.argv[4]); runid=sys.argv[5]
+ assert arm in ('cur','ctl') and 0<SWITCH<STEPS
+-tag='%s_s%d'%(arm,seed); OUT='<WORKDIR>/lang9/runs/'+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
++tag='%s_s%d'%(arm,seed); OUT=(EXP_ROOT+'/lang9/runs/')+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
+ def guard():
+     if time.perf_counter()-T0>85: raise RuntimeError('internal wall guard')
+-ES=np.load('<WORKDIR>/lang8/out/eval_d.npz'); SPL=['TR','E_b','E_l','E_bl']
++ES=np.load((EXP_ROOT+'/lang8/out/eval_d.npz')); SPL=['TR','E_b','E_l','E_bl']
+ def greedy(model,x): return evalb.greedy_batched(model,x,128)
+ def evaluate(task,model):
+     out={};preds={}
+@@ -67,5 +69,5 @@
+ sha=lambda f:hashlib.sha256(open(f,'rb').read()).hexdigest()
+ r=dict(tag=tag,runid=runid,arm=arm,steps=STEPS,switch=SWITCH,task_log=task_log,stream_hash_all=hs_all.hexdigest(),stream_hash_from_switch=hs_seg.hexdigest(),final_d2=res,counterfactual_d2=cres,d1_at_switch=sw_res,d1_retention_final=ret,
+        loss_first=first,loss_curve=curve,parity=parity,wall=time.perf_counter()-T0,rss_mib=_hwm,rss_now_mib=_rss,eval_batch=128,
+-       imports_sha256={f:sha(f) for f in ['<WORKDIR>/lang8/lang7.py','<WORKDIR>/lang8/gt.py','<WORKDIR>/lang8/gi.py','<WORKDIR>/lang8/dtasks.py','<WORKDIR>/lang9/memguard.py','<WORKDIR>/lang9/evalb.py',os.path.abspath(__file__)]},eval_sha256=sha('<WORKDIR>/lang8/out/eval_d.npz'))
++       imports_sha256={f:sha(f) for f in [(EXP_ROOT+'/lang8/lang7.py'),(EXP_ROOT+'/lang8/gt.py'),(EXP_ROOT+'/lang8/gi.py'),(EXP_ROOT+'/lang8/dtasks.py'),(EXP_ROOT+'/lang9/memguard.py'),(EXP_ROOT+'/lang9/evalb.py'),os.path.abspath(__file__)]},eval_sha256=sha((EXP_ROOT+'/lang8/out/eval_d.npz')))
+ json.dump(r,open(OUT+'/res.json','w'),indent=1); print('done',tag,runid,{k:round(v['free_exact'],3) for k,v in res.items()},round(curve[-1],4))

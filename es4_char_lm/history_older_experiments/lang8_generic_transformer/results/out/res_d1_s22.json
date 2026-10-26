@@ -1,0 +1,126 @@
+{
+ "tag": "d1_s22",
+ "steps": 5000,
+ "final": {
+  "TR": {
+   "free_exact": 1.0,
+   "invalid": 0.0,
+   "step_acc": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "groups": 216,
+   "min_group": 1.0,
+   "groups_ge80": 216,
+   "n": 648
+  },
+  "E_b": {
+   "free_exact": 1.0,
+   "invalid": 0.0,
+   "step_acc": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "groups": 72,
+   "min_group": 1.0,
+   "groups_ge80": 72,
+   "n": 432
+  },
+  "E_l": {
+   "free_exact": 0.7361111111111112,
+   "invalid": 0.0,
+   "step_acc": [
+    0.8557098765432098,
+    0.8279320987654321,
+    1.0
+   ],
+   "groups": 216,
+   "min_group": 0.0,
+   "groups_ge80": 127,
+   "n": 1296
+  },
+  "E_bl": {
+   "free_exact": 0.7546296296296297,
+   "invalid": 0.0,
+   "step_acc": [
+    0.8587962962962963,
+    0.8611111111111112,
+    1.0
+   ],
+   "groups": 72,
+   "min_group": 0.0,
+   "groups_ge80": 45,
+   "n": 432
+  }
+ },
+ "counterfactual": {
+  "layout_TR": {
+   "n": 648,
+   "exact_new": 0.9459876543209876,
+   "member_new": [
+    0.9598765432098766,
+    0.9737654320987654
+   ],
+   "pred_equals_old_gold": 0.004629629629629629,
+   "orig_exact_old": 1.0,
+   "pred_changed": 0.9953703703703703,
+   "gold_unchanged_by_construction": false,
+   "correct_change": 0.9459876543209876
+  },
+  "layout_E_bl": {
+   "n": 432,
+   "exact_new": 0.9398148148148148,
+   "member_new": [
+    0.9606481481481481,
+    0.9629629629629629
+   ],
+   "pred_equals_old_gold": 0.006944444444444444,
+   "orig_exact_old": 0.7546296296296297,
+   "pred_changed": 0.9768518518518519,
+   "gold_unchanged_by_construction": false,
+   "correct_change": 0.9236111111111112
+  },
+  "support_TR": {
+   "n": 648,
+   "exact_new": 1.0,
+   "member_new": [
+    1.0,
+    1.0
+   ],
+   "pred_equals_old_gold": 1.0,
+   "orig_exact_old": 1.0,
+   "pred_changed": 0.0,
+   "gold_unchanged_by_construction": true
+  },
+  "support_E_bl": {
+   "n": 432,
+   "exact_new": 0.7546296296296297,
+   "member_new": [
+    0.8611111111111112,
+    0.8611111111111112
+   ],
+   "pred_equals_old_gold": 0.7546296296296297,
+   "orig_exact_old": 0.7546296296296297,
+   "pred_changed": 0.0023148148148148147,
+   "gold_unchanged_by_construction": true
+  }
+ },
+ "loss_first": 3.0758512020111084,
+ "loss_curve": [
+  1.1047622094154357,
+  0.8407285391092301,
+  0.8246255730390548,
+  0.6878085211515427,
+  0.4776431841552258,
+  0.14495369958877563,
+  0.024931283042998985,
+  0.0003079373168293387,
+  0.00014471146269352177,
+  9.468752519751433e-05
+ ],
+ "parity": true,
+ "wall": 52.70069514700003,
+ "rss_mib": 500.06640625
+}

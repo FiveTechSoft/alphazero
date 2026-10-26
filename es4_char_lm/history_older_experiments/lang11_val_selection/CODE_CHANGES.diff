@@ -1,0 +1,70 @@
+# Only change vs the original scripts (besides removed comments): absolute working-directory paths replaced by EXP_ROOT + relative path (EXP_ROOT env var, default "."). Header added: 2 lines.
+--- a/lang11_val_selection/code/check11.py
++++ b/lang11_val_selection/code/check11.py
+@@ -1,6 +1,8 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ 
+ import json,numpy as np,sys
+-sys.path.insert(0,'<WORKDIR>/lang11'); import data11 as D, gt as G
++sys.path.insert(0,(EXP_ROOT+'/lang11')); import data11 as D, gt as G
+ pool=np.load('part/pool.npy'); Z=np.load('rev/val_prompts11.npz'); val=np.load('part/val.npy')
+ assert pool.shape==(1351,4,2) and G.NV==20 and max(G.STOP,G.DE,G.A,G.PAD,G.SUP,G.LAY,G.Q,G.OUT)<20 and D.C0+5<12<=G.STOP
+ rng=np.random.RandomState(0); idx=rng.randint(0,len(pool),500); pr=np.stack([rng.permutation(4) for _ in idx]); W=pool[idx][np.arange(500)[:,None],pr,0]; C=pool[idx][np.arange(500)[:,None],pr,1]
+--- a/lang11_val_selection/code/data11.py
++++ b/lang11_val_selection/code/data11.py
+@@ -1,5 +1,7 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import sys,numpy as np
+-sys.path.insert(0,'<WORKDIR>/lang8')
++sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import gt as G
+ C0=6; NW=6; NC=6; PAIRS12=[(p,q) for p in range(4) for q in range(4) if p!=q]
+ def prompt(W,C,qa,qb):
+--- a/lang11_val_selection/code/train11.py
++++ b/lang11_val_selection/code/train11.py
+@@ -1,15 +1,17 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ 
+ import sys,time,json,os,pickle,hashlib,numpy as np,torch
+ torch.set_num_threads(1)
+-sys.path.insert(0,'<WORKDIR>/lang11'); sys.path.insert(0,'<WORKDIR>/lang9'); sys.path.insert(0,'<WORKDIR>/lang8')
++sys.path.insert(0,(EXP_ROOT+'/lang11')); sys.path.insert(0,(EXP_ROOT+'/lang9')); sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import gt as G, gi, memguard, evalb, data11 as D
+ T0=time.perf_counter(); arm=sys.argv[1]; seed=int(sys.argv[2]); STEPS=int(sys.argv[3]); ROUND=int(sys.argv[4]); runid=sys.argv[5]; selftest=len(sys.argv)>6 and sys.argv[6]=='selftest'
+-assert arm in ('A','U','S'); tag='%s_s%d'%(arm,seed); OUT=('/tmp/st11_' if selftest else '<WORKDIR>/lang11/runs/')+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
++assert arm in ('A','U','S'); tag='%s_s%d'%(arm,seed); OUT=('/tmp/st11_' if selftest else (EXP_ROOT+'/lang11/runs/'))+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
+ def guard():
+     if time.perf_counter()-T0>85: raise RuntimeError('internal wall guard')
+-pool=np.load('<WORKDIR>/lang11/part/pool.npy').astype(np.int64); N=len(pool); AI=D.assoc_index(pool)
+-Z=np.load('<WORKDIR>/lang11/rev/val_prompts11.npz'); Wv,Cv,qav,qbv,gv=[Z[k].astype(np.int64) for k in ('W','C','qa','qb','gold')]
+-xv=D.prompt(Wv,Cv,qav,qbv); tv=D.target(gv); SP=json.load(open('<WORKDIR>/lang11/rev/S_perms11.json'))[str(seed)]
++pool=np.load((EXP_ROOT+'/lang11/part/pool.npy')).astype(np.int64); N=len(pool); AI=D.assoc_index(pool)
++Z=np.load((EXP_ROOT+'/lang11/rev/val_prompts11.npz')); Wv,Cv,qav,qbv,gv=[Z[k].astype(np.int64) for k in ('W','C','qa','qb','gold')]
++xv=D.prompt(Wv,Cv,qav,qbv); tv=D.target(gv); SP=json.load(open((EXP_ROOT+'/lang11/rev/S_perms11.json')))[str(seed)]
+ led=dict(t_train=0.0,t_val=0.0,t_weights=0.0,val_eval_prompts=0,weight_computations=0,train_prompts=0,updates=0)
+ def val_eval(m):
+     t=time.perf_counter(); fr=evalb.greedy_batched(m,xv,128); led['t_val']+=time.perf_counter()-t; led['val_eval_prompts']+=len(xv); return fr
+@@ -53,6 +55,6 @@
+ sha=lambda f:hashlib.sha256(open(f,'rb').read()).hexdigest()
+ r=dict(tag=tag,runid=runid,arm=arm,seed=seed,steps=STEPS,round_every=ROUND,selftest=selftest,val_final=dict(exact=float((fr==tv).all(1).mean()),tok_acc=[float((fr[:,j]==tv[:,j]).mean()) for j in range(3)],note='selection set only, not primary evidence'),
+   rounds=rounds,loss_first=first,loss_curve=curve,parity=parity,ledger=led,wall=time.perf_counter()-T0,rss_mib=_hwm,rss_now_mib=_rss,eval_batch=128,
+-  sha256={f:sha(f) for f in ['<WORKDIR>/lang8/gt.py','<WORKDIR>/lang8/gi.py','<WORKDIR>/lang9/memguard.py','<WORKDIR>/lang9/evalb.py','<WORKDIR>/lang11/data11.py','<WORKDIR>/lang11/part/pool.npy','<WORKDIR>/lang11/rev/val_prompts11.npz','<WORKDIR>/lang11/rev/S_perms11.json',os.path.abspath(__file__)]},
++  sha256={f:sha(f) for f in [(EXP_ROOT+'/lang8/gt.py'),(EXP_ROOT+'/lang8/gi.py'),(EXP_ROOT+'/lang9/memguard.py'),(EXP_ROOT+'/lang9/evalb.py'),(EXP_ROOT+'/lang11/data11.py'),(EXP_ROOT+'/lang11/part/pool.npy'),(EXP_ROOT+'/lang11/rev/val_prompts11.npz'),(EXP_ROOT+'/lang11/rev/S_perms11.json'),os.path.abspath(__file__)]},
+   init_sha=sha(OUT+'/init_'+tag+'.pt'),final_sha=sha(OUT+'/final_'+tag+'.pt'))
+ json.dump(r,open(OUT+'/res.json','w'),indent=1); print('done',tag,runid,round(r['val_final']['exact'],3),round(curve[-1],4))
+
+# Additional change (explicit, not path-only):
+--- a/lang11_val_selection/code/train11.py
++++ b/lang11_val_selection/code/train11.py
+@@ -6,7 +6,7 @@
+ sys.path.insert(0,(EXP_ROOT+'/lang11')); sys.path.insert(0,(EXP_ROOT+'/lang9')); sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import gt as G, gi, memguard, evalb, data11 as D
+ T0=time.perf_counter(); arm=sys.argv[1]; seed=int(sys.argv[2]); STEPS=int(sys.argv[3]); ROUND=int(sys.argv[4]); runid=sys.argv[5]; selftest=len(sys.argv)>6 and sys.argv[6]=='selftest'
+-assert arm in ('A','U','S'); tag='%s_s%d'%(arm,seed); OUT=('/tmp/st11_' if selftest else (EXP_ROOT+'/lang11/runs/'))+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
++assert arm in ('A','U','S'); tag='%s_s%d'%(arm,seed); OUT=((EXP_ROOT+'/selftest_st11_') if selftest else (EXP_ROOT+'/lang11/runs/'))+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
+ def guard():
+     if time.perf_counter()-T0>85: raise RuntimeError('internal wall guard')
+ pool=np.load((EXP_ROOT+'/lang11/part/pool.npy')).astype(np.int64); N=len(pool); AI=D.assoc_index(pool)

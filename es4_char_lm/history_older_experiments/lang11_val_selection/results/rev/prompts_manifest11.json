@@ -1,0 +1,37 @@
+{
+ "seeds": {
+  "part": 20261025,
+  "val": 11001,
+  "test": 11002,
+  "S": 11003,
+  "S_rule": "perm of 36 assoc idx = RandomState(S_SEED+1000*seed+round).permutation(36), round 1..9 = updates 500..4500"
+ },
+ "counts": {
+  "val_prompts": 1200,
+  "primary_prompts": 3910,
+  "primary_units_ctx_pair": 1955,
+  "primary_contexts": 1500,
+  "primary_Xt_pair_groups": 45,
+  "primary_prompts_per_group_min": 46,
+  "primary_prompts_per_group_max": 132,
+  "secondary_prompts": 14090,
+  "secondary_contexts": 1500,
+  "global_prompts": 18000,
+  "test_contexts": 1500,
+  "primary_ctx_with_k_Xt_pairs": {
+   "1": 1104,
+   "2": 341,
+   "3": 51,
+   "4": 4
+  }
+ },
+ "hashes": {
+  "val_prompts": "2cd1291cca7854c8a9adef10c98e3a37e17f938e0bb91366a89a1e08fdfc914b",
+  "S_perms": "3c1c66c4dc15714183d441955c35cf539b6db90dbad18cc5dc036f75a3a1de1e",
+  "test_primary": "32665c7943f294785eb4dfea1999d3505a85c1f625b3cc151686d1aa15a0cb4b",
+  "test_secondary": "e28f9681986dcd70016c9c933ddf66efe0783c8ff45438c0286b835959eafc61",
+  "prompt_constructor": "de049db8646e7cf2929b25fe863d8cf930a0e4170eefd1f0fa7beb18f658dd68",
+  "partition_constructor": "ca1f483b23487e3d6c03f2a5653b40297d72a5cb4311dd230f3902b9379fdad3",
+  "partition_manifest": "8fec51f9db14473e15c0f6f4861a61c77f9d48922220c07e8a50120592ed4cbb"
+ }
+}

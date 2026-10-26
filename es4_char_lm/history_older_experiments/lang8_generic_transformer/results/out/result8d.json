@@ -1,0 +1,396 @@
+{
+ "tasks": {
+  "d1": {
+   "seeds": {
+    "21": {
+     "ok": false,
+     "exact": {
+      "TR": 0.9459876543209876,
+      "E_b": 0.9513888888888888,
+      "E_l": 0.6157407407407407,
+      "E_bl": 0.6087962962962963
+     },
+     "min_group": {
+      "TR": 0.3333333333333333,
+      "E_b": 0.5,
+      "E_l": 0.0,
+      "E_bl": 0.16666666666666666
+     },
+     "invalid": {
+      "TR": 0.0,
+      "E_b": 0.0,
+      "E_l": 0.0,
+      "E_bl": 0.0
+     },
+     "loss_last": 0.034492423301868254,
+     "cf": {
+      "layout_TR": {
+       "n": 648,
+       "exact_new": 0.8858024691358025,
+       "member_new": [
+        0.9444444444444444,
+        0.933641975308642
+       ],
+       "pred_equals_old_gold": 0.0030864197530864196,
+       "orig_exact_old": 0.9459876543209876,
+       "pred_changed": 0.9891975308641975,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.8827160493827161
+      },
+      "layout_E_bl": {
+       "n": 432,
+       "exact_new": 0.8796296296296297,
+       "member_new": [
+        0.9490740740740741,
+        0.9282407407407407
+       ],
+       "pred_equals_old_gold": 0.011574074074074073,
+       "orig_exact_old": 0.6087962962962963,
+       "pred_changed": 0.9629629629629629,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.8564814814814815
+      },
+      "support_TR": {
+       "n": 648,
+       "exact_new": 0.9459876543209876,
+       "member_new": [
+        0.9830246913580247,
+        0.9629629629629629
+       ],
+       "pred_equals_old_gold": 0.9459876543209876,
+       "orig_exact_old": 0.9459876543209876,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": true
+      },
+      "support_E_bl": {
+       "n": 432,
+       "exact_new": 0.6111111111111112,
+       "member_new": [
+        0.7754629629629629,
+        0.7939814814814815
+       ],
+       "pred_equals_old_gold": 0.6111111111111112,
+       "orig_exact_old": 0.6087962962962963,
+       "pred_changed": 0.006944444444444444,
+       "gold_unchanged_by_construction": true
+      }
+     }
+    },
+    "22": {
+     "ok": false,
+     "exact": {
+      "TR": 1.0,
+      "E_b": 1.0,
+      "E_l": 0.7361111111111112,
+      "E_bl": 0.7546296296296297
+     },
+     "min_group": {
+      "TR": 1.0,
+      "E_b": 1.0,
+      "E_l": 0.0,
+      "E_bl": 0.0
+     },
+     "invalid": {
+      "TR": 0.0,
+      "E_b": 0.0,
+      "E_l": 0.0,
+      "E_bl": 0.0
+     },
+     "loss_last": 9.468752519751433e-05,
+     "cf": {
+      "layout_TR": {
+       "n": 648,
+       "exact_new": 0.9459876543209876,
+       "member_new": [
+        0.9598765432098766,
+        0.9737654320987654
+       ],
+       "pred_equals_old_gold": 0.004629629629629629,
+       "orig_exact_old": 1.0,
+       "pred_changed": 0.9953703703703703,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.9459876543209876
+      },
+      "layout_E_bl": {
+       "n": 432,
+       "exact_new": 0.9398148148148148,
+       "member_new": [
+        0.9606481481481481,
+        0.9629629629629629
+       ],
+       "pred_equals_old_gold": 0.006944444444444444,
+       "orig_exact_old": 0.7546296296296297,
+       "pred_changed": 0.9768518518518519,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.9236111111111112
+      },
+      "support_TR": {
+       "n": 648,
+       "exact_new": 1.0,
+       "member_new": [
+        1.0,
+        1.0
+       ],
+       "pred_equals_old_gold": 1.0,
+       "orig_exact_old": 1.0,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": true
+      },
+      "support_E_bl": {
+       "n": 432,
+       "exact_new": 0.7546296296296297,
+       "member_new": [
+        0.8611111111111112,
+        0.8611111111111112
+       ],
+       "pred_equals_old_gold": 0.7546296296296297,
+       "orig_exact_old": 0.7546296296296297,
+       "pred_changed": 0.0023148148148148147,
+       "gold_unchanged_by_construction": true
+      }
+     }
+    }
+   },
+   "pass_both": false
+  },
+  "d2": {
+   "seeds": {
+    "21": {
+     "ok": false,
+     "exact": {
+      "TR": 0.06327160493827161,
+      "E_b": 0.06944444444444445,
+      "E_l": 0.08950617283950617,
+      "E_bl": 0.06944444444444445
+     },
+     "min_group": {
+      "TR": 0.0,
+      "E_b": 0.0,
+      "E_l": 0.0,
+      "E_bl": 0.0
+     },
+     "invalid": {
+      "TR": 0.0,
+      "E_b": 0.0,
+      "E_l": 0.0,
+      "E_bl": 0.0
+     },
+     "loss_last": 0.8331272941827774,
+     "cf": {
+      "layout_TR": {
+       "n": 648,
+       "exact_new": 0.07407407407407407,
+       "member_new": [
+        0.20987654320987653,
+        0.25
+       ],
+       "pred_equals_old_gold": 0.06327160493827161,
+       "orig_exact_old": 0.06327160493827161,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.0
+      },
+      "layout_E_bl": {
+       "n": 432,
+       "exact_new": 0.07407407407407407,
+       "member_new": [
+        0.26157407407407407,
+        0.2523148148148148
+       ],
+       "pred_equals_old_gold": 0.06944444444444445,
+       "orig_exact_old": 0.06944444444444445,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.0
+      },
+      "support_TR": {
+       "n": 648,
+       "exact_new": 0.06944444444444445,
+       "member_new": [
+        0.2345679012345679,
+        0.19598765432098766
+       ],
+       "pred_equals_old_gold": 0.06327160493827161,
+       "orig_exact_old": 0.06327160493827161,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.0
+      },
+      "support_E_bl": {
+       "n": 432,
+       "exact_new": 0.09722222222222222,
+       "member_new": [
+        0.24768518518518517,
+        0.27314814814814814
+       ],
+       "pred_equals_old_gold": 0.06944444444444445,
+       "orig_exact_old": 0.06944444444444445,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.0
+      }
+     }
+    },
+    "22": {
+     "ok": false,
+     "exact": {
+      "TR": 0.06790123456790123,
+      "E_b": 0.09490740740740741,
+      "E_l": 0.0933641975308642,
+      "E_bl": 0.07407407407407407
+     },
+     "min_group": {
+      "TR": 0.0,
+      "E_b": 0.0,
+      "E_l": 0.0,
+      "E_bl": 0.0
+     },
+     "invalid": {
+      "TR": 0.0,
+      "E_b": 0.0,
+      "E_l": 0.0,
+      "E_bl": 0.0
+     },
+     "loss_last": 0.8326134240627289,
+     "cf": {
+      "layout_TR": {
+       "n": 648,
+       "exact_new": 0.08179012345679013,
+       "member_new": [
+        0.25925925925925924,
+        0.24074074074074073
+       ],
+       "pred_equals_old_gold": 0.06790123456790123,
+       "orig_exact_old": 0.06790123456790123,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.0
+      },
+      "layout_E_bl": {
+       "n": 432,
+       "exact_new": 0.08101851851851852,
+       "member_new": [
+        0.24305555555555555,
+        0.24074074074074073
+       ],
+       "pred_equals_old_gold": 0.07407407407407407,
+       "orig_exact_old": 0.07407407407407407,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.0
+      },
+      "support_TR": {
+       "n": 648,
+       "exact_new": 0.08487654320987655,
+       "member_new": [
+        0.23765432098765432,
+        0.26851851851851855
+       ],
+       "pred_equals_old_gold": 0.06790123456790123,
+       "orig_exact_old": 0.06790123456790123,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.0
+      },
+      "support_E_bl": {
+       "n": 432,
+       "exact_new": 0.10185185185185185,
+       "member_new": [
+        0.25925925925925924,
+        0.24537037037037038
+       ],
+       "pred_equals_old_gold": 0.07407407407407407,
+       "orig_exact_old": 0.07407407407407407,
+       "pred_changed": 0.0,
+       "gold_unchanged_by_construction": false,
+       "correct_change": 0.0
+      }
+     }
+    }
+   },
+   "pass_both": false
+  }
+ },
+ "walls": {
+  "d1_s21": 54.55272261499999,
+  "d1_s22": 52.70069514700003,
+  "d2_s21": 54.75826837800014,
+  "d2_s22": 53.72840523900004
+ },
+ "rss": {
+  "d1_s21": 527.2421875,
+  "d1_s22": 500.06640625,
+  "d2_s21": 524.53515625,
+  "d2_s22": 493.8671875
+ },
+ "parity": {
+  "d1_s21": true,
+  "d1_s22": true,
+  "d2_s21": true,
+  "d2_s22": true
+ },
+ "prior": {
+  "n": 20000,
+  "marginal_c1": [
+   0.2446,
+   0.2529,
+   0.2516,
+   0.2509
+  ],
+  "joint_top3": [
+   [
+    [
+     3,
+     2
+    ],
+    0.08585
+   ],
+   [
+    [
+     1,
+     0
+    ],
+    0.08515
+   ],
+   [
+    [
+     2,
+     1
+    ],
+    0.0851
+   ]
+  ],
+  "H_c1": 1.3862121341123728,
+  "H_c2_given_c1": 1.0984745341908408,
+  "loss_floor_context_free": 0.8282288894344045,
+  "loss_uniform_two_heads": 0.9241962407465937,
+  "const_mode_pair": [
+   3,
+   2
+  ],
+  "const_mode_exact_by_split": {
+   "TR": 0.08487654320987655,
+   "E_b": 0.0787037037037037,
+   "E_l": 0.09567901234567901,
+   "E_bl": 0.08796296296296297
+  },
+  "const_cell_per_step_acc_by_split": {
+   "TR": [
+    0.26080246913580246,
+    0.25462962962962965
+   ],
+   "E_b": [
+    0.2777777777777778,
+    0.24305555555555555
+   ],
+   "E_l": [
+    0.22916666666666666,
+    0.24614197530864199
+   ],
+   "E_bl": [
+    0.25,
+    0.25925925925925924
+   ]
+  }
+ }
+}

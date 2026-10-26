@@ -1,0 +1,153 @@
+{
+ "tag": "ctl_s22",
+ "runid": "c9_ctl_s22",
+ "arm": "ctl",
+ "steps": 5000,
+ "switch": 2000,
+ "task_log": [
+  {
+   "from_step": 0,
+   "task": "d2"
+  }
+ ],
+ "stream_hash_all": "09dcc604ede4a5dbd94e75f7d392f2e26fe44c5bdf9363fa809bd80155e27113",
+ "stream_hash_from_switch": "139218a9bdf49d625d5e3f11b6e8cb8dfad3696089fa872a31c53166142dec2d",
+ "final_d2": {
+  "TR": {
+   "free_exact": 0.06790123456790123,
+   "invalid": 0.0,
+   "step_acc": [
+    0.2175925925925926,
+    0.25,
+    1.0
+   ],
+   "groups": 216,
+   "min_group": 0.0,
+   "groups_ge80": 0,
+   "n": 648
+  },
+  "E_b": {
+   "free_exact": 0.09490740740740741,
+   "invalid": 0.0,
+   "step_acc": [
+    0.2361111111111111,
+    0.27546296296296297,
+    1.0
+   ],
+   "groups": 72,
+   "min_group": 0.0,
+   "groups_ge80": 0,
+   "n": 432
+  },
+  "E_l": {
+   "free_exact": 0.0933641975308642,
+   "invalid": 0.0,
+   "step_acc": [
+    0.24074074074074073,
+    0.2654320987654321,
+    1.0
+   ],
+   "groups": 216,
+   "min_group": 0.0,
+   "groups_ge80": 4,
+   "n": 1296
+  },
+  "E_bl": {
+   "free_exact": 0.07407407407407407,
+   "invalid": 0.0,
+   "step_acc": [
+    0.2361111111111111,
+    0.26157407407407407,
+    1.0
+   ],
+   "groups": 72,
+   "min_group": 0.0,
+   "groups_ge80": 0,
+   "n": 432
+  }
+ },
+ "counterfactual_d2": {
+  "layout_TR": {
+   "n": 648,
+   "exact_new": 0.08179012345679013,
+   "member_new": [
+    0.25925925925925924,
+    0.24074074074074073
+   ],
+   "pred_equals_old_gold": 0.06790123456790123,
+   "orig_exact_old": 0.06790123456790123,
+   "pred_changed": 0.0,
+   "gold_unchanged_by_construction": false,
+   "correct_change": 0.0
+  },
+  "layout_E_bl": {
+   "n": 432,
+   "exact_new": 0.08101851851851852,
+   "member_new": [
+    0.24305555555555555,
+    0.24074074074074073
+   ],
+   "pred_equals_old_gold": 0.07407407407407407,
+   "orig_exact_old": 0.07407407407407407,
+   "pred_changed": 0.0,
+   "gold_unchanged_by_construction": false,
+   "correct_change": 0.0
+  },
+  "support_TR": {
+   "n": 648,
+   "exact_new": 0.08487654320987655,
+   "member_new": [
+    0.23765432098765432,
+    0.26851851851851855
+   ],
+   "pred_equals_old_gold": 0.06790123456790123,
+   "orig_exact_old": 0.06790123456790123,
+   "pred_changed": 0.0,
+   "gold_unchanged_by_construction": false,
+   "correct_change": 0.0
+  },
+  "support_E_bl": {
+   "n": 432,
+   "exact_new": 0.10185185185185185,
+   "member_new": [
+    0.25925925925925924,
+    0.24537037037037038
+   ],
+   "pred_equals_old_gold": 0.07407407407407407,
+   "orig_exact_old": 0.07407407407407407,
+   "pred_changed": 0.0,
+   "gold_unchanged_by_construction": false,
+   "correct_change": 0.0
+  }
+ },
+ "d1_at_switch": null,
+ "d1_retention_final": null,
+ "loss_first": 3.07688045501709,
+ "loss_curve": [
+  1.1046035649776458,
+  0.8408938829898834,
+  0.8378069190979004,
+  0.8358102815151215,
+  0.8349069844484329,
+  0.8347669293880463,
+  0.8337608268260955,
+  0.8334517985582351,
+  0.8367423775196076,
+  0.8326134240627289
+ ],
+ "parity": true,
+ "wall": 57.88683595400016,
+ "rss_mib": 318.015625,
+ "rss_now_mib": 309.578125,
+ "eval_batch": 128,
+ "imports_sha256": {
+  "lang8/lang7.py": "bf5d4d1c7c473165a676b130576a647222762220b27c5b63bd6b2fd2bc36c62d",
+  "lang8/gt.py": "45ff482e8cf6a19d5017b237912d80cadb97b7445fbe307cf847f0d3697610b0",
+  "lang8/gi.py": "78265ed80570aa506a4b7491611b37a73474e9ac54a3dd427b8d5dde00230f50",
+  "lang8/dtasks.py": "123e86ad3e5880ff161ea256f29e2ad35afe967ccddb2aec8467422f91df189f",
+  "lang9/memguard.py": "3838c0d6fc0e7891b051256bc44ec26aaf178ad0e04ab1af55f672e21f5d0a4d",
+  "lang9/evalb.py": "611d00592012f56b1fa648994f7c5974aa60bb1c5703d5d93aec571700b926d6",
+  "lang9/traind3.py": "6e68f54d8acc53dbda695c3e4411b8f8401ff9353b33bc8e2fd436ebb976de61"
+ },
+ "eval_sha256": "3af21de9c4998101d674b657fa2f7322859461b03bf966e65ef6237621769a0b"
+}

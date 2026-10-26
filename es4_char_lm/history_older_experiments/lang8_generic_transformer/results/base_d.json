@@ -1,0 +1,137 @@
+{
+ "code_sha": {
+  "lang7.py": "bf5d4d1c7c473165a676b130576a647222762220b27c5b63bd6b2fd2bc36c62d",
+  "gt.py": "45ff482e8cf6a19d5017b237912d80cadb97b7445fbe307cf847f0d3697610b0",
+  "gi.py": "78265ed80570aa506a4b7491611b37a73474e9ac54a3dd427b8d5dde00230f50",
+  "dtasks.py": "123e86ad3e5880ff161ea256f29e2ad35afe967ccddb2aec8467422f91df189f",
+  "phase0d.py": "c3d9392b442fe0e335b39ec1de6e9579937a322c6915bf1bdf5ab4f16eb30886"
+ },
+ "counts": {
+  "TR": 648,
+  "E_b": 432,
+  "E_l": 1296,
+  "E_bl": 432
+ },
+ "groups": {
+  "TR": 216,
+  "E_b": 72,
+  "E_l": 216,
+  "E_bl": 72
+ },
+ "checks": {
+  "d1_TR": {
+   "oracle_equals_gold": true,
+   "format": true
+  },
+  "d1_E_b": {
+   "oracle_equals_gold": true,
+   "format": true
+  },
+  "d1_E_l": {
+   "oracle_equals_gold": true,
+   "format": true
+  },
+  "d1_E_bl": {
+   "oracle_equals_gold": true,
+   "format": true
+  },
+  "d2_TR": {
+   "oracle_equals_gold": true,
+   "format": true
+  },
+  "d2_E_b": {
+   "oracle_equals_gold": true,
+   "format": true
+  },
+  "d2_E_l": {
+   "oracle_equals_gold": true,
+   "format": true
+  },
+  "d2_E_bl": {
+   "oracle_equals_gold": true,
+   "format": true
+  },
+  "cf_d1_TR": {
+   "layout_consistent_and_changed": true,
+   "support_ok": true
+  },
+  "cf_d2_TR": {
+   "layout_consistent_and_changed": true,
+   "support_ok": true
+  },
+  "cf_d1_E_bl": {
+   "layout_consistent_and_changed": true,
+   "support_ok": true
+  },
+  "cf_d2_E_bl": {
+   "layout_consistent_and_changed": true,
+   "support_ok": true
+  }
+ },
+ "eval_sha": "3af21de9c4998101d674b657fa2f7322859461b03bf966e65ef6237621769a0b",
+ "prior": {
+  "n": 20000,
+  "marginal_c1": [
+   0.2446,
+   0.2529,
+   0.2516,
+   0.2509
+  ],
+  "joint_top3": [
+   [
+    [
+     3,
+     2
+    ],
+    0.08585
+   ],
+   [
+    [
+     1,
+     0
+    ],
+    0.08515
+   ],
+   [
+    [
+     2,
+     1
+    ],
+    0.0851
+   ]
+  ],
+  "H_c1": 1.3862121341123728,
+  "H_c2_given_c1": 1.0984745341908408,
+  "loss_floor_context_free": 0.8282288894344045,
+  "loss_uniform_two_heads": 0.9241962407465937,
+  "const_mode_pair": [
+   3,
+   2
+  ],
+  "const_mode_exact_by_split": {
+   "TR": 0.08487654320987655,
+   "E_b": 0.0787037037037037,
+   "E_l": 0.09567901234567901,
+   "E_bl": 0.08796296296296297
+  },
+  "const_cell_per_step_acc_by_split": {
+   "TR": [
+    0.26080246913580246,
+    0.25462962962962965
+   ],
+   "E_b": [
+    0.2777777777777778,
+    0.24305555555555555
+   ],
+   "E_l": [
+    0.22916666666666666,
+    0.24614197530864199
+   ],
+   "E_bl": [
+    0.25,
+    0.25925925925925924
+   ]
+  }
+ },
+ "wall": 0.34757124999987354
+}

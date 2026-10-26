@@ -1,0 +1,106 @@
+{
+ "code_sha": {
+  "lang7.py": "bf5d4d1c7c473165a676b130576a647222762220b27c5b63bd6b2fd2bc36c62d",
+  "lang7e.py": "ebe95cec09c0d042414c3f0c96e15f7fddd7c3852b415d3f44797d8d359b3436"
+ },
+ "gradcheck": {
+  "useprev=True": {
+   "worst": 2.809986613086183e-07,
+   "n": 104
+  },
+  "useprev=False": {
+   "worst": 1.1457415753851744e-07,
+   "n": 104
+  }
+ },
+ "eval_sha": "84b7a8ee76458132b36395da4b32792d1b58d6139a6e24fce0475ec7bfb5209a",
+ "eval_content_equals_lang7": true,
+ "counts": {
+  "TR": 648,
+  "E1": 432,
+  "E2": 432,
+  "E3": 720,
+  "E4": 432,
+  "E5": 720,
+  "SW": 432
+ },
+ "groups": {
+  "TR": 216,
+  "E1": 72,
+  "E2": 216,
+  "E3": 72,
+  "E4": 72,
+  "E5": 72,
+  "SW": 72
+ },
+ "noctx_bound": {
+  "TR": 0.1111111111111108,
+  "E1": 0.3055555555555556,
+  "E2": 0.11111111111111092,
+  "E3": 0.3055555555555556,
+  "E4": 0.3055555555555556,
+  "E5": 0.3055555555555556,
+  "SW": 0.3055555555555556
+ },
+ "baselines_perfect_binding": {
+  "TR": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 1.0
+  },
+  "E1": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 1.0
+  },
+  "E2": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  },
+  "E3": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  },
+  "E4": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 1.0
+  },
+  "E5": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  },
+  "SW": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  }
+ },
+ "contract": {
+  "free_shape": [
+   720,
+   3
+  ],
+  "tf_shape": [
+   720,
+   3
+  ],
+  "free_range": [
+   5,
+   5
+  ]
+ },
+ "cost": {
+  "gen_validate": 0.0006460470000035912,
+  "fwd_bwd": 0.0022722270000059552,
+  "adam": 9.240500000373686e-05,
+  "step_total": 0.0030106790000132833,
+  "eval_all_splits_s": 0.03693619399999193,
+  "params": 2624
+ },
+ "wall": 1.0965142240000034,
+ "rss_mib": 52.48828125
+}

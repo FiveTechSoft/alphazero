@@ -1,0 +1,330 @@
+{
+ "seeds": {
+  "21": {
+   "cur_exact": {
+    "TR": 0.08950617283950617,
+    "E_b": 0.05555555555555555,
+    "E_l": 0.0779320987654321,
+    "E_bl": 0.0625
+   },
+   "ctl_exact": {
+    "TR": 0.06327160493827161,
+    "E_b": 0.06944444444444445,
+    "E_l": 0.08950617283950617,
+    "E_bl": 0.06944444444444445
+   },
+   "E_bl_diff": -0.0069444444444444475,
+   "cur_min_group": {
+    "TR": 0.0,
+    "E_b": 0.0,
+    "E_l": 0.0,
+    "E_bl": 0.0
+   },
+   "ctl_min_group": {
+    "TR": 0.0,
+    "E_b": 0.0,
+    "E_l": 0.0,
+    "E_bl": 0.0
+   },
+   "same_stream_from_switch": true,
+   "same_stream_all": true,
+   "d1_at_switch": {
+    "TR": 0.6033950617283951,
+    "E_b": 0.5925925925925926,
+    "E_l": 0.41280864197530864,
+    "E_bl": 0.41435185185185186
+   },
+   "d1_retention": {
+    "TR": 0.14351851851851852,
+    "E_b": 0.125,
+    "E_l": 0.036265432098765434,
+    "E_bl": 0.046296296296296294
+   },
+   "cf_cur": {
+    "layout_TR": {
+     "n": 648,
+     "exact_new": 0.10030864197530864,
+     "member_new": [
+      0.25617283950617287,
+      0.26697530864197533
+     ],
+     "pred_equals_old_gold": 0.06944444444444445,
+     "orig_exact_old": 0.08950617283950617,
+     "pred_changed": 0.49691358024691357,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.044753086419753084
+    },
+    "layout_E_bl": {
+     "n": 432,
+     "exact_new": 0.05787037037037037,
+     "member_new": [
+      0.16898148148148148,
+      0.2523148148148148
+     ],
+     "pred_equals_old_gold": 0.08101851851851852,
+     "orig_exact_old": 0.0625,
+     "pred_changed": 0.5092592592592593,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.032407407407407406
+    },
+    "support_TR": {
+     "n": 648,
+     "exact_new": 0.08487654320987655,
+     "member_new": [
+      0.23919753086419754,
+      0.24537037037037038
+     ],
+     "pred_equals_old_gold": 0.08950617283950617,
+     "orig_exact_old": 0.08950617283950617,
+     "pred_changed": 0.0015432098765432098,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "support_E_bl": {
+     "n": 432,
+     "exact_new": 0.08796296296296297,
+     "member_new": [
+      0.27314814814814814,
+      0.22916666666666666
+     ],
+     "pred_equals_old_gold": 0.0625,
+     "orig_exact_old": 0.0625,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    }
+   },
+   "cf_ctl": {
+    "layout_TR": {
+     "n": 648,
+     "exact_new": 0.07407407407407407,
+     "member_new": [
+      0.20987654320987653,
+      0.25
+     ],
+     "pred_equals_old_gold": 0.06327160493827161,
+     "orig_exact_old": 0.06327160493827161,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "layout_E_bl": {
+     "n": 432,
+     "exact_new": 0.07407407407407407,
+     "member_new": [
+      0.26157407407407407,
+      0.2523148148148148
+     ],
+     "pred_equals_old_gold": 0.06944444444444445,
+     "orig_exact_old": 0.06944444444444445,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "support_TR": {
+     "n": 648,
+     "exact_new": 0.06944444444444445,
+     "member_new": [
+      0.2345679012345679,
+      0.19598765432098766
+     ],
+     "pred_equals_old_gold": 0.06327160493827161,
+     "orig_exact_old": 0.06327160493827161,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "support_E_bl": {
+     "n": 432,
+     "exact_new": 0.09722222222222222,
+     "member_new": [
+      0.24768518518518517,
+      0.27314814814814814
+     ],
+     "pred_equals_old_gold": 0.06944444444444445,
+     "orig_exact_old": 0.06944444444444445,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    }
+   },
+   "loss_last_cur": 0.8333246581554413,
+   "loss_last_ctl": 0.8331272941827774,
+   "benefit": false,
+   "strong": false
+  },
+  "22": {
+   "cur_exact": {
+    "TR": 0.06790123456790123,
+    "E_b": 0.09490740740740741,
+    "E_l": 0.0933641975308642,
+    "E_bl": 0.07407407407407407
+   },
+   "ctl_exact": {
+    "TR": 0.06790123456790123,
+    "E_b": 0.09490740740740741,
+    "E_l": 0.0933641975308642,
+    "E_bl": 0.07407407407407407
+   },
+   "E_bl_diff": 0.0,
+   "cur_min_group": {
+    "TR": 0.0,
+    "E_b": 0.0,
+    "E_l": 0.0,
+    "E_bl": 0.0
+   },
+   "ctl_min_group": {
+    "TR": 0.0,
+    "E_b": 0.0,
+    "E_l": 0.0,
+    "E_bl": 0.0
+   },
+   "same_stream_from_switch": true,
+   "same_stream_all": true,
+   "d1_at_switch": {
+    "TR": 0.19907407407407407,
+    "E_b": 0.2013888888888889,
+    "E_l": 0.13271604938271606,
+    "E_bl": 0.13425925925925927
+   },
+   "d1_retention": {
+    "TR": 0.06790123456790123,
+    "E_b": 0.09490740740740741,
+    "E_l": 0.0933641975308642,
+    "E_bl": 0.07407407407407407
+   },
+   "cf_cur": {
+    "layout_TR": {
+     "n": 648,
+     "exact_new": 0.08179012345679013,
+     "member_new": [
+      0.25925925925925924,
+      0.24074074074074073
+     ],
+     "pred_equals_old_gold": 0.06790123456790123,
+     "orig_exact_old": 0.06790123456790123,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "layout_E_bl": {
+     "n": 432,
+     "exact_new": 0.08101851851851852,
+     "member_new": [
+      0.24305555555555555,
+      0.24074074074074073
+     ],
+     "pred_equals_old_gold": 0.07407407407407407,
+     "orig_exact_old": 0.07407407407407407,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "support_TR": {
+     "n": 648,
+     "exact_new": 0.08487654320987655,
+     "member_new": [
+      0.23765432098765432,
+      0.26851851851851855
+     ],
+     "pred_equals_old_gold": 0.06790123456790123,
+     "orig_exact_old": 0.06790123456790123,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "support_E_bl": {
+     "n": 432,
+     "exact_new": 0.10185185185185185,
+     "member_new": [
+      0.25925925925925924,
+      0.24537037037037038
+     ],
+     "pred_equals_old_gold": 0.07407407407407407,
+     "orig_exact_old": 0.07407407407407407,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    }
+   },
+   "cf_ctl": {
+    "layout_TR": {
+     "n": 648,
+     "exact_new": 0.08179012345679013,
+     "member_new": [
+      0.25925925925925924,
+      0.24074074074074073
+     ],
+     "pred_equals_old_gold": 0.06790123456790123,
+     "orig_exact_old": 0.06790123456790123,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "layout_E_bl": {
+     "n": 432,
+     "exact_new": 0.08101851851851852,
+     "member_new": [
+      0.24305555555555555,
+      0.24074074074074073
+     ],
+     "pred_equals_old_gold": 0.07407407407407407,
+     "orig_exact_old": 0.07407407407407407,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "support_TR": {
+     "n": 648,
+     "exact_new": 0.08487654320987655,
+     "member_new": [
+      0.23765432098765432,
+      0.26851851851851855
+     ],
+     "pred_equals_old_gold": 0.06790123456790123,
+     "orig_exact_old": 0.06790123456790123,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    },
+    "support_E_bl": {
+     "n": 432,
+     "exact_new": 0.10185185185185185,
+     "member_new": [
+      0.25925925925925924,
+      0.24537037037037038
+     ],
+     "pred_equals_old_gold": 0.07407407407407407,
+     "orig_exact_old": 0.07407407407407407,
+     "pred_changed": 0.0,
+     "gold_unchanged_by_construction": false,
+     "correct_change": 0.0
+    }
+   },
+   "loss_last_cur": 0.8328681819438934,
+   "loss_last_ctl": 0.8326134240627289,
+   "benefit": false,
+   "strong": false
+  }
+ },
+ "benefit_both": false,
+ "strong_both": false,
+ "walls": {
+  "cur_s21": 57.364788667000084,
+  "ctl_s21": 55.63588913799981,
+  "cur_s22": 56.9674179550002,
+  "ctl_s22": 57.88683595400016
+ },
+ "hwm": {
+  "cur_s21": 318.484375,
+  "ctl_s21": 320.1796875,
+  "cur_s22": 319.5234375,
+  "ctl_s22": 318.015625
+ },
+ "parity": {
+  "cur_s21": true,
+  "ctl_s21": true,
+  "cur_s22": true,
+  "ctl_s22": true
+ }
+}

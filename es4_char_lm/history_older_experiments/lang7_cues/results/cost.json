@@ -1,0 +1,87 @@
+{
+ "gradcheck": {
+  "worst": 1.7229067267715315e-07,
+  "n": 80
+ },
+ "counts": {
+  "TR": 648,
+  "E1": 432,
+  "E2": 432,
+  "E3": 720,
+  "E4": 432,
+  "E5": 720,
+  "SW": 432
+ },
+ "groups": {
+  "TR": 216,
+  "E1": 72,
+  "E2": 216,
+  "E3": 72,
+  "E4": 72,
+  "E5": 72,
+  "SW": 72
+ },
+ "train_orders": {
+  "0": 6,
+  "1": 6
+ },
+ "reserved_orders": {
+  "1": 6,
+  "0": 6
+ },
+ "noctx_bound": {
+  "TR": 0.1111111111111108,
+  "E1": 0.3055555555555556,
+  "E2": 0.11111111111111092,
+  "E3": 0.3055555555555556,
+  "E4": 0.3055555555555556,
+  "E5": 0.3055555555555556,
+  "SW": 0.3055555555555556
+ },
+ "baselines_perfect_binding": {
+  "TR": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 1.0
+  },
+  "E1": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 1.0
+  },
+  "E2": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  },
+  "E3": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  },
+  "E4": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 1.0
+  },
+  "E5": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  },
+  "SW": {
+   "first_is_src": 0.5,
+   "second_is_src": 0.5,
+   "train_pair_template": 0.0
+  }
+ },
+ "cost": {
+  "gen_validate": 0.0006659720000214975,
+  "fwd_bwd": 0.001555679500000906,
+  "adam": 7.46099999986427e-05,
+  "step_total": 0.0022962615000210462,
+  "params": 1840
+ },
+ "wall": 0.8126163100000099,
+ "rss_mib": 40.0078125
+}

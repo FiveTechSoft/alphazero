@@ -1,0 +1,20 @@
+{
+ "TR": {
+  "prior_exact": 0.11666666666666667,
+  "prior_first": 0.28194444444444444
+ },
+ "E_b": {
+  "prior_exact": 0.0,
+  "prior_first": 0.12361111111111112
+ },
+ "E_s": {
+  "prior_exact": 0.11527777777777778,
+  "prior_first": 0.28194444444444444
+ },
+ "E_bs": {
+  "prior_exact": 0.0,
+  "prior_first": 0.12638888888888888
+ },
+ "plugin_floor_loss_mean3": 0.7880311143421922,
+ "note": "context-free plug-in estimate (TRB bindings x TRS strings), not a universal floor; STOP term taken as 0"
+}

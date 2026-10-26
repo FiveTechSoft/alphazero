@@ -1,0 +1,91 @@
+{
+ "verdict": "BINDINGS_SEEN_ONLY",
+ "seeds": {
+  "21": {
+   "S1": false,
+   "S2": false,
+   "S3": false,
+   "S4": true,
+   "S5": true,
+   "all": false,
+   "ctx_TR": 0.9194444444444444,
+   "ctx_E_b": 0.5375,
+   "ctx_E_s": 0.9347222222222222,
+   "ctx_E_bs": 0.575,
+   "ctx_Eb_min_group": 0.2457627118644068,
+   "ctx_nocontext_E_b": 0.05,
+   "ctx_cf_E_b": {
+    "exact_new": 0.5875,
+    "pred_equals_old_gold": 0.03194444444444444,
+    "pred_changed": 0.9430555555555555,
+    "correct_change": 0.5652777777777778
+   },
+   "ctl_TR": 0.11388888888888889,
+   "ctl_E_b": 0.0,
+   "loss_ctx": 0.04241626464948058,
+   "loss_ctl": 0.8017842919826508,
+   "hwm": [
+    322.3125,
+    319.60546875
+   ],
+   "parity": [
+    true,
+    true
+   ],
+   "stream_equal": true
+  },
+  "22": {
+   "S1": false,
+   "S2": false,
+   "S3": false,
+   "S4": true,
+   "S5": true,
+   "all": false,
+   "ctx_TR": 1.0,
+   "ctx_E_b": 0.6902777777777778,
+   "ctx_E_s": 1.0,
+   "ctx_E_bs": 0.6569444444444444,
+   "ctx_Eb_min_group": 0.48951048951048953,
+   "ctx_nocontext_E_b": 0.0625,
+   "ctx_cf_E_b": {
+    "exact_new": 0.6875,
+    "pred_equals_old_gold": 0.018055555555555554,
+    "pred_changed": 0.9666666666666667,
+    "correct_change": 0.6722222222222223
+   },
+   "ctl_TR": 0.09166666666666666,
+   "ctl_E_b": 0.0,
+   "loss_ctx": 0.001396477982547367,
+   "loss_ctl": 0.8109590587615967,
+   "hwm": [
+    320.625,
+    317.69921875
+   ],
+   "parity": [
+    true,
+    true
+   ],
+   "stream_equal": true
+  }
+ },
+ "baseline": {
+  "TR": {
+   "prior_exact": 0.11666666666666667,
+   "prior_first": 0.28194444444444444
+  },
+  "E_b": {
+   "prior_exact": 0.0,
+   "prior_first": 0.12361111111111112
+  },
+  "E_s": {
+   "prior_exact": 0.11527777777777778,
+   "prior_first": 0.28194444444444444
+  },
+  "E_bs": {
+   "prior_exact": 0.0,
+   "prior_first": 0.12638888888888888
+  },
+  "plugin_floor_loss_mean3": 0.7880311143421922,
+  "note": "context-free plug-in estimate (TRB bindings x TRS strings), not a universal floor; STOP term taken as 0"
+ }
+}

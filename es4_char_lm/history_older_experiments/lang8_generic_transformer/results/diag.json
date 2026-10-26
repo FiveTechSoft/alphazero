@@ -1,0 +1,134 @@
+{
+ "versions": {
+  "python": "3.10.12",
+  "torch": "2.9.1+cpu",
+  "numpy": "2.2.6",
+  "threads": 1,
+  "interop": 1
+ },
+ "code_sha": {
+  "lang7.py": "bf5d4d1c7c473165a676b130576a647222762220b27c5b63bd6b2fd2bc36c62d",
+  "gt.py": "45ff482e8cf6a19d5017b237912d80cadb97b7445fbe307cf847f0d3697610b0",
+  "diag.py": "a3bb2bb2e74d22ce9abc05486da1ca78489a9a9398aa6b0e65fb10476737393d"
+ },
+ "eval_equals_lang7e_frozen": true,
+ "serialization_checks": {
+  "TR": {
+   "roundtrip": true,
+   "cells": true,
+   "range": true,
+   "oracle_from_tokens": 1.0,
+   "n": 648
+  },
+  "E1": {
+   "roundtrip": true,
+   "cells": true,
+   "range": true,
+   "oracle_from_tokens": 1.0,
+   "n": 432
+  },
+  "E2": {
+   "roundtrip": true,
+   "cells": true,
+   "range": true,
+   "oracle_from_tokens": 1.0,
+   "n": 432
+  },
+  "E3": {
+   "roundtrip": true,
+   "cells": true,
+   "range": true,
+   "oracle_from_tokens": 1.0,
+   "n": 720
+  },
+  "E4": {
+   "roundtrip": true,
+   "cells": true,
+   "range": true,
+   "oracle_from_tokens": 1.0,
+   "n": 432
+  },
+  "E5": {
+   "roundtrip": true,
+   "cells": true,
+   "range": true,
+   "oracle_from_tokens": 1.0,
+   "n": 720
+  },
+  "SW": {
+   "roundtrip": true,
+   "cells": true,
+   "range": true,
+   "oracle_from_tokens": 1.0,
+   "n": 432
+  }
+ },
+ "lengths": {
+  "prompt": 25,
+  "train_input_positions": 27,
+  "generated": 3,
+  "max_positions": 27,
+  "vocab": 20
+ },
+ "model": {
+  "d": 64,
+  "heads": 4,
+  "layers": 2,
+  "mlp": 256,
+  "params": 103104,
+  "tied_head": true,
+  "causal": true,
+  "positional": "learned"
+ },
+ "contract": {
+  "logits_shape": [
+   32,
+   27,
+   20
+  ],
+  "causal_max_diff_earlier": 0.0,
+  "last_changes": true,
+  "finite": true
+ },
+ "fwd_bwd_batch32": {
+  "median_s": 0.008688657000107014,
+  "min_s": 0.008190505000015946,
+  "max_s": 0.00938876899999741,
+  "n": 55,
+  "init_loss": 49.57282638549805,
+  "note": "random weights, no optimizer update"
+ },
+ "greedy_all_eval_splits_s": 1.2351611799999773,
+ "greedy_shape": {
+  "TR": [
+   648,
+   3
+  ],
+  "E1": [
+   432,
+   3
+  ],
+  "E2": [
+   432,
+   3
+  ],
+  "E3": [
+   720,
+   3
+  ],
+  "E4": [
+   432,
+   3
+  ],
+  "E5": [
+   720,
+   3
+  ],
+  "SW": [
+   432,
+   3
+  ]
+ },
+ "wall": 2.4993779099999074,
+ "rss_mib": 407.7578125
+}

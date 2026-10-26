@@ -1,0 +1,129 @@
+# Only change vs the original scripts (besides removed comments): absolute working-directory paths replaced by EXP_ROOT + relative path (EXP_ROOT env var, default "."). Header added: 2 lines.
+--- a/lang10_single_hop/code/agg10.py
++++ b/lang10_single_hop/code/agg10.py
+@@ -1,5 +1,7 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ import json,sys
+-R='<WORKDIR>/lang10/runs/'; base=json.load(open('<WORKDIR>/lang10/base10.json')); V={}
++R=(EXP_ROOT+'/lang10/runs/'); base=json.load(open((EXP_ROOT+'/lang10/base10.json'))); V={}
+ for s in (21,22):
+     c=json.load(open(R+'c10_ctx_s%d/res.json'%s)); t=json.load(open(R+'c10_ctl_s%d/res.json'%s)); F=c['final']; Tc=t['final']
+     S1=F['E_b']['ctx']['exact']>=.90 and F['E_bs']['ctx']['exact']>=.90
+--- a/lang10_single_hop/code/anal10.py
++++ b/lang10_single_hop/code/anal10.py
+@@ -1,15 +1,17 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ 
+ import numpy as np,json,sys
+-sys.path.insert(0,'<WORKDIR>/lang8'); import lang7 as L
++sys.path.insert(0,(EXP_ROOT+'/lang8')); import lang7 as L
+ PM=np.array(L.PERMS); TRB=L.TRB; NEW=L.NEWB; C0=4
+-ES=np.load('<WORKDIR>/lang10/eval10.npz'); out={}
++ES=np.load((EXP_ROOT+'/lang10/eval10.npz')); out={}
+ trpairs={(w,PM[b][w]) for b in TRB for w in range(4)}
+ out['heldout_pairs_unseen_in_train']=sum((w,PM[b][w]) not in trpairs for b in NEW for w in range(4))
+ def dist(b1,b2): return int((PM[b1]!=PM[b2]).sum())
+ out['heldout_min_hamming_to_train']={int(b):min(dist(b,t) for t in TRB) for b in NEW}
+ out['n_train_bindings_at_min_dist']={int(b):sum(dist(b,t)==min(dist(b,u) for u in TRB) for t in TRB) for b in NEW}
+ for s in (21,22):
+-    P=np.load('<WORKDIR>/lang10/runs/c10_ctx_s%d/pred_ctx_s%d.npz'%(s,s)); R={}
++    P=np.load((EXP_ROOT+'/lang10/runs/c10_ctx_s%d/pred_ctx_s%d.npz')%(s,s)); R={}
+     for k in ('TR','E_b'):
+         x=ES[k+'_x']; g=ES[k+'_gold']; b=ES[k+'_grp']; p=P[k+'_ctx'][:,:2]-C0; sw=x[:,1:9:2]; sc=x[:,2:9:2]-C0; qs=x[:,20:22]
+         ar=np.arange(len(x)); ok=(p==g); R[k+'_first_ok']=float(ok[:,0].mean()); R[k+'_second_ok']=float(ok[:,1].mean()); R[k+'_both']=float(ok.all(1).mean())
+@@ -52,4 +54,4 @@
+             cf_ok_given_orig_ok=float((p2==g2).all(1)[(p0==g0).all(1)].mean()),cf_ok_given_orig_wrong=float((p2==g2).all(1)[~(p0==g0).all(1)].mean()) if (~(p0==g0).all(1)).any() else None,
+             cf_pred_equals_orig_pred=float((p2==p0).all(1).mean()),first_tok_cf_ok=float((p2[:,0]==g2[:,0]).mean()),second_tok_cf_ok=float((p2[:,1]==g2[:,1]).mean()))
+     out[s]=R
+-json.dump(out,open('<WORKDIR>/lang10/runs_anal_c10.json','w'),indent=1); print(json.dumps(out,indent=0))
++json.dump(out,open((EXP_ROOT+'/lang10/runs_anal_c10.json'),'w'),indent=1); print(json.dumps(out,indent=0))
+--- a/lang10_single_hop/code/comb10.py
++++ b/lang10_single_hop/code/comb10.py
+@@ -1,6 +1,8 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ 
+ import sys,itertools,json,collections
+-sys.path.insert(0,'<WORKDIR>/lang8'); import lang7 as L
++sys.path.insert(0,(EXP_ROOT+'/lang8')); import lang7 as L
+ PM=L.PERMS; TR=set(L.TRB); NEW=set(L.NEWB)
+ def kind(b): return 'S' if b in TR else 'H'
+ pairs=collections.defaultdict(list)
+@@ -34,4 +36,4 @@
+ for (k,name),r in sorted(res.items()):
+     n=r['n']; out[k+'|'+name]={m:round(r[m]/n,3) for m in ('same_pred','both_correct','one_correct','both_wrong')}|{'n_ordered_query_pairs':n}
+ for k,v in out.items(): print(k,v)
+-json.dump(dict(per_q=per_q,total=dict(tot),baselines=out),open('<WORKDIR>/lang10/comb10.json','w'),indent=1)
++json.dump(dict(per_q=per_q,total=dict(tot),baselines=out),open((EXP_ROOT+'/lang10/comb10.json'),'w'),indent=1)
+--- a/lang10_single_hop/code/data10.py
++++ b/lang10_single_hop/code/data10.py
+@@ -1,6 +1,8 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ 
+ import sys,numpy as np
+-sys.path.insert(0,'<WORKDIR>/lang8')
++sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import lang7 as L, gt as G
+ C0=G.C0; PM=np.array(L.PERMS)
+ def eps(rng,bset,strings,n):
+--- a/lang10_single_hop/code/mkeval10.py
++++ b/lang10_single_hop/code/mkeval10.py
+@@ -1,3 +1,5 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ 
+ import numpy as np,json,hashlib
+ import data10 as D, lang7 as L
+@@ -27,5 +29,5 @@
+     for (a,bb),n in c12.items(): h-=n/18*(math.log(c1[a]/18)+math.log(n/c1[a]))
+     H+=h/len(L.TRS)
+ base['plugin_floor_loss_mean3']=H/3; base['note']='context-free plug-in estimate (TRB bindings x TRS strings), not a universal floor; STOP term taken as 0'
+-np.savez('<WORKDIR>/lang10/eval10.npz',**out); json.dump(base,open('<WORKDIR>/lang10/base10.json','w'),indent=1)
+-print(json.dumps(base)); print(hashlib.sha256(open('<WORKDIR>/lang10/eval10.npz','rb').read()).hexdigest()[:12])
++np.savez((EXP_ROOT+'/lang10/eval10.npz'),**out); json.dump(base,open((EXP_ROOT+'/lang10/base10.json'),'w'),indent=1)
++print(json.dumps(base)); print(hashlib.sha256(open((EXP_ROOT+'/lang10/eval10.npz'),'rb').read()).hexdigest()[:12])
+--- a/lang10_single_hop/code/train10.py
++++ b/lang10_single_hop/code/train10.py
+@@ -1,13 +1,15 @@
++import os as _os
++EXP_ROOT=_os.environ.get('EXP_ROOT','.')
+ 
+ import sys,time,json,os,pickle,hashlib,numpy as np,torch
+ torch.set_num_threads(1)
+-sys.path.insert(0,'<WORKDIR>/lang10'); sys.path.insert(0,'<WORKDIR>/lang9'); sys.path.insert(0,'<WORKDIR>/lang8')
++sys.path.insert(0,(EXP_ROOT+'/lang10')); sys.path.insert(0,(EXP_ROOT+'/lang9')); sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import lang7 as L, gt as G, gi, memguard, evalb, data10 as D
+ T0=time.perf_counter(); arm=sys.argv[1]; seed=int(sys.argv[2]); STEPS=int(sys.argv[3]); runid=sys.argv[4]; selftest=len(sys.argv)>5 and sys.argv[5]=='selftest'
+-assert arm in ('ctx','ctl'); tag='%s_s%d'%(arm,seed); OUT=('/tmp/st10_' if selftest else '<WORKDIR>/lang10/runs/')+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
++assert arm in ('ctx','ctl'); tag='%s_s%d'%(arm,seed); OUT=('/tmp/st10_' if selftest else (EXP_ROOT+'/lang10/runs/'))+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
+ def guard():
+     if time.perf_counter()-T0>85: raise RuntimeError('internal wall guard')
+-ES=np.load('<WORKDIR>/lang10/eval10.npz'); SPL=['TR','E_b','E_s','E_bs']
++ES=np.load((EXP_ROOT+'/lang10/eval10.npz')); SPL=['TR','E_b','E_s','E_bs']
+ def greedy(m,x): return evalb.greedy_batched(m,x,128)
+ def evaluate(m):
+     out={};P={}
+@@ -46,6 +48,6 @@
+ memguard.check('after last eval/parity batch'); _rss,_hwm=memguard.usage()
+ sha=lambda f:hashlib.sha256(open(f,'rb').read()).hexdigest()
+ r=dict(tag=tag,runid=runid,arm=arm,steps=STEPS,selftest=selftest,stream_hash=hs.hexdigest(),final=res,loss_first=first,loss_curve=curve,parity=parity,wall=time.perf_counter()-T0,rss_mib=_hwm,rss_now_mib=_rss,eval_batch=128,
+-       sha256={f:sha(f) for f in ['<WORKDIR>/lang8/lang7.py','<WORKDIR>/lang8/gt.py','<WORKDIR>/lang8/gi.py','<WORKDIR>/lang9/memguard.py','<WORKDIR>/lang9/evalb.py','<WORKDIR>/lang10/data10.py','<WORKDIR>/lang10/eval10.npz',os.path.abspath(__file__)]},
++       sha256={f:sha(f) for f in [(EXP_ROOT+'/lang8/lang7.py'),(EXP_ROOT+'/lang8/gt.py'),(EXP_ROOT+'/lang8/gi.py'),(EXP_ROOT+'/lang9/memguard.py'),(EXP_ROOT+'/lang9/evalb.py'),(EXP_ROOT+'/lang10/data10.py'),(EXP_ROOT+'/lang10/eval10.npz'),os.path.abspath(__file__)]},
+        init_sha=sha(OUT+'/init_'+tag+'.pt'),final_sha=sha(OUT+'/final_'+tag+'.pt'))
+ json.dump(r,open(OUT+'/res.json','w'),indent=1); print('done',tag,runid,{k:round(v['ctx']['exact'],3) for k,v in res.items()},round(curve[-1],4))
+
+# Additional change (explicit, not path-only):
+--- a/lang10_single_hop/code/train10.py
++++ b/lang10_single_hop/code/train10.py
+@@ -6,7 +6,7 @@
+ sys.path.insert(0,(EXP_ROOT+'/lang10')); sys.path.insert(0,(EXP_ROOT+'/lang9')); sys.path.insert(0,(EXP_ROOT+'/lang8'))
+ import lang7 as L, gt as G, gi, memguard, evalb, data10 as D
+ T0=time.perf_counter(); arm=sys.argv[1]; seed=int(sys.argv[2]); STEPS=int(sys.argv[3]); runid=sys.argv[4]; selftest=len(sys.argv)>5 and sys.argv[5]=='selftest'
+-assert arm in ('ctx','ctl'); tag='%s_s%d'%(arm,seed); OUT=('/tmp/st10_' if selftest else (EXP_ROOT+'/lang10/runs/'))+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
++assert arm in ('ctx','ctl'); tag='%s_s%d'%(arm,seed); OUT=((EXP_ROOT+'/selftest_st10_') if selftest else (EXP_ROOT+'/lang10/runs/'))+runid; os.makedirs(OUT,exist_ok=False); memguard.check('start')
+ def guard():
+     if time.perf_counter()-T0>85: raise RuntimeError('internal wall guard')
+ ES=np.load((EXP_ROOT+'/lang10/eval10.npz')); SPL=['TR','E_b','E_s','E_bs']

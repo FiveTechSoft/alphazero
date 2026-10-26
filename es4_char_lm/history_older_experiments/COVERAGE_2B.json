@@ -1,0 +1,263 @@
+{
+ "lang5": {
+  "included": {
+   "files": 75,
+   "bytes": 14742599
+  },
+  "omitted:execution-control material (launch wrappers and status files)": {
+   "files": 8,
+   "bytes": 3757
+  },
+  "omitted:internal hash/launch records": {
+   "files": 4,
+   "bytes": 6795
+  },
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 4,
+   "bytes": 227
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 3,
+   "bytes": 4538
+  }
+ },
+ "lang6": {
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 2,
+   "bytes": 15
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 1,
+   "bytes": 2537
+  },
+  "included": {
+   "files": 36,
+   "bytes": 816627
+  },
+  "omitted:execution-control material (launch wrappers and status files)": {
+   "files": 3,
+   "bytes": 1042
+  },
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 3272
+  }
+ },
+ "lang7": {
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 2,
+   "bytes": 37
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 2,
+   "bytes": 6066
+  },
+  "included": {
+   "files": 46,
+   "bytes": 1741850
+  },
+  "omitted:execution-control material (launch wrappers and status files)": {
+   "files": 3,
+   "bytes": 1044
+  },
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 4162
+  }
+ },
+ "lang7e": {
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 2,
+   "bytes": 38
+  },
+  "included": {
+   "files": 37,
+   "bytes": 2356804
+  },
+  "omitted:execution-control material (launch wrappers and status files)": {
+   "files": 4,
+   "bytes": 1057
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 1,
+   "bytes": 3849
+  },
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 689
+  }
+ },
+ "lang8": {
+  "omitted:execution-control material (launch wrappers and status files)": {
+   "files": 16,
+   "bytes": 4685
+  },
+  "included": {
+   "files": 66,
+   "bytes": 17530733
+  },
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 12,
+   "bytes": 4450
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 3,
+   "bytes": 7337
+  }
+ },
+ "lang9": {
+  "included": {
+   "files": 42,
+   "bytes": 12559647
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 2,
+   "bytes": 3311
+  },
+  "omitted:execution-control material (launch wrappers and status files)": {
+   "files": 7,
+   "bytes": 26784
+  },
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 152
+  },
+  "omitted:launch-wrapper smoke tests": {
+   "files": 20,
+   "bytes": 12319
+  },
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 43,
+   "bytes": 22366
+  }
+ },
+ "lang10": {
+  "included": {
+   "files": 35,
+   "bytes": 9542676
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 1,
+   "bytes": 3279
+  },
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 241
+  },
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 8,
+   "bytes": 4838
+  }
+ },
+ "lang10p": {
+  "included": {
+   "files": 6,
+   "bytes": 2259262
+  },
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 38
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 1,
+   "bytes": 1484
+  },
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 2,
+   "bytes": 953
+  }
+ },
+ "lang11": {
+  "omitted:redundant archive (member bytes compared to originals)": {
+   "files": 1,
+   "bytes": 2358055
+  },
+  "included": {
+   "files": 47,
+   "bytes": 11707003
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 3,
+   "bytes": 9598
+  },
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 275
+  },
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 12,
+   "bytes": 6965
+  }
+ },
+ "lang12": {
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 233
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 1,
+   "bytes": 1473
+  },
+  "omitted:execution-control material (launch wrappers and status files)": {
+   "files": 1,
+   "bytes": 4040
+  },
+  "included": {
+   "files": 15,
+   "bytes": 3471828
+  },
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 4,
+   "bytes": 1926
+  }
+ },
+ "calib2": {
+  "included": {
+   "files": 2,
+   "bytes": 7463
+  },
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 234
+  },
+  "omitted:execution-control material (launch wrappers and status files)": {
+   "files": 1,
+   "bytes": 4040
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 1,
+   "bytes": 1303
+  },
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 2,
+   "bytes": 5554
+  }
+ },
+ "calib_lm": {
+  "included": {
+   "files": 1,
+   "bytes": 2695
+  },
+  "rebuilt:replaced by design.md (retrospective)": {
+   "files": 1,
+   "bytes": 992
+  },
+  "omitted:internal hash/launch records": {
+   "files": 1,
+   "bytes": 233
+  },
+  "omitted:execution-control material (launch wrappers and status files)": {
+   "files": 1,
+   "bytes": 4040
+  },
+  "omitted:execution logs and launch receipts (no experiment content)": {
+   "files": 2,
+   "bytes": 909
+  }
+ },
+ "lang11/sealed": "exists, mode 000, not opened; construction rule and hash only (manifest11.json)",
+ "bk12": "duplicate of lang12 (not republished)",
+ "backup_lang9_11": "contents byte-equal to lang9/10/10p/11/lang8 originals except 24 files of script self-tests and environment notes (omitted)",
+ "lang11_final.tar.gz": "33 members, all byte-identical to originals already included; not republished",
+ "lang8/venv": "python environment, not science"
+}

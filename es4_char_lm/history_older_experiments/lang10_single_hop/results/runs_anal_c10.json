@@ -1,0 +1,221 @@
+{
+ "heldout_pairs_unseen_in_train": 0,
+ "heldout_min_hamming_to_train": {
+  "11": 2,
+  "10": 2,
+  "22": 2,
+  "14": 2,
+  "20": 2,
+  "1": 2
+ },
+ "n_train_bindings_at_min_dist": {
+  "11": 5,
+  "10": 4,
+  "22": 5,
+  "14": 5,
+  "20": 2,
+  "1": 5
+ },
+ "21": {
+  "TR_first_ok": 0.925,
+  "TR_second_ok": 0.9944444444444445,
+  "TR_both": 0.9194444444444444,
+  "TR_per_binding_exact": {
+   "0": 1.0,
+   "2": 0.69,
+   "3": 0.74,
+   "4": 1.0,
+   "5": 1.0,
+   "6": 0.62,
+   "7": 1.0,
+   "8": 1.0,
+   "9": 0.66,
+   "12": 1.0,
+   "13": 1.0,
+   "15": 1.0,
+   "16": 1.0,
+   "17": 0.96,
+   "18": 1.0,
+   "19": 1.0,
+   "21": 1.0,
+   "23": 1.0
+  },
+  "TR_dist_to_nearest_train_hist": {
+   "0": 720
+  },
+  "TR_episodes_where_nearest_binding_answer_differs_from_gold": 0,
+  "TR_tok0_wrong": 54,
+  "TR_tok0_wrong_equals_nearest_binding_colour": 0.0,
+  "TR_tok0_wrong_is_colour_of_another_support_word": 1.0,
+  "TR_tok1_wrong": 4,
+  "TR_tok1_wrong_equals_nearest_binding_colour": 0.0,
+  "TR_tok1_wrong_is_colour_of_another_support_word": 1.0,
+  "TR_tok0_acc_when_pair_agrees_with_nearest_train_binding": 0.925,
+  "TR_tok0_acc_when_pair_differs_from_nearest_train_binding": null,
+  "TR_tok0_n_agree_n_differ": [
+   720,
+   0
+  ],
+  "TR_tok1_acc_when_pair_agrees_with_nearest_train_binding": 0.9944444444444445,
+  "TR_tok1_acc_when_pair_differs_from_nearest_train_binding": null,
+  "TR_tok1_n_agree_n_differ": [
+   720,
+   0
+  ],
+  "E_b_first_ok": 0.6875,
+  "E_b_second_ok": 0.7555555555555555,
+  "E_b_both": 0.5375,
+  "E_b_per_binding_exact": {
+   "1": 0.72,
+   "10": 0.35,
+   "11": 0.74,
+   "14": 0.54,
+   "20": 0.25,
+   "22": 0.64
+  },
+  "E_b_dist_to_nearest_train_hist": {
+   "2": 720
+  },
+  "E_b_episodes_where_nearest_binding_answer_differs_from_gold": 592,
+  "E_b_on_those:_exact": 0.5827702702702703,
+  "E_b_on_those:_pred_equals_nearest_binding_answer": 0.06756756756756757,
+  "E_b_on_those:_pred_other_wrong": 0.34966216216216217,
+  "E_b_tok0_wrong": 225,
+  "E_b_tok0_wrong_equals_nearest_binding_colour": 0.11555555555555555,
+  "E_b_tok0_wrong_is_colour_of_another_support_word": 1.0,
+  "E_b_tok1_wrong": 176,
+  "E_b_tok1_wrong_equals_nearest_binding_colour": 0.13636363636363635,
+  "E_b_tok1_wrong_is_colour_of_another_support_word": 1.0,
+  "E_b_tok0_acc_when_pair_agrees_with_nearest_train_binding": 0.7302325581395349,
+  "E_b_tok0_acc_when_pair_differs_from_nearest_train_binding": 0.6241379310344828,
+  "E_b_tok0_n_agree_n_differ": [
+   430,
+   290
+  ],
+  "E_b_tok1_acc_when_pair_agrees_with_nearest_train_binding": 0.6892307692307692,
+  "E_b_tok1_acc_when_pair_differs_from_nearest_train_binding": 0.810126582278481,
+  "E_b_tok1_n_agree_n_differ": [
+   325,
+   395
+  ],
+  "CF_TR": {
+   "orig_ok": 0.9194444444444444,
+   "cf_ok": 0.9486111111111111,
+   "both_ok": 0.8861111111111111,
+   "cf_ok_given_orig_ok": 0.9637462235649547,
+   "cf_ok_given_orig_wrong": 0.7758620689655172,
+   "cf_pred_equals_orig_pred": 0.013888888888888888,
+   "first_tok_cf_ok": 0.9569444444444445,
+   "second_tok_cf_ok": 0.9916666666666667
+  },
+  "CF_E_b": {
+   "orig_ok": 0.5375,
+   "cf_ok": 0.5875,
+   "both_ok": 0.3333333333333333,
+   "cf_ok_given_orig_ok": 0.6201550387596899,
+   "cf_ok_given_orig_wrong": 0.5495495495495496,
+   "cf_pred_equals_orig_pred": 0.05694444444444444,
+   "first_tok_cf_ok": 0.7277777777777777,
+   "second_tok_cf_ok": 0.7791666666666667
+  }
+ },
+ "22": {
+  "TR_first_ok": 1.0,
+  "TR_second_ok": 1.0,
+  "TR_both": 1.0,
+  "TR_per_binding_exact": {
+   "0": 1.0,
+   "2": 1.0,
+   "3": 1.0,
+   "4": 1.0,
+   "5": 1.0,
+   "6": 1.0,
+   "7": 1.0,
+   "8": 1.0,
+   "9": 1.0,
+   "12": 1.0,
+   "13": 1.0,
+   "15": 1.0,
+   "16": 1.0,
+   "17": 1.0,
+   "18": 1.0,
+   "19": 1.0,
+   "21": 1.0,
+   "23": 1.0
+  },
+  "TR_dist_to_nearest_train_hist": {
+   "0": 720
+  },
+  "TR_episodes_where_nearest_binding_answer_differs_from_gold": 0,
+  "TR_tok0_wrong": 0,
+  "TR_tok1_wrong": 0,
+  "TR_tok0_acc_when_pair_agrees_with_nearest_train_binding": 1.0,
+  "TR_tok0_acc_when_pair_differs_from_nearest_train_binding": null,
+  "TR_tok0_n_agree_n_differ": [
+   720,
+   0
+  ],
+  "TR_tok1_acc_when_pair_agrees_with_nearest_train_binding": 1.0,
+  "TR_tok1_acc_when_pair_differs_from_nearest_train_binding": null,
+  "TR_tok1_n_agree_n_differ": [
+   720,
+   0
+  ],
+  "E_b_first_ok": 0.8375,
+  "E_b_second_ok": 0.8527777777777777,
+  "E_b_both": 0.6902777777777778,
+  "E_b_per_binding_exact": {
+   "1": 0.63,
+   "10": 0.55,
+   "11": 0.49,
+   "14": 0.55,
+   "20": 1.0,
+   "22": 1.0
+  },
+  "E_b_dist_to_nearest_train_hist": {
+   "2": 720
+  },
+  "E_b_episodes_where_nearest_binding_answer_differs_from_gold": 592,
+  "E_b_on_those:_exact": 0.6976351351351351,
+  "E_b_on_those:_pred_equals_nearest_binding_answer": 0.08108108108108109,
+  "E_b_on_those:_pred_other_wrong": 0.22128378378378377,
+  "E_b_tok0_wrong": 117,
+  "E_b_tok0_wrong_equals_nearest_binding_colour": 0.15384615384615385,
+  "E_b_tok0_wrong_is_colour_of_another_support_word": 1.0,
+  "E_b_tok1_wrong": 106,
+  "E_b_tok1_wrong_equals_nearest_binding_colour": 0.3867924528301887,
+  "E_b_tok1_wrong_is_colour_of_another_support_word": 1.0,
+  "E_b_tok0_acc_when_pair_agrees_with_nearest_train_binding": 0.8790697674418605,
+  "E_b_tok0_acc_when_pair_differs_from_nearest_train_binding": 0.7758620689655172,
+  "E_b_tok0_n_agree_n_differ": [
+   430,
+   290
+  ],
+  "E_b_tok1_acc_when_pair_agrees_with_nearest_train_binding": 0.8276923076923077,
+  "E_b_tok1_acc_when_pair_differs_from_nearest_train_binding": 0.8734177215189873,
+  "E_b_tok1_n_agree_n_differ": [
+   325,
+   395
+  ],
+  "CF_TR": {
+   "orig_ok": 1.0,
+   "cf_ok": 1.0,
+   "both_ok": 1.0,
+   "cf_ok_given_orig_ok": 1.0,
+   "cf_ok_given_orig_wrong": null,
+   "cf_pred_equals_orig_pred": 0.0,
+   "first_tok_cf_ok": 1.0,
+   "second_tok_cf_ok": 1.0
+  },
+  "CF_E_b": {
+   "orig_ok": 0.6902777777777778,
+   "cf_ok": 0.6875,
+   "both_ok": 0.4527777777777778,
+   "cf_ok_given_orig_ok": 0.6559356136820925,
+   "cf_ok_given_orig_wrong": 0.757847533632287,
+   "cf_pred_equals_orig_pred": 0.03333333333333333,
+   "first_tok_cf_ok": 0.8291666666666667,
+   "second_tok_cf_ok": 0.8583333333333333
+  }
+ }
+}
