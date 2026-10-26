@@ -16,6 +16,7 @@ Tag sobre la rama `exp/es4-char-lm` (commit `005d3e72`). La rama `main` no se ha
 | README_generations.md | 1.908 | 6a2f98f0277e472b4fda1ac63a65478f6ec1d21da1022b8a18ac278fe90f451e | Descripción y límites de la historia ES4 |
 | ASSETS_MANIFEST.json | 554 | ab9fa2d8defcaf7a8da32e96dd54b62344748459032e76bad15fd3a31fdfe518 | sha256/bytes de los 3 tars de checkpoints |
 | es4_char_lm_history_older_experiments_2B.tar | 135.936.000 | 6ce3a92ec68242fda6f2c70bf19a74a37f1b6a9358b8c93072c2d26a99dec234 | Pesos y datos de la historia de experimentos pequeños (lang5-lang12, calib, t0); 442 ficheros contra MANIFEST_2B.json de esta carpeta |
+| b1_lineage_science_derived_retrospective.tgz | 3.606.248 | f5c0b5b9cb93827798d4d1dde9383dabe88bc0b5fb1fb109914f7c68f79f774b | Linea B1: checkpoint base ck_A94, fuentes Go mzab (archivadas, sin paridad de bytes), datasets y evaluaciones (198 ficheros contra su MANIFEST.sha256) |
 | clean_2B_derived_retrospective_v3b.tgz | 16.068.793 | 8a078c1cb2cd890e8e9c7817278e24c23412c263ecaba59368013681170dfcbf | Export retrospectivo derivado lang0-lang4, lang11 y pilotos B1 (214 ficheros contra su MANIFEST.sha256) |
 
 Los tars de checkpoints incluyen cada uno una copia idéntica de README.md y GENERATIONS_MANIFEST.json.
@@ -27,7 +28,8 @@ Los tars de checkpoints incluyen cada uno una copia idéntica de README.md y GEN
 - El estado Adam del test t0 va en dos partes: `cat adam.pt.part_00 adam.pt.part_01 > adam.pt`. Igual para `model/adam_g075.pt.part00/.part01` del paquete principal.
 - Cargas: `torch.load(..., weights_only=True)` y `numpy.load(..., allow_pickle=False)`.
 
-## Alcance y brechas pendientes (archivo NO completo)
+## Alcance y brechas (archivo de la ciencia recuperable)
 
-- Publicado y verificado: paquete principal ES4 (rama, `es4_char_lm/`), etapa 2A (ES3, test, prefijo fuente), índice ligero 2B (esta carpeta) y los assets anteriores.
-- Pendiente sin publicación verificada: la línea B1 (`ex`, `ln`, `lg`, `d7`, `src`, `rv`) y los binarios `mzab_v3`, `mzab_v3s`, `diagfwd_bin`; `e2e_syn` y `b1v2` no incluidos (ver sección MISSING del README del export retrospectivo).
+- Publicado y verificado: paquete principal ES4 (rama, `es4_char_lm/`), etapa 2A (ES3, test, prefijo fuente), indice ligero 2B (esta carpeta), historia de checkpoints ES4, historia 2B, export retrospectivo lang0-lang4/pilotos y la linea B1 completa recuperable (assets anteriores).
+- Limitaciones conocidas (documentadas en cada paquete): los binarios compilados `mzab_v3` y `mzab_v3s` se omiten por rutas de build incrustadas (sha256 y tamano registrados en BINARIES.md; fuentes Go archivadas sin paridad de bytes); los checkpoints intermedios A87-A93 y ck_b1 no se encontraron; logs y registros de ejecucion originales no incluidos. Los `seq_comp` del piloto B1 si estan incluidos.
+- Esto es un archivo de toda la ciencia recuperable, no una copia bit-exacta de todo lo que existio.
